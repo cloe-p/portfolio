@@ -1,0 +1,60 @@
+/* Portfolio Cloé Pérot : styles communs */
+@font-face { font-family: "Gliker"; src: url("fonts/Gliker.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Authenia Textured"; src: url("fonts/AutheniaTextured.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Bagel Fat One"; src: url("fonts/bagel-fat-one.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Caveat"; src: url("fonts/caveat-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-700.woff2") format("woff2"); font-weight: 700 800; font-display: swap; }
+
+:root {
+  --brume: #edece6;
+  --papier: #f8f7f3;
+  --encre: #1f2d2a;
+  --sapin: #2f6e61;
+  --fuchsia: #e0137a;
+  --abricot: #f29a38;
+  --soleil: #f6c640;
+  --gris: #5d6663;
+
+  --display: "Gliker", "Bagel Fat One", system-ui, sans-serif;
+  --texte: "Bricolage Grotesque", system-ui, sans-serif;
+  --main: "Authenia Textured", "Caveat", cursive;
+
+  --marge: clamp(20px, 5vw, 72px);
+  --large: 1240px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--brume); color: var(--encre);
+  font: 400 17px/1.6 var(--texte); -webkit-font-smoothing: antialiased;
+}
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--fuchsia); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: var(--large); margin: 0 auto; padding: 0 var(--marge); }
+.main { font-family: var(--main); font-weight: 700; }
+
+/* --- En-tête --- */
+.top { display: flex; justify-content: space-between; align-items: center; padding: 22px var(--marge); max-width: var(--large); margin: 0 auto; }
+.top .logo { font-family: var(--display); font-size: 26px; text-decoration: none; letter-spacing: 0.5px; }
+.top nav { display: flex; gap: 26px; font-weight: 500; font-size: 15px; }
+.top nav a { text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+.top nav a:hover { border-color: var(--fuchsia); }
+@media (max-width: 640px) { .top nav { gap: 16px; font-size: 14px; } .top nav .hide-sm { display: none; } }
+
+/* --- Pied de page --- */
+.foot { background: var(--encre); color: var(--brume); margin-top: 120px; }
+.foot .wrap { padding-top: 80px; padding-bottom: 60px; }
+.foot h2 { font-family: var(--display); font-weight: 400; font-size: clamp(40px, 7vw, 84px); line-height: 1; margin: 0 0 18px; color: var(--papier); }
+.foot p { max-width: 520px; color: #cfd5d2; margin: 0 0 32px; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-block; padding: 13px 24px; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 16px; }
+.btn.plein { background: var(--fuchsia); color: #fff; }
+.btn.plein:hover { background: #c40e69; }
+.btn.ligne { border: 2px solid currentColor; }
+.foot small { display: block; margin-top: 64px; color: #8d9995; font-size: 13px; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
