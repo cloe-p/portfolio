@@ -401,11 +401,33 @@ labo_css += """
 .evo figcaption { font-weight: 600; }
 .rang { display: grid; grid-template-columns: var(--a); gap: 14px; margin-top: 14px; align-items: start; }
 .rang figure, .carrousel { margin: 0; }
+.rang figcaption b + * , .rang figcaption { font-weight: 400; }
+.rang figcaption b { font-weight: 700; color: var(--texte); }
 .carrousel { margin-top: 14px; }
 .piste-c { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-@media (max-width: 760px) { .evo { grid-template-columns: 1fr; } .evo .fl { transform: rotate(90deg); justify-self: center; } .rang { grid-template-columns: 1fr; } .piste-c { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; } .piste-c .zoom { flex: 0 0 72%; scroll-snap-align: start; } }
+@media (max-width: 760px) { .evo { grid-template-columns: 1fr 1.4fr; gap: 10px; } .evo .fl { display: none; } .evo .vitrine { padding: 14px; gap: 10px; } .evo-avant .zoom img { aspect-ratio: 1; } .evo .vitrine { aspect-ratio: auto; flex-direction: row; } .evo .vitrine .zoom img { max-height: 70px; } .evo-avant .zoom img { aspect-ratio: 1.3; } .rang { gap: 8px; } .piste-c { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; } .piste-c .zoom { flex: 0 0 40%; scroll-snap-align: start; } }
 .ouv-relief { margin-top: 26px; }
 .ouv-relief .zoom img { border-radius: 22px; }
+
+/* tailles maîtrisées : on voit un projet d'un coup d'œil */
+.projet-labo { --h: clamp(220px, 36vh, 340px); }
+.rang { max-width: calc(var(--h) * var(--s) + 14px); }
+.carrousel { max-width: calc(var(--h) * 0.8 * 5 * 0.62 + 32px); }
+.evo { max-width: calc(var(--h) * 2.6); }
+.evo .vitrine .zoom img { max-height: calc(var(--h) * 0.5); }
+.vitrine { max-width: 1100px; padding: clamp(24px, 4vw, 54px); }
+.vitrine .zoom img { max-height: calc(var(--h) * 0.7); }
+.ouv-relief { max-width: calc(var(--h) * 1.78 * 1.15); }
+.g-libre { max-width: 1100px; }
+@media (min-width: 1000px) {
+  .projet-labo.duo { display: grid; grid-template-columns: minmax(260px, 340px) 1fr; gap: clamp(32px, 4vw, 70px); align-items: start; }
+  .duo .cote { position: sticky; top: 110px; }
+  .duo .chap { display: block; margin: 0; }
+  .duo .chap h2 { font-size: clamp(32px, 3vw, 44px); margin: 14px 0 18px; }
+  .duo .medias > :first-child { margin-top: 0; }
+  .duo .medias .rang, .duo .medias .evo, .duo .medias .carrousel { margin-inline: 0; }
+}
+.duo-photos, .ecrans, .gam { max-width: 1100px; }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
 .ecrans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
@@ -433,55 +455,63 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       <button type="button" aria-pressed="false" data-f="perso">Projets perso</button>
     </div>
 
-    <article class="projet-labo" data-cat="identite" id="ikea">
-      <div class="etiquettes"><span>École</span><span>Identité visuelle</span></div>
-      <div class="chap"><h2>IKEA, version psychédélique</h2><div><p class="brief"><b>Le brief :</b> retravailler l'identité visuelle d'une marque et sa communication selon un courant artistique. J'ai choisi le rétro-psychédélique des années 70, mêlé au bubble street art.</p><ul class="competences"><li>Identité visuelle</li><li>Logo</li><li>Direction artistique</li><li>Print</li><li>Social media</li></ul></div></div>
+    <article class="projet-labo duo" data-cat="identite" id="ikea">
+      <div class="cote"><div class="etiquettes"><span>École</span><span>Identité visuelle</span></div>
+      <div class="chap"><h2>IKEA, version psychédélique</h2><div><p class="brief"><b>Le brief :</b> retravailler l'identité visuelle d'une marque et sa communication selon un courant artistique. J'ai choisi le rétro-psychédélique des années 70, mêlé au bubble street art.</p><ul class="competences"><li>Identité visuelle</li><li>Logo</li><li>Direction artistique</li><li>Print</li><li>Social media</li></ul></div></div></div>
+      <div class="medias">
       <div class="evo"><figure class="evo-avant">{z("assets/img/labo/ikea/avant.webp", "Le logo IKEA d'origine, lettres bleues dans un ovale jaune")}<figcaption>Le logo d'origine</figcaption></figure><span class="fl" aria-hidden="true">→</span><figure class="evo-apres"><div class="vitrine" style="--v:#ffd900">{z("assets/img/labo/ikea/logo-png.webp", "Le nouveau logo IKEA, lettres fluides bleues dans un contour noir")}{z("assets/img/labo/ikea/fleur-png.webp", "Le logotype fleur")}</div><figcaption>Notre évolution</figcaption></figure></div>
-      <div class="rang" style="--a:1.304fr 0.563fr">{fig("assets/img/labo/ikea/abribus-chaise.webp", "Affiche d'abribus : Votre future obsession ? Fauteuil SOLSTÄLE", "Affichage abribus")}{fig("assets/img/labo/ikea/story-salon.webp", "Story Instagram : un salon rétro, produits entourés de jaune et de bleu", "Story Instagram")}</div>
+      <div class="rang" style="--a:1.304fr 0.563fr;--s:1.867">{fig("assets/img/labo/ikea/abribus-chaise.webp", "Affiche d'abribus : Votre future obsession ? Fauteuil SOLSTÄLE", "Affichage abribus")}{fig("assets/img/labo/ikea/story-salon.webp", "Story Instagram : un salon rétro, produits entourés de jaune et de bleu", "Story Instagram")}</div>
       <figure class="carrousel"><div class="piste-c">{z("assets/img/labo/ikea/carrousel-1.webp", "Slide CHATMÖ : un chat sur un coussin vert")}{z("assets/img/labo/ikea/carrousel-2.webp", "Slide DOGVIK : un bouledogue à côté d'un fauteuil orange")}{z("assets/img/labo/ikea/carrousel-3.webp", "Slide DOGVIK : un bouledogue français sur un fauteuil vert")}{z("assets/img/labo/ikea/carrousel-4.webp", "Slide CHATMÖ : un chat roux sur un fauteuil bleu nuit")}{z("assets/img/labo/ikea/carrousel-5.webp", "Slide DOGVIK : un berger dans un salon lumineux")}</div><figcaption><b>Carrousel Instagram</b></figcaption></figure>
-      <div class="rang" style="--a:0.706fr 1.778fr">{fig("assets/img/labo/ikea/pub-catalogue.webp", "Publicité catalogue : FLOCRA et ENIDTH dans une entrée vert sauge", "Publicité")}{fig("assets/img/labo/ikea/carton-notice.webp", "Carton IKEA et notice de montage, annotés de formes jaunes", "Carton et notice")}</div>
+      <div class="rang" style="--a:0.706fr 1.778fr;--s:2.484">{fig("assets/img/labo/ikea/pub-catalogue.webp", "Publicité catalogue : FLOCRA et ENIDTH dans une entrée vert sauge", "Publicité")}{fig("assets/img/labo/ikea/carton-notice.webp", "Carton IKEA et notice de montage, annotés de formes jaunes", "Carton et notice")}</div></div>
     </article>
 
-    <article class="projet-labo" data-cat="identite" id="matp">
-      <div class="etiquettes"><span>École</span><span>Identité visuelle</span></div>
-      <div class="chap"><h2>Musée des Arts et Traditions Populaires</h2><div><p class="brief"><b>Le brief :</b> créer l'identité d'un musée parisien et la communication de son inauguration. Le « A » central rappelle l'Arc de Triomphe et la tour Eiffel, entre patrimoine et design contemporain.</p><ul class="competences"><li>Logo</li><li>Charte graphique</li><li>Affiche</li><li>Social media</li><li>Goodies</li></ul></div></div>
-      <div class="vitrine" style="--v:#fff">{z("assets/img/labo/matp/logo-png.webp", "Le logo MATP")}</div><div class="g-libre">{z("assets/img/labo/matp/story.webp", "Story Instagram de l'inauguration du 8 novembre")}{z("assets/img/labo/matp/banniere.webp", "Bannière Facebook de l'inauguration")}{z("assets/img/labo/matp/casquette.webp", "Casquette aux couleurs du musée")}</div>
+    <article class="projet-labo duo" data-cat="identite" id="matp">
+      <div class="cote"><div class="etiquettes"><span>École</span><span>Identité visuelle</span></div>
+      <div class="chap"><h2>Musée des Arts et Traditions Populaires</h2><div><p class="brief"><b>Le brief :</b> créer l'identité d'un musée parisien et la communication de son inauguration. Le « A » central rappelle l'Arc de Triomphe et la tour Eiffel, entre patrimoine et design contemporain.</p><ul class="competences"><li>Logo</li><li>Charte graphique</li><li>Affiche</li><li>Social media</li><li>Goodies</li></ul></div></div></div>
+      <div class="medias">
+      <div class="vitrine" style="--v:#fff">{z("assets/img/labo/matp/logo-png.webp", "Le logo MATP")}</div><div class="g-libre">{z("assets/img/labo/matp/story.webp", "Story Instagram de l'inauguration du 8 novembre")}{z("assets/img/labo/matp/banniere.webp", "Bannière Facebook de l'inauguration")}{z("assets/img/labo/matp/casquette.webp", "Casquette aux couleurs du musée")}</div></div>
     </article>
 
-    <article class="projet-labo" data-cat="identite strategie" id="hyros" style="--fond-img:#000">
-      <div class="etiquettes"><span>École</span><span>Lancement de produit</span></div>
-      <div class="chap"><h2>Hyros, la Tesla à hydrogène</h2><div><p class="brief"><b>Le brief :</b> lancer le premier véhicule à hydrogène de Tesla : trouver le nom, créer le logotype, imaginer le modèle et construire toute la campagne de lancement.</p><ul class="competences"><li>Naming</li><li>Logotype</li><li>Visuels IA</li><li>Newsletter</li><li>Magazine</li><li>Carrousel</li></ul></div></div>
-      <div class="ouv-relief">{z("assets/img/labo/hyros/logo-relief.webp", "Le logo HYROS en lettres métalliques sur un mur de béton")}</div><div class="g-libre">{z("assets/img/labo/hyros/voiture.webp", "Le modèle Hyros, généré par IA")}{z("assets/img/labo/hyros/magazine-couv.webp", "Couverture de magazine pour le lancement")}{z("assets/img/labo/hyros/carrousel-1.webp", "Visuel du carrousel Instagram")}{z("assets/img/labo/hyros/newsletter-hd.webp", "La newsletter de lancement Model Hyros")}</div>
+    <article class="projet-labo duo" data-cat="identite strategie" id="hyros" style="--fond-img:#000">
+      <div class="cote"><div class="etiquettes"><span>École</span><span>Lancement de produit</span></div>
+      <div class="chap"><h2>Hyros, la Tesla à hydrogène</h2><div><p class="brief"><b>Le brief :</b> lancer le premier véhicule à hydrogène de Tesla : trouver le nom, créer le logotype, imaginer le modèle et construire toute la campagne de lancement.</p><ul class="competences"><li>Naming</li><li>Logotype</li><li>Visuels IA</li><li>Newsletter</li><li>Magazine</li><li>Carrousel</li></ul></div></div></div>
+      <div class="medias">
+      <div class="rang" style="--a:1.778fr 0.6fr;--s:2.378">{fig("assets/img/labo/hyros/logo-relief.webp", "Le logo HYROS en lettres métalliques sur un mur de béton", "Le logotype")}{fig("assets/img/labo/hyros/newsletter-hd.webp", "La newsletter de lancement Model Hyros", "Newsletter", "<br>Clique pour la lire en entier", "", "aspect-ratio:0.6;object-fit:cover;object-position:top")}</div><div class="rang" style="--a:1fr 0.707fr 0.8fr;--s:2.507">{fig("assets/img/labo/hyros/voiture.webp", "Le modèle Hyros, généré par IA", "Visuel IA")}{fig("assets/img/labo/hyros/magazine-couv.webp", "Couverture de magazine pour le lancement", "Couverture magazine")}{fig("assets/img/labo/hyros/carrousel-1.webp", "Visuel du carrousel Instagram", "Carrousel Instagram")}</div>
     </article>
 
-    <article class="projet-labo" data-cat="identite strategie" id="kinetic">
-      <div class="etiquettes"><span>École</span><span>Branding</span></div>
-      <div class="chap"><h2>Kinetic, ex Sparks</h2><div><p class="brief"><b>Le brief :</b> un vrai client, une startup de bien-être et de performance en entreprise, à qui il fallait un nouveau projet de marque : nom, identité, stratégie digitale et pitch.</p><ul class="competences"><li>Naming</li><li>Brandbook</li><li>Stratégie digitale</li><li>Maquettes app & site</li></ul></div></div>
-      <div class="vitrine" style="--v:#fff">{z("assets/img/labo/kinetic/logo.webp", "Le logo Kinetic")}</div><div class="g-libre">{z("assets/img/labo/kinetic/mockups.webp", "Kinetic sur une montre, une casquette, des tote bags et une gourde")}{z("assets/img/labo/kinetic/site.webp", "Le site web Kinetic")}{z("assets/img/labo/kinetic/app.webp", "Les écrans de l'application")}</div>
+    <article class="projet-labo duo" data-cat="identite strategie" id="kinetic">
+      <div class="cote"><div class="etiquettes"><span>École</span><span>Branding</span></div>
+      <div class="chap"><h2>Kinetic, ex Sparks</h2><div><p class="brief"><b>Le brief :</b> un vrai client, une startup de bien-être et de performance en entreprise, à qui il fallait un nouveau projet de marque : nom, identité, stratégie digitale et pitch.</p><ul class="competences"><li>Naming</li><li>Brandbook</li><li>Stratégie digitale</li><li>Maquettes app & site</li></ul></div></div></div>
+      <div class="medias">
+      <div class="vitrine" style="--v:#fff">{z("assets/img/labo/kinetic/logo.webp", "Le logo Kinetic")}</div><div class="g-libre">{z("assets/img/labo/kinetic/mockups.webp", "Kinetic sur une montre, une casquette, des tote bags et une gourde")}{z("assets/img/labo/kinetic/site.webp", "Le site web Kinetic")}{z("assets/img/labo/kinetic/app.webp", "Les écrans de l'application")}</div></div>
     </article>
 
-    <article class="projet-labo" data-cat="strategie" id="pgw">
-      <div class="etiquettes"><span>École</span><span>Social ads</span></div>
-      <div class="chap"><h2>Paris Games Week 2027</h2><div><p class="brief"><b>Le brief :</b> passer de 42 % à 60 % de billets vendus un mois avant le salon, avec une stratégie publicitaire sur TikTok, Meta et Twitch.</p><ul class="competences"><li>Social ads</li><li>Funnel</li><li>Hooks</li><li>Brief créatif</li><li>Création d'assets</li></ul></div></div>
-      <div class="g-libre">{z("assets/img/labo/pgw/stories.webp", "Story interactive et visuel « Le mode solo est mort »")}{z("assets/img/labo/pgw/miniatures.webp", "Miniature YouTube et overlay Twitch")}{z("assets/img/labo/pgw/lead-ads.webp", "Lead ads et formulaire de préinscription")}</div>
+    <article class="projet-labo duo" data-cat="strategie" id="pgw">
+      <div class="cote"><div class="etiquettes"><span>École</span><span>Social ads</span></div>
+      <div class="chap"><h2>Paris Games Week 2027</h2><div><p class="brief"><b>Le brief :</b> passer de 42 % à 60 % de billets vendus un mois avant le salon, avec une stratégie publicitaire sur TikTok, Meta et Twitch.</p><ul class="competences"><li>Social ads</li><li>Funnel</li><li>Hooks</li><li>Brief créatif</li><li>Création d'assets</li></ul></div></div></div>
+      <div class="medias">
+      <div class="g-libre">{z("assets/img/labo/pgw/stories.webp", "Story interactive et visuel « Le mode solo est mort »")}{z("assets/img/labo/pgw/miniatures.webp", "Miniature YouTube et overlay Twitch")}{z("assets/img/labo/pgw/lead-ads.webp", "Lead ads et formulaire de préinscription")}</div></div>
     </article>
 
-    <article class="projet-labo" data-cat="web" id="pawtes">
-      <div class="etiquettes"><span>École</span><span>Site web</span></div>
-      <div class="chap"><h2>Entre Pawtes</h2><div><p class="brief"><b>Le brief :</b> créer et animer le site d'une crèche pour chiens à Toulouse, du design aux textes.</p><ul class="competences"><li>Webdesign</li><li>Rédaction web</li><li>Animation</li><li>WordPress</li></ul></div></div>
-      <div class="g-libre">{z("assets/img/labo/pawtes/accueil.webp", "Accueil du site Entre Pawtes : Crèche de toutous à Toulouse")}{z("assets/img/labo/pawtes/apropos.webp", "Section À propos avec une mosaïque de chiens")}{z("assets/img/labo/pawtes/faq.webp", "Questions de pawtes : la FAQ en accordéon")}</div>
+    <article class="projet-labo duo" data-cat="web" id="pawtes">
+      <div class="cote"><div class="etiquettes"><span>École</span><span>Site web</span></div>
+      <div class="chap"><h2>Entre Pawtes</h2><div><p class="brief"><b>Le brief :</b> créer et animer le site d'une crèche pour chiens à Toulouse, du design aux textes.</p><ul class="competences"><li>Webdesign</li><li>Rédaction web</li><li>Animation</li><li>WordPress</li></ul></div></div></div>
+      <div class="medias">
+      <div class="g-libre">{z("assets/img/labo/pawtes/accueil.webp", "Accueil du site Entre Pawtes : Crèche de toutous à Toulouse")}{z("assets/img/labo/pawtes/apropos.webp", "Section À propos avec une mosaïque de chiens")}{z("assets/img/labo/pawtes/faq.webp", "Questions de pawtes : la FAQ en accordéon")}</div></div>
     </article>
 
-    <article class="projet-labo" data-cat="strategie" id="bfc">
-      <div class="etiquettes"><span>École</span><span>Stratégie & gamification</span></div>
-      <div class="chap"><h2>Book, Food &amp; Créa</h2><div><p class="brief"><b>Le brief :</b> lancer à Toulouse une expérience de 3 heures pour les femmes de 18 à 35 ans : un livre, un moment gourmand et un atelier créatif, pour créer du lien. On a étudié le marché, construit la stratégie et le plan de com, puis imaginé une appli pour donner envie de revenir.</p><ul class="competences"><li>Étude de marché</li><li>Stratégie marketing</li><li>Plan de communication</li><li>Fidélisation</li><li>Gamification</li></ul></div></div>
-      <div class="duo-photos">{z("assets/img/labo/bfc/photo-aquarelle.webp", "Atelier aquarelle, des fleurs peintes à la main")}{z("assets/img/labo/bfc/photo-atelier.webp", "Pinceaux et pots de peinture dans un atelier")}</div><div class="gam"><div><h3>Le Jardin Créatif, l'appli du projet</h3><p>Chaque participante fait pousser un jardin grâce à des petits défis du quotidien : lire 5 pages, prendre son petit-déj en photo, dessiner en 60 secondes. Une plante par pilier, Book, Food et Créa, et la récolte ne se débloque qu'en revenant à un atelier.</p></div></div><div class="ecrans">{z("assets/img/labo/bfc/app-jardin.webp", "Le jardin et les défis du jour")}{z("assets/img/labo/bfc/app-boutique.webp", "La boutique XP")}{z("assets/img/labo/bfc/app-evenements.webp", "La réservation des ateliers")}{z("assets/img/labo/bfc/app-scan.webp", "L'espace organisatrice pour valider les récoltes")}</div>
+    <article class="projet-labo duo" data-cat="strategie" id="bfc">
+      <div class="cote"><div class="etiquettes"><span>École</span><span>Stratégie & gamification</span></div>
+      <div class="chap"><h2>Book, Food &amp; Créa</h2><div><p class="brief"><b>Le brief :</b> lancer à Toulouse une expérience de 3 heures pour les femmes de 18 à 35 ans : un livre, un moment gourmand et un atelier créatif, pour créer du lien. On a étudié le marché, construit la stratégie et le plan de com, puis imaginé une appli pour donner envie de revenir.</p><ul class="competences"><li>Étude de marché</li><li>Stratégie marketing</li><li>Plan de communication</li><li>Fidélisation</li><li>Gamification</li></ul></div></div></div>
+      <div class="medias">
+      <div class="duo-photos">{z("assets/img/labo/bfc/photo-aquarelle.webp", "Atelier aquarelle, des fleurs peintes à la main")}{z("assets/img/labo/bfc/photo-atelier.webp", "Pinceaux et pots de peinture dans un atelier")}</div><div class="gam"><div><h3>Le Jardin Créatif, l'appli du projet</h3><p>Chaque participante fait pousser un jardin grâce à des petits défis du quotidien : lire 5 pages, prendre son petit-déj en photo, dessiner en 60 secondes. Une plante par pilier, Book, Food et Créa, et la récolte ne se débloque qu'en revenant à un atelier.</p></div></div><div class="ecrans">{z("assets/img/labo/bfc/app-jardin.webp", "Le jardin et les défis du jour")}{z("assets/img/labo/bfc/app-boutique.webp", "La boutique XP")}{z("assets/img/labo/bfc/app-evenements.webp", "La réservation des ateliers")}{z("assets/img/labo/bfc/app-scan.webp", "L'espace organisatrice pour valider les récoltes")}</div></div>
     </article>
 
-    <article class="projet-labo" data-cat="strategie" id="dab">
-      <div class="etiquettes"><span>École</span><span>Concept de marque</span></div>
-      <div class="chap"><h2>Le DAB</h2><div><p class="brief"><b>Le brief :</b> imaginer une marque : une épicerie le jour, un distributeur la nuit, rempli de produits créés par les créateurs de contenu food.</p><ul class="competences"><li>Concept</li><li>Plateforme de marque</li><li>Ton</li><li>Stratégie de canaux</li></ul></div></div>
-      <div class="g-libre">{z("assets/img/labo/dab/marque.webp", "Le DAB, distributeur à bouffe")}{z("assets/img/labo/dab/produits.webp", "Les produits de créateurs")}</div>
+    <article class="projet-labo duo" data-cat="strategie" id="dab">
+      <div class="cote"><div class="etiquettes"><span>École</span><span>Concept de marque</span></div>
+      <div class="chap"><h2>Le DAB</h2><div><p class="brief"><b>Le brief :</b> imaginer une marque : une épicerie le jour, un distributeur la nuit, rempli de produits créés par les créateurs de contenu food.</p><ul class="competences"><li>Concept</li><li>Plateforme de marque</li><li>Ton</li><li>Stratégie de canaux</li></ul></div></div></div>
+      <div class="medias">
+      <div class="g-libre">{z("assets/img/labo/dab/marque.webp", "Le DAB, distributeur à bouffe")}{z("assets/img/labo/dab/produits.webp", "Les produits de créateurs")}</div></div>
     </article>
 
     <article class="projet-labo" data-cat="web" id="podcast">
