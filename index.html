@@ -18,16 +18,19 @@
 .hero .bas { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; margin-top: 34px; }
 .hero p.acc { font-size: clamp(18px, 1.7vw, 22px); max-width: 34ch; margin: 0; color: #dad8d3; }
 /* sections */
-.bocal { list-style: none; margin: 0; padding: 20px 0 60px; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 10px 14px; }
-.bocal li { transform: translateY(var(--y)); }
-.bocal button { width: var(--t); height: var(--t); border-radius: 50%; border: 1px solid rgba(255,255,255,0.22); background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.10), rgba(255,255,255,0.02) 60%); color: var(--texte); font: inherit; cursor: pointer; padding: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0; animation: flotte 6s ease-in-out var(--d) infinite; transition: transform 0.45s cubic-bezier(.3,1.6,.5,1), background 0.3s, color 0.3s, box-shadow 0.4s, opacity 0.3s, border-color 0.3s; }
-.bocal b { font-size: clamp(18px, 1.6vw, 22px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
-.bocal span { font-size: 13px; line-height: 1.4; max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s, opacity 0.3s, margin 0.3s; }
-@keyframes flotte { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
-.bocal:has(button:hover, button:focus-visible, button[aria-expanded="true"]) button { opacity: 0.45; }
-.bocal button:hover, .bocal button:focus-visible, .bocal button[aria-expanded="true"] { opacity: 1 !important; transform: scale(1.18); background: var(--lilas); color: var(--nuit); border-color: var(--lilas); box-shadow: 0 0 0 10px color-mix(in srgb, var(--lilas) 18%, transparent), 0 0 70px color-mix(in srgb, var(--lilas) 45%, transparent); animation-play-state: paused; position: relative; z-index: 2; }
-.bocal button:hover span, .bocal button:focus-visible span, .bocal button[aria-expanded="true"] span { max-height: 120px; opacity: 1; margin-top: 10px; }
-@media (max-width: 700px) { .bocal { gap: 6px 10px; } .bocal li { transform: none; } .bocal button { width: calc(var(--t) * 0.68); height: calc(var(--t) * 0.68); padding: 14px; } .bocal b { font-size: 15px; } .bocal span { font-size: 11px; } }
+.defile { --x: -999px; --y: -999px; position: relative; display: grid; gap: 12px; padding: 8px 0; overflow: hidden; margin-inline: calc(-1 * var(--m)); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); background: radial-gradient(240px circle at var(--x) var(--y), color-mix(in srgb, var(--lilas) 14%, transparent), transparent 70%); }
+.piste { display: flex; gap: 10px; width: max-content; animation: glisse 40s linear infinite; }
+.piste.inverse { animation-direction: reverse; animation-duration: 46s; }
+.defile:hover .piste { animation-play-state: paused; }
+@keyframes glisse { to { transform: translateX(-50%); } }
+.piste span { --p: 0; white-space: nowrap; border-radius: 999px; padding: 10px 20px; font-size: 16px; cursor: default;
+  border: 1px solid color-mix(in srgb, var(--lilas) calc(var(--p) * 100%), rgba(255,255,255,0.16));
+  color: color-mix(in srgb, var(--lilas) calc(var(--p) * 100%), #b3b1ac);
+  background: color-mix(in srgb, var(--lilas) calc(var(--p) * 12%), transparent);
+  transition: transform 0.3s cubic-bezier(.3,1.6,.5,1), background 0.2s, color 0.2s, border-color 0.2s; }
+.piste span.dom { font-weight: 700; color: color-mix(in srgb, var(--lilas) calc(var(--p) * 100%), var(--texte)); }
+.piste span:hover { transform: scale(1.12); background: var(--lilas); color: var(--nuit); border-color: var(--lilas); }
+@media (prefers-reduced-motion: reduce) { .piste { flex-wrap: wrap; width: auto; } .piste [aria-hidden] { display: none; } .defile { mask-image: none; margin-inline: 0; } }
 
 .mos { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: 300px 300px; gap: 16px; }
 .mos a { position: relative; border-radius: 26px; overflow: hidden; background: var(--carte); }
@@ -80,14 +83,10 @@
 
   <section class="apparait">
     <h2>Mes terrains de jeu</h2>
-    <ul class="bocal">
-      <li style="--t:228px;--y:0px;--d:0.0s"><button type="button" aria-expanded="false"><b>Social media</b><span>Stratégie · Contenus · Communauté · Reels &amp; stories</span></button></li>
-      <li style="--t:210px;--y:50px;--d:0.7s"><button type="button" aria-expanded="false"><b>Création graphique</b><span>Identité visuelle · Direction artistique · Print · Visuels produit &amp; IA</span></button></li>
-      <li style="--t:196px;--y:-10px;--d:1.4s"><button type="button" aria-expanded="false"><b>Influence &amp; affiliation</b><span>Partenariats · Contrats · Suivi &amp; reporting</span></button></li>
-      <li style="--t:176px;--y:60px;--d:2.0999999999999996s"><button type="button" aria-expanded="false"><b>Photo &amp; vidéo</b><span>Shooting · Retouche · Montage</span></button></li>
-      <li style="--t:200px;--y:10px;--d:2.8s"><button type="button" aria-expanded="false"><b>Rédaction</b><span>Articles &amp; SEO · Emailing · LinkedIn &amp; ghostwriting</span></button></li>
-      <li style="--t:206px;--y:45px;--d:3.5s"><button type="button" aria-expanded="false"><b>Com interne &amp; événementiel</b><span>Supports · Team building · Salons</span></button></li>
-    </ul>
+    <div class="defile" id="defile">
+      <div class="piste"><span class="dom">Social media</span><span>Stratégie</span><span>Contenus</span><span>Communauté</span><span>Reels &amp; stories</span><span class="dom">Création graphique</span><span>Identité visuelle</span><span>Direction artistique</span><span>Print</span><span>Visuels produit &amp; IA</span><span class="dom">Influence &amp; affiliation</span><span>Partenariats</span><span>Contrats</span><span aria-hidden="true" class="dom">Social media</span><span aria-hidden="true">Stratégie</span><span aria-hidden="true">Contenus</span><span aria-hidden="true">Communauté</span><span aria-hidden="true">Reels &amp; stories</span><span aria-hidden="true" class="dom">Création graphique</span><span aria-hidden="true">Identité visuelle</span><span aria-hidden="true">Direction artistique</span><span aria-hidden="true">Print</span><span aria-hidden="true">Visuels produit &amp; IA</span><span aria-hidden="true" class="dom">Influence &amp; affiliation</span><span aria-hidden="true">Partenariats</span><span aria-hidden="true">Contrats</span></div>
+      <div class="piste inverse"><span>Suivi &amp; reporting</span><span class="dom">Photo &amp; vidéo</span><span>Shooting</span><span>Retouche</span><span>Montage</span><span class="dom">Rédaction</span><span>Articles &amp; SEO</span><span>Emailing</span><span>LinkedIn &amp; ghostwriting</span><span class="dom">Com interne &amp; événementiel</span><span>Supports</span><span>Team building</span><span>Salons</span><span aria-hidden="true">Suivi &amp; reporting</span><span aria-hidden="true" class="dom">Photo &amp; vidéo</span><span aria-hidden="true">Shooting</span><span aria-hidden="true">Retouche</span><span aria-hidden="true">Montage</span><span aria-hidden="true" class="dom">Rédaction</span><span aria-hidden="true">Articles &amp; SEO</span><span aria-hidden="true">Emailing</span><span aria-hidden="true">LinkedIn &amp; ghostwriting</span><span aria-hidden="true" class="dom">Com interne &amp; événementiel</span><span aria-hidden="true">Supports</span><span aria-hidden="true">Team building</span><span aria-hidden="true">Salons</span></div>
+    </div>
   </section>
 
   <section id="projets" class="apparait">
@@ -127,11 +126,14 @@ const menu = document.getElementById('menu');
 addEventListener('scroll', () => menu.classList.toggle('fond', scrollY > 40), { passive: true });
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vu'); io.unobserve(e.target); } }), { threshold: 0.12 });
 document.querySelectorAll('.apparait').forEach(el => io.observe(el));
-document.querySelectorAll('.bocal button').forEach(b => b.addEventListener('click', () => {
-  const on = b.getAttribute('aria-expanded') !== 'true';
-  document.querySelectorAll('.bocal button').forEach(x => x.setAttribute('aria-expanded', 'false'));
-  b.setAttribute('aria-expanded', on);
-}));
+const defile = document.getElementById('defile');
+const puces = [...defile.querySelectorAll('span')];
+defile.addEventListener('mousemove', e => {
+  const r = defile.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+  defile.style.setProperty('--x', x + 'px'); defile.style.setProperty('--y', y + 'px');
+  puces.forEach(p => { const b = p.getBoundingClientRect(); const d = Math.hypot(b.left - r.left + b.width / 2 - x, b.top - r.top + b.height / 2 - y); p.style.setProperty('--p', Math.max(0, 1 - d / 200).toFixed(2)); });
+});
+defile.addEventListener('mouseleave', () => { puces.forEach(p => p.style.setProperty('--p', 0)); defile.style.setProperty('--x', '-999px'); });
 </script>
 </body>
 </html>
