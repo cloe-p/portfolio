@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloé Pérot · Chargée de communication</title>
+<meta name="description" content="Portfolio de Cloé Pérot, chargée de communication à Toulouse.">
+<style>
+@font-face { font-family: "Bricolage"; src: url("assets/fonts/bricolage-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Bricolage"; src: url("assets/fonts/bricolage-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Bricolage"; src: url("assets/fonts/bricolage-700.woff2") format("woff2"); font-weight: 700 900; font-display: swap; }
+
+:root { --nuit: #0d0e11; --carte: #17181c; --texte: #f2f1ee; --doux: #b8b6b1; --lilas: #b9a6ff; --ligne: rgba(255,255,255,0.14); --m: clamp(20px, 4.5vw, 64px); }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--nuit); color: var(--texte); font: 400 17px/1.55 "Bricolage", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--lilas); outline-offset: 4px; border-radius: 6px; }
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.05em; line-height: 0.92; margin: 0; }
+
+/* menu */
+.menu { position: fixed; inset: 0 0 auto 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 20px var(--m); transition: background 0.3s, padding 0.3s; }
+.menu.fond { background: rgba(13,14,17,0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding-top: 14px; padding-bottom: 14px; }
+.menu .nom { font-weight: 800; font-size: 20px; letter-spacing: -0.03em; }
+.menu nav { display: flex; gap: 28px; align-items: center; font-size: 15px; }
+.menu nav a:not(.cv) { opacity: 0.85; } .menu nav a:not(.cv):hover { opacity: 1; }
+.cv { border: 1px solid rgba(255,255,255,0.45); padding: 9px 18px; border-radius: 999px; font-weight: 500; }
+.cv:hover { background: var(--texte); color: var(--nuit); }
+@media (max-width: 720px) { .menu nav a.opt { display: none; } .menu nav { gap: 16px; } }
+
+/* ouverture */
+.hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px var(--m) clamp(40px, 7vh, 80px); overflow: hidden; }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 62%; filter: brightness(0.62); transform: scale(1.08); animation: zoom 2.4s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes zoom { to { transform: scale(1); } }
+.hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 55%; background: linear-gradient(transparent, var(--nuit)); }
+.hero > *:not(img) { position: relative; z-index: 2; }
+.hero .qui { color: var(--lilas); font-weight: 500; margin: 0 0 18px; }
+.hero h1 { font-size: clamp(60px, 11vw, 168px); }
+.hero .bas { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; margin-top: 34px; }
+.hero p.acc { font-size: clamp(18px, 1.7vw, 22px); max-width: 34ch; margin: 0; color: #dad8d3; }
+.btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.b { display: inline-block; padding: 15px 26px; border-radius: 999px; font-weight: 700; font-size: 16px; transition: transform 0.2s, background 0.2s; }
+.b:hover { transform: translateY(-2px); }
+.b.plein { background: var(--lilas); color: var(--nuit); }
+.b.ligne { border: 1px solid rgba(255,255,255,0.4); }
+.b.ligne:hover { background: rgba(255,255,255,0.08); }
+
+/* sections */
+section { padding: clamp(80px, 11vw, 140px) var(--m) 0; max-width: 1440px; margin: 0 auto; }
+section > h2 { font-size: clamp(42px, 5.6vw, 76px); margin-bottom: 38px; }
+.apparait { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.apparait.vu { opacity: 1; transform: none; }
+
+.bulles { display: flex; flex-wrap: wrap; gap: 12px; list-style: none; padding: 0; margin: 0; max-width: 1100px; }
+.bulles li { border: 1px solid var(--ligne); padding: 13px 24px; border-radius: 999px; font-size: clamp(16px, 1.5vw, 20px); transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.bulles li:hover { background: var(--lilas); color: var(--nuit); border-color: var(--lilas); }
+
+.pro { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.carte { position: relative; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden; background: var(--carte); }
+.carte img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72); transition: transform 0.6s cubic-bezier(.2,.7,.2,1), filter 0.4s; }
+.carte:hover img { transform: scale(1.05); filter: brightness(0.85); }
+.carte .txt { position: absolute; left: 26px; right: 26px; bottom: 24px; }
+.carte h3 { font-size: clamp(28px, 2.6vw, 36px); }
+.carte p { margin: 8px 0 0; color: #d0cec9; font-size: 15px; }
+.carte .fleche { position: absolute; top: 22px; right: 22px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.14); backdrop-filter: blur(8px); display: grid; place-items: center; transition: background 0.3s, transform 0.3s; }
+.carte:hover .fleche { background: var(--lilas); color: var(--nuit); transform: rotate(-45deg); }
+.carte.cm img { object-fit: contain; padding: 40px 40px 120px; filter: none; }
+@media (max-width: 900px) { .pro { grid-template-columns: 1fr; } .carte { aspect-ratio: 4 / 3; } .carte.cm img { padding: 30px 30px 100px; } }
+
+.labo { display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; border: 1px solid var(--ligne); border-radius: 22px; padding: clamp(28px, 4vw, 48px); transition: border-color 0.3s; }
+.labo:hover { border-color: var(--lilas); }
+.labo h2 { font-size: clamp(42px, 5.6vw, 76px); }
+.labo p { color: var(--doux); margin: 12px 0 0; max-width: 46ch; }
+
+.apropos { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 80px); align-items: center; }
+.apropos p { font-size: clamp(20px, 2vw, 26px); line-height: 1.45; color: #dad8d3; margin: 0 0 28px; }
+.apropos img { border-radius: 22px; aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+@media (max-width: 900px) { .apropos { grid-template-columns: 1fr; } }
+
+footer { margin-top: clamp(100px, 12vw, 160px); border-top: 1px solid var(--ligne); padding: clamp(70px, 9vw, 120px) var(--m) 50px; }
+footer h2 { font-size: clamp(56px, 10vw, 150px); margin-bottom: 36px; }
+footer small { display: block; margin-top: 70px; color: #7e7c78; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .apparait { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="menu" id="menu">
+  <a class="nom" href="#haut">Cloé Pérot</a>
+  <nav aria-label="Navigation principale">
+    <a href="#projets">Projets pro</a>
+    <a href="#labo" class="opt">Labo</a>
+    <a href="#apropos" class="opt">À propos</a>
+    <a class="cv" href="#" title="Bientôt disponible">Mon CV</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero" id="haut">
+    <img src="assets/img/mont-soir.webp" alt="">
+    <p class="qui">Chargée de communication · Toulouse</p>
+    <h1>Je fais vivre<br>les marques.</h1>
+    <div class="bas">
+      <p class="acc">Sur les réseaux, en print et sur le terrain. Disponible pour un CDI à Toulouse ou dans les Pyrénées.</p>
+      <div class="btns"><a class="b plein" href="#projets">Voir mes projets</a><a class="b ligne" href="#contact">Me contacter</a></div>
+    </div>
+  </div>
+
+  <section class="apparait">
+    <h2>Ce que je sais faire</h2>
+    <ul class="bulles">
+      <li>Social media</li><li>Identité visuelle</li><li>Influence &amp; affiliation</li><li>Emailing</li><li>Print</li><li>Rédaction web</li>
+      <li>Direction artistique</li><li>Partenariats</li><li>LinkedIn &amp; ghostwriting</li><li>Événementiel</li><li>Com interne</li><li>Visuels produit &amp; IA</li>
+    </ul>
+  </section>
+
+  <section id="projets" class="apparait">
+    <h2>Projets pro</h2>
+    <div class="pro">
+      <a class="carte" href="vancore.html"><img src="assets/img/vancore-making-of.webp" alt="Making-of du lancement de Vancore"><span class="fleche" aria-hidden="true">↗</span><div class="txt"><h3>Vancore</h3><p>Com &amp; marketing · 2024–2026</p></div></a>
+      <a class="carte" href="toulouse-social-run.html"><img src="assets/img/tsr-quais.webp" alt="Coureurs du Toulouse Social Run sur les quais" style="object-position:center 65%"><span class="fleche" aria-hidden="true">↗</span><div class="txt"><h3>Toulouse Social Run</h3><p>Identité visuelle · 2024–2026</p></div></a>
+      <a class="carte cm" href="community-manager.html"><img src="assets/img/dfed-couverture.webp" alt="Magazine De Fil en Déco"><span class="fleche" aria-hidden="true">↗</span><div class="txt"><h3>Community manager</h3><p>Première alternance · 2023–2024</p></div></a>
+    </div>
+  </section>
+
+  <section id="labo" class="apparait">
+    <a class="labo" href="labo.html">
+      <div><h2>Labo</h2><p>Mes projets d'école et mes projets perso : logos, photos, expérimentations.</p></div>
+      <span class="b ligne">Entrer dans le Labo</span>
+    </a>
+  </section>
+
+  <section id="apropos" class="apropos apparait">
+    <div>
+      <h2 style="font-size:clamp(42px,5.6vw,76px);margin-bottom:28px">À propos</h2>
+      <p>Montagne, van et running : j'aime les marques qui ont une vraie communauté, et les faire grandir.</p>
+      <a class="b ligne" href="a-propos.html">Mon parcours</a>
+    </div>
+    <img src="assets/img/mont-jour.webp" alt="Sommets des Dolomites sous un ciel bleu">
+  </section>
+</main>
+
+<footer id="contact">
+  <h2>On en parle ?</h2>
+  <div class="btns"><a class="b plein" href="mailto:cloe.perot@icloud.com">cloe.perot@icloud.com</a><a class="b ligne" href="#" title="Bientôt disponible">Télécharger mon CV</a></div>
+  <small>Cloé Pérot · Toulouse</small>
+</footer>
+
+<script>
+const menu = document.getElementById('menu');
+addEventListener('scroll', () => menu.classList.toggle('fond', scrollY > 40), { passive: true });
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vu'); io.unobserve(e.target); } }), { threshold: 0.12 });
+document.querySelectorAll('.apparait').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
