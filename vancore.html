@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vancore · Cloé Pérot</title>
+<meta name="description" content="Deux ans de communication chez Vancore (ex Mon Fourgon Shop) : social media, influence, emailing, print, LinkedIn et com interne.">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+/* ouverture */
+.ouv { position: relative; min-height: 88svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 130px var(--m) clamp(40px, 6vh, 70px); overflow: hidden; }
+.ouv > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; filter: brightness(0.55); }
+.ouv::after { content: ""; position: absolute; inset: auto 0 0 0; height: 60%; background: linear-gradient(transparent, var(--nuit)); }
+.ouv > *:not(img) { position: relative; z-index: 2; }
+.retour { color: var(--doux); font-size: 15px; margin-bottom: 26px; display: inline-block; }
+.retour:hover { color: var(--texte); }
+.ouv h1 { font-size: clamp(72px, 14vw, 210px); }
+.ouv .ex { font-size: clamp(20px, 2.2vw, 30px); color: var(--lilas); margin: 14px 0 0; font-weight: 500; }
+.ouv .role { margin: 30px 0 0; color: #dad8d3; font-size: clamp(17px, 1.5vw, 20px); max-width: 52ch; }
+
+/* intro */
+.intro { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 6vw, 90px); align-items: start; }
+.intro p.grand { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.4; margin: 0; }
+.chiffres { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--ligne); border: 1px solid var(--ligne); border-radius: 22px; overflow: hidden; }
+.chiffres div { background: var(--nuit); padding: 24px 24px 22px; }
+.chiffres strong { display: block; font-size: clamp(38px, 4vw, 56px); font-weight: 800; letter-spacing: -0.05em; line-height: 1; }
+.chiffres span { color: var(--doux); font-size: 15px; display: block; margin-top: 8px; }
+.domaines { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 34px 0 0; }
+.domaines li { border: 1px solid var(--ligne); border-radius: 999px; padding: 7px 15px; font-size: 15px; color: #dad8d3; }
+@media (max-width: 900px) { .intro { grid-template-columns: 1fr; } }
+
+/* sous-menu */
+.sommaire { position: sticky; top: 62px; z-index: 9; margin-top: clamp(70px, 9vw, 110px); background: rgba(13,14,17,0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-block: 1px solid var(--ligne); }
+.sommaire ul { display: flex; gap: 6px; list-style: none; margin: 0 auto; padding: 10px var(--m); max-width: 1440px; overflow-x: auto; scrollbar-width: none; }
+.sommaire ul::-webkit-scrollbar { display: none; }
+.sommaire a { display: block; white-space: nowrap; padding: 8px 15px; border-radius: 999px; font-size: 15px; color: var(--doux); transition: background 0.2s, color 0.2s; }
+.sommaire a:hover { color: var(--texte); }
+.sommaire a.actif { background: var(--texte); color: var(--nuit); }
+
+/* blocs */
+.bloc { display: grid; grid-template-columns: minmax(260px, 4fr) 8fr; gap: clamp(30px, 5vw, 80px); scroll-margin-top: 130px; }
+.bloc > .txt { position: sticky; top: 150px; align-self: start; }
+.bloc h2 { font-size: clamp(40px, 4.6vw, 66px); margin-bottom: 22px; }
+.bloc .txt p { color: #d3d1cc; margin: 0 0 16px; max-width: 42ch; }
+.bloc .txt ul { margin: 22px 0 0; padding: 0; list-style: none; color: var(--doux); font-size: 15px; }
+.bloc .txt li { padding: 9px 0; border-top: 1px solid var(--ligne); }
+@media (max-width: 900px) { .bloc { grid-template-columns: 1fr; } .bloc > .txt { position: static; } }
+
+.media { display: grid; gap: 18px; }
+.g { display: grid; gap: 14px; align-items: start; }
+.g2 { grid-template-columns: repeat(2, 1fr); } .g3 { grid-template-columns: repeat(3, 1fr); } .g4 { grid-template-columns: repeat(4, 1fr); } .g5 { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 640px) { .g3, .g4, .g5 { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 62%; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * var(--m)); padding-inline: var(--m); scroll-padding-inline: var(--m); scrollbar-width: none; } .g5 { grid-auto-columns: 46%; } .g3 > *, .g4 > *, .g5 > * { scroll-snap-align: start; } }
+figure { margin: 0; }
+figcaption { color: var(--doux); font-size: 14px; margin-top: 10px; line-height: 1.4; }
+figcaption b { color: var(--texte); font-weight: 700; display: block; }
+.zoom { display: block; border-radius: 14px; overflow: hidden; background: var(--carte); cursor: zoom-in; }
+.zoom img { width: 100%; height: auto; transition: transform 0.5s cubic-bezier(.2,.7,.2,1); }
+.zoom:hover img { transform: scale(1.03); }
+.clair { background: #f2f1ee; }
+.clair img { object-fit: contain; padding: 10%; aspect-ratio: 1; }
+.ratio-45 img { aspect-ratio: 4 / 5; object-fit: cover; }
+.ratio-916 img, video.reel { aspect-ratio: 9 / 16; object-fit: cover; }
+.ratio-169 img { aspect-ratio: 16 / 9; object-fit: cover; }
+.haut img { max-height: 760px; object-fit: cover; object-position: top; }
+.nl img { aspect-ratio: 9 / 24; object-fit: cover; object-position: top; }
+.feed { max-width: 300px; }
+.petit { max-width: 620px; }
+.duo { grid-template-columns: auto 1fr; align-items: center; }
+@media (max-width: 640px) { .duo { grid-template-columns: 1fr; } .feed { max-width: 240px; } }
+video.reel { width: 100%; border-radius: 14px; background: #000; }
+
+.encart { border: 1px solid var(--ligne); border-radius: 22px; padding: clamp(22px, 3vw, 34px); display: grid; gap: 22px; }
+.encart h3 { font-size: clamp(24px, 2.4vw, 32px); letter-spacing: -0.03em; }
+.encart p { margin: 0; color: var(--doux); }
+.stats { display: flex; flex-wrap: wrap; gap: clamp(22px, 4vw, 56px); }
+.stats strong { display: block; font-size: clamp(40px, 4.4vw, 62px); font-weight: 800; letter-spacing: -0.05em; line-height: 1; color: var(--lilas); }
+.stats span { color: var(--doux); font-size: 15px; }
+.pastilles { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.pastilles li { border: 1px solid var(--ligne); border-radius: 999px; padding: 7px 15px; font-size: 15px; }
+.etapes { display: grid; grid-template-columns: repeat(var(--n, 5), 1fr); gap: 10px; list-style: none; padding: 0; margin: 0; counter-reset: e; }
+.etapes li { counter-increment: e; border-top: 2px solid var(--lilas); padding-top: 12px; font-weight: 700; }
+.etapes li::before { content: counter(e); display: block; color: var(--lilas); font-size: 14px; margin-bottom: 4px; }
+.etapes li small { display: block; font-weight: 400; color: var(--doux); font-size: 14px; margin-top: 4px; }
+@media (max-width: 640px) { .etapes { grid-template-columns: 1fr 1fr; } }
+.avant { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; }
+.avant .fl { font-size: 28px; color: var(--lilas); }
+.stickers { background: #f2f1ee; border-radius: 22px; padding: clamp(20px, 3vw, 36px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(14px, 2.4vw, 30px); }
+.stickers img { height: clamp(60px, 9vw, 110px); width: auto; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.18)); }
+.stickers img.long { height: clamp(46px, 6vw, 74px); }
+.evol { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.evol > div { border: 1px solid var(--ligne); border-radius: 22px; padding: 26px; }
+.evol h3 { font-size: 26px; letter-spacing: -0.03em; margin-bottom: 4px; }
+.evol .quand { color: var(--lilas); font-size: 14px; margin: 0 0 18px; }
+.evol ul { margin: 0; padding: 0; list-style: none; }
+.evol li { padding: 8px 0; border-top: 1px solid var(--ligne); color: #d3d1cc; }
+@media (max-width: 640px) { .evol { grid-template-columns: 1fr; } }
+
+/* suivant */
+.suivant { display: block; position: relative; border-radius: 22px; overflow: hidden; min-height: 340px; }
+.suivant img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 65%; filter: brightness(0.5); transition: transform 0.6s cubic-bezier(.2,.7,.2,1), filter 0.4s; }
+.suivant:hover img { transform: scale(1.04); filter: brightness(0.62); }
+.suivant div { position: relative; padding: clamp(28px, 4vw, 50px); display: flex; flex-direction: column; justify-content: flex-end; min-height: 340px; }
+.suivant span { color: #dad8d3; }
+.suivant h2 { font-size: clamp(44px, 7vw, 100px); margin-top: 8px; }
+
+/* visionneuse */
+dialog.vue { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 92vh; }
+dialog.vue::backdrop { background: rgba(5,5,7,0.9); }
+dialog.vue img { max-width: 94vw; max-height: 86vh; width: auto; height: auto; border-radius: 10px; margin: 0 auto; }
+dialog.vue p { color: #dad8d3; text-align: center; margin: 12px 0 0; font-size: 15px; }
+dialog.vue button { position: fixed; top: 18px; right: 22px; width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.14); color: #fff; font: 700 22px/1 "Bricolage", sans-serif; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<header class="menu" id="menu">
+  <a class="nom" href="index.html">Cloé Pérot</a>
+  <nav aria-label="Navigation principale">
+    <a href="index.html#projets">Projets pro</a>
+    <a href="labo.html" class="opt">Labo</a>
+    <a href="a-propos.html" class="opt">À propos</a>
+    <a class="cv" href="#" title="Bientôt disponible">Mon CV</a>
+  </nav>
+</header>
+
+<main>
+  <div class="ouv">
+    <img src="assets/img/vancore/cover_van.webp" alt="Van aménagé garé sur une falaise au bord de la mer">
+    <a class="retour" href="index.html#projets">← Tous les projets</a>
+    <h1>Vancore</h1>
+    <p class="ex">ex Mon Fourgon Shop</p>
+    <p class="role">Chargée de communication &amp; marketing en alternance, de septembre 2024 à 2026.</p>
+  </div>
+
+  <section class="intro">
+    <div>
+      <p class="grand">Vancore, c'est un site e-commerce d'équipement pour aménager son van, pour les particuliers comme pour les pros. J'y suis arrivée quand ça s'appelait encore Mon Fourgon Shop, et j'ai touché à tout&nbsp;!</p>
+      <ul class="domaines">
+        <li>Social media</li><li>Influence &amp; affiliation</li><li>Emailing</li><li>Print</li><li>Rédaction web</li><li>Visuels produit &amp; IA</li><li>LinkedIn &amp; ghostwriting</li><li>Com interne</li><li>Événementiel</li>
+      </ul>
+    </div>
+    <div class="chiffres">
+      <div><strong>×2</strong><span>abonnés Instagram, de 3&nbsp;000 à 6&nbsp;002</span></div>
+      <div><strong>80 %</strong><span>d'ouverture moyenne des newsletters pros</span></div>
+      <div><strong>12</strong><span>créateurs suivis, de 5k à 101k abonnés</span></div>
+      <div><strong>250</strong><span>enregistrements sur un seul carrousel</span></div>
+    </div>
+  </section>
+
+  <nav class="sommaire" aria-label="Sections du projet">
+    <ul>
+      <li><a href="#evolution">Mon évolution</a></li>
+      <li><a href="#lancement">Le lancement</a></li>
+      <li><a href="#social">Social media</a></li>
+      <li><a href="#influence">Influence</a></li>
+      <li><a href="#visuels">Visuels produit</a></li>
+      <li><a href="#emailing">Emailing</a></li>
+      <li><a href="#redaction">Rédaction web</a></li>
+      <li><a href="#print">Print</a></li>
+      <li><a href="#linkedin">LinkedIn</a></li>
+      <li><a href="#interne">Com interne</a></li>
+    </ul>
+  </nav>
+
+  <section class="bloc" id="evolution">
+    <div class="txt">
+      <h2>Mon évolution</h2>
+      <p>Au départ, j'étais sur les réseaux et les contenus. Suite à une réorganisation de l'équipe, j'ai repris de nouvelles missions et gagné en autonomie, jusqu'à piloter des pans entiers de la com.</p>
+    </div>
+    <div class="evol">
+      <div>
+        <h3>Mon Fourgon Shop</h3>
+        <p class="quand">Au départ, septembre 2024</p>
+        <ul><li>Réseaux sociaux : Instagram, Facebook, LinkedIn</li><li>Création de contenus : posts, reels, stories</li><li>Shootings photo pour le site</li></ul>
+      </div>
+      <div>
+        <h3>Vancore</h3>
+        <p class="quand">Puis 2025–2026, marque lancée en novembre 2025</p>
+        <ul><li>Influence &amp; affiliation, de A à Z</li><li>Communication interne et team buildings</li><li>Stratégie LinkedIn et ateliers avec les managers</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc" id="lancement">
+    <div class="txt">
+      <h2>Le lancement de Vancore</h2>
+      <p>En novembre 2025, Mon Fourgon Shop est devenu Vancore. Nouveau nom, nouvelles couleurs, et tout à faire passer aux clients sans les perdre en route.</p>
+      <ul><li>Tests du nouveau site avant la mise en ligne</li><li>Migration des visuels des fiches produits</li><li>Stratégie de com : newsletter, réseaux, print</li><li>Supports aux nouvelles couleurs</li><li>Le jeu Vancore Tickets, du 12 au 16 novembre</li></ul>
+    </div>
+    <div class="media">
+      <figure><a class="zoom ratio-169" href="assets/img/vancore/site_vancore.webp"><img src="assets/img/vancore/site_vancore.webp" alt="Page d'accueil du site vancore.fr" loading="lazy"></a><figcaption><b>Le site</b>le nouveau vancore.fr, testé avant la mise en ligne</figcaption></figure>
+      <div class="g g3">
+        <figure><a class="zoom nl" href="assets/img/vancore/nl_rebranding.webp"><img src="assets/img/vancore/nl_rebranding.webp" alt="Newsletter : Mon Fourgon Shop devient Vancore" loading="lazy"></a><figcaption><b>La newsletter</b>l'annonce du nouveau nom aux clients</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/ev_ticket_recto.webp"><img src="assets/img/vancore/ev_ticket_recto.webp" alt="Vancore Ticket, le jeu du lancement" loading="lazy"></a><figcaption><b>Le jeu Vancore Tickets</b>des tickets gagnants glissés dans les colis</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/pr_influ_recto.webp"><img src="assets/img/vancore/pr_influ_recto.webp" alt="Flyer Mon Fourgon Shop devient Vancore" loading="lazy"></a><figcaption><b>Le flyer</b>« Mon Fourgon Shop devient Vancore »</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc" id="social">
+    <div class="txt">
+      <h2>Social media</h2>
+      <p>Sur Instagram, on inspire avant de vendre : des photos de voyage, des clins d'œil du quotidien, et le produit qui se glisse dans l'histoire.</p>
+      <p>Résultat : la communauté a doublé, de 3&nbsp;000 à 6&nbsp;002 abonnés.</p>
+    </div>
+    <div class="media">
+      <div class="g g3">
+        <figure><video class="reel" src="assets/video/reel_mfs.mp4" poster="assets/img/vancore/poster_mfs.webp" autoplay muted loop playsinline aria-label="Reel Instagram Mon Fourgon Shop"></video></figure>
+        <figure><video class="reel" src="assets/video/reel_lancement.mp4" poster="assets/img/vancore/poster_lancement.webp" autoplay muted loop playsinline aria-label="Reel Instagram du lancement de Vancore"></video></figure>
+        <figure><video class="reel" src="assets/video/reel_aventure.mp4" poster="assets/img/vancore/poster_aventure.webp" autoplay muted loop playsinline aria-label="Reel Instagram citation van"></video></figure>
+      </div>
+      <p style="margin:-4px 0 0;color:var(--doux);font-size:14px">Des reels que j'ai tournés et montés.</p>
+      <div class="g g4">
+        <figure><a class="zoom ratio-45" href="assets/img/vancore/po1.webp"><img src="assets/img/vancore/po1.webp" alt="Post Instagram : On ne suit pas la route" loading="lazy"></a><figcaption>Post</figcaption></figure>
+        <figure><a class="zoom ratio-45" href="assets/img/vancore/po5.webp"><img src="assets/img/vancore/po5.webp" alt="Post Instagram série the trip, the equipment" loading="lazy"></a><figcaption>Post</figcaption></figure>
+        <figure><a class="zoom ratio-916" href="assets/img/vancore/st1.webp"><img src="assets/img/vancore/st1.webp" alt="Story Instagram ambassadeur" loading="lazy"></a><figcaption>Story</figcaption></figure>
+        <figure><a class="zoom ratio-916" href="assets/img/vancore/st4.webp"><img src="assets/img/vancore/st4.webp" alt="Story Instagram boîte à idées" loading="lazy"></a><figcaption>Story</figcaption></figure>
+      </div>
+      <div class="g duo">
+        <figure class="feed"><a class="zoom" href="assets/img/vancore/feed_vancore_6002.webp"><img src="assets/img/vancore/feed_vancore_6002.webp" alt="Feed Instagram de Vancore, 6 002 abonnés" loading="lazy"></a></figure>
+        <div class="encart">
+          <h3>Mes rubriques récurrentes</h3>
+          <ul class="pastilles"><li>Destination du mois</li><li>Récap du mois</li><li>Cartes postales</li><li>Boîte à idées</li><li>Ambassadeur</li><li>Récits de vanlifers</li></ul>
+        </div>
+      </div>
+
+      <div class="encart" style="margin-top:28px">
+        <h3>Les carrousels : du conseil qui se swipe</h3>
+        <p>Les questions qu'on nous pose tous les jours, j'en fais des carrousels : un sujet technique, expliqué simplement, slide après slide.</p>
+        <figure><a class="zoom" href="assets/img/vancore/car_autonomie.webp"><img src="assets/img/vancore/car_autonomie.webp" alt="Carrousel Autonomie : deux vans identiques, deux autonomies différentes" loading="lazy"></a><figcaption>Format panoramique avec photos d'ambiance : l'autonomie électrique</figcaption></figure>
+        <div class="g g5">
+          <a class="zoom ratio-45" href="assets/img/vancore/bat1.webp"><img src="assets/img/vancore/bat1.webp" alt="Carrousel batterie lithium et froid, slide 1" loading="lazy"></a>
+          <a class="zoom ratio-45" href="assets/img/vancore/bat2.webp"><img src="assets/img/vancore/bat2.webp" alt="Carrousel batterie lithium et froid, slide 2" loading="lazy"></a>
+          <a class="zoom ratio-45" href="assets/img/vancore/bat3.webp"><img src="assets/img/vancore/bat3.webp" alt="Carrousel batterie lithium et froid, slide 3" loading="lazy"></a>
+          <a class="zoom ratio-45" href="assets/img/vancore/bat4.webp"><img src="assets/img/vancore/bat4.webp" alt="Carrousel batterie lithium et froid, slide 4" loading="lazy"></a>
+          <a class="zoom ratio-45" href="assets/img/vancore/bat5.webp"><img src="assets/img/vancore/bat5.webp" alt="Carrousel batterie lithium et froid, slide 5" loading="lazy"></a>
+        </div>
+        <p style="font-size:14px;margin-top:-10px">Format 4:5 avec schémas maison : batterie lithium et froid</p>
+        <div class="g g2" style="align-items:center">
+          <a class="zoom ratio-45" href="assets/img/vancore/car_feutrine.webp"><img src="assets/img/vancore/car_feutrine.webp" alt="Carrousel feutrine : pourquoi tout le monde finit par en poser" loading="lazy"></a>
+          <div>
+            <h3 style="margin-bottom:10px">Mon meilleur carrousel</h3>
+            <p style="margin-bottom:22px">« Pourquoi tout le monde finit par en poser », sur la feutrine.</p>
+            <div class="stats"><div><strong>5k</strong><span>vues</span></div><div><strong>31</strong><span>partages</span></div><div><strong>250</strong><span>enregistrements</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc" id="influence">
+    <div class="txt">
+      <h2>Influence &amp; affiliation</h2>
+      <p>J'ai repris l'influence en avril 2025 et je l'ai gérée de A à Z : contrats, envois de produits, suivi des contenus, reporting pour les marques partenaires… et l'affiliation en plus, avec la prospection de nouveaux partenaires.</p>
+    </div>
+    <div class="media">
+      <ol class="etapes"><li>Contact</li><li>Contrats</li><li>Commandes</li><li>Suivi</li><li>Reporting</li></ol>
+      <div class="g g3">
+        <figure><a class="zoom ratio-916" href="assets/img/vancore/c_miaryvie.webp"><img src="assets/img/vancore/c_miaryvie.webp" alt="Reel de @miaryvie en collaboration avec Vancore" loading="lazy"></a><figcaption>@miaryvie</figcaption></figure>
+        <figure><a class="zoom ratio-916" href="assets/img/vancore/c_homnivan.webp"><img src="assets/img/vancore/c_homnivan.webp" alt="Reel de @homnivan en collaboration avec Vancore" loading="lazy"></a><figcaption>@homnivan</figcaption></figure>
+        <figure><a class="zoom ratio-916" href="assets/img/vancore/c_breizh.webp"><img src="assets/img/vancore/c_breizh.webp" alt="Reel de @breizh_roaders republié par Vancore" loading="lazy"></a><figcaption>@breizh_roaders</figcaption></figure>
+      </div>
+      <div class="encart"><div class="stats"><div><strong>12</strong><span>créateurs suivis</span></div><div><strong>5k–101k</strong><span>abonnés par créateur</span></div></div></div>
+      <div class="g g3">
+        <figure><a class="zoom" href="assets/img/vancore/kit1.webp"><img src="assets/img/vancore/kit1.webp" alt="Kit influenceurs Transition de marque" loading="lazy"></a><figcaption><b>Kit influenceurs</b>brief, charte et rétroplanning pour le lancement</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/arm1.webp"><img src="assets/img/vancore/arm1.webp" alt="Reporting partenariat Vancore et Armacell" loading="lazy"></a><figcaption><b>Reporting partenaire</b>le suivi des créateurs pour Armacell</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/eb1.webp"><img src="assets/img/vancore/eb1.webp" alt="Page Vancore pour l'ebook du Van Migrateur" loading="lazy"></a><figcaption><b>Ebook du Van Migrateur</b>les pages Vancore pour l'ebook d'un créateur partenaire</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc" id="visuels">
+    <div class="txt">
+      <h2>Visuels produit</h2>
+      <p>Des packshots pour les fiches produits, l'IA pour mettre les produits en scène quand on n'a pas la photo, et les miniatures de nos tutos YouTube.</p>
+    </div>
+    <div class="media">
+      <div class="g g4">
+        <a class="zoom clair" href="assets/img/vancore/p_mc4.webp"><img src="assets/img/vancore/p_mc4.webp" alt="Packshot connecteur MC4" loading="lazy"></a>
+        <a class="zoom clair" href="assets/img/vancore/p_pundmann.webp"><img src="assets/img/vancore/p_pundmann.webp" alt="Packshot chauffe-eau Pundmann 6 L" loading="lazy"></a>
+        <a class="zoom clair" href="assets/img/vancore/p_truma.webp"><img src="assets/img/vancore/p_truma.webp" alt="Packshot écrou Truma" loading="lazy"></a>
+        <a class="zoom clair" href="assets/img/vancore/p_busbar.webp"><img src="assets/img/vancore/p_busbar.webp" alt="Packshot busbar Victron" loading="lazy"></a>
+      </div>
+      <p style="margin:-6px 0 0;color:var(--doux);font-size:14px">Packshots pour les fiches produits</p>
+      <div class="avant">
+        <a class="zoom clair" href="assets/img/vancore/ia_armaflex_blanc.webp"><img src="assets/img/vancore/ia_armaflex_blanc.webp" alt="Kit Armaflex sur fond blanc" loading="lazy"></a>
+        <span class="fl" aria-hidden="true">→</span>
+        <a class="zoom" href="assets/img/vancore/ia_armaflex_scene.webp"><img src="assets/img/vancore/ia_armaflex_scene.webp" alt="Le même kit Armaflex mis en scène par IA" loading="lazy" style="aspect-ratio:1;object-fit:cover"></a>
+      </div>
+      <p style="margin:-6px 0 0;color:var(--doux);font-size:14px">Du fond blanc à la scène générée par IA</p>
+      <div class="g g3">
+        <figure><a class="zoom ratio-169" href="assets/img/vancore/yt1.webp"><img src="assets/img/vancore/yt1.webp" alt="Miniature YouTube : fin de l'Armaflex AF" loading="lazy"></a></figure>
+        <figure><a class="zoom ratio-169" href="assets/img/vancore/yt2.webp"><img src="assets/img/vancore/yt2.webp" alt="Miniature YouTube : tuto pose d'une baie" loading="lazy"></a></figure>
+        <figure><a class="zoom ratio-169" href="assets/img/vancore/yt5.webp"><img src="assets/img/vancore/yt5.webp" alt="Miniature YouTube : tuto pose d'un panneau solaire" loading="lazy"></a></figure>
+      </div>
+      <p style="margin:-6px 0 0;color:var(--doux);font-size:14px">Miniatures de la chaîne YouTube</p>
+    </div>
+  </section>
+
+  <section class="bloc" id="emailing">
+    <div class="txt">
+      <h2>Emailing</h2>
+      <p>Les newsletters, je les montais sur Klaviyo, du texte aux visuels. Deux publics, deux tons : les vanlifers d'un côté, les pros de l'aménagement de l'autre.</p>
+      <div class="stats" style="margin-top:26px"><div><strong>65 %</strong><span>d'ouverture, particuliers</span></div><div><strong>80 %</strong><span>d'ouverture, pros</span></div></div>
+    </div>
+    <div class="g g4">
+      <figure><a class="zoom nl" href="assets/img/vancore/nl_formation_victron.webp"><img src="assets/img/vancore/nl_formation_victron.webp" alt="Newsletter formation Victron pour les pros" loading="lazy"></a><figcaption><b>Pros</b>Formation Victron niveau 1</figcaption></figure>
+      <figure><a class="zoom nl" href="assets/img/vancore/nl_armaflex.webp"><img src="assets/img/vancore/nl_armaflex.webp" alt="Newsletter Armaflex chez moi" loading="lazy"></a><figcaption><b>Particuliers</b>Armaflex chez moi</figcaption></figure>
+      <figure><a class="zoom nl" href="assets/img/vancore/nl_vanlife_expo.webp"><img src="assets/img/vancore/nl_vanlife_expo.webp" alt="Newsletter Vanlife Expo Bordeaux" loading="lazy"></a><figcaption><b>Particuliers</b>Vanlife Expo Bordeaux</figcaption></figure>
+      <figure><a class="zoom nl" href="assets/img/vancore/nl_soiree_h2em.webp"><img src="assets/img/vancore/nl_soiree_h2em.webp" alt="Newsletter soirée pros avec H2EM" loading="lazy"></a><figcaption><b>Pros</b>Soirée pros avec H2EM</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="bloc" id="redaction">
+    <div class="txt">
+      <h2>Rédaction web</h2>
+      <p>Sur le blog, on explique la technique simplement. Et une fois, c'est moi qu'on a interviewée : mon roadtrip en van avec Atlas, mon berger australien&nbsp;!</p>
+      <ul><li>Mise en page d'articles et choix des images</li><li>Schémas pédagogiques</li><li>SEO des images (balises alt)</li></ul>
+      <p style="margin-top:22px"><a class="b ligne" href="https://vancore.fr/blog/astuces/voyager-van-avec-chien" target="_blank" rel="noopener">Lire l'article ↗</a></p>
+    </div>
+    <div class="g g2">
+      <figure><a class="zoom haut" href="assets/img/vancore/page.webp"><img src="assets/img/vancore/page.webp" alt="Article de blog : voyager en van avec son chien, sur les routes avec Cloé et Atlas" loading="lazy"></a><figcaption><b>L'interview, 5 novembre 2025</b>mise en page, images et interview</figcaption></figure>
+      <figure><a class="zoom" href="assets/img/vancore/blog_schema.webp"><img src="assets/img/vancore/blog_schema.webp" alt="Schéma du fonctionnement du coupleur-séparateur" loading="lazy"></a><figcaption><b>Schéma pour un article technique</b>le fonctionnement du coupleur-séparateur</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="bloc" id="print">
+    <div class="txt">
+      <h2>Print</h2>
+      <p>Une carte merci dans les colis, des affiches pour les salons et le showroom, des stickers pour l'entrepôt… le print, il y en avait partout&nbsp;!</p>
+    </div>
+    <div class="media">
+      <div class="g g4">
+        <figure><a class="zoom" href="assets/img/vancore/pr_merci_mockup.webp"><img src="assets/img/vancore/pr_merci_mockup.webp" alt="Carte merci Vancore glissée dans les colis" loading="lazy"></a><figcaption>Carte merci, colis</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/pr_promo_expo.webp"><img src="assets/img/vancore/pr_promo_expo.webp" alt="Affiche code promo Vanlife Expo Bordeaux" loading="lazy"></a><figcaption>Affiche salon</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/pr_armacell.webp"><img src="assets/img/vancore/pr_armacell.webp" alt="Affiche partenariat Armacell et Vancore" loading="lazy"></a><figcaption>Affiche partenaire</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/sh_blockfire.webp"><img src="assets/img/vancore/sh_blockfire.webp" alt="Affiche produit extincteur Block'Fire" loading="lazy"></a><figcaption>Affiche showroom</figcaption></figure>
+      </div>
+      <div class="stickers" aria-label="Les 11 stickers Vancore">
+        <img class="long" src="assets/img/vancore/stk_urgent_150x55mm.webp" alt="Sticker Urgent, la liberté n'attend pas" loading="lazy">
+        <img src="assets/img/vancore/stk_les_petits_produits_jaune_79x68mm.webp" alt="Sticker Les petits produits sont dans ce colis" loading="lazy">
+        <img src="assets/img/vancore/stk_cecile.webp" alt="Sticker Produit vérifié avec soin" loading="lazy">
+        <img class="long" src="assets/img/vancore/stk_coeur_orange_100x40mm.webp" alt="Sticker Fait avec le cœur" loading="lazy">
+        <img src="assets/img/vancore/stk_van_sauvage_ne_pas_nourrir_100x80mm.webp" alt="Sticker Van sauvage, ne pas nourrir" loading="lazy">
+        <img src="assets/img/vancore/stk_ralentissez_blanc_logo_80x80mm.webp" alt="Sticker Ralentissez, van en liberté" loading="lazy">
+        <img src="assets/img/vancore/stk_van_en_liberte.webp" alt="Sticker Van en liberté" loading="lazy">
+        <img src="assets/img/vancore/stk_mousqueton.webp" alt="Sticker mousqueton Vancore" loading="lazy">
+        <img src="assets/img/vancore/stk_logo_vert_50x41mm.webp" alt="Sticker logo Vancore vert" loading="lazy">
+        <img src="assets/img/vancore/stk_logo_orange_50x41mm.webp" alt="Sticker logo Vancore orange" loading="lazy">
+        <img src="assets/img/vancore/stk_logo_blanc_50x41mm.webp" alt="Sticker logo Vancore blanc" loading="lazy">
+      </div>
+      <p style="margin:-6px 0 0;color:var(--doux);font-size:14px">11 stickers, pour la logistique et pour la marque</p>
+    </div>
+  </section>
+
+  <section class="bloc" id="linkedin">
+    <div class="txt">
+      <h2>LinkedIn</h2>
+      <p>Trois casquettes : j'écrivais les posts de la page Vancore, ceux du CEO à sa place (oui, du ghostwriting&nbsp;!), et j'accompagnais les managers qui voulaient mettre leur travail en avant.</p>
+      <p style="font-size:14px;color:var(--doux)">Noms et visages floutés.</p>
+    </div>
+    <div class="media">
+      <div class="g g2">
+        <figure><a class="zoom" href="assets/img/vancore/li_page.webp"><img src="assets/img/vancore/li_page.webp" alt="Page LinkedIn de la marque Vancore" loading="lazy"></a><figcaption><b>La page de la marque</b>les posts de Vancore, au quotidien</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/linkedin/vancore.webp"><img src="assets/img/linkedin/vancore.webp" alt="Post LinkedIn de la page Vancore" loading="lazy"></a><figcaption><b>Un post de la marque</b></figcaption></figure>
+      </div>
+      <div class="encart">
+        <h3>Ghostwriting pour le CEO</h3>
+        <p>J'écrivais ses posts à sa place, et j'ai refait son profil : une bannière qui parle d'aventure, et des liens vers le site et la newsletter.</p>
+        <div class="g g4">
+          <a class="zoom" href="assets/img/vancore/li_blur.webp"><img src="assets/img/vancore/li_blur.webp" alt="Profil LinkedIn du CEO, refait par Cloé" loading="lazy"></a>
+          <a class="zoom" href="assets/img/linkedin/ceo_1.webp"><img src="assets/img/linkedin/ceo_1.webp" alt="Post LinkedIn écrit pour le CEO" loading="lazy"></a>
+          <a class="zoom" href="assets/img/linkedin/ceo_2.webp"><img src="assets/img/linkedin/ceo_2.webp" alt="Post LinkedIn écrit pour le CEO" loading="lazy"></a>
+          <a class="zoom" href="assets/img/linkedin/ceo_3.webp"><img src="assets/img/linkedin/ceo_3.webp" alt="Post LinkedIn écrit pour le CEO" loading="lazy"></a>
+        </div>
+      </div>
+      <div class="encart">
+        <h3>Ateliers d'écriture pour les managers</h3>
+        <p>Pour ceux qui le souhaitaient : apprendre les codes de LinkedIn, puis construire leurs posts ensemble, en gardant leur authenticité et leur façon de parler.</p>
+        <ol class="etapes" style="--n:3"><li>Les idées<small>on cherche ensemble quoi raconter</small></li><li>La rédaction<small>on écrit le post à deux</small></li><li>La correction<small>on peaufine avant publication</small></li></ol>
+        <figure><a class="zoom" href="assets/img/linkedin/managers.webp"><img src="assets/img/linkedin/managers.webp" alt="Posts LinkedIn de managers accompagnés en atelier" loading="lazy"></a></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc" id="interne">
+    <div class="txt">
+      <h2>Com interne</h2>
+      <p>La com, c'est aussi pour l'équipe : le template du team meet chaque trimestre, les docs RH, les affiches des bureaux… et les soirées jeux&nbsp;!</p>
+      <p style="font-size:14px;color:var(--doux)">Infos internes floutées.</p>
+    </div>
+    <div class="media">
+      <figure><a class="zoom ratio-169" href="assets/img/vancore/tm1.webp"><img src="assets/img/vancore/tm1.webp" alt="Team meet trimestriel, couverture" loading="lazy"></a><figcaption><b>Team meet trimestriel</b>le template de la réunion d'équipe</figcaption></figure>
+      <div class="g g3">
+        <a class="zoom ratio-169" href="assets/img/vancore/tm4.webp"><img src="assets/img/vancore/tm4.webp" alt="Team meet, étape logistique" loading="lazy"></a>
+        <a class="zoom ratio-169" href="assets/img/vancore/tm11.webp"><img src="assets/img/vancore/tm11.webp" alt="Team meet, étape achats" loading="lazy"></a>
+        <a class="zoom ratio-169" href="assets/img/vancore/tm41.webp"><img src="assets/img/vancore/tm41.webp" alt="Team meet, clôture : et toi, comment ça va ?" loading="lazy"></a>
+      </div>
+      <div class="g g2">
+        <figure><a class="zoom" href="assets/img/vancore/int_newzealand.webp"><img src="assets/img/vancore/int_newzealand.webp" alt="Affiche de bureau Heading for New Zealand" loading="lazy"></a><figcaption>Affiche des bureaux</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/int_lespot.webp"><img src="assets/img/vancore/int_lespot.webp" alt="Affiche de bureau Le Spot" loading="lazy"></a><figcaption>Affiche des bureaux</figcaption></figure>
+      </div>
+      <div class="g g4">
+        <figure><a class="zoom" href="assets/img/vancore/ad_reglement.webp"><img src="assets/img/vancore/ad_reglement.webp" alt="Règlement intérieur, infos floutées" loading="lazy"></a><figcaption>Règlement intérieur</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/ad_note_absences.webp"><img src="assets/img/vancore/ad_note_absences.webp" alt="Note de service, infos floutées" loading="lazy"></a><figcaption>Note de service</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/ad_droit_image_fr.webp"><img src="assets/img/vancore/ad_droit_image_fr.webp" alt="Autorisation de droit à l'image, infos floutées" loading="lazy"></a><figcaption>Droit à l'image</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/signature.webp" style="background:#fff"><img src="assets/img/vancore/signature.webp" alt="Signature mail commune de l'équipe Vancore" loading="lazy" style="padding:8px"></a><figcaption>Signature mail de toute l'équipe</figcaption></figure>
+      </div>
+      <div class="g g2 petit">
+        <figure><a class="zoom ratio-916" href="assets/img/vancore/tb_apero.webp"><img src="assets/img/vancore/tb_apero.webp" alt="Team building : plateau apéro" loading="lazy"></a><figcaption>Team building : le plateau apéro</figcaption></figure>
+        <figure><a class="zoom ratio-916" href="assets/img/vancore/tb_jeux.webp"><img src="assets/img/vancore/tb_jeux.webp" alt="Team building : soirée jeux de société" loading="lazy"></a><figcaption>…et la soirée jeux de société</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <a class="suivant" href="toulouse-social-run.html">
+      <img src="assets/img/tsr-quais.webp" alt="" loading="lazy">
+      <div><span>Projet suivant</span><h2>Toulouse Social Run</h2></div>
+    </a>
+  </section>
+</main>
+
+<footer id="contact">
+  <h2>On en parle ?</h2>
+  <div class="btns"><a class="b plein" href="mailto:cloe.perot@icloud.com">cloe.perot@icloud.com</a><a class="b ligne" href="#" title="Bientôt disponible">Télécharger mon CV</a></div>
+  <small>Cloé Pérot · Toulouse</small>
+</footer>
+
+<dialog class="vue" id="vue" aria-label="Image agrandie">
+  <button type="button" aria-label="Fermer">×</button>
+  <img src="" alt="">
+  <p></p>
+</dialog>
+
+<script>
+const menu = document.getElementById('menu');
+addEventListener('scroll', () => menu.classList.toggle('fond', scrollY > 40), { passive: true });
+
+// sous-menu : section en cours
+const liens = [...document.querySelectorAll('.sommaire a')];
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  liens.forEach(a => {
+    const on = a.getAttribute('href') === '#' + e.target.id;
+    a.classList.toggle('actif', on);
+    if (on) a.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+  });
+}), { rootMargin: '-45% 0px -50% 0px' });
+document.querySelectorAll('.bloc').forEach(s => io.observe(s));
+
+// visionneuse
+const vue = document.getElementById('vue'), vImg = vue.querySelector('img'), vTxt = vue.querySelector('p');
+document.querySelectorAll('a.zoom').forEach(a => a.addEventListener('click', ev => {
+  ev.preventDefault();
+  const i = a.querySelector('img');
+  vImg.src = a.href; vImg.alt = i.alt; vTxt.textContent = i.alt;
+  vue.showModal();
+}));
+vue.addEventListener('click', ev => { if (ev.target !== vImg) vue.close(); });
+</script>
+</body>
+</html>
