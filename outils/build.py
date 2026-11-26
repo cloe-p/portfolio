@@ -404,6 +404,8 @@ labo_css += """
 .carrousel { margin-top: 14px; }
 .piste-c { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
 @media (max-width: 760px) { .evo { grid-template-columns: 1fr; } .evo .fl { transform: rotate(90deg); justify-self: center; } .rang { grid-template-columns: 1fr; } .piste-c { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; } .piste-c .zoom { flex: 0 0 72%; scroll-snap-align: start; } }
+.ouv-relief { margin-top: 26px; }
+.ouv-relief .zoom img { border-radius: 22px; }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
 .ecrans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
@@ -449,7 +451,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
     <article class="projet-labo" data-cat="identite strategie" id="hyros" style="--fond-img:#000">
       <div class="etiquettes"><span>École</span><span>Lancement de produit</span></div>
       <div class="chap"><h2>Hyros, la Tesla à hydrogène</h2><div><p class="brief"><b>Le brief :</b> lancer le premier véhicule à hydrogène de Tesla : trouver le nom, créer le logotype, imaginer le modèle et construire toute la campagne de lancement.</p><ul class="competences"><li>Naming</li><li>Logotype</li><li>Visuels IA</li><li>Newsletter</li><li>Magazine</li><li>Carrousel</li></ul></div></div>
-      <div class="vitrine" style="--v:#000">{z("assets/img/labo/hyros/nom.webp", "Le nom HYROS")}</div><div class="g-libre">{z("assets/img/labo/hyros/voiture.webp", "Le modèle Hyros, généré par IA")}{z("assets/img/labo/hyros/magazine-couv.webp", "Couverture de magazine pour le lancement")}{z("assets/img/labo/hyros/carrousel-1.webp", "Visuel du carrousel Instagram")}{z("assets/img/labo/hyros/newsletter-hd.webp", "La newsletter de lancement Model Hyros")}</div>
+      <div class="ouv-relief">{z("assets/img/labo/hyros/logo-relief.webp", "Le logo HYROS en lettres métalliques sur un mur de béton")}</div><div class="g-libre">{z("assets/img/labo/hyros/voiture.webp", "Le modèle Hyros, généré par IA")}{z("assets/img/labo/hyros/magazine-couv.webp", "Couverture de magazine pour le lancement")}{z("assets/img/labo/hyros/carrousel-1.webp", "Visuel du carrousel Instagram")}{z("assets/img/labo/hyros/newsletter-hd.webp", "La newsletter de lancement Model Hyros")}</div>
     </article>
 
     <article class="projet-labo" data-cat="identite strategie" id="kinetic">
