@@ -374,6 +374,33 @@ labo_css += """
 .bref p { color: var(--doux); font-size: 15px; margin: 0 0 14px; }
 .bref .etiquettes { margin: 16px 0 6px; }
 .bref .equipe { margin: 0; }
+.carte-bref { all: unset; box-sizing: border-box; display: block; cursor: pointer; border-radius: 22px; transition: translate 0.4s cubic-bezier(.2,.8,.2,1); }
+.carte-bref img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 18px; transition: scale 0.6s cubic-bezier(.2,.7,.2,1); }
+.carte-bref:hover img { scale: 1.03; }
+.carte-bref:focus-visible { outline: 2px solid var(--lilas); outline-offset: 6px; }
+.carte-bref .etiquettes { display: flex; }
+.carte-bref .plus { display: inline-block; margin-top: 2px; color: var(--lilas); font-weight: 700; font-size: 15px; border-bottom: 1px solid currentColor; }
+.carte-bref:hover .plus::after { content: " →"; }
+dialog.fiche { width: min(1040px, 94vw); max-height: 90vh; border: 0; border-radius: 26px; padding: clamp(22px, 3vw, 38px); background: var(--carte); color: var(--texte); display: none; grid-template-columns: 1.15fr 1fr; gap: clamp(20px, 3vw, 40px); overflow: auto; }
+dialog.fiche[open] { display: grid; animation: fiche 0.35s cubic-bezier(.2,.8,.2,1); }
+@keyframes fiche { from { opacity: 0; translate: 0 18px; } }
+dialog.fiche::backdrop { background: rgba(5,5,7,0.78); backdrop-filter: blur(4px); }
+.fiche .fermer { position: absolute; top: 14px; right: 14px; width: 42px; height: 42px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.1); color: var(--texte); font: 400 26px/1 "Bricolage", sans-serif; cursor: pointer; }
+.fiche .fermer:hover { background: var(--lilas); color: var(--nuit); }
+.fiche-media { display: grid; gap: 12px; align-content: start; }
+.fiche-media.trois { grid-template-columns: 1fr 1fr; }
+.fiche-media.trois .zoom:last-child { grid-column: span 2; }
+.fiche-media.trois .zoom:last-child img { aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 40%; }
+.fiche-media .zoom img { border-radius: 14px; width: 100%; max-height: 36vh; object-fit: cover; }
+.bref { align-items: start; }
+.fiche-texte h3 { font-size: clamp(26px, 2.6vw, 34px); letter-spacing: -0.04em; line-height: 1.05; margin: 12px 0 14px; padding-right: 40px; }
+.fiche-texte p { color: var(--doux); font-size: 15.5px; margin: 0 0 12px; }
+.fiche-texte p b { color: var(--texte); }
+.paliers { border-collapse: collapse; width: 100%; margin: 4px 0 14px; font-size: 15px; }
+.paliers th, .paliers td { text-align: left; padding: 8px 0; border-top: 1px solid var(--ligne); }
+.paliers th { color: var(--lilas); width: 90px; font-weight: 700; }
+@media (max-width: 760px) { dialog.fiche[open] { grid-template-columns: 1fr; } }
+
 .citation-rb { border-radius: 14px; background: #1d2a7a; color: #f9c80e; display: grid; place-items: center; padding: 24px; text-align: center; font-weight: 800; font-size: clamp(20px, 2vw, 26px); letter-spacing: -0.03em; line-height: 1.15; }
 .gam { display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center; margin: 50px 0 16px; padding-top: 40px; border-top: 1px solid var(--ligne); }
 .gam h3 { font-size: clamp(26px, 2.6vw, 36px); margin-bottom: 12px; }
@@ -533,25 +560,68 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
     <article class="projet-labo" data-cat="strategie" id="bref">
       <div class="chap"><h2>Et aussi, en bref</h2><p>Des projets plus courts, menés en cours.</p></div>
       <div class="bref">
-        <div>
-          {z("assets/img/labo/autres/3soeurs-photo.webp", "Brunch au Trois Sœurs Café")}
-          <div class="etiquettes"><span>Fidélisation</span></div>
+        <button type="button" class="carte-bref" data-fiche="f-3s">
+          <img src="assets/img/labo/autres/3soeurs-photo.webp" alt="" loading="lazy">
+          <span class="etiquettes"><span>Fidélisation</span></span>
           <h3>Trois Sœurs Café</h3>
-          <p>Un programme de fidélité pour un café toulousain : 1 € = 1 point, des récompenses du café offert au brunch, des points gagnés sur Instagram et Google, et les données à collecter.</p>
-        </div>
-        <div>
-          {z("assets/img/labo/autres/mariage-coffret.webp", "Le coffret Théâtre des Sens et sa carte signée")}
-          <div class="etiquettes"><span>Brand content</span></div>
+          <p>Un programme de fidélité pour un café toulousain : 1 € = 1 point, des récompenses du café offert au brunch.</p>
+          <span class="plus">En savoir plus</span>
+        </button>
+        <button type="button" class="carte-bref" data-fiche="f-mf">
+          <img src="assets/img/labo/autres/mariage-coffret.webp" alt="" loading="lazy">
+          <span class="etiquettes"><span>Brand content</span></span>
           <h3>Mariage Frères × Pierre Niney</h3>
-          <p>Un coffret de 4 thés en édition limitée, « Théâtre des Sens », co-signé par l'acteur, avec une carte et une playlist en QR code. Plus l'événement de lancement et la pub TV.</p>
-        </div>
-        <div>
-          {z("assets/img/labo/autres/redbull-kiosque-limitless.webp", "Affiche LIMITLESS Red Bull en situation sur un kiosque")}
-          <div class="etiquettes"><span>Storytelling</span></div>
+          <p>Un coffret de 4 thés en édition limitée, « Théâtre des Sens », co-signé par l'acteur.</p>
+          <span class="plus">En savoir plus</span>
+        </button>
+        <button type="button" class="carte-bref" data-fiche="f-rb">
+          <img src="assets/img/labo/autres/redbull-kiosque-limitless.webp" alt="" loading="lazy" style="object-position:50% 45%">
+          <span class="etiquettes"><span>Storytelling</span></span>
           <h3>Red Bull, #NouvellesAiles</h3>
-          <p>Une campagne « LIMITLESS » qui raconte le parcours d'un pilote, du karting à Monaco jusqu'à Red Bull Racing : affiches, court-métrage, campagne digitale et événement immersif.</p>
-        </div>
+          <p>Une campagne « LIMITLESS » qui raconte le parcours d'un pilote, du karting à Red Bull Racing.</p>
+          <span class="plus">En savoir plus</span>
+        </button>
       </div>
+
+      <dialog class="fiche" id="f-3s" aria-labelledby="t-3s">
+        <button type="button" class="fermer" aria-label="Fermer">×</button>
+        <div class="fiche-media">{z("assets/img/labo/autres/3soeurs-photo.webp", "Brunch au Trois Sœurs Café")}{z("assets/img/labo/autres/3soeurs-workflow.webp", "Le parcours client du programme de fidélité, du QR code à la récompense")}</div>
+        <div class="fiche-texte">
+          <span class="etiquettes"><span>École</span><span>Fidélisation</span></span>
+          <h3 id="t-3s">Trois Sœurs Café</h3>
+          <p class="brief"><b>Le brief :</b> imaginer le programme de fidélité d'un café-brunch toulousain, sans casser son côté chaleureux et familial.</p>
+          <p><b>Les Sœurs Fidèles :</b> on scanne le QR code à table, on s'inscrit en quelques secondes (10 points offerts) et chaque passage rapporte des points automatiquement.</p>
+          <table class="paliers"><tbody><tr><th>100 pts</th><td>5 € de réduction</td></tr><tr><th>150 pts</th><td>Une boisson offerte</td></tr><tr><th>200 pts</th><td>Pâtisserie et café offerts</td></tr><tr><th>300 pts</th><td>Un brunch pour une personne</td></tr></tbody></table>
+          <p>Des points bonus en laissant un avis Google ou en partageant une story Instagram, et la liste des données à collecter pour mieux connaître les clients.</p>
+          <ul class="competences"><li>Programme de fidélité</li><li>Parcours client</li><li>Data &amp; CRM</li></ul>
+        </div>
+      </dialog>
+
+      <dialog class="fiche" id="f-mf" aria-labelledby="t-mf">
+        <button type="button" class="fermer" aria-label="Fermer">×</button>
+        <div class="fiche-media">{z("assets/img/labo/autres/mariage-coffret.webp", "Le coffret Théâtre des Sens, ouvert et fermé")}{z("assets/img/labo/autres/mariage-carte.webp", "La carte du coffret, avec le texte signé et le QR code de la playlist")}</div>
+        <div class="fiche-texte">
+          <span class="etiquettes"><span>École</span><span>Brand content</span></span>
+          <h3 id="t-mf">Mariage Frères × Pierre Niney</h3>
+          <p class="brief"><b>Le brief :</b> créer une collaboration entre une maison de thé et une personnalité, qui fasse sens pour les deux.</p>
+          <p><b>Théâtre des Sens :</b> un coffret noir et or de 4 thés en édition limitée. Dedans, une carte avec un texte signé qui fait du thé « une scène invisible », et un QR code vers une playlist à écouter pendant la dégustation.</p>
+          <p>Autour du coffret : un événement de lancement et un spot TV.</p>
+          <ul class="competences"><li>Co-branding</li><li>Packaging</li><li>Rédaction</li><li>Événementiel</li></ul>
+        </div>
+      </dialog>
+
+      <dialog class="fiche" id="f-rb" aria-labelledby="t-rb">
+        <button type="button" class="fermer" aria-label="Fermer">×</button>
+        <div class="fiche-media trois">{z("assets/img/labo/autres/redbull-nouvelles-ailes.webp", "Affiche #NouvellesAiles : une Formule 1 dans un tunnel")}{z("assets/img/labo/autres/redbull-affiche-limitless.webp", "Affiche LIMITLESS")}{z("assets/img/labo/autres/redbull-kiosque-limitless.webp", "L'affiche LIMITLESS sur un kiosque")}</div>
+        <div class="fiche-texte">
+          <span class="etiquettes"><span>École</span><span>Storytelling</span></span>
+          <h3 id="t-rb">Red Bull, #NouvellesAiles</h3>
+          <p class="brief"><b>Le brief :</b> analyser la communication de Red Bull puis proposer une campagne qui raconte une histoire.</p>
+          <p><b>Le concept :</b> le parcours d'un pilote, du karting à son arrivée chez Red Bull Racing, pour montrer comment la marque « donne des ailes ».</p>
+          <p><b>Trois temps forts :</b> un court-métrage, une campagne digitale autour du hashtag #NouvellesAiles où chacun partage son propre défi, et un événement immersif avec simulation de course en réalité virtuelle.</p>
+          <ul class="competences"><li>Storytelling</li><li>Concept de campagne</li><li>Affiches</li><li>Plan de communication</li></ul>
+        </div>
+      </dialog>
     </article>
 
     <article class="projet-labo" data-cat="perso identite" id="logos" style="border:0">
@@ -581,6 +651,11 @@ labo = labo.replace('<script src="assets/pied.js"></script>', """<script src="as
   au.addEventListener('play', () => { bt.textContent = '❚❚'; bt.setAttribute('aria-label', 'Mettre en pause'); });
   au.addEventListener('pause', () => { bt.textContent = '▶'; bt.setAttribute('aria-label', 'Écouter le podcast'); });
   au.addEventListener('timeupdate', () => { const d = au.duration || 43; barre.firstElementChild.style.width = (au.currentTime / d * 100) + '%'; t.textContent = mmss(au.currentTime) + ' / ' + mmss(d); });
+  document.querySelectorAll('.carte-bref').forEach(c => c.addEventListener('click', () => document.getElementById(c.dataset.fiche).showModal()));
+  document.querySelectorAll('dialog.fiche').forEach(d => {
+    d.querySelector('.fermer').addEventListener('click', () => d.close());
+    d.addEventListener('click', e => { if (e.target === d) d.close(); });
+  });
   barre.addEventListener('click', e => { const r = barre.getBoundingClientRect(); if (au.duration) au.currentTime = (e.clientX - r.left) / r.width * au.duration; });
 }
 </script>""")
