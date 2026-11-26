@@ -8,15 +8,19 @@
 <link rel="stylesheet" href="assets/base.css">
 <style>
 /* ouverture */
-.hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px var(--m) clamp(40px, 7vh, 80px); overflow: hidden; }
-.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 62%; filter: brightness(0.62); transform: scale(1.08); animation: zoom 2.4s cubic-bezier(.2,.7,.2,1) forwards; }
-@keyframes zoom { to { transform: scale(1); } }
-.hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 55%; background: linear-gradient(transparent, var(--nuit)); }
-.hero > *:not(img) { position: relative; z-index: 2; }
-.hero .qui { color: var(--lilas); font-weight: 500; margin: 0 0 18px; }
-.hero h1 { font-size: clamp(60px, 11vw, 168px); }
-.hero .bas { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; margin-top: 34px; }
-.hero p.acc { font-size: clamp(18px, 1.7vw, 22px); max-width: 34ch; margin: 0; color: #dad8d3; }
+.hero { position: relative; height: 240vh; }
+.hero .colle { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; place-items: center; }
+.hero .cadre { --p: 0; position: absolute; width: calc(28vw + var(--p) * 72vw); height: calc(36svh + var(--p) * 64svh); min-width: 230px; border-radius: calc(28px * (1 - var(--p))); overflow: hidden; }
+.hero .cadre img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%; scale: calc(1.25 - var(--p) * 0.25); filter: brightness(calc(1 - var(--p) * 0.45)); }
+.hero h1 { position: relative; z-index: 3; font-size: clamp(56px, 11vw, 180px); display: flex; gap: 0.25em; white-space: nowrap; }
+.hero h1 span { display: inline-block; will-change: transform; }
+.hero .qui { position: absolute; top: calc(50% - clamp(56px, 11vw, 180px) * 0.5 - 46px); left: 0; right: 0; text-align: center; z-index: 3; color: var(--lilas); font-weight: 500; margin: 0; opacity: var(--q, 1); }
+.hero .bas { position: absolute; bottom: clamp(40px, 8vh, 80px); left: var(--m); right: var(--m); z-index: 3; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; opacity: var(--o, 0); pointer-events: var(--pe, none); }
+.hero p.acc { font-size: clamp(18px, 1.7vw, 22px); max-width: 34ch; margin: 0; color: #ecebe7; }
+.hero .bas .qui2 { color: var(--lilas); font-weight: 500; margin: 0 0 10px; }
+.hero .indice { position: absolute; bottom: 26px; left: 50%; translate: -50% 0; z-index: 3; color: var(--doux); font-size: 14px; opacity: var(--q, 1); }
+@media (max-width: 700px) { .hero h1 { flex-direction: column; align-items: center; gap: 0; line-height: 0.95; } .hero .cadre img { object-position: 50% 40%; } .hero .cadre { width: calc(62vw + var(--p) * 38vw); height: calc(42svh + var(--p) * 58svh); } }
+@media (prefers-reduced-motion: reduce) { .hero { height: auto; } .hero .colle { position: relative; } .hero .cadre { --p: 1 !important; } .hero .bas { --o: 1 !important; --pe: auto !important; } .hero h1, .hero .qui, .hero .indice { display: none; } }
 /* sections */
 .defile { --x: -999px; --y: -999px; position: relative; display: grid; gap: 12px; padding: 8px 0; overflow: hidden; margin-inline: calc(-1 * var(--m)); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); background: radial-gradient(240px circle at var(--x) var(--y), color-mix(in srgb, var(--lilas) 14%, transparent), transparent 70%); }
 .piste { display: flex; gap: 10px; width: max-content; animation: glisse 40s linear infinite; }
@@ -72,12 +76,14 @@
 
 <main>
   <div class="hero" id="haut">
-    <img src="assets/img/mont-soir.webp" alt="">
-    <p class="qui">Com, contenu &amp; communauté · Toulouse</p>
-    <h1>Hey, c'est Cloé.</h1>
-    <div class="bas">
-      <p class="acc">Je fais grandir les marques et leurs communautés : sur les réseaux, en print et sur le terrain.</p>
-      <div class="btns"><a class="b plein" href="#projets">Voir mes projets</a><a class="b ligne" href="#contact">Me contacter</a></div>
+    <div class="colle">
+      <div class="cadre"><img src="assets/img/moi/cloe-atlas.webp" alt="Cloé et Atlas, son berger australien, devant les sommets des Dolomites"></div>
+      <h1><span id="hg">Hey,</span><span id="hd">c'est Cloé.</span></h1>
+      <div class="bas">
+        <div><p class="qui2">Com, contenu &amp; communauté · Toulouse</p><p class="acc">Je fais grandir les marques et leurs communautés : sur les réseaux, en print et sur le terrain.</p></div>
+        <div class="btns"><a class="b plein" href="#projets">Voir mes projets</a><a class="b ligne" href="#contact">Me contacter</a></div>
+      </div>
+      <p class="indice" aria-hidden="true">Descends ↓</p>
     </div>
   </div>
 
@@ -116,6 +122,8 @@
 </main>
 
 <footer id="contact">
+  <div class="fondtexte" aria-hidden="true">Com · Contenu · Communauté · Com · Contenu · Communauté ·&nbsp;</div>
+  <svg class="tampon" viewBox="0 0 150 150" aria-hidden="true"><defs><path id="cercle" d="M75,75 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0"/></defs><text><textPath href="#cercle" textLength="360" lengthAdjust="spacing">DISPO POUR UN CDI · TOULOUSE · PYRÉNÉES ·</textPath></text></svg>
   <h2>On en parle ?</h2>
   <div class="btns"><a class="b plein" href="mailto:cloe.perot@icloud.com">cloe.perot@icloud.com</a><a class="b ligne" href="#" title="Bientôt disponible">Télécharger mon CV</a></div>
   <small>Cloé Pérot · Toulouse</small>
@@ -126,6 +134,24 @@ const menu = document.getElementById('menu');
 addEventListener('scroll', () => menu.classList.toggle('fond', scrollY > 40), { passive: true });
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vu'); io.unobserve(e.target); } }), { threshold: 0.12 });
 document.querySelectorAll('.apparait').forEach(el => io.observe(el));
+{
+  const hero = document.getElementById('haut'), cadre = hero.querySelector('.cadre'), colle = hero.querySelector('.colle');
+  const hg = document.getElementById('hg'), hd = document.getElementById('hd');
+  const zoom = () => {
+    const r = hero.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));
+    cadre.style.setProperty('--p', p.toFixed(3));
+    const e = Math.min(1, p * 1.6), mob = innerWidth < 700;
+    hg.style.transform = mob ? `translateY(${-e * 30}svh)` : `translateX(${-e * 22}vw)`;
+    hd.style.transform = mob ? `translateY(${e * 30}svh)` : `translateX(${e * 22}vw)`;
+    const t = (1 - Math.max(0, p - 0.5) * 2.4);
+    hg.style.opacity = hd.style.opacity = Math.max(0, t).toFixed(2);
+    colle.style.setProperty('--q', Math.max(0, 1 - p * 4).toFixed(2));
+    const o = Math.max(0, (p - 0.68) / 0.32);
+    colle.style.setProperty('--o', o.toFixed(2)); colle.style.setProperty('--pe', o > 0.5 ? 'auto' : 'none');
+  };
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { addEventListener('scroll', zoom, { passive: true }); addEventListener('resize', zoom); zoom(); }
+}
 const defile = document.getElementById('defile');
 const puces = [...defile.querySelectorAll('span')];
 defile.addEventListener('mousemove', e => {
@@ -135,5 +161,6 @@ defile.addEventListener('mousemove', e => {
 });
 defile.addEventListener('mouseleave', () => { puces.forEach(p => p.style.setProperty('--p', 0)); defile.style.setProperty('--x', '-999px'); });
 </script>
+<script src="assets/pied.js"></script>
 </body>
 </html>
