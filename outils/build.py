@@ -299,7 +299,7 @@ labo_css = """.vide { border: 1px dashed rgba(255,255,255,0.3); border-radius: 2
 .filtres button[aria-pressed="true"] { background: var(--texte); color: var(--nuit); border-color: var(--texte); }"""
 labo = head("Labo", "Projets d'école et projets personnels de Cloé Pérot.", labo_css)
 labo += """  <div class="ouv" style="min-height:62svh">
-    <img src="assets/img/mont-soir.webp" alt="" style="object-position:center 30%">
+    <img src="assets/img/moi/lac-nuages.webp" alt="" style="object-position:center 45%">
     <a class="retour" href="index.html">← Accueil</a>
     <h1>Labo</h1>
     <p class="role">Mes projets d'école et mes projets perso : là où je teste, je dessine et je m'amuse.</p>
@@ -329,7 +329,7 @@ open("labo.html", "w").write(labo)
 # ---------------------------------------------------------------- À propos
 ap_css = """.bio { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(30px, 6vw, 90px); align-items: center; }
 .bio p { font-size: clamp(20px, 2vw, 26px); line-height: 1.45; color: #dad8d3; margin: 0 0 22px; }
-.bio img { border-radius: 22px; aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+.bio img { border-radius: 22px; aspect-ratio: 1; object-fit: cover; width: 100%; }
 @media (max-width: 900px) { .bio { grid-template-columns: 1fr; } }
 .parcours { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 70px); }
 .parcours h3 { font-size: 15px; letter-spacing: 0; color: var(--lilas); font-weight: 700; margin-bottom: 8px; }
@@ -344,11 +344,15 @@ ap_css = """.bio { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(3
 .terrains h3 { font-size: 24px; letter-spacing: -0.03em; margin-bottom: 10px; }
 .terrains p { margin: 0; color: var(--doux); }
 @media (max-width: 900px) { .terrains { grid-template-columns: 1fr 1fr; } } @media (max-width: 560px) { .terrains { grid-template-columns: 1fr; } }
+.univers { display: grid; grid-template-columns: 1fr 1.6fr 1fr; grid-template-rows: 260px 260px; gap: 14px; }
+.univers a:nth-child(1) { grid-row: span 2; } .univers a:nth-child(3) { grid-row: span 2; grid-column: 3; } .univers a:nth-child(2) { grid-column: 2; } .univers a:nth-child(4) { grid-column: 2; }
+.univers a { height: 100%; } .univers img { height: 100%; object-fit: cover; }
+@media (max-width: 700px) { .univers { grid-template-columns: 1fr 1fr; grid-template-rows: 240px 160px 160px; } .univers a:nth-child(n) { grid-row: auto; grid-column: auto; } .univers a:nth-child(1), .univers a:nth-child(3) { grid-row: 1; } .univers a:nth-child(2), .univers a:nth-child(4) { grid-column: span 2; } }
 .outils { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
 .outils li { border: 1px solid var(--ligne); border-radius: 999px; padding: 11px 20px; font-size: 17px; }"""
 ap = head("À propos", "Le parcours, les compétences et les outils de Cloé Pérot, chargée de communication à Toulouse.", ap_css)
 ap += """  <div class="ouv" style="min-height:62svh">
-    <img src="assets/img/mont-jour.webp" alt="" style="object-position:center 55%">
+    <img src="assets/img/moi/lac-braies.webp" alt="" style="object-position:center 60%">
     <a class="retour" href="index.html">← Accueil</a>
     <h1>À propos</h1>
   </div>
@@ -357,9 +361,20 @@ ap += """  <div class="ouv" style="min-height:62svh">
     <div>
       <p>Moi, c'est Cloé. Je suis chargée de communication à Toulouse, et je cherche un CDI ici ou dans les Pyrénées.</p>
       <p>Montagne, van et running : j'aime les marques qui ont une vraie communauté, et les faire grandir. Que ce soit sur les réseaux, en print ou sur le terrain.</p>
+      <p>Et quand je ne suis pas derrière mon écran, je suis sûrement en rando avec Atlas, mon berger australien.</p>
       <div class="btns"><a class="b plein" href="mailto:cloe.perot@icloud.com">Me contacter</a><a class="b ligne" href="#" title="Bientôt disponible">Mon CV</a></div>
     </div>
-    <img src="assets/img/tsr/ph_bridge.webp" alt="Coureurs du Toulouse Social Run sur le pont Saint-Pierre" style="object-position:50% 75%">
+    <img src="assets/img/moi/cloe-atlas.webp" alt="Cloé et Atlas, son berger australien, en randonnée dans les Dolomites" style="object-position:62% 40%">
+  </section>
+
+  <section>
+    <h2>Mon univers</h2>
+    <div class="univers">
+      <a class="zoom" href="assets/img/moi/atlas-sommets.webp"><img src="assets/img/moi/atlas-sommets.webp" alt="Atlas assis devant les sommets des Dolomites" loading="lazy"></a>
+      <a class="zoom" href="assets/img/moi/lac-foret.webp"><img src="assets/img/moi/lac-foret.webp" alt="Lac turquoise entouré de forêt dans les Dolomites" loading="lazy"></a>
+      <a class="zoom" href="assets/img/moi/atlas-lac.webp"><img src="assets/img/moi/atlas-lac.webp" alt="Atlas qui fait le beau au bord d'un lac de montagne" loading="lazy"></a>
+      <a class="zoom" href="assets/img/moi/lac-nuages.webp"><img src="assets/img/moi/lac-nuages.webp" alt="Lac de montagne sous les nuages" loading="lazy"></a>
+    </div>
   </section>
 
   <section>
