@@ -4,14 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Labo · Cloé Pérot</title>
-<meta name="description" content="Projets d&#x27;école et projets personnels de Cloé Pérot.">
+<meta name="description" content="Projets personnels de Cloé Pérot : logos et identités pour des proches.">
 <link rel="stylesheet" href="assets/base.css">
 <link rel="stylesheet" href="assets/projet.css">
-<style>.vide { border: 1px dashed rgba(255,255,255,0.3); border-radius: 22px; padding: clamp(40px, 7vw, 90px) clamp(24px, 4vw, 50px); text-align: center; }
-.vide p { color: var(--doux); max-width: 46ch; margin: 14px auto 28px; }
-.filtres { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
-.filtres button { font: 500 15px "Bricolage", sans-serif; color: var(--doux); background: none; border: 1px solid var(--ligne); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
-.filtres button[aria-pressed="true"] { background: var(--texte); color: var(--nuit); border-color: var(--texte); }</style>
+<style>.logos-grille { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.logos-grille figure { margin: 0; }
+.logos-grille .zoom { position: relative; background: #fff; border-radius: 22px; aspect-ratio: 4 / 3; }
+.logos-grille .zoom img { position: absolute; inset: 14%; width: 72%; height: 72%; object-fit: contain; }
+.logos-grille .zoom:hover img { transform: scale(1.04); }
+.logos-grille figcaption { margin-top: 14px; }
+.logos-grille figcaption b { font-size: 22px; letter-spacing: -0.02em; }
+.logos-grille figcaption small { display: block; color: var(--lilas); font-size: 14px; margin: 2px 0 6px; }
+.chap { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+.chap h2 { font-size: clamp(36px, 4.4vw, 60px); }
+.chap p { color: var(--doux); margin: 0; max-width: 46ch; }
+.bientot { margin-top: 70px; border: 1px dashed rgba(255,255,255,0.3); border-radius: 22px; padding: 30px; color: var(--doux); text-align: center; }
+@media (max-width: 640px) { .logos-grille { grid-template-columns: 1fr; } }</style>
 </head>
 <body class="">
 
@@ -30,19 +38,21 @@
     <img src="assets/img/moi/lac-nuages.webp" alt="" style="object-position:center 45%">
     <a class="retour" href="index.html">← Accueil</a>
     <h1>Labo</h1>
-    <p class="role">Mes projets d'école et mes projets perso : là où je teste, je dessine et je m'amuse.</p>
+    <p class="role">Mes projets perso : là où je teste, je dessine et je m'amuse.</p>
   </div>
 
   <section>
-    <div class="filtres" role="group" aria-label="Filtrer par domaine">
-      <button type="button" aria-pressed="true">Tout</button><button type="button" aria-pressed="false">École</button><button type="button" aria-pressed="false">Perso</button>
-      <button type="button" aria-pressed="false">Identité visuelle</button><button type="button" aria-pressed="false">Photo &amp; vidéo</button><button type="button" aria-pressed="false">Print</button>
+    <div class="chap">
+      <h2>Des logos pour des proches</h2>
+      <p>Des identités créées pour les petites entreprises de mon entourage. À chaque fois, je pars du métier pour trouver le symbole.</p>
     </div>
-    <div class="vide">
-      <h2 style="font-size:clamp(32px,4vw,52px)">Le Labo se remplit</h2>
-      <p>Mes projets d'école et mes projets perso arrivent ici très bientôt. En attendant, mes projets pro sont à voir.</p>
-      <a class="b plein" href="index.html#projets">Voir les projets pro</a>
+    <div class="logos-grille">
+      <figure><a class="zoom " href="assets/img/labo/logo-nicolas-dupre.webp"><img src="assets/img/labo/logo-nicolas-dupre.webp" alt="Logo Nicolas Dupré" loading="lazy"></a><figcaption><b>Nicolas Dupré</b><small>Logo pour un ingénieur en mécanique</small>Le E de engineer, serré dans un écrou : un clin d'œil à son métier, avec son nom en couronne autour.</figcaption></figure>
+      <figure><a class="zoom " href="assets/img/labo/logo-digiconcept.webp"><img src="assets/img/labo/logo-digiconcept.webp" alt="Logo Digiconcept" loading="lazy"></a><figcaption><b>Digiconcept</b><small>Logo pour une société de services numériques</small>La balise de code au cœur d'un motif pixelisé, dans le bleu choisi par la société.</figcaption></figure>
+      <figure><a class="zoom " href="assets/img/labo/logo-bat-inn.webp"><img src="assets/img/labo/logo-bat-inn.webp" alt="Logo Bat Inn" loading="lazy"></a><figcaption><b>Bat Inn</b><small>Logo pour un installateur VELUX</small>Le nom tient dans une maison : le « t » sert de cheminée, et le toit rouge rappelle son métier.</figcaption></figure>
+      <figure><a class="zoom " href="assets/img/labo/logo-sd-infirmiere.webp"><img src="assets/img/labo/logo-sd-infirmiere.webp" alt="Logo Cabinet S·D" loading="lazy"></a><figcaption><b>Cabinet S·D</b><small>Logo pour une infirmière libérale</small>Le bâton d'Esculape, symbole du soin, s'enroule autour de ses initiales.</figcaption></figure>
     </div>
+    <p class="bientot">D'autres expériences arrivent bientôt ici.</p>
   </section>
 </main>
 
@@ -61,11 +71,6 @@
 </dialog>
 
 <script src="assets/projet.js"></script>
-<script>
-document.querySelectorAll('.filtres button').forEach(b => b.addEventListener('click', () => {
-  document.querySelectorAll('.filtres button').forEach(x => x.setAttribute('aria-pressed', x === b));
-}));
-</script>
 <script src="assets/pied.js"></script>
 </body>
 </html>
