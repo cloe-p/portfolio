@@ -123,10 +123,11 @@
   </section>
 
   <section id="labo" class="apparait">
-    <div class="tete-labo"><h2>Labo</h2><p>Mes projets d'école et mes projets perso : une identité revisitée, un site web, un podcast, des logos pour mes proches.</p></div>
+    <div class="tete-labo"><h2>Labo</h2><p>Mes projets d'école et mes projets perso : une identité revisitée, un site web, une stratégie marketing, un podcast, des logos pour mes proches.</p></div>
     <ul class="tiroir">
         <li><a href="labo.html#ikea" data-img="assets/img/labo/ikea/logo.webp"><img src="assets/img/labo/ikea/logo.webp" alt="" loading="lazy"><b>IKEA, version psychédélique</b><span>Identité visuelle · école</span></a></li>
         <li><a href="labo.html#pawtes" data-photo="1" data-img="assets/img/labo/pawtes/accueil.webp"><img src="assets/img/labo/pawtes/accueil.webp" alt="" loading="lazy"><b>Entre Pawtes</b><span>Site web · école</span></a></li>
+        <li><a href="labo.html#bfc"><b>Book, Food &amp; Créa</b><span>Stratégie marketing · école</span></a></li>
         <li><a href="labo.html#podcast" data-photo="1" data-img="assets/img/labo/podcast-cover.webp"><img src="assets/img/labo/podcast-cover.webp" alt="" loading="lazy"><b>Les clés du voisin</b><span>Podcast Airbnb · école</span></a></li>
         <li><a href="labo.html#logos" data-img="assets/img/labo/logo-nicolas-dupre.webp"><img src="assets/img/labo/logo-nicolas-dupre.webp" alt="" loading="lazy"><b>Nicolas Dupré</b><span>Logo · ingénieur</span></a></li>
         <li><a href="labo.html#logos" data-img="assets/img/labo/logo-digiconcept.webp"><img src="assets/img/labo/logo-digiconcept.webp" alt="" loading="lazy"><b>Digiconcept</b><span>Logo · services numériques</span></a></li>
@@ -194,7 +195,7 @@ defile.addEventListener('mouseleave', () => { puces.forEach(p => p.style.setProp
 {
   const ap = document.querySelector('.apercu'), im = ap.querySelector('img');
   document.querySelectorAll('.tiroir a').forEach(a => {
-    a.addEventListener('pointerenter', e => { if (e.pointerType !== 'mouse') return; im.src = a.dataset.img; ap.classList.toggle('photo', !!a.dataset.photo); ap.classList.add('on'); });
+    a.addEventListener('pointerenter', e => { if (e.pointerType !== 'mouse') return; if (!a.dataset.img) return; im.src = a.dataset.img; ap.classList.toggle('photo', !!a.dataset.photo); ap.classList.add('on'); });
     a.addEventListener('pointerleave', () => ap.classList.remove('on'));
     a.addEventListener('pointermove', e => { ap.style.transform = `translate(${e.clientX + 24}px, ${e.clientY - 80}px)`; });
   });

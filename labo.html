@@ -42,6 +42,22 @@
 .lecteur .barre { flex: 1; height: 6px; border-radius: 6px; background: rgba(255,255,255,0.14); cursor: pointer; position: relative; }
 .lecteur .barre i { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: 6px; background: var(--lilas); }
 .lecteur time { color: var(--doux); font-size: 14px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.accroche-bfc { line-height: 1.15; margin: 0 0 40px; font-size: clamp(24px, 2.6vw, 36px); font-weight: 700; letter-spacing: -0.03em; color: var(--lilas); max-width: 30ch; }
+.etapes-bfc { list-style: none; margin: 0 0 40px; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; counter-reset: e; }
+.etapes-bfc li { counter-increment: e; border-top: 2px solid var(--lilas); padding-top: 14px; }
+.etapes-bfc li::before { content: counter(e); display: block; color: var(--lilas); font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+.etapes-bfc b { display: block; font-size: 19px; margin-bottom: 6px; }
+.etapes-bfc span { color: var(--doux); font-size: 14px; line-height: 1.45; display: block; }
+.chiffres-bfc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--ligne); border: 1px solid var(--ligne); border-radius: 22px; overflow: hidden; margin-bottom: 40px; }
+.chiffres-bfc div { background: var(--nuit); padding: 24px; }
+.chiffres-bfc strong { display: block; font-size: clamp(36px, 3.6vw, 52px); font-weight: 800; letter-spacing: -0.05em; line-height: 1; }
+.chiffres-bfc span { display: block; color: var(--doux); font-size: 14px; margin-top: 10px; }
+.canaux-bfc h3 { font-size: clamp(24px, 2.4vw, 32px); margin-bottom: 14px; }
+.canaux-bfc ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ligne); }
+.canaux-bfc li { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--ligne); color: var(--doux); }
+.canaux-bfc li b { color: var(--texte); }
+@media (max-width: 900px) { .etapes-bfc { grid-template-columns: 1fr 1fr; } .chiffres-bfc { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .etapes-bfc, .chiffres-bfc { grid-template-columns: 1fr; } .canaux-bfc li { grid-template-columns: 1fr; gap: 2px; } }
 @media (max-width: 760px) { .podcast { grid-template-columns: 1fr; } .podcast > img { max-width: 320px; } .ikea-avant { grid-template-columns: 1fr; } .ikea-avant .fl { display: none; } .g-pages { grid-template-columns: 1fr; } }</style>
 </head>
 <body class="">
@@ -100,6 +116,38 @@
       </div>
       <figure style="margin:0"><a class="zoom " href="assets/img/labo/pawtes/accueil.webp"><img src="assets/img/labo/pawtes/accueil.webp" alt="Accueil du site Entre Pawtes : Crèche de toutous à Toulouse" loading="lazy"></a></figure>
       <div class="g-pages"><a class="zoom " href="assets/img/labo/pawtes/creche.webp"><img src="assets/img/labo/pawtes/creche.webp" alt="Section Comment ça marche, avec un chien détouré" loading="lazy"></a><a class="zoom " href="assets/img/labo/pawtes/services.webp"><img src="assets/img/labo/pawtes/services.webp" alt="Les services de la crèche autour d&#x27;un chien qui fait le beau" loading="lazy"></a><a class="zoom " href="assets/img/labo/pawtes/pourquoi.webp"><img src="assets/img/labo/pawtes/pourquoi.webp" alt="Section Pourquoi nous choisir, sur fond de photo" loading="lazy"></a><a class="zoom " href="assets/img/labo/pawtes/formules.webp"><img src="assets/img/labo/pawtes/formules.webp" alt="Des journées qui ont du chien : les formules" loading="lazy"></a><a class="zoom " href="assets/img/labo/pawtes/tarifs.webp"><img src="assets/img/labo/pawtes/tarifs.webp" alt="Les tarifs en cartes, la formule phare en bleu" loading="lazy"></a><a class="zoom " href="assets/img/labo/pawtes/newsletter.webp"><img src="assets/img/labo/pawtes/newsletter.webp" alt="Reste dans la meute : l&#x27;inscription à la newsletter" loading="lazy"></a></div>
+    </article>
+
+    <article class="projet-labo" data-cat="ecole" id="bfc">
+      <div class="etiquettes"><span>École</span><span>Stratégie marketing</span></div>
+      <div class="chap">
+        <h2>Book, Food &amp; Créa</h2>
+        <p>Lancer à Toulouse une expérience de 3 heures pour les femmes de 18 à 35 ans : un livre, un moment gourmand et un atelier créatif, pour créer du lien et rompre la solitude. Je l'ai mené de l'étude de marché au plan de communication.</p>
+      </div>
+      <blockquote class="accroche-bfc">« Le trio qui nourrit tes yeux, ton ventre et tes mains ! »</blockquote>
+      <ol class="etapes-bfc">
+        <li><b>Diagnostic</b><span>Analyse interne, délimitation du marché, environnement, forces régulatrices</span></li>
+        <li><b>Marché</b><span>Étude de l'offre et de la demande, entretiens avec la cible, recommandations</span></li>
+        <li><b>Stratégie</b><span>Objectifs SMART, gestion des risques, mix-marketing, positionnement « purple cow »</span></li>
+        <li><b>Communication</b><span>Plan omnicanal, calendrier éditorial, KPIs et budget</span></li>
+        <li><b>Fidélisation</b><span>Gamification, programme de fidélité, segmentation RFM</span></li>
+      </ol>
+      <div class="chiffres-bfc">
+        <div><strong>12</strong><span>événements la première année, remplis à 75 % minimum</span></div>
+        <div><strong>3&nbsp;000</strong><span>abonnées Instagram et TikTok visées en 12 mois</span></div>
+        <div><strong>5</strong><span>canaux qui renvoient tous vers un seul point : le site de réservation</span></div>
+        <div><strong>142&nbsp;€</strong><span>de budget de communication pour le mois de lancement</span></div>
+      </div>
+      <div class="canaux-bfc">
+        <h3>Le plan de communication</h3>
+        <ul>
+          <li><b>Instagram</b>Carrousel « Découvre l'expérience » pour créer le désir</li>
+          <li><b>TikTok</b>Vidéo POV « 60 secondes dans une session »</li>
+          <li><b>Affiches</b>Dans les cafés, campus et librairies, avec QR code</li>
+          <li><b>Influence locale</b>Une micro-influenceuse toulousaine teste l'expérience en story</li>
+          <li><b>Newsletter</b>24 h de préventes réservées aux abonnées</li>
+        </ul>
+      </div>
     </article>
 
     <article class="projet-labo" data-cat="ecole" id="podcast">
