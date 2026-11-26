@@ -2,7 +2,7 @@
 @font-face { font-family: "Bricolage"; src: url("fonts/bricolage-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "Bricolage"; src: url("fonts/bricolage-700.woff2") format("woff2"); font-weight: 700 900; font-display: swap; }
 
-:root { --nuit: #0d0e11; --carte: #17181c; --texte: #f2f1ee; --doux: #b8b6b1; --lilas: #b9a6ff; --ligne: rgba(255,255,255,0.14); --m: clamp(20px, 4.5vw, 64px); }
+:root { --nuit: #0d0e11; --carte: #17181c; --texte: #f2f1ee; --doux: #b8b6b1; --lilas: #b7cc9c; --ligne: rgba(255,255,255,0.14); --m: clamp(20px, 4.5vw, 64px); }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--nuit); color: var(--texte); font: 400 17px/1.55 "Bricolage", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
@@ -13,7 +13,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.05em; line-height: 0.92; margi
 
 /* menu */
 .menu { position: fixed; inset: 0 0 auto 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 20px var(--m); transition: background 0.3s, padding 0.3s; }
-.menu.fond { background: rgba(13,14,17,0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding-top: 14px; padding-bottom: 14px; }
+.menu.fond { background: color-mix(in srgb, var(--nuit) 80%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding-top: 14px; padding-bottom: 14px; }
 .menu .nom { font-weight: 800; font-size: 20px; letter-spacing: -0.03em; }
 .menu nav { display: flex; gap: 28px; align-items: center; font-size: 15px; }
 .menu nav a:not(.cv) { opacity: 0.85; } .menu nav a:not(.cv):hover { opacity: 1; }
@@ -38,3 +38,10 @@ footer h2 { font-size: clamp(56px, 10vw, 150px); margin-bottom: 36px; }
 footer small { display: block; margin-top: 70px; color: #7e7c78; }
 
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .apparait { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
+
+/* couleurs par projet, comme dans le PDF */
+body.vancore { --nuit: #112319; --carte: #1a3024; --lilas: #aec364; --texte: #fbfbf9; --doux: #c3ccc5; }
+body.tsr { --nuit: #000000; --carte: #161616; --lilas: #e8302c; --doux: #bdbdbd; }
+body.tsr .b.plein, body.tsr .cartes em { color: #fff; }
+body.cm { --nuit: #1c1f17; --carte: #262a20; --lilas: #d6bf9b; --doux: #c4c1b4; }
+body.cm #optimome { --lilas: #6cb6e6; }

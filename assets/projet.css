@@ -21,7 +21,7 @@
 @media (max-width: 900px) { .intro { grid-template-columns: 1fr; } }
 
 /* sous-menu */
-.sommaire { position: sticky; top: 62px; z-index: 9; margin-top: clamp(70px, 9vw, 110px); background: rgba(13,14,17,0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-block: 1px solid var(--ligne); }
+.sommaire { position: sticky; top: 62px; z-index: 9; margin-top: clamp(70px, 9vw, 110px); background: color-mix(in srgb, var(--nuit) 88%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-block: 1px solid var(--ligne); }
 .sommaire ul { display: flex; gap: 6px; list-style: none; margin: 0 auto; padding: 10px var(--m); max-width: 1440px; overflow-x: auto; scrollbar-width: none; }
 .sommaire ul::-webkit-scrollbar { display: none; }
 .sommaire a { display: block; white-space: nowrap; padding: 8px 15px; border-radius: 999px; font-size: 15px; color: var(--doux); transition: background 0.2s, color 0.2s; }
@@ -138,3 +138,4 @@ dialog.vue button { position: fixed; top: 18px; right: 22px; width: 46px; height
 .mosaique { grid-auto-flow: dense; }
 .mosaique .w2 { grid-column: span 2; }
 .frise img { max-width: 75%; }
+.ouv .ex { text-shadow: 0 1px 12px rgba(0,0,0,0.6); }

@@ -5,7 +5,7 @@ import html
 E = html.escape
 
 
-def head(titre, desc, extra_css=""):
+def head(titre, desc, extra_css="", classe=""):
     return f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,7 +17,7 @@ def head(titre, desc, extra_css=""):
 <link rel="stylesheet" href="assets/projet.css">
 {('<style>' + extra_css + '</style>') if extra_css else ''}
 </head>
-<body>
+<body class="{classe}">
 
 <header class="menu" id="menu">
   <a class="nom" href="index.html">Cloé Pérot</a>
@@ -138,7 +138,7 @@ def pastilles(xs):
 
 # ---------------------------------------------------------------- Toulouse Social Run
 T = "assets/img/tsr/"
-tsr = head("Toulouse Social Run", "Identité visuelle, réseaux sociaux et partenariats pour le Toulouse Social Run, running club associatif à Toulouse.")
+tsr = head("Toulouse Social Run", "Identité visuelle, réseaux sociaux et partenariats pour le Toulouse Social Run, running club associatif à Toulouse.", classe="tsr")
 tsr += ouverture(T + "ph_group2.webp", "Toulouse Social Run", "le running club qui court ensemble",
                  "Chargée de communication &amp; graphiste, bénévole, de 2024 à 2026.", "center 42%")
 tsr += intro("Au départ, c'était un projet d'école… devenu une vraie association&nbsp;! Un club de course gratuit et ouvert à tous, où chaque run finit par un moment ensemble. Moi, j'y gère la com et l'identité visuelle.",
@@ -250,7 +250,7 @@ cm_css = """.ouv.mags { min-height: auto; padding-top: 140px; display: grid; gri
 .ouv.mags .couv img { position: static; width: 46%; height: auto; filter: drop-shadow(0 18px 30px rgba(0,0,0,0.5)); }
 .ouv.mags .couv img:first-child { transform: rotate(-4deg); } .ouv.mags .couv img:last-child { transform: rotate(3deg) translateY(-20px); }
 @media (max-width: 900px) { .ouv.mags { grid-template-columns: 1fr; } }"""
-cm = head("Community manager", "Première alternance de Cloé Pérot : community manager pour De Fil en Déco, O'ptimôme et CFM Radio à Toulouse.", cm_css)
+cm = head("Community manager", "Première alternance de Cloé Pérot : community manager pour De Fil en Déco, O'ptimôme et CFM Radio à Toulouse.", cm_css, classe="cm")
 cm += f"""  <div class="ouv mags">
     <div>
       <a class="retour" href="index.html#projets">← Tous les projets</a>
