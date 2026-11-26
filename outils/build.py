@@ -451,7 +451,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
     <article class="projet-labo" data-cat="web" id="pawtes">
       <div class="etiquettes"><span>École</span><span>Site web</span></div>
       <div class="chap"><h2>Entre Pawtes</h2><div><p class="brief"><b>Le brief :</b> créer et animer le site d'une crèche pour chiens à Toulouse, du design aux textes.</p><ul class="competences"><li>Webdesign</li><li>Rédaction web</li><li>Animation</li><li>WordPress</li></ul></div></div>
-      <div class="g-libre">{z("assets/img/labo/pawtes/accueil.webp", "Accueil du site Entre Pawtes")}{z("assets/img/labo/pawtes/tarifs.webp", "Les formules et tarifs")}{z("assets/img/labo/pawtes/newsletter.webp", "Inscription à la newsletter")}</div>
+      <div class="g-libre">{z("assets/img/labo/pawtes/accueil.webp", "Accueil du site Entre Pawtes : Crèche de toutous à Toulouse")}{z("assets/img/labo/pawtes/apropos.webp", "Section À propos avec une mosaïque de chiens")}{z("assets/img/labo/pawtes/faq.webp", "Questions de pawtes : la FAQ en accordéon")}</div>
     </article>
 
     <article class="projet-labo" data-cat="strategie" id="bfc">
