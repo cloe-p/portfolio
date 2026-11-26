@@ -499,10 +499,10 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
           <p>Un coffret de 4 thés en édition limitée, « Théâtre des Sens », co-signé par l'acteur, avec une carte et une playlist en QR code. Plus l'événement de lancement et la pub TV.</p>
         </div>
         <div>
-          <div class="citation-rb">« Red Bull, fournisseur officiel d'ailes depuis 1984. »</div>
+          {z("assets/img/labo/autres/redbull-kiosque-limitless.webp", "Affiche LIMITLESS Red Bull en situation sur un kiosque")}
           <div class="etiquettes"><span>Storytelling</span></div>
           <h3>Red Bull, #NouvellesAiles</h3>
-          <p>Une campagne qui raconte le parcours de Charles Leclerc, du karting à Monaco jusqu'à Red Bull Racing : un court-métrage, une campagne digitale et un événement immersif.</p>
+          <p>Une campagne « LIMITLESS » qui raconte le parcours d'un pilote, du karting à Monaco jusqu'à Red Bull Racing : affiches, court-métrage, campagne digitale et événement immersif.</p>
         </div>
       </div>
     </article>
