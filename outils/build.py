@@ -391,6 +391,19 @@ labo_css += """
 .vitrine { background: var(--v); border-radius: 22px; padding: clamp(28px, 6vw, 80px); display: flex; justify-content: center; align-items: center; gap: clamp(20px, 5vw, 70px); margin-top: 26px; }
 .vitrine .zoom { background: transparent; max-width: 520px; }
 .vitrine .zoom img { max-height: 340px; width: auto; max-width: 100%; margin: auto; }
+.evo { display: grid; grid-template-columns: 1fr auto 1.6fr; gap: clamp(12px, 3vw, 32px); align-items: end; margin-top: 26px; }
+.evo figure { margin: 0; }
+.evo .vitrine { margin-top: 0; padding: clamp(22px, 4vw, 48px); }
+.evo .vitrine .zoom img { max-height: 200px; }
+.evo-avant .zoom img { aspect-ratio: 16 / 10.4; object-fit: cover; border-radius: 22px; }
+.evo figcaption, .rang figcaption, .carrousel figcaption { margin-top: 10px; color: var(--doux); font-size: 14px; }
+.evo .fl { font-size: 34px; color: var(--lilas); align-self: center; }
+.evo figcaption { font-weight: 600; }
+.rang { display: grid; grid-template-columns: var(--a); gap: 14px; margin-top: 14px; align-items: start; }
+.rang figure, .carrousel { margin: 0; }
+.carrousel { margin-top: 14px; }
+.piste-c { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+@media (max-width: 760px) { .evo { grid-template-columns: 1fr; } .evo .fl { transform: rotate(90deg); justify-self: center; } .rang { grid-template-columns: 1fr; } .piste-c { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; } .piste-c .zoom { flex: 0 0 72%; scroll-snap-align: start; } }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
 .ecrans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
@@ -421,7 +434,10 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
     <article class="projet-labo" data-cat="identite" id="ikea">
       <div class="etiquettes"><span>École</span><span>Identité visuelle</span></div>
       <div class="chap"><h2>IKEA, version psychédélique</h2><div><p class="brief"><b>Le brief :</b> retravailler l'identité visuelle d'une marque et sa communication selon un courant artistique. J'ai choisi le rétro-psychédélique des années 70, mêlé au bubble street art.</p><ul class="competences"><li>Identité visuelle</li><li>Logo</li><li>Direction artistique</li><li>Print</li><li>Social media</li></ul></div></div>
-      <div class="vitrine" style="--v:#ffd900">{z("assets/img/labo/ikea/logo-png.webp", "Le nouveau logo IKEA, lettres fluides bleues dans un contour noir")}{z("assets/img/labo/ikea/fleur-png.webp", "Le logotype fleur")}</div><div class="g-libre">{z("assets/img/labo/ikea/facade.webp", "Le nouveau logo sur la façade d'un magasin")}{z("assets/img/labo/ikea/affiche.webp", "Affiche GRÖNSKA")}{z("assets/img/labo/ikea/abribus.webp", "Story Instagram et affiche d'abribus")}{z("assets/img/labo/ikea/objets.webp", "Bougie, mug, enseigne et sachet")}</div>
+      <div class="evo"><figure class="evo-avant">{z("assets/img/labo/ikea/avant.webp", "Le logo IKEA d'origine, lettres bleues dans un ovale jaune")}<figcaption>Le logo d'origine</figcaption></figure><span class="fl" aria-hidden="true">→</span><figure class="evo-apres"><div class="vitrine" style="--v:#ffd900">{z("assets/img/labo/ikea/logo-png.webp", "Le nouveau logo IKEA, lettres fluides bleues dans un contour noir")}{z("assets/img/labo/ikea/fleur-png.webp", "Le logotype fleur")}</div><figcaption>Notre évolution</figcaption></figure></div>
+      <div class="rang" style="--a:1.304fr 0.563fr">{fig("assets/img/labo/ikea/abribus-chaise.webp", "Affiche d'abribus : Votre future obsession ? Fauteuil SOLSTÄLE", "Affichage abribus")}{fig("assets/img/labo/ikea/story-salon.webp", "Story Instagram : un salon rétro, produits entourés de jaune et de bleu", "Story Instagram")}</div>
+      <figure class="carrousel"><div class="piste-c">{z("assets/img/labo/ikea/carrousel-1.webp", "Slide CHATMÖ : un chat sur un coussin vert")}{z("assets/img/labo/ikea/carrousel-2.webp", "Slide DOGVIK : un bouledogue à côté d'un fauteuil orange")}{z("assets/img/labo/ikea/carrousel-3.webp", "Slide DOGVIK : un bouledogue français sur un fauteuil vert")}{z("assets/img/labo/ikea/carrousel-4.webp", "Slide CHATMÖ : un chat roux sur un fauteuil bleu nuit")}{z("assets/img/labo/ikea/carrousel-5.webp", "Slide DOGVIK : un berger dans un salon lumineux")}</div><figcaption><b>Carrousel Instagram</b></figcaption></figure>
+      <div class="rang" style="--a:0.706fr 1.778fr">{fig("assets/img/labo/ikea/pub-catalogue.webp", "Publicité catalogue : FLOCRA et ENIDTH dans une entrée vert sauge", "Publicité")}{fig("assets/img/labo/ikea/carton-notice.webp", "Carton IKEA et notice de montage, annotés de formes jaunes", "Carton et notice")}</div>
     </article>
 
     <article class="projet-labo" data-cat="identite" id="matp">
