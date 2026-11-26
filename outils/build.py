@@ -403,7 +403,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
           <div class="lecteur">
             <button type="button" id="lire" aria-label="Écouter le podcast">▶</button>
             <div class="barre" id="barre" role="progressbar" aria-label="Progression"><i></i></div>
-            <time id="temps">0:00 / 0:34</time>
+            <time id="temps">0:00 / 0:43</time>
           </div>
           <audio id="audio" src="assets/audio/les-cles-du-voisin.mp3" preload="metadata"></audio>
         </div>
@@ -435,7 +435,7 @@ labo = labo.replace('<script src="assets/pied.js"></script>', """<script src="as
   bt.addEventListener('click', () => au.paused ? au.play() : au.pause());
   au.addEventListener('play', () => { bt.textContent = '❚❚'; bt.setAttribute('aria-label', 'Mettre en pause'); });
   au.addEventListener('pause', () => { bt.textContent = '▶'; bt.setAttribute('aria-label', 'Écouter le podcast'); });
-  au.addEventListener('timeupdate', () => { const d = au.duration || 34; barre.firstElementChild.style.width = (au.currentTime / d * 100) + '%'; t.textContent = mmss(au.currentTime) + ' / ' + mmss(d); });
+  au.addEventListener('timeupdate', () => { const d = au.duration || 43; barre.firstElementChild.style.width = (au.currentTime / d * 100) + '%'; t.textContent = mmss(au.currentTime) + ' / ' + mmss(d); });
   barre.addEventListener('click', e => { const r = barre.getBoundingClientRect(); if (au.duration) au.currentTime = (e.clientX - r.left) / r.width * au.duration; });
 }
 </script>""")
