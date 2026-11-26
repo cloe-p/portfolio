@@ -1,5 +1,8 @@
 const menu = document.getElementById('menu');
-addEventListener('scroll', () => menu.classList.toggle('fond', scrollY > 40), { passive: true });
+const ouv = document.querySelector('.ouv');
+const seuil = () => ouv ? Math.max(40, ouv.offsetTop + ouv.offsetHeight - 90) : 40;
+const etatMenu = () => menu.classList.toggle('fond', scrollY > seuil());
+addEventListener('scroll', etatMenu, { passive: true }); etatMenu();
 
 // sous-menu : section en cours
 const liens = [...document.querySelectorAll('.sommaire a')];
