@@ -11,6 +11,7 @@
 .hero { position: relative; height: 240vh; }
 .hero .colle { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; place-items: center; }
 .hero .cadre { --p: 0; position: absolute; width: calc(28vw + var(--p) * 72vw); height: calc(36svh + var(--p) * 64svh); min-width: 230px; border-radius: calc(28px * (1 - var(--p))); overflow: hidden; }
+.hero .cadre::after { content: ""; position: absolute; inset: auto 0 0 0; height: 45%; background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--nuit) 55%, transparent) 55%, var(--nuit)); opacity: var(--p); pointer-events: none; }
 .hero .cadre img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%; scale: calc(1.25 - var(--p) * 0.25); filter: brightness(calc(1 - var(--p) * 0.45)); }
 .hero h1 { position: relative; z-index: 3; font-size: clamp(56px, 11vw, 180px); display: flex; gap: 0.25em; white-space: nowrap; }
 .hero h1 span { display: inline-block; will-change: transform; }
