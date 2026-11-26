@@ -11,7 +11,7 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   liens.forEach(a => {
     const on = a.getAttribute('href') === '#' + e.target.id;
     a.classList.toggle('actif', on);
-    if (on) a.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    if (on) { const ul = a.closest('ul'); if (ul) ul.scrollTo({ left: a.offsetLeft - ul.clientWidth / 2 + a.offsetWidth / 2, behavior: 'smooth' }); }
   });
 }), { rootMargin: '-45% 0px -50% 0px' });
 document.querySelectorAll('.bloc').forEach(s => io.observe(s));
@@ -70,3 +70,20 @@ document.querySelectorAll('.reels').forEach(zone => {
     }
   });
 });
+
+// sous-menu : on arrive bien sur la section, même si des images se chargent pendant le défilement
+document.querySelectorAll('.sommaire a[href^="#"]').forEach(a => a.addEventListener('click', ev => {
+  const cible = document.querySelector(a.getAttribute('href'));
+  if (!cible) return;
+  ev.preventDefault();
+  history.replaceState(null, '', a.getAttribute('href'));
+  const marge = parseFloat(getComputedStyle(cible).scrollMarginTop) || 0;
+  const calme = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let essais = 0;
+  const va = (doux) => scrollTo({ top: cible.getBoundingClientRect().top + scrollY - marge, behavior: doux && !calme ? 'smooth' : 'auto' });
+  const verifie = () => {
+    const ecart = Math.abs(cible.getBoundingClientRect().top - marge);
+    if (ecart > 4 && essais++ < 6) { va(essais < 2); setTimeout(verifie, 450); }
+  };
+  va(true); setTimeout(verifie, 700);
+}));

@@ -8,6 +8,15 @@
 <link rel="stylesheet" href="assets/base.css">
 <link rel="stylesheet" href="assets/projet.css">
 <style>
+.lance { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+.lance img { width: 100%; }
+.ticket { max-width: 620px; margin: 6px auto 0; }
+.ticket a.zoom { background: none; overflow: visible; }
+.ticket img { filter: drop-shadow(0 0 1px rgba(174,195,100,0.7)) drop-shadow(0 16px 30px rgba(0,0,0,0.55)); border-radius: 0; }
+.notices { margin-top: 8px; }
+.notices .pages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 560px; }
+.notices .pages img { width: 100%; border-radius: 8px; box-shadow: 0 10px 24px rgba(0,0,0,0.35); }
+.logi { max-width: 620px; align-items: start; }
 .g7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
 .g7 img { aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; }
 .meilleur { display: grid; gap: 22px; margin-top: 8px; }
@@ -111,11 +120,11 @@
     </div>
     <div class="media">
       <figure><a class="zoom ratio-169" href="assets/img/vancore/site_vancore.webp"><img src="assets/img/vancore/site_vancore.webp" alt="Page d'accueil du site vancore.fr" loading="lazy"></a><figcaption><b>Le site</b>le nouveau vancore.fr, testé avant la mise en ligne</figcaption></figure>
-      <div class="g g3">
-        <figure><a class="zoom nl" href="assets/img/vancore/nl_rebranding_haut.webp"><img src="assets/img/vancore/nl_rebranding_haut.webp" alt="Newsletter : Mon Fourgon Shop devient Vancore" loading="lazy"></a><figcaption><b>La newsletter</b>l'annonce du nouveau nom aux clients</figcaption></figure>
-        <figure><a class="zoom" href="assets/img/vancore/ev_ticket_recto.webp"><img src="assets/img/vancore/ev_ticket_recto.webp" alt="Vancore Ticket, le jeu du lancement" loading="lazy"></a><figcaption><b>Le jeu Vancore Tickets</b>des tickets gagnants glissés dans les colis</figcaption></figure>
+      <div class="lance">
+        <figure><a class="zoom" href="assets/img/vancore/nl_rebranding_haut.webp"><img src="assets/img/vancore/nl_rebranding_haut.webp" alt="Newsletter : Mon Fourgon Shop devient Vancore" loading="lazy"></a><figcaption><b>La newsletter</b>l'annonce du nouveau nom aux clients</figcaption></figure>
         <figure><a class="zoom" href="assets/img/vancore/pr_influ_recto.webp"><img src="assets/img/vancore/pr_influ_recto.webp" alt="Flyer Mon Fourgon Shop devient Vancore" loading="lazy"></a><figcaption><b>Le flyer</b>« Mon Fourgon Shop devient Vancore »</figcaption></figure>
       </div>
+      <figure class="ticket"><a class="zoom" href="assets/img/vancore/ev_ticket.webp"><img src="assets/img/vancore/ev_ticket.webp" alt="Vancore Ticket, le jeu du lancement : 50 € de bon d'achat et une demi-journée chez Vancore" loading="lazy"></a><figcaption><b>Le jeu Vancore Tickets</b>des tickets gagnants glissés dans les colis, du 12 au 16 novembre</figcaption></figure>
     </div>
   </section>
 
@@ -235,12 +244,17 @@
     <div class="txt">
       <h2>Rédaction web</h2>
       <p>Sur le blog, on explique la technique simplement. Et une fois, c'est moi qu'on a interviewée : mon roadtrip en van avec Atlas, mon berger australien&nbsp;!</p>
-      <ul><li>Mise en page d'articles et choix des images</li><li>Schémas pédagogiques</li><li>SEO des images (balises alt)</li></ul>
+      <ul><li>Mise en page d'articles et choix des images</li><li>Schémas pédagogiques</li><li>Notices de montage des kits eau</li><li>SEO des images (balises alt)</li></ul>
       <p style="margin-top:22px"><a class="b ligne" href="https://vancore.fr/blog/astuces/voyager-van-avec-chien" target="_blank" rel="noopener">Lire l'article ↗</a></p>
     </div>
     <div class="g redac">
       <figure><a class="zoom" href="assets/img/vancore/page_entete.webp"><img src="assets/img/vancore/page_entete.webp" alt="Article de blog : voyager en van avec son chien, sur les routes avec Cloé et Atlas" loading="lazy"></a><figcaption><b>L'interview, 5 novembre 2025</b>mise en page, images et interview</figcaption></figure>
       <figure><a class="zoom" href="assets/img/vancore/blog_schema.webp"><img src="assets/img/vancore/blog_schema.webp" alt="Schéma du fonctionnement du coupleur-séparateur" loading="lazy"></a><figcaption><b>Schéma pour un article technique</b>le fonctionnement du coupleur-séparateur</figcaption></figure>
+      <figure class="notices"><div class="pages">
+          <a class="zoom" href="assets/img/vancore/kit_eau_1.webp" data-suite="assets/img/vancore/kit_eau_2.webp::Guide d'installation du kit eau complet 45L, couverture|assets/img/vancore/kit_eau_3.webp::Ce que contient le kit|assets/img/vancore/kit_eau_4.webp::Les étapes et un conseil Vancore|assets/img/vancore/kit_eau_5.webp::La suite du montage"><img src="assets/img/vancore/kit_eau_1.webp" alt="Guide d'installation du kit eau compact 12L, couverture avec le schéma" loading="lazy"></a>
+          <img src="assets/img/vancore/kit_eau_3.webp" alt="" loading="lazy" aria-hidden="true">
+          <img src="assets/img/vancore/kit_eau_4.webp" alt="" loading="lazy" aria-hidden="true">
+        </div><figcaption><b>Les notices des bundles eau</b>schémas, liste du kit, étapes et conseils : la rédaction et la mise en page, pour 4 kits</figcaption></figure>
     </div>
   </section>
 
@@ -267,6 +281,10 @@
         <img src="assets/img/vancore/stk_logo_blanc_50x41mm.webp" alt="Sticker logo Vancore blanc" loading="lazy">
       </div>
       <p style="margin:-6px 0 0;color:var(--doux);font-size:14px">11 stickers, pour la logistique et pour la marque</p>
+      <div class="g g2 logi">
+        <figure><a class="zoom" href="assets/img/vancore/pr_etiquette.webp"><img src="assets/img/vancore/pr_etiquette.webp" alt="Étiquette produit : spray colle néoprène Vancore" loading="lazy"></a><figcaption>Étiquette produit</figcaption></figure>
+        <figure><a class="zoom" href="assets/img/vancore/pr_reserves.webp"><img src="assets/img/vancore/pr_reserves.webp" alt="Affiche Vérifiez votre commande : comment émettre des réserves à la livraison" loading="lazy"></a><figcaption>Fiche « Vérifiez votre commande », glissée dans les colis</figcaption></figure>
+      </div>
     </div>
   </section>
 

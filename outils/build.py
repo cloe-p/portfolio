@@ -142,8 +142,8 @@ def pastilles(xs):
 # ---------------------------------------------------------------- Toulouse Social Run
 T = "assets/img/tsr/"
 tsr = head("Toulouse Social Run", "Identité visuelle, réseaux sociaux et partenariats pour le Toulouse Social Run, running club associatif à Toulouse.", classe="tsr")
-tsr += ouverture(T + "ph_group2.webp", "Toulouse Social Run", "le running club qui court ensemble",
-                 "Chargée de communication &amp; graphiste, bénévole, de 2024 à 2026.", "center 42%")
+tsr += ouverture(T + "couverture-groupe.webp", "Toulouse Social Run", "le running club qui court ensemble",
+                 "Chargée de communication &amp; graphiste, bénévole, de 2024 à 2026.", "center 45%")
 tsr += intro("Au départ, c'était un projet d'école… devenu une vraie association&nbsp;! Un club de course gratuit et ouvert à tous, où chaque run finit par un moment ensemble. Moi, j'y gère la com et l'identité visuelle.",
              ["Identité visuelle", "Direction artistique", "Social media", "Partenariats", "Événementiel", "Merch", "Community management"],
              [("~50", "coureurs par run, et 110+ sur les gros événements"), ("×4,4", "abonnés Instagram en un an, 2&nbsp;825 en mai 2026"),
