@@ -22,17 +22,19 @@
 .bulles li { border: 1px solid var(--ligne); padding: 13px 24px; border-radius: 999px; font-size: clamp(16px, 1.5vw, 20px); transition: background 0.2s, color 0.2s, border-color 0.2s; }
 .bulles li:hover { background: var(--lilas); color: var(--nuit); border-color: var(--lilas); }
 
-.pro { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.carte { position: relative; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden; background: var(--carte); }
-.carte img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72); transition: transform 0.6s cubic-bezier(.2,.7,.2,1), filter 0.4s; }
-.carte:hover img { transform: scale(1.05); filter: brightness(0.85); }
-.carte .txt { position: absolute; left: 26px; right: 26px; bottom: 24px; }
-.carte h3 { font-size: clamp(28px, 2.6vw, 36px); }
-.carte p { margin: 8px 0 0; color: #d0cec9; font-size: 15px; }
-.carte .fleche { position: absolute; top: 22px; right: 22px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.14); backdrop-filter: blur(8px); display: grid; place-items: center; transition: background 0.3s, transform 0.3s; }
-.carte:hover .fleche { background: var(--lilas); color: var(--nuit); transform: rotate(-45deg); }
-.carte.cm img { object-fit: contain; padding: 40px 40px 120px; filter: none; }
-@media (max-width: 900px) { .pro { grid-template-columns: 1fr; } .carte { aspect-ratio: 4 / 3; } .carte.cm img { padding: 30px 30px 100px; } }
+.mos { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: 300px 300px; gap: 16px; }
+.mos a { position: relative; border-radius: 26px; overflow: hidden; background: var(--carte); }
+.mos a:first-child { grid-row: span 2; }
+.mos img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); transition: transform 0.6s cubic-bezier(.2,.7,.2,1), filter 0.4s; }
+.mos a:hover img { transform: scale(1.04); filter: brightness(0.82); }
+.mos a::after { content: ""; position: absolute; inset: 40% 0 0 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); pointer-events: none; }
+.mos .t { position: absolute; left: 30px; bottom: 26px; right: 30px; z-index: 2; }
+.mos h3 { font-size: clamp(30px, 3.6vw, 56px); }
+.mos p { margin: 8px 0 0; color: #e2e0db; font-size: 15px; }
+.mos i { font-style: normal; display: inline-block; padding: 6px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; margin-bottom: 12px; color: #000; }
+.mos .fleche { position: absolute; top: 22px; right: 22px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.14); backdrop-filter: blur(8px); display: grid; place-items: center; transition: background 0.3s, transform 0.3s; }
+.mos a:hover .fleche { background: var(--lilas); color: var(--nuit); transform: rotate(-45deg); }
+@media (max-width: 800px) { .mos { grid-template-columns: 1fr; grid-template-rows: 380px 260px 260px; } .mos a:first-child { grid-row: auto; } }
 
 .labo { display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; border: 1px solid var(--ligne); border-radius: 22px; padding: clamp(28px, 4vw, 48px); transition: border-color 0.3s; }
 .labo:hover { border-color: var(--lilas); }
@@ -79,10 +81,10 @@
 
   <section id="projets" class="apparait">
     <h2>Projets pro</h2>
-    <div class="pro">
-      <a class="carte" href="vancore.html"><img src="assets/img/vancore-making-of.webp" alt="Making-of du lancement de Vancore"><span class="fleche" aria-hidden="true">↗</span><div class="txt"><h3>Vancore</h3><p>Com &amp; marketing · 2024–2026</p></div></a>
-      <a class="carte" href="toulouse-social-run.html"><img src="assets/img/tsr-quais.webp" alt="Coureurs du Toulouse Social Run sur les quais" style="object-position:center 65%"><span class="fleche" aria-hidden="true">↗</span><div class="txt"><h3>Toulouse Social Run</h3><p>Identité visuelle · 2024–2026</p></div></a>
-      <a class="carte cm" href="community-manager.html"><img src="assets/img/dfed-couverture.webp" alt="Magazine De Fil en Déco"><span class="fleche" aria-hidden="true">↗</span><div class="txt"><h3>Community manager</h3><p>Première alternance · 2023–2024</p></div></a>
+    <div class="mos">
+      <a href="vancore.html"><img src="assets/img/vancore/cover_van.webp" alt="Van aménagé sur une falaise au bord de la mer" style="object-position:center 60%"><span class="fleche" aria-hidden="true">↗</span><div class="t"><i style="background:#aec364">2024–2026</i><h3>Vancore</h3><p>Social media, influence, emailing, print, LinkedIn</p></div></a>
+      <a href="toulouse-social-run.html"><img src="assets/img/tsr/ph_group2.webp" alt="Les coureurs du Toulouse Social Run devant le Café Cerise" style="object-position:center 40%"><span class="fleche" aria-hidden="true">↗</span><div class="t"><i style="background:#e8302c">2024–2026</i><h3>Toulouse Social Run</h3><p>Identité, nouvelle DA, partenariats, communauté</p></div></a>
+      <a href="community-manager.html"><img src="assets/img/cm/magazines.webp" alt="Couvertures des magazines De Fil en Déco et O'ptimôme" style="object-position:center"><span class="fleche" aria-hidden="true">↗</span><div class="t"><i style="background:#d6bf9b">2023–2024</i><h3>Community manager</h3><p>De Fil en Déco, O'ptimôme, CFM Radio</p></div></a>
     </div>
   </section>
 
