@@ -437,13 +437,15 @@ labo_css += """
 .duo .gam { max-width: 710px; }
 .duo .vitrine .zoom img { max-height: calc(var(--h) * 0.42); }
 .duo .duo-photos { max-width: calc(var(--h) * 3.556 * 0.75); }
+.g2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 760px; }
+.g2x2 .zoom img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
 .ecrans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
 .ecrans .zoom { background: #0f0f1a; }
 @media (max-width: 760px) { .ecrans { grid-template-columns: 1fr 1fr; } .duo-photos { grid-template-columns: 1fr; } .vitrine { flex-direction: column; } }
 @media (max-width: 760px) { .podcast { grid-template-columns: 1fr; } .podcast > img { max-width: 320px; } .ikea-avant { grid-template-columns: 1fr; } .ikea-avant .fl { display: none; } .g-pages { grid-template-columns: 1fr; } }"""
-labo = head("Labo", "Projets d'école et projets perso de Cloé Pérot : identités visuelles, stratégies, social ads, site web, podcast.", labo_css)
+labo = head("Labo", "Projets d'école et projets perso de Cloé Pérot : identités visuelles, stratégies, site web, podcast.", labo_css)
 cartes = "".join(f"""
       <figure>{z("assets/img/labo/" + f + ".webp", "Logo " + n)}<figcaption><b>{n}</b><small>{t}</small>{d}</figcaption></figure>""" for n, t, d, f in LABO)
 I = "assets/img/labo/ikea/"
@@ -459,7 +461,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
     <div class="filtres" role="group" aria-label="Filtrer les projets">
       <button type="button" aria-pressed="true" data-f="tout">Tout</button>
       <button type="button" aria-pressed="false" data-f="identite">Identité visuelle</button>
-      <button type="button" aria-pressed="false" data-f="strategie">Stratégie &amp; social ads</button>
+      <button type="button" aria-pressed="false" data-f="strategie">Stratégie</button>
       <button type="button" aria-pressed="false" data-f="web">Web &amp; podcast</button>
       <button type="button" aria-pressed="false" data-f="perso">Projets perso</button>
     </div>
@@ -495,18 +497,12 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       <div class="rang" style="--a:1.504fr 1.778fr;--s:3.282">{fig("assets/img/labo/kinetic/couverture.webp", "Le logo Kinetic en blanc sur une photo de deux sprinteurs", "Le logo")}{fig("assets/img/labo/kinetic/affiche.webp", "Affiche Beyond movement, towards harmony sur la façade d'un immeuble", "Affichage urbain")}</div><div class="rang" style="--a:1fr;max-width:none">{fig("assets/img/labo/kinetic/objets.webp", "Une montre, une casquette, deux tote bags, une gourde et une seconde montre aux couleurs de Kinetic", "Les goodies")}</div><div class="rang" style="--a:1.49fr 1.473fr;--s:2.963">{fig("assets/img/labo/kinetic/site.webp", "Le site web Kinetic sur un ordinateur et un téléphone", "Le site")}{fig("assets/img/labo/kinetic/app.webp", "Les écrans de l'application Kinetic", "L'appli")}</div>
     </article>
 
-    <article class="projet-labo duo" data-cat="strategie" id="pgw">
-      <div class="cote"><div class="etiquettes"><span>École</span><span>Social ads</span></div>
-      <div class="chap"><h2>Paris Games Week 2027</h2><div><p class="brief"><b>Le brief :</b> passer de 42 % à 60 % de billets vendus un mois avant le salon, avec une stratégie publicitaire sur TikTok, Meta et Twitch.</p><ul class="competences"><li>Social ads</li><li>Funnel</li><li>Hooks</li><li>Brief créatif</li><li>Création d'assets</li></ul></div></div></div>
-      <div class="medias">
-      <div class="g-libre">{z("assets/img/labo/pgw/stories.webp", "Story interactive et visuel « Le mode solo est mort »")}{z("assets/img/labo/pgw/miniatures.webp", "Miniature YouTube et overlay Twitch")}{z("assets/img/labo/pgw/lead-ads.webp", "Lead ads et formulaire de préinscription")}</div></div>
-    </article>
 
     <article class="projet-labo duo" data-cat="web" id="pawtes">
       <div class="cote"><div class="etiquettes"><span>École</span><span>Site web</span></div>
       <div class="chap"><h2>Entre Pawtes</h2><div><p class="brief"><b>Le brief :</b> créer et animer le site d'une crèche pour chiens à Toulouse, du design aux textes.</p><ul class="competences"><li>Webdesign</li><li>Rédaction web</li><li>Animation</li><li>WordPress</li></ul></div></div></div>
       <div class="medias">
-      <div class="g-libre">{z("assets/img/labo/pawtes/accueil.webp", "Accueil du site Entre Pawtes : Crèche de toutous à Toulouse")}{z("assets/img/labo/pawtes/apropos.webp", "Section À propos avec une mosaïque de chiens")}{z("assets/img/labo/pawtes/faq.webp", "Questions de pawtes : la FAQ en accordéon")}</div></div>
+      <div class="g2x2">{z("assets/img/labo/pawtes/accueil.webp", "Accueil du site Entre Pawtes : Crèche de toutous à Toulouse")}{z("assets/img/labo/pawtes/apropos.webp", "Section À propos avec une mosaïque de chiens")}{z("assets/img/labo/pawtes/avis.webp", "La parole aux truffes : les avis des clients")}{z("assets/img/labo/pawtes/faq.webp", "Questions de pawtes : la FAQ en accordéon")}</div></div>
     </article>
 
     <article class="projet-labo duo" data-cat="strategie" id="bfc">
