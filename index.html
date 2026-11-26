@@ -38,56 +38,48 @@
   .collage { height: 460px; max-width: 520px; }
 }
 
-/* --- Domaines --- */
-.domaines { padding: 0 0 100px; }
-.domaines h2, .xp-titre { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 5vw, 60px); line-height: 1; margin: 0 0 28px; }
-.nuage { display: flex; flex-wrap: wrap; gap: 10px; max-width: 980px; }
-.nuage li { list-style: none; padding: 10px 20px; border-radius: 999px; font-weight: 700; font-size: clamp(15px, 1.6vw, 19px); border: 2px solid var(--encre); }
-.nuage li:nth-child(4n+1) { background: var(--soleil); border-color: var(--soleil); }
-.nuage li:nth-child(5n+2) { background: var(--fuchsia); border-color: var(--fuchsia); color: #fff; }
-.nuage li:nth-child(7n+3) { background: var(--abricot); border-color: var(--abricot); }
-.nuage { padding: 0; margin: 0; }
+.domaines-ligne { font-size: 15px; color: var(--sapin); font-weight: 500; margin: -16px 0 30px; max-width: 46ch; }
 
-/* --- Expériences --- */
-.xp-liste { display: grid; gap: 28px; }
-.xp { display: grid; grid-template-columns: 1fr 1fr; border-radius: 28px; overflow: hidden; text-decoration: none; color: var(--papier); min-height: 420px; max-height: 560px; transition: transform 0.25s ease; }
-.xp:hover { transform: translateY(-4px); }
-.xp:hover .voir { background: var(--papier); color: var(--encre); }
-.xp-texte { padding: clamp(28px, 4vw, 52px); display: flex; flex-direction: column; }
-.xp-quand { font-size: 14px; font-weight: 500; opacity: 0.8; margin: 0 0 14px; }
-.xp h3 { font-family: var(--display); font-weight: 400; font-size: clamp(40px, 5.4vw, 70px); line-height: 0.95; margin: 0 0 6px; }
-.xp .role { font-family: var(--main); font-weight: 700; font-size: 28px; margin: 0 0 18px; }
-.xp p.resume { max-width: 44ch; margin: 0 0 22px; opacity: 0.92; }
-.chiffre { display: flex; align-items: baseline; gap: 12px; margin: 0 0 26px; }
-.chiffre b { font-family: var(--display); font-weight: 400; font-size: 46px; line-height: 1; white-space: nowrap; }
-.chiffre span { font-size: 15px; max-width: 22ch; line-height: 1.3; }
-.voir { margin-top: auto; align-self: flex-start; border: 2px solid currentColor; padding: 11px 22px; border-radius: 999px; font-weight: 700; transition: background 0.2s, color 0.2s; }
-.xp-visuel { position: relative; overflow: hidden; }
-.xp-visuel > img { width: 100%; height: 100%; object-fit: cover; }
-.xp.tsr .xp-visuel > img:first-child { position: absolute; inset: 0; object-position: center 70%; }
+/* --- Sections --- */
+.bloc { padding: 0 0 90px; }
+.titre { font-family: var(--display); font-weight: 400; font-size: clamp(36px, 5vw, 60px); line-height: 1; margin: 0 0 28px; }
 
-.xp.vancore { background: #112319; }
-.xp.vancore .role, .xp.vancore .chiffre b { color: #aec364; }
-.xp.vancore .xp-visuel { background: #0b764b; display: flex; align-items: center; justify-content: center; gap: 4%; padding: 34px; }
-.xp.vancore .xp-visuel img { width: 44%; height: auto; border-radius: 18px; box-shadow: 0 16px 30px rgba(0,0,0,0.3); }
-.xp.vancore .xp-visuel img:last-child { transform: rotate(4deg) translateY(18px); }
-.xp.vancore .xp-visuel img:first-child { transform: rotate(-3deg); }
+/* --- Projets pro --- */
+.pro-grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.pro { display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; text-decoration: none; color: var(--papier); transition: transform 0.25s ease; }
+.pro:hover { transform: translateY(-5px); }
+.pro-img { height: 300px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; gap: 4%; padding: 22px; }
+.pro-txt { padding: 22px 24px 26px; }
+.pro h3 { font-family: var(--display); font-weight: 400; font-size: clamp(28px, 2.6vw, 36px); line-height: 1; margin: 0 0 6px; }
+.pro .role { font-family: var(--main); font-weight: 700; font-size: 24px; margin: 0 0 10px; line-height: 1.1; }
+.pro .quand { font-size: 14px; opacity: 0.8; margin: 0; }
 
-.xp.tsr { background: #000; }
-.xp.tsr .role, .xp.tsr .chiffre b { color: #ff4a3d; }
-.xp.tsr .xp-visuel img.logo-tsr { position: absolute; right: 22px; bottom: 22px; width: 110px; height: auto; background: #fff; padding: 12px; border-radius: 14px; }
+.pro.vancore { background: #112319; }
+.pro.vancore .role { color: #aec364; }
+.pro.vancore .pro-img { background: #0b764b; }
+.pro.vancore .pro-img img { width: 46%; border-radius: 12px; box-shadow: 0 12px 24px rgba(0,0,0,0.3); }
+.pro.vancore .pro-img img:first-child { transform: rotate(-4deg); }
+.pro.vancore .pro-img img:last-child { transform: rotate(4deg) translateY(14px); }
 
-.xp.cm { background: #7d8c5e; }
-.xp.cm .role { color: #f6e9c9; }
-.xp.cm .xp-visuel { background: #f8f7f3; display: flex; align-items: center; justify-content: center; }
-.xp.cm .xp-visuel img { width: 44%; height: auto; }
-.xp.cm .xp-visuel img:first-child { transform: rotate(-5deg) translateX(14px); }
-.xp.cm .xp-visuel img:last-child { transform: rotate(4deg) translateX(-14px) translateY(20px); }
+.pro.tsr { background: #000; }
+.pro.tsr .role { color: #ff4a3d; }
+.pro.tsr .pro-img { padding: 0; }
+.pro.tsr .pro-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 72%; }
 
-@media (max-width: 820px) {
-  .xp { grid-template-columns: 1fr; max-height: none; }
-  .xp-visuel { min-height: 300px; order: -1; }
-}
+.pro.cm { background: #7d8c5e; }
+.pro.cm .role { color: #f6e9c9; }
+.pro.cm .pro-img { background: var(--papier); }
+.pro.cm .pro-img img { width: 46%; }
+.pro.cm .pro-img img:first-child { transform: rotate(-6deg) translateX(10px); }
+.pro.cm .pro-img img:last-child { transform: rotate(5deg) translateX(-10px) translateY(14px); }
+
+/* --- Labo --- */
+.labo { display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; background: var(--soleil); color: var(--encre); border-radius: 28px; padding: clamp(28px, 4vw, 52px); text-decoration: none; transition: transform 0.25s ease; }
+.labo:hover { transform: translateY(-4px); }
+.labo .titre { margin-bottom: 12px; }
+.labo p { margin: 0; max-width: 52ch; font-size: 18px; }
+
+@media (max-width: 900px) { .pro-grille { grid-template-columns: 1fr; } .pro-img { height: 260px; } }
 </style>
 </head>
 <body>
@@ -95,7 +87,8 @@
 <header class="top">
   <a class="logo" href="index.html" aria-label="Accueil">Cloé</a>
   <nav aria-label="Navigation principale">
-    <a href="#experiences">Expériences</a>
+    <a href="#projets">Projets pro</a>
+    <a href="#labo">Labo</a>
     <a href="a-propos.html" class="hide-sm">À propos</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -109,9 +102,10 @@
         <p class="nom-sous">Pérot</p>
         <p class="accroche">Chargée de communication. Je fais vivre les marques <strong>sur les réseaux, en print et sur le terrain</strong>, de l'idée au visuel.</p>
         <p class="lieu">Basée à Toulouse, ouverte aux Pyrénées. Disponible pour un CDI.</p>
+        <p class="domaines-ligne">Social media, identité visuelle, influence, print, emailing, rédaction web.</p>
         <div class="btns">
-          <a class="btn plein" href="#experiences">Voir mes projets</a>
-          <a class="btn ligne" href="#contact">Me contacter</a>
+          <a class="btn plein" href="#projets">Voir mes projets</a>
+          <a class="btn ligne" href="#" aria-disabled="true" title="Bientôt disponible">Télécharger mon CV</a>
         </div>
       </div>
       <div class="collage" aria-hidden="true">
@@ -122,67 +116,35 @@
     </div>
   </section>
 
-  <section class="domaines">
+    <section id="projets" class="bloc">
     <div class="wrap">
-      <h2>Ce que je sais faire</h2>
-      <ul class="nuage">
-        <li>Social media</li><li>Identité visuelle</li><li>Influence &amp; affiliation</li><li>Emailing</li>
-        <li>Print</li><li>Rédaction web</li><li>Direction artistique</li><li>Partenariats</li>
-        <li>LinkedIn &amp; ghostwriting</li><li>Événementiel</li><li>Com interne</li><li>Visuels produit &amp; IA</li>
-      </ul>
+      <h2 class="titre">Projets pro</h2>
+      <div class="pro-grille">
+        <a class="pro vancore" href="vancore.html">
+          <div class="pro-img"><img src="assets/img/vancore-feed.webp" alt="Feed Instagram de Vancore"><img src="assets/img/vancore-making-of.webp" alt=""></div>
+          <div class="pro-txt"><h3>Vancore</h3><p class="role">chargée de com &amp; marketing</p><p class="quand">2024 – 2026 · alternance</p></div>
+        </a>
+        <a class="pro tsr" href="toulouse-social-run.html">
+          <div class="pro-img"><img src="assets/img/tsr-pont.webp" alt="Coureurs Toulouse Social Run sur le pont Saint-Pierre"></div>
+          <div class="pro-txt"><h3>Toulouse Social Run</h3><p class="role">com &amp; identité visuelle</p><p class="quand">2024 – 2026 · bénévole</p></div>
+        </a>
+        <a class="pro cm" href="community-manager.html">
+          <div class="pro-img"><img src="assets/img/dfed-couverture.webp" alt="Magazine De Fil en Déco"><img src="assets/img/optimome-couverture.webp" alt="Magazine O'ptimôme"></div>
+          <div class="pro-txt"><h3>Community manager</h3><p class="role">ma première alternance</p><p class="quand">2023 – 2024 · alternance</p></div>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section id="experiences">
+  <section id="labo" class="bloc">
     <div class="wrap">
-      <h2 class="xp-titre">Mes expériences</h2>
-      <div class="xp-liste">
-
-        <a class="xp vancore" href="vancore.html">
-          <div class="xp-texte">
-            <p class="xp-quand">Sept. 2024 – sept. 2026 · alternance</p>
-            <h3>Vancore</h3>
-            <p class="role">chargée de com &amp; marketing</p>
-            <p class="resume">Un e-commerce d'équipement pour aménager son van. J'y ai accompagné le passage de Mon Fourgon Shop à Vancore, et touché à tout : réseaux, influence, newsletters, print, LinkedIn.</p>
-            <p class="chiffre"><b>x2</b><span>abonnés Instagram, de 3 000 à 6 002</span></p>
-            <span class="voir">Voir le projet</span>
-          </div>
-          <div class="xp-visuel">
-            <img src="assets/img/vancore-feed.webp" alt="Feed Instagram de Vancore">
-            <img src="assets/img/vancore-making-of.webp" alt="Making-of du lancement de Vancore">
-          </div>
-        </a>
-
-        <a class="xp tsr" href="toulouse-social-run.html">
-          <div class="xp-texte">
-            <p class="xp-quand">2024 – 2026 · bénévole</p>
-            <h3>Toulouse Social Run</h3>
-            <p class="role">com &amp; identité visuelle</p>
-            <p class="resume">Un club de course gratuit né d'un projet d'école, devenu association. J'ai créé son identité, ses visuels et sa com, jusqu'aux runs avec les marques partenaires.</p>
-            <p class="chiffre"><b>3 → 50</b><span>coureurs en moyenne par run, plus de 110 sur les gros événements</span></p>
-            <span class="voir">Voir le projet</span>
-          </div>
-          <div class="xp-visuel">
-            <img src="assets/img/tsr-pont.webp" alt="Coureurs Toulouse Social Run sur le pont Saint-Pierre">
-            <img class="logo-tsr" src="assets/img/tsr-logo.webp" alt="Logo TSR">
-          </div>
-        </a>
-
-        <a class="xp cm" href="community-manager.html">
-          <div class="xp-texte">
-            <p class="xp-quand">Sept. 2023 – sept. 2024 · alternance</p>
-            <h3>Community manager</h3>
-            <p class="role">ma première alternance</p>
-            <p class="resume">Trois médias toulousains à faire vivre en même temps : De Fil en Déco, O'ptimôme et CFM Radio. Réseaux sociaux, contenus et pubs print.</p>
-            <span class="voir">Voir le projet</span>
-          </div>
-          <div class="xp-visuel">
-            <img src="assets/img/dfed-couverture.webp" alt="Couverture du magazine De Fil en Déco">
-            <img src="assets/img/optimome-couverture.webp" alt="Couverture du magazine O'ptimôme">
-          </div>
-        </a>
-
-      </div>
+      <a class="labo" href="labo.html">
+        <div>
+          <h2 class="titre">Labo</h2>
+          <p>Mes projets d'école et mes projets perso : logos, photos de voyage, expérimentations. Là où je teste des choses.</p>
+        </div>
+        <span class="btn plein">Entrer dans le Labo</span>
+      </a>
     </div>
   </section>
 </main>
@@ -193,7 +155,7 @@
     <p>Je cherche un CDI en communication à Toulouse ou dans les Pyrénées. Écris-moi, je réponds vite.</p>
     <div class="btns">
       <a class="btn plein" href="mailto:cloe.perot@icloud.com">cloe.perot@icloud.com</a>
-      <a class="btn ligne" href="#">Télécharger le portfolio PDF</a>
+      <a class="btn ligne" href="#" aria-disabled="true" title="Bientôt disponible">Télécharger mon CV</a>
     </div>
     <small>Cloé Pérot · Toulouse</small>
   </div>
