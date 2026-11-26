@@ -402,7 +402,7 @@ ap += """  <div class="ouv" style="min-height:62svh">
   </section>
 
   <section>
-    <h2>Mes terrains de jeu</h2>
+    <h2>Mes spécialités</h2>
     <div class="terrains">
       <div><h3>Social media</h3><p>Stratégie, contenus, communauté</p></div>
       <div><h3>Création graphique</h3><p>Identité visuelle, print, digital</p></div>
