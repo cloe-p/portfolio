@@ -306,13 +306,14 @@ LABO = [
     ("Bat Inn", "Logo pour un installateur VELUX", "Le nom tient dans une maison : le « t » sert de cheminée, et le toit rouge rappelle son métier.", "logo-bat-inn"),
     ("Cabinet S·D", "Logo pour une infirmière libérale", "Le bâton d'Esculape, symbole du soin, s'enroule autour de ses initiales.", "logo-sd-infirmiere"),
 ]
-labo_css = """.logos-grille { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+labo_css = """.logos-grille { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 1000px) { .logos-grille { grid-template-columns: repeat(2, 1fr); } }
 .logos-grille figure { margin: 0; }
 .logos-grille .zoom { position: relative; background: #fff; border-radius: 22px; aspect-ratio: 4 / 3; }
 .logos-grille .zoom img { position: absolute; inset: 14%; width: 72%; height: 72%; object-fit: contain; }
 .logos-grille .zoom:hover img { transform: scale(1.04); }
 .logos-grille figcaption { margin-top: 14px; }
-.logos-grille figcaption b { font-size: 22px; letter-spacing: -0.02em; }
+.logos-grille figcaption b { font-size: 19px; letter-spacing: -0.02em; }
 .logos-grille figcaption small { display: block; color: var(--lilas); font-size: 14px; margin: 2px 0 6px; }
 .chap { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
 .chap h2 { font-size: clamp(36px, 4.4vw, 60px); }
@@ -428,6 +429,14 @@ labo_css += """
   .duo .medias .rang, .duo .medias .evo, .duo .medias .carrousel { margin-inline: 0; }
 }
 .duo-photos, .ecrans, .gam { max-width: 1100px; }
+.pile { display: flex; flex-direction: column; gap: 14px; }
+.pile2 { --h: clamp(300px, 56vh, 460px); }
+.pile2 .zoom img { width: 100%; }
+.duo .vitrine { padding: 22px 32px; max-width: 710px; }
+.duo .ecrans { max-width: 640px; }
+.duo .gam { max-width: 710px; }
+.duo .vitrine .zoom img { max-height: calc(var(--h) * 0.42); }
+.duo .duo-photos { max-width: calc(var(--h) * 3.556 * 0.75); }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
 .ecrans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
@@ -469,7 +478,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       <div class="cote"><div class="etiquettes"><span>École</span><span>Identité visuelle</span></div>
       <div class="chap"><h2>Musée des Arts et Traditions Populaires</h2><div><p class="brief"><b>Le brief :</b> créer l'identité d'un musée parisien et la communication de son inauguration. Le « A » central rappelle l'Arc de Triomphe et la tour Eiffel, entre patrimoine et design contemporain.</p><ul class="competences"><li>Logo</li><li>Charte graphique</li><li>Affiche</li><li>Social media</li><li>Goodies</li></ul></div></div></div>
       <div class="medias">
-      <div class="vitrine" style="--v:#fff">{z("assets/img/labo/matp/logo-png.webp", "Le logo MATP")}</div><div class="g-libre">{z("assets/img/labo/matp/story.webp", "Story Instagram de l'inauguration du 8 novembre")}{z("assets/img/labo/matp/banniere.webp", "Bannière Facebook de l'inauguration")}{z("assets/img/labo/matp/casquette.webp", "Casquette aux couleurs du musée")}</div></div>
+      <div class="vitrine" style="--v:#fff">{z("assets/img/labo/matp/logo-png.webp", "Le logo MATP")}</div><div class="rang pile2" style="--a:0.562fr 0.952fr;--s:1.514">{z("assets/img/labo/matp/story.webp", "Story Instagram de l'inauguration du 8 novembre")}<div class="pile">{z("assets/img/labo/matp/casquette.webp", "Casquette aux couleurs du musée")}{z("assets/img/labo/matp/banniere.webp", "Bannière Facebook de l'inauguration")}</div></div></div>
     </article>
 
     <article class="projet-labo duo" data-cat="identite strategie" id="hyros" style="--fond-img:#000">
@@ -483,7 +492,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       <div class="cote"><div class="etiquettes"><span>École</span><span>Branding</span></div>
       <div class="chap"><h2>Kinetic, ex Sparks</h2><div><p class="brief"><b>Le brief :</b> un vrai client, une startup de bien-être et de performance en entreprise, à qui il fallait un nouveau projet de marque : nom, identité, stratégie digitale et pitch.</p><ul class="competences"><li>Naming</li><li>Brandbook</li><li>Stratégie digitale</li><li>Maquettes app & site</li></ul></div></div></div>
       <div class="medias">
-      <div class="vitrine" style="--v:#fff">{z("assets/img/labo/kinetic/logo.webp", "Le logo Kinetic")}</div><div class="g-libre">{z("assets/img/labo/kinetic/mockups.webp", "Kinetic sur une montre, une casquette, des tote bags et une gourde")}{z("assets/img/labo/kinetic/site.webp", "Le site web Kinetic")}{z("assets/img/labo/kinetic/app.webp", "Les écrans de l'application")}</div></div>
+      <div class="vitrine" style="--v:#fff">{z("assets/img/labo/kinetic/logo.webp", "Le logo Kinetic")}</div><div class="rang pile2" style="--a:0.77fr 0.857fr;--s:1.627">{z("assets/img/labo/kinetic/mockups.webp", "Kinetic sur une montre, une casquette, des tote bags et une gourde")}<div class="pile">{z("assets/img/labo/kinetic/site.webp", "Le site web Kinetic")}{z("assets/img/labo/kinetic/app.webp", "Les écrans de l'application")}</div></div></div>
     </article>
 
     <article class="projet-labo duo" data-cat="strategie" id="pgw">

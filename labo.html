@@ -7,13 +7,14 @@
 <meta name="description" content="Projets d&#x27;école et projets perso de Cloé Pérot : identités visuelles, stratégies, social ads, site web, podcast.">
 <link rel="stylesheet" href="assets/base.css">
 <link rel="stylesheet" href="assets/projet.css">
-<style>.logos-grille { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+<style>.logos-grille { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 1000px) { .logos-grille { grid-template-columns: repeat(2, 1fr); } }
 .logos-grille figure { margin: 0; }
 .logos-grille .zoom { position: relative; background: #fff; border-radius: 22px; aspect-ratio: 4 / 3; }
 .logos-grille .zoom img { position: absolute; inset: 14%; width: 72%; height: 72%; object-fit: contain; }
 .logos-grille .zoom:hover img { transform: scale(1.04); }
 .logos-grille figcaption { margin-top: 14px; }
-.logos-grille figcaption b { font-size: 22px; letter-spacing: -0.02em; }
+.logos-grille figcaption b { font-size: 19px; letter-spacing: -0.02em; }
 .logos-grille figcaption small { display: block; color: var(--lilas); font-size: 14px; margin: 2px 0 6px; }
 .chap { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
 .chap h2 { font-size: clamp(36px, 4.4vw, 60px); }
@@ -128,6 +129,14 @@
   .duo .medias .rang, .duo .medias .evo, .duo .medias .carrousel { margin-inline: 0; }
 }
 .duo-photos, .ecrans, .gam { max-width: 1100px; }
+.pile { display: flex; flex-direction: column; gap: 14px; }
+.pile2 { --h: clamp(300px, 56vh, 460px); }
+.pile2 .zoom img { width: 100%; }
+.duo .vitrine { padding: 22px 32px; max-width: 710px; }
+.duo .ecrans { max-width: 640px; }
+.duo .gam { max-width: 710px; }
+.duo .vitrine .zoom img { max-height: calc(var(--h) * 0.42); }
+.duo .duo-photos { max-width: calc(var(--h) * 3.556 * 0.75); }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
 .ecrans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
@@ -178,7 +187,7 @@
       <div class="cote"><div class="etiquettes"><span>École</span><span>Identité visuelle</span></div>
       <div class="chap"><h2>Musée des Arts et Traditions Populaires</h2><div><p class="brief"><b>Le brief :</b> créer l'identité d'un musée parisien et la communication de son inauguration. Le « A » central rappelle l'Arc de Triomphe et la tour Eiffel, entre patrimoine et design contemporain.</p><ul class="competences"><li>Logo</li><li>Charte graphique</li><li>Affiche</li><li>Social media</li><li>Goodies</li></ul></div></div></div>
       <div class="medias">
-      <div class="vitrine" style="--v:#fff"><a class="zoom " href="assets/img/labo/matp/logo-png.webp"><img src="assets/img/labo/matp/logo-png.webp" alt="Le logo MATP" loading="lazy"></a></div><div class="g-libre"><a class="zoom " href="assets/img/labo/matp/story.webp"><img src="assets/img/labo/matp/story.webp" alt="Story Instagram de l&#x27;inauguration du 8 novembre" loading="lazy"></a><a class="zoom " href="assets/img/labo/matp/banniere.webp"><img src="assets/img/labo/matp/banniere.webp" alt="Bannière Facebook de l&#x27;inauguration" loading="lazy"></a><a class="zoom " href="assets/img/labo/matp/casquette.webp"><img src="assets/img/labo/matp/casquette.webp" alt="Casquette aux couleurs du musée" loading="lazy"></a></div></div>
+      <div class="vitrine" style="--v:#fff"><a class="zoom " href="assets/img/labo/matp/logo-png.webp"><img src="assets/img/labo/matp/logo-png.webp" alt="Le logo MATP" loading="lazy"></a></div><div class="rang pile2" style="--a:0.562fr 0.952fr;--s:1.514"><a class="zoom " href="assets/img/labo/matp/story.webp"><img src="assets/img/labo/matp/story.webp" alt="Story Instagram de l&#x27;inauguration du 8 novembre" loading="lazy"></a><div class="pile"><a class="zoom " href="assets/img/labo/matp/casquette.webp"><img src="assets/img/labo/matp/casquette.webp" alt="Casquette aux couleurs du musée" loading="lazy"></a><a class="zoom " href="assets/img/labo/matp/banniere.webp"><img src="assets/img/labo/matp/banniere.webp" alt="Bannière Facebook de l&#x27;inauguration" loading="lazy"></a></div></div></div>
     </article>
 
     <article class="projet-labo duo" data-cat="identite strategie" id="hyros" style="--fond-img:#000">
@@ -192,7 +201,7 @@
       <div class="cote"><div class="etiquettes"><span>École</span><span>Branding</span></div>
       <div class="chap"><h2>Kinetic, ex Sparks</h2><div><p class="brief"><b>Le brief :</b> un vrai client, une startup de bien-être et de performance en entreprise, à qui il fallait un nouveau projet de marque : nom, identité, stratégie digitale et pitch.</p><ul class="competences"><li>Naming</li><li>Brandbook</li><li>Stratégie digitale</li><li>Maquettes app & site</li></ul></div></div></div>
       <div class="medias">
-      <div class="vitrine" style="--v:#fff"><a class="zoom " href="assets/img/labo/kinetic/logo.webp"><img src="assets/img/labo/kinetic/logo.webp" alt="Le logo Kinetic" loading="lazy"></a></div><div class="g-libre"><a class="zoom " href="assets/img/labo/kinetic/mockups.webp"><img src="assets/img/labo/kinetic/mockups.webp" alt="Kinetic sur une montre, une casquette, des tote bags et une gourde" loading="lazy"></a><a class="zoom " href="assets/img/labo/kinetic/site.webp"><img src="assets/img/labo/kinetic/site.webp" alt="Le site web Kinetic" loading="lazy"></a><a class="zoom " href="assets/img/labo/kinetic/app.webp"><img src="assets/img/labo/kinetic/app.webp" alt="Les écrans de l&#x27;application" loading="lazy"></a></div></div>
+      <div class="vitrine" style="--v:#fff"><a class="zoom " href="assets/img/labo/kinetic/logo.webp"><img src="assets/img/labo/kinetic/logo.webp" alt="Le logo Kinetic" loading="lazy"></a></div><div class="rang pile2" style="--a:0.77fr 0.857fr;--s:1.627"><a class="zoom " href="assets/img/labo/kinetic/mockups.webp"><img src="assets/img/labo/kinetic/mockups.webp" alt="Kinetic sur une montre, une casquette, des tote bags et une gourde" loading="lazy"></a><div class="pile"><a class="zoom " href="assets/img/labo/kinetic/site.webp"><img src="assets/img/labo/kinetic/site.webp" alt="Le site web Kinetic" loading="lazy"></a><a class="zoom " href="assets/img/labo/kinetic/app.webp"><img src="assets/img/labo/kinetic/app.webp" alt="Les écrans de l&#x27;application" loading="lazy"></a></div></div></div>
     </article>
 
     <article class="projet-labo duo" data-cat="strategie" id="pgw">
