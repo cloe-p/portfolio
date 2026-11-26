@@ -58,18 +58,23 @@
 .tete-labo { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 26px; }
 .tete-labo h2 { font-size: clamp(42px, 5.6vw, 76px); }
 .tete-labo p { color: var(--doux); margin: 0; max-width: 44ch; }
-.tiroir { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ligne); }
-.tiroir a { display: flex; align-items: center; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--ligne); transition: padding 0.4s cubic-bezier(.2,.8,.2,1), color 0.3s; }
-.tiroir img { display: none; width: 56px; height: 56px; object-fit: contain; background: #fff; border-radius: 12px; padding: 6px; }
-.tiroir b { font-size: clamp(28px, 3.6vw, 52px); font-weight: 800; letter-spacing: -0.045em; line-height: 1; }
-.tiroir span { margin-left: auto; color: var(--doux); font-size: 15px; text-align: right; }
-.tiroir a:hover { padding-left: 14px; color: var(--lilas); }
-.apercu { position: fixed; left: 0; top: 0; z-index: 30; width: 220px; aspect-ratio: 4 / 3; background: #fff; border-radius: 18px; padding: 22px; pointer-events: none; opacity: 0; scale: 0.85; rotate: -4deg; transition: opacity 0.25s, scale 0.3s cubic-bezier(.3,1.5,.5,1); box-shadow: 0 24px 50px rgba(0,0,0,0.45); }
-.apercu.on { opacity: 1; scale: 1; }
-.apercu img { width: 100%; height: 100%; object-fit: contain; }
-.apercu.photo { padding: 0; overflow: hidden; aspect-ratio: 1; } .apercu.photo img { object-fit: cover; }
-@media (hover: none) { .tiroir img { display: block; } .apercu { display: none; } }
-@media (max-width: 640px) { .tiroir span { display: none; } }
+.tete-labo .fl { display: flex; gap: 10px; }
+.tete-labo .fl button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--ligne); background: none; color: var(--texte); font: inherit; font-size: 18px; cursor: pointer; transition: background 0.25s, color 0.25s, opacity 0.25s; }
+.tete-labo .fl button:hover { background: var(--lilas); color: var(--nuit); border-color: var(--lilas); }
+.tete-labo .fl button:disabled { opacity: 0.3; pointer-events: none; }
+.rail { list-style: none; display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--m); margin: 0 calc(-1 * var(--m)); padding: 0 var(--m) 8px; scrollbar-width: none; }
+.rail::-webkit-scrollbar { display: none; }
+.rail li { flex: 0 0 clamp(240px, 24vw, 330px); scroll-snap-align: start; }
+.rail .v { display: block; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden; background: var(--carte); }
+.rail img { width: 100%; height: 100%; object-fit: cover; transition: scale 0.7s cubic-bezier(.2,.7,.2,1); }
+.rail a:hover img, .rail a:focus-visible img { scale: 1.05; }
+.rail b { display: block; margin-top: 14px; font-size: 21px; letter-spacing: -0.03em; line-height: 1.2; transition: color 0.25s; }
+.rail a:hover b { color: var(--lilas); }
+.rail small { color: var(--doux); font-size: 14px; }
+.rail .tout .v { display: grid; place-items: center; text-align: center; border: 1px solid var(--ligne); background: none; padding: 30px; font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; transition: background 0.3s, color 0.3s; }
+.rail .tout a:hover .v { background: var(--lilas); color: var(--nuit); }
+.rail .tout i { display: block; font-style: normal; margin-top: 12px; font-size: 28px; }
+@media (hover: none) { .tete-labo .fl { display: none; } }
 
 .apropos { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 80px); align-items: center; }
 .apropos p { font-size: clamp(20px, 2vw, 26px); line-height: 1.45; color: #dad8d3; margin: 0 0 28px; }
@@ -123,18 +128,19 @@
   </section>
 
   <section id="labo" class="apparait">
-    <div class="tete-labo"><h2>Labo</h2><p>Mes projets d'école et mes projets perso : identités visuelles, stratégies, social ads, un site, un podcast… et des logos pour mes proches.</p></div>
-    <ul class="tiroir">
-        <li><a href="labo.html#ikea" data-img="assets/img/labo/ikea/logo.webp"><img src="assets/img/labo/ikea/logo.webp" alt="" loading="lazy"><b>IKEA, version psychédélique</b><span>Identité visuelle</span></a></li>
-        <li><a href="labo.html#matp" data-img="assets/img/labo/matp/logo.webp"><img src="assets/img/labo/matp/logo.webp" alt="" loading="lazy"><b>Musée des Arts et Traditions</b><span>Identité visuelle</span></a></li>
-        <li><a href="labo.html#kinetic" data-img="assets/img/labo/kinetic/logo.webp"><img src="assets/img/labo/kinetic/logo.webp" alt="" loading="lazy"><b>Kinetic</b><span>Branding &amp; stratégie</span></a></li>
-        <li><a href="labo.html#hyros" data-photo="1" data-img="assets/img/labo/hyros/prototype.webp"><img src="assets/img/labo/hyros/prototype.webp" alt="" loading="lazy"><b>Hyros by Tesla</b><span>Lancement de produit</span></a></li>
-        <li><a href="labo.html#pgw" data-photo="1" data-img="assets/img/labo/pgw/couverture.webp"><img src="assets/img/labo/pgw/couverture.webp" alt="" loading="lazy"><b>Paris Games Week</b><span>Social ads</span></a></li>
-        <li><a href="labo.html#pawtes" data-photo="1" data-img="assets/img/labo/pawtes/accueil.webp"><img src="assets/img/labo/pawtes/accueil.webp" alt="" loading="lazy"><b>Entre Pawtes</b><span>Site web</span></a></li>
-        <li><a href="labo.html#bfc" data-img="assets/img/labo/bfc/app-jardin.webp"><img src="assets/img/labo/bfc/app-jardin.webp" alt="" loading="lazy"><b>Book, Food &amp; Créa</b><span>Stratégie &amp; gamification</span></a></li>
-        <li><a href="labo.html#podcast" data-photo="1" data-img="assets/img/labo/podcast-cover.webp"><img src="assets/img/labo/podcast-cover.webp" alt="" loading="lazy"><b>Les clés du voisin</b><span>Podcast</span></a></li>
+    <div class="tete-labo"><h2>Labo</h2><p>Mes projets d'école et mes projets perso : identités visuelles, stratégies, social ads, un site, un podcast… et des logos pour mes proches.</p><div class="fl"><button type="button" data-d="-1" aria-label="Projets précédents">←</button><button type="button" data-d="1" aria-label="Projets suivants">→</button></div></div>
+    <ul class="rail" id="rail">
+      <li><a href="labo.html#ikea"><span class="v"><img src="assets/img/labo/ikea/abribus-chaise.webp" alt="" loading="lazy"></span><b>IKEA, version psychédélique</b><small>Identité visuelle</small></a></li>
+      <li><a href="labo.html#matp"><span class="v"><img src="assets/img/labo/matp/story.webp" alt="" loading="lazy" style="object-position:50% 20%"></span><b>Musée des Arts et Traditions</b><small>Identité visuelle</small></a></li>
+      <li><a href="labo.html#kinetic"><span class="v"><img src="assets/img/labo/kinetic/mockups.webp" alt="" loading="lazy"></span><b>Kinetic</b><small>Branding &amp; stratégie</small></a></li>
+      <li><a href="labo.html#hyros"><span class="v"><img src="assets/img/labo/hyros/voiture.webp" alt="" loading="lazy"></span><b>Hyros by Tesla</b><small>Lancement de produit</small></a></li>
+      <li><a href="labo.html#pgw"><span class="v"><img src="assets/img/labo/pgw/carte.webp" alt="" loading="lazy"></span><b>Paris Games Week</b><small>Social ads</small></a></li>
+      <li><a href="labo.html#pawtes"><span class="v"><img src="assets/img/labo/pawtes/accueil.webp" alt="" loading="lazy" style="object-position:62% 50%"></span><b>Entre Pawtes</b><small>Site web</small></a></li>
+      <li><a href="labo.html#bfc"><span class="v"><img src="assets/img/labo/bfc/photo-aquarelle.webp" alt="" loading="lazy"></span><b>Book, Food &amp; Créa</b><small>Stratégie &amp; gamification</small></a></li>
+      <li><a href="labo.html#podcast"><span class="v"><img src="assets/img/labo/podcast-cover.webp" alt="" loading="lazy"></span><b>Les clés du voisin</b><small>Podcast</small></a></li>
+      <li class="tout"><a href="labo.html"><span class="v"><span>Voir les 13 projets du Labo<i>→</i></span></span><b>Et aussi</b><small>Red Bull, Mariage Frères, Trois Sœurs, des logos…</small></a></li>
     </ul>
-    <p style="margin-top:28px"><a class="b ligne" href="labo.html">Voir les 13 projets du Labo</a></p>
+    
   </section>
 
   <section id="apropos" class="apropos apparait">
@@ -190,15 +196,12 @@ defile.addEventListener('mousemove', e => {
 defile.addEventListener('mouseleave', () => { puces.forEach(p => p.style.setProperty('--p', 0)); defile.style.setProperty('--x', '-999px'); });
 
 </script>
-<div class="apercu" aria-hidden="true"><img src="" alt=""></div>
 <script>
 {
-  const ap = document.querySelector('.apercu'), im = ap.querySelector('img');
-  document.querySelectorAll('.tiroir a').forEach(a => {
-    a.addEventListener('pointerenter', e => { if (e.pointerType !== 'mouse') return; if (!a.dataset.img) return; im.src = a.dataset.img; ap.classList.toggle('photo', !!a.dataset.photo); ap.classList.add('on'); });
-    a.addEventListener('pointerleave', () => ap.classList.remove('on'));
-    a.addEventListener('pointermove', e => { ap.style.transform = `translate(${e.clientX + 24}px, ${e.clientY - 80}px)`; });
-  });
+  const rail = document.getElementById('rail'), bt = document.querySelectorAll('.tete-labo .fl button');
+  const maj = () => { bt[0].disabled = rail.scrollLeft < 10; bt[1].disabled = rail.scrollLeft + rail.clientWidth > rail.scrollWidth - 10; };
+  bt.forEach(b => b.addEventListener('click', () => rail.scrollBy({ left: b.dataset.d * rail.querySelector('li').offsetWidth * 2, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })));
+  rail.addEventListener('scroll', maj, { passive: true }); maj();
 }
 </script>
 <script src="assets/pied.js"></script>
