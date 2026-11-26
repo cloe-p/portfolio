@@ -470,6 +470,7 @@ dialog.fiche::backdrop { background: rgba(5,5,7,0.78); backdrop-filter: blur(4px
 .photos .zoom { flex: calc(var(--r) * 100) 1 calc(var(--r) * var(--ph)); height: var(--ph); }
 .photos img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
 .photos a[href$="mustang.webp"] img { object-position: 50% 38%; }
+.photos a[href$="mont-soir.webp"] img { object-position: 50% 80%; }
 @media (max-width: 760px) { .photos { --ph: 110px; gap: 6px; } }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
