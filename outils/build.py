@@ -319,27 +319,116 @@ labo_css = """.logos-grille { display: grid; grid-template-columns: repeat(2, 1f
 .chap p { color: var(--doux); margin: 0; max-width: 46ch; }
 .bientot { margin-top: 70px; border: 1px dashed rgba(255,255,255,0.3); border-radius: 22px; padding: 30px; color: var(--doux); text-align: center; }
 @media (max-width: 640px) { .logos-grille { grid-template-columns: 1fr; } }"""
-labo = head("Labo", "Projets personnels de Cloé Pérot : logos et identités pour des proches.", labo_css)
+labo_css += """
+.filtres { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 50px; }
+.filtres button { font: 500 15px "Bricolage", sans-serif; color: var(--doux); background: none; border: 1px solid var(--ligne); border-radius: 999px; padding: 10px 18px; cursor: pointer; min-height: 44px; }
+.filtres button[aria-pressed="true"] { background: var(--texte); color: var(--nuit); border-color: var(--texte); }
+.projet-labo { padding-bottom: 80px; margin-bottom: 80px; border-bottom: 1px solid var(--ligne); }
+.projet-labo[hidden] { display: none; }
+.etiquettes { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.etiquettes span { font-size: 13px; font-weight: 700; border-radius: 999px; padding: 5px 12px; background: var(--lilas); color: var(--nuit); }
+.etiquettes span + span { background: none; color: var(--doux); border: 1px solid var(--ligne); }
+.ikea-avant { display: grid; grid-template-columns: 1fr auto 2fr; gap: 16px; align-items: center; margin-bottom: 16px; }
+.ikea-avant .fl { font-size: 32px; color: var(--lilas); }
+.g-pages { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
+.g-pages .zoom img, .ikea-avant .zoom img { aspect-ratio: 16 / 9; object-fit: cover; }
+.charte-ikea { display: flex; flex-wrap: wrap; gap: 26px; align-items: center; margin: 26px 0; color: var(--doux); font-size: 15px; }
+.charte-ikea i { display: inline-block; width: 28px; height: 28px; border-radius: 50%; vertical-align: middle; margin-right: 8px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2); }
+.podcast { display: grid; grid-template-columns: minmax(0, 340px) 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.podcast > img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 22px; }
+.lecteur { display: flex; align-items: center; gap: 18px; margin-top: 26px; max-width: 520px; }
+.lecteur button { flex: none; width: 64px; height: 64px; border-radius: 50%; border: 0; background: var(--lilas); color: var(--nuit); font-size: 22px; cursor: pointer; display: grid; place-items: center; transition: scale 0.2s; }
+.lecteur button:hover { scale: 1.06; }
+.lecteur .barre { flex: 1; height: 6px; border-radius: 6px; background: rgba(255,255,255,0.14); cursor: pointer; position: relative; }
+.lecteur .barre i { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: 6px; background: var(--lilas); }
+.lecteur time { color: var(--doux); font-size: 14px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 760px) { .podcast { grid-template-columns: 1fr; } .podcast > img { max-width: 320px; } .ikea-avant { grid-template-columns: 1fr; } .ikea-avant .fl { display: none; } .g-pages { grid-template-columns: 1fr; } }"""
+labo = head("Labo", "Projets d'école et projets perso de Cloé Pérot : identité visuelle, podcast, logos.", labo_css)
 cartes = "".join(f"""
       <figure>{z("assets/img/labo/" + f + ".webp", "Logo " + n)}<figcaption><b>{n}</b><small>{t}</small>{d}</figcaption></figure>""" for n, t, d, f in LABO)
+I = "assets/img/labo/ikea/"
+pages = lambda xs: "".join(z(I + x + ".webp", a) for x, a in xs)
 labo += f"""  <div class="ouv" style="min-height:62svh">
     <img src="assets/img/moi/lac-nuages.webp" alt="" style="object-position:center 45%">
     <a class="retour" href="index.html">← Accueil</a>
     <h1>Labo</h1>
-    <p class="role">Mes projets perso : là où je teste, je dessine et je m'amuse.</p>
+    <p class="role">Mes projets d'école et mes projets perso : là où je teste, je dessine et je m'amuse.</p>
   </div>
 
   <section>
-    <div class="chap">
-      <h2>Des logos pour des proches</h2>
-      <p>Des identités créées pour les petites entreprises de mon entourage. À chaque fois, je pars du métier pour trouver le symbole.</p>
+    <div class="filtres" role="group" aria-label="Filtrer les projets">
+      <button type="button" aria-pressed="true" data-f="tout">Tout</button>
+      <button type="button" aria-pressed="false" data-f="ecole">École</button>
+      <button type="button" aria-pressed="false" data-f="perso">Perso</button>
     </div>
-    <div class="logos-grille">{cartes}
-    </div>
-    <p class="bientot">D'autres expériences arrivent bientôt ici.</p>
+
+    <article class="projet-labo" data-cat="ecole" id="ikea">
+      <div class="etiquettes"><span>École</span><span>Identité visuelle</span></div>
+      <div class="chap">
+        <h2>IKEA, version psychédélique</h2>
+        <p>Le brief : retravailler l'identité visuelle d'une marque et sa communication selon un courant artistique. J'ai mélangé bubble street art, modernisme abstrait et rétro-psychédélique des années 70.</p>
+      </div>
+      <div class="ikea-avant">
+        {z(I + "avant.webp", "Le logo IKEA d'origine")}
+        <span class="fl" aria-hidden="true">→</span>
+        {z(I + "logo.webp", "Le nouveau logo IKEA, typographie fluide bleue cerclée de jaune")}
+      </div>
+      <div class="charte-ikea">
+        <span><i style="background:#ffd900"></i>Jaune #ffd900</span><span><i style="background:#234d9a"></i>Bleu #234d9a</span>
+        <span><i style="background:#026c91"></i>Bleu canard</span><span><i style="background:#b4a39c"></i>Sable</span>
+        <span>Titres en Bubblegum, textes en Arial Rounded</span>
+      </div>
+      <div class="g-pages">{pages([("moodboard", "Planche d'inspiration : Matisse, Mondrian, formes fluides en bleu et jaune"), ("variations", "Les variations du logo"), ("logotype", "Le logotype en forme de fleur"), ("typos", "Les typographies de la charte")])}</div>
+      <h3 style="font-size:clamp(26px,2.6vw,36px);margin:56px 0 18px">La marque en vrai</h3>
+      <div class="g-pages">{pages([("facade", "Le nouveau logo sur la façade d'un magasin"), ("catalogue", "Couverture de catalogue et panneau publicitaire"), ("abribus", "Story Instagram et affiche d'abribus « Votre future obsession ? »"), ("affiche", "Affiche GRÖNSKA : le design s'élève, le prix reste au sol"), ("web", "Site internet et carrousel pour les réseaux sociaux"), ("notice", "Une notice de montage aux couleurs de la marque"), ("textile", "Le logo sur un t-shirt, un sac kraft et un tote bag"), ("objets", "Bougie, mug, enseigne et sachet")])}</div>
+    </article>
+
+    <article class="projet-labo" data-cat="ecole" id="podcast">
+      <div class="etiquettes"><span>École</span><span>Podcast</span></div>
+      <div class="podcast">
+        <img src="assets/img/labo/podcast-cover.webp" alt="Pochette du podcast Les clés du voisin by Airbnb : un chalet en A dans la forêt">
+        <div>
+          <h2 style="font-size:clamp(36px,4.4vw,60px)">Les clés du voisin</h2>
+          <p style="color:var(--doux);max-width:46ch;margin:16px 0 0">Un podcast imaginé pour Airbnb : la pochette, l'écriture et le montage. Mets le son !</p>
+          <div class="lecteur">
+            <button type="button" id="lire" aria-label="Écouter le podcast">▶</button>
+            <div class="barre" id="barre" role="progressbar" aria-label="Progression"><i></i></div>
+            <time id="temps">0:00 / 0:34</time>
+          </div>
+          <audio id="audio" src="assets/audio/les-cles-du-voisin.mp3" preload="metadata"></audio>
+        </div>
+      </div>
+    </article>
+
+    <article class="projet-labo" data-cat="perso" id="logos" style="border:0">
+      <div class="etiquettes"><span>Perso</span><span>Logos</span></div>
+      <div class="chap">
+        <h2>Des logos pour des proches</h2>
+        <p>Des identités créées pour les petites entreprises de mon entourage. À chaque fois, je pars du métier pour trouver le symbole.</p>
+      </div>
+      <div class="logos-grille">{cartes}
+      </div>
+    </article>
   </section>
 """
 labo += pied()
+labo = labo.replace('<script src="assets/pied.js"></script>', """<script src="assets/pied.js"></script>
+<script>
+{
+  const bts = document.querySelectorAll('.filtres button');
+  bts.forEach(b => b.addEventListener('click', () => {
+    bts.forEach(x => x.setAttribute('aria-pressed', x === b));
+    document.querySelectorAll('.projet-labo').forEach(p => p.hidden = !(b.dataset.f === 'tout' || p.dataset.cat === b.dataset.f));
+  }));
+  const au = document.getElementById('audio'), bt = document.getElementById('lire'), barre = document.getElementById('barre'), t = document.getElementById('temps');
+  const mmss = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+  bt.addEventListener('click', () => au.paused ? au.play() : au.pause());
+  au.addEventListener('play', () => { bt.textContent = '❚❚'; bt.setAttribute('aria-label', 'Mettre en pause'); });
+  au.addEventListener('pause', () => { bt.textContent = '▶'; bt.setAttribute('aria-label', 'Écouter le podcast'); });
+  au.addEventListener('timeupdate', () => { const d = au.duration || 34; barre.firstElementChild.style.width = (au.currentTime / d * 100) + '%'; t.textContent = mmss(au.currentTime) + ' / ' + mmss(d); });
+  barre.addEventListener('click', e => { const r = barre.getBoundingClientRect(); if (au.duration) au.currentTime = (e.clientX - r.left) / r.width * au.duration; });
+}
+</script>""")
 open("labo.html", "w").write(labo)
 
 # ---------------------------------------------------------------- À propos

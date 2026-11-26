@@ -67,6 +67,7 @@
 .apercu { position: fixed; left: 0; top: 0; z-index: 30; width: 220px; aspect-ratio: 4 / 3; background: #fff; border-radius: 18px; padding: 22px; pointer-events: none; opacity: 0; scale: 0.85; rotate: -4deg; transition: opacity 0.25s, scale 0.3s cubic-bezier(.3,1.5,.5,1); box-shadow: 0 24px 50px rgba(0,0,0,0.45); }
 .apercu.on { opacity: 1; scale: 1; }
 .apercu img { width: 100%; height: 100%; object-fit: contain; }
+.apercu.photo { padding: 0; overflow: hidden; aspect-ratio: 1; } .apercu.photo img { object-fit: cover; }
 @media (hover: none) { .tiroir img { display: block; } .apercu { display: none; } }
 @media (max-width: 640px) { .tiroir span { display: none; } }
 
@@ -122,12 +123,14 @@
   </section>
 
   <section id="labo" class="apparait">
-    <div class="tete-labo"><h2>Labo</h2><p>Mes projets perso : des logos pour les entreprises de mes proches, et d'autres expériences à venir.</p></div>
+    <div class="tete-labo"><h2>Labo</h2><p>Mes projets d'école et mes projets perso : une identité revisitée, un podcast, des logos pour mes proches.</p></div>
     <ul class="tiroir">
-        <li><a href="labo.html" data-img="assets/img/labo/logo-nicolas-dupre.webp"><img src="assets/img/labo/logo-nicolas-dupre.webp" alt="" loading="lazy"><b>Nicolas Dupré</b><span>Logo · ingénieur</span></a></li>
-        <li><a href="labo.html" data-img="assets/img/labo/logo-digiconcept.webp"><img src="assets/img/labo/logo-digiconcept.webp" alt="" loading="lazy"><b>Digiconcept</b><span>Logo · services numériques</span></a></li>
-        <li><a href="labo.html" data-img="assets/img/labo/logo-bat-inn.webp"><img src="assets/img/labo/logo-bat-inn.webp" alt="" loading="lazy"><b>Bat Inn</b><span>Logo · installateur VELUX</span></a></li>
-        <li><a href="labo.html" data-img="assets/img/labo/logo-sd-infirmiere.webp"><img src="assets/img/labo/logo-sd-infirmiere.webp" alt="" loading="lazy"><b>Cabinet S·D</b><span>Logo · infirmière libérale</span></a></li>
+        <li><a href="labo.html#ikea" data-img="assets/img/labo/ikea/logo.webp"><img src="assets/img/labo/ikea/logo.webp" alt="" loading="lazy"><b>IKEA, version psychédélique</b><span>Identité visuelle · école</span></a></li>
+        <li><a href="labo.html#podcast" data-photo="1" data-img="assets/img/labo/podcast-cover.webp"><img src="assets/img/labo/podcast-cover.webp" alt="" loading="lazy"><b>Les clés du voisin</b><span>Podcast Airbnb · école</span></a></li>
+        <li><a href="labo.html#logos" data-img="assets/img/labo/logo-nicolas-dupre.webp"><img src="assets/img/labo/logo-nicolas-dupre.webp" alt="" loading="lazy"><b>Nicolas Dupré</b><span>Logo · ingénieur</span></a></li>
+        <li><a href="labo.html#logos" data-img="assets/img/labo/logo-digiconcept.webp"><img src="assets/img/labo/logo-digiconcept.webp" alt="" loading="lazy"><b>Digiconcept</b><span>Logo · services numériques</span></a></li>
+        <li><a href="labo.html#logos" data-img="assets/img/labo/logo-bat-inn.webp"><img src="assets/img/labo/logo-bat-inn.webp" alt="" loading="lazy"><b>Bat Inn</b><span>Logo · installateur VELUX</span></a></li>
+        <li><a href="labo.html#logos" data-img="assets/img/labo/logo-sd-infirmiere.webp"><img src="assets/img/labo/logo-sd-infirmiere.webp" alt="" loading="lazy"><b>Cabinet S·D</b><span>Logo · infirmière libérale</span></a></li>
     </ul>
     <p style="margin-top:28px"><a class="b ligne" href="labo.html">Entrer dans le Labo</a></p>
   </section>
@@ -190,7 +193,7 @@ defile.addEventListener('mouseleave', () => { puces.forEach(p => p.style.setProp
 {
   const ap = document.querySelector('.apercu'), im = ap.querySelector('img');
   document.querySelectorAll('.tiroir a').forEach(a => {
-    a.addEventListener('pointerenter', e => { if (e.pointerType !== 'mouse') return; im.src = a.dataset.img; ap.classList.add('on'); });
+    a.addEventListener('pointerenter', e => { if (e.pointerType !== 'mouse') return; im.src = a.dataset.img; ap.classList.toggle('photo', !!a.dataset.photo); ap.classList.add('on'); });
     a.addEventListener('pointerleave', () => ap.classList.remove('on'));
     a.addEventListener('pointermove', e => { ap.style.transform = `translate(${e.clientX + 24}px, ${e.clientY - 80}px)`; });
   });
