@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Labo · Cloé Pérot</title>
+<meta name="description" content="Projets d&#x27;école et projets personnels de Cloé Pérot.">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/projet.css">
+<style>.vide { border: 1px dashed rgba(255,255,255,0.3); border-radius: 22px; padding: clamp(40px, 7vw, 90px) clamp(24px, 4vw, 50px); text-align: center; }
+.vide p { color: var(--doux); max-width: 46ch; margin: 14px auto 28px; }
+.filtres { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+.filtres button { font: 500 15px "Bricolage", sans-serif; color: var(--doux); background: none; border: 1px solid var(--ligne); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+.filtres button[aria-pressed="true"] { background: var(--texte); color: var(--nuit); border-color: var(--texte); }</style>
+</head>
+<body>
+
+<header class="menu" id="menu">
+  <a class="nom" href="index.html">Cloé Pérot</a>
+  <nav aria-label="Navigation principale">
+    <a href="index.html#projets">Projets pro</a>
+    <a href="labo.html" class="opt">Labo</a>
+    <a href="a-propos.html" class="opt">À propos</a>
+    <a class="cv" href="#" title="Bientôt disponible">Mon CV</a>
+  </nav>
+</header>
+
+<main>
+  <div class="ouv" style="min-height:62svh">
+    <img src="assets/img/mont-soir.webp" alt="" style="object-position:center 30%">
+    <a class="retour" href="index.html">← Accueil</a>
+    <h1>Labo</h1>
+    <p class="role">Mes projets d'école et mes projets perso : là où je teste, je dessine et je m'amuse.</p>
+  </div>
+
+  <section>
+    <div class="filtres" role="group" aria-label="Filtrer par domaine">
+      <button type="button" aria-pressed="true">Tout</button><button type="button" aria-pressed="false">École</button><button type="button" aria-pressed="false">Perso</button>
+      <button type="button" aria-pressed="false">Identité visuelle</button><button type="button" aria-pressed="false">Photo &amp; vidéo</button><button type="button" aria-pressed="false">Print</button>
+    </div>
+    <div class="vide">
+      <h2 style="font-size:clamp(32px,4vw,52px)">Le Labo se remplit</h2>
+      <p>Mes projets d'école et mes projets perso arrivent ici très bientôt. En attendant, mes projets pro sont à voir.</p>
+      <a class="b plein" href="index.html#projets">Voir les projets pro</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <h2>On en parle ?</h2>
+  <div class="btns"><a class="b plein" href="mailto:cloe.perot@icloud.com">cloe.perot@icloud.com</a><a class="b ligne" href="#" title="Bientôt disponible">Télécharger mon CV</a></div>
+  <small>Cloé Pérot · Toulouse</small>
+</footer>
+
+<dialog class="vue" id="vue" aria-label="Image agrandie">
+  <button type="button" aria-label="Fermer">×</button>
+  <img src="" alt="">
+  <p></p>
+</dialog>
+
+<script src="assets/projet.js"></script>
+<script>
+document.querySelectorAll('.filtres button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.filtres button').forEach(x => x.setAttribute('aria-pressed', x === b));
+}));
+</script>
+</body>
+</html>

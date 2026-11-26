@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>À propos · Cloé Pérot</title>
+<meta name="description" content="Le parcours, les compétences et les outils de Cloé Pérot, chargée de communication à Toulouse.">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/projet.css">
+<style>.bio { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(30px, 6vw, 90px); align-items: center; }
+.bio p { font-size: clamp(20px, 2vw, 26px); line-height: 1.45; color: #dad8d3; margin: 0 0 22px; }
+.bio img { border-radius: 22px; aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+@media (max-width: 900px) { .bio { grid-template-columns: 1fr; } }
+.parcours { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 70px); }
+.parcours h3 { font-size: 15px; letter-spacing: 0; color: var(--lilas); font-weight: 700; margin-bottom: 8px; }
+.parcours ol { list-style: none; margin: 0; padding: 0; }
+.parcours li { padding: 18px 0; border-top: 1px solid var(--ligne); }
+.parcours li b { display: block; font-size: 19px; line-height: 1.3; }
+.parcours li span { color: var(--doux); font-size: 15px; }
+.parcours li time { display: block; color: var(--doux); font-size: 14px; margin-bottom: 4px; }
+@media (max-width: 900px) { .parcours { grid-template-columns: 1fr; } }
+.terrains { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.terrains div { border: 1px solid var(--ligne); border-radius: 22px; padding: 24px; }
+.terrains h3 { font-size: 24px; letter-spacing: -0.03em; margin-bottom: 10px; }
+.terrains p { margin: 0; color: var(--doux); }
+@media (max-width: 900px) { .terrains { grid-template-columns: 1fr 1fr; } } @media (max-width: 560px) { .terrains { grid-template-columns: 1fr; } }
+.outils { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+.outils li { border: 1px solid var(--ligne); border-radius: 999px; padding: 11px 20px; font-size: 17px; }</style>
+</head>
+<body>
+
+<header class="menu" id="menu">
+  <a class="nom" href="index.html">Cloé Pérot</a>
+  <nav aria-label="Navigation principale">
+    <a href="index.html#projets">Projets pro</a>
+    <a href="labo.html" class="opt">Labo</a>
+    <a href="a-propos.html" class="opt">À propos</a>
+    <a class="cv" href="#" title="Bientôt disponible">Mon CV</a>
+  </nav>
+</header>
+
+<main>
+  <div class="ouv" style="min-height:62svh">
+    <img src="assets/img/mont-jour.webp" alt="" style="object-position:center 55%">
+    <a class="retour" href="index.html">← Accueil</a>
+    <h1>À propos</h1>
+  </div>
+
+  <section class="bio">
+    <div>
+      <p>Moi, c'est Cloé. Je suis chargée de communication à Toulouse, et je cherche un CDI ici ou dans les Pyrénées.</p>
+      <p>Montagne, van et running : j'aime les marques qui ont une vraie communauté, et les faire grandir. Que ce soit sur les réseaux, en print ou sur le terrain.</p>
+      <div class="btns"><a class="b plein" href="mailto:cloe.perot@icloud.com">Me contacter</a><a class="b ligne" href="#" title="Bientôt disponible">Mon CV</a></div>
+    </div>
+    <img src="assets/img/tsr/ph_bridge.webp" alt="Coureurs du Toulouse Social Run sur le pont Saint-Pierre" style="object-position:50% 75%">
+  </section>
+
+  <section>
+    <h2>Mon parcours</h2>
+    <div class="parcours">
+      <div>
+        <h3>Expériences</h3>
+        <ol>
+          <li><time>2024–2026 · alternance</time><b>Chargée de communication &amp; marketing</b><span>Vancore, ex Mon Fourgon Shop</span></li>
+          <li><time>2024–2026 · bénévole</time><b>Chargée de communication &amp; graphiste</b><span>Toulouse Social Run</span></li>
+          <li><time>2023–2024 · alternance</time><b>Community manager</b><span>CFM Radio, De Fil en Déco, O'ptimôme</span></li>
+        </ol>
+      </div>
+      <div>
+        <h3>Formation</h3>
+        <ol>
+          <li><time>2024–2026</time><b>Mastère Content Marketing &amp; Brand Entertainment</b></li>
+          <li><time>2023–2024</time><b>Bachelor 3 Marketing &amp; Communication Création Digitale</b></li>
+          <li><time>2019–2023</time><b>Licence d'Études Anglophones (LLCER)</b></li>
+          <li><time>2019</time><b>Baccalauréat Économique &amp; Social</b><span>spécialité Économie approfondie</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Mes terrains de jeu</h2>
+    <div class="terrains">
+      <div><h3>Social media</h3><p>Stratégie, contenus, communauté</p></div>
+      <div><h3>Création graphique</h3><p>Identité visuelle, print, digital</p></div>
+      <div><h3>Influence &amp; affiliation</h3><p>Partenariats, contrats, suivi</p></div>
+      <div><h3>Photo &amp; vidéo</h3><p>Shooting, retouche, montage</p></div>
+      <div><h3>Rédaction web &amp; SEO</h3><p>Articles, pages web, emailing</p></div>
+      <div><h3>Com interne &amp; événementiel</h3><p>Supports, team building, salons</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Mes outils</h2>
+    <ul class="outils"><li>Adobe Creative Cloud</li><li>Canva</li><li>Figma</li><li>WordPress</li><li>CapCut</li><li>Asana</li><li>Google Analytics</li><li>Meta Business Suite</li><li>Klaviyo</li></ul>
+  </section>
+</main>
+
+<footer id="contact">
+  <h2>On en parle ?</h2>
+  <div class="btns"><a class="b plein" href="mailto:cloe.perot@icloud.com">cloe.perot@icloud.com</a><a class="b ligne" href="#" title="Bientôt disponible">Télécharger mon CV</a></div>
+  <small>Cloé Pérot · Toulouse</small>
+</footer>
+
+<dialog class="vue" id="vue" aria-label="Image agrandie">
+  <button type="button" aria-label="Fermer">×</button>
+  <img src="" alt="">
+  <p></p>
+</dialog>
+
+<script src="assets/projet.js"></script>
+</body>
+</html>

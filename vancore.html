@@ -6,110 +6,7 @@
 <title>Vancore · Cloé Pérot</title>
 <meta name="description" content="Deux ans de communication chez Vancore (ex Mon Fourgon Shop) : social media, influence, emailing, print, LinkedIn et com interne.">
 <link rel="stylesheet" href="assets/base.css">
-<style>
-/* ouverture */
-.ouv { position: relative; min-height: 88svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 130px var(--m) clamp(40px, 6vh, 70px); overflow: hidden; }
-.ouv > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; filter: brightness(0.55); }
-.ouv::after { content: ""; position: absolute; inset: auto 0 0 0; height: 60%; background: linear-gradient(transparent, var(--nuit)); }
-.ouv > *:not(img) { position: relative; z-index: 2; }
-.retour { color: var(--doux); font-size: 15px; margin-bottom: 26px; display: inline-block; }
-.retour:hover { color: var(--texte); }
-.ouv h1 { font-size: clamp(72px, 14vw, 210px); }
-.ouv .ex { font-size: clamp(20px, 2.2vw, 30px); color: var(--lilas); margin: 14px 0 0; font-weight: 500; }
-.ouv .role { margin: 30px 0 0; color: #dad8d3; font-size: clamp(17px, 1.5vw, 20px); max-width: 52ch; }
-
-/* intro */
-.intro { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 6vw, 90px); align-items: start; }
-.intro p.grand { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.4; margin: 0; }
-.chiffres { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--ligne); border: 1px solid var(--ligne); border-radius: 22px; overflow: hidden; }
-.chiffres div { background: var(--nuit); padding: 24px 24px 22px; }
-.chiffres strong { display: block; font-size: clamp(38px, 4vw, 56px); font-weight: 800; letter-spacing: -0.05em; line-height: 1; }
-.chiffres span { color: var(--doux); font-size: 15px; display: block; margin-top: 8px; }
-.domaines { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 34px 0 0; }
-.domaines li { border: 1px solid var(--ligne); border-radius: 999px; padding: 7px 15px; font-size: 15px; color: #dad8d3; }
-@media (max-width: 900px) { .intro { grid-template-columns: 1fr; } }
-
-/* sous-menu */
-.sommaire { position: sticky; top: 62px; z-index: 9; margin-top: clamp(70px, 9vw, 110px); background: rgba(13,14,17,0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-block: 1px solid var(--ligne); }
-.sommaire ul { display: flex; gap: 6px; list-style: none; margin: 0 auto; padding: 10px var(--m); max-width: 1440px; overflow-x: auto; scrollbar-width: none; }
-.sommaire ul::-webkit-scrollbar { display: none; }
-.sommaire a { display: block; white-space: nowrap; padding: 8px 15px; border-radius: 999px; font-size: 15px; color: var(--doux); transition: background 0.2s, color 0.2s; }
-.sommaire a:hover { color: var(--texte); }
-.sommaire a.actif { background: var(--texte); color: var(--nuit); }
-
-/* blocs */
-.bloc { display: grid; grid-template-columns: minmax(260px, 4fr) 8fr; gap: clamp(30px, 5vw, 80px); scroll-margin-top: 130px; }
-.bloc > .txt { position: sticky; top: 150px; align-self: start; }
-.bloc h2 { font-size: clamp(40px, 4.6vw, 66px); margin-bottom: 22px; }
-.bloc .txt p { color: #d3d1cc; margin: 0 0 16px; max-width: 42ch; }
-.bloc .txt ul { margin: 22px 0 0; padding: 0; list-style: none; color: var(--doux); font-size: 15px; }
-.bloc .txt li { padding: 9px 0; border-top: 1px solid var(--ligne); }
-@media (max-width: 900px) { .bloc { grid-template-columns: 1fr; } .bloc > .txt { position: static; } }
-
-.media { display: grid; gap: 18px; }
-.g { display: grid; gap: 14px; align-items: start; }
-.g2 { grid-template-columns: repeat(2, 1fr); } .g3 { grid-template-columns: repeat(3, 1fr); } .g4 { grid-template-columns: repeat(4, 1fr); } .g5 { grid-template-columns: repeat(5, 1fr); }
-@media (max-width: 640px) { .g3, .g4, .g5 { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 62%; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * var(--m)); padding-inline: var(--m); scroll-padding-inline: var(--m); scrollbar-width: none; } .g5 { grid-auto-columns: 46%; } .g3 > *, .g4 > *, .g5 > * { scroll-snap-align: start; } }
-figure { margin: 0; }
-figcaption { color: var(--doux); font-size: 14px; margin-top: 10px; line-height: 1.4; }
-figcaption b { color: var(--texte); font-weight: 700; display: block; }
-.zoom { display: block; border-radius: 14px; overflow: hidden; background: var(--carte); cursor: zoom-in; }
-.zoom img { width: 100%; height: auto; transition: transform 0.5s cubic-bezier(.2,.7,.2,1); }
-.zoom:hover img { transform: scale(1.03); }
-.clair { background: #f2f1ee; }
-.clair img { object-fit: contain; padding: 10%; aspect-ratio: 1; }
-.ratio-45 img { aspect-ratio: 4 / 5; object-fit: cover; }
-.ratio-916 img, video.reel { aspect-ratio: 9 / 16; object-fit: cover; }
-.ratio-169 img { aspect-ratio: 16 / 9; object-fit: cover; }
-.haut img { max-height: 760px; object-fit: cover; object-position: top; }
-.nl img { aspect-ratio: 9 / 24; object-fit: cover; object-position: top; }
-.feed { max-width: 300px; }
-.petit { max-width: 620px; }
-.duo { grid-template-columns: auto 1fr; align-items: center; }
-@media (max-width: 640px) { .duo { grid-template-columns: 1fr; } .feed { max-width: 240px; } }
-video.reel { width: 100%; border-radius: 14px; background: #000; }
-
-.encart { border: 1px solid var(--ligne); border-radius: 22px; padding: clamp(22px, 3vw, 34px); display: grid; gap: 22px; }
-.encart h3 { font-size: clamp(24px, 2.4vw, 32px); letter-spacing: -0.03em; }
-.encart p { margin: 0; color: var(--doux); }
-.stats { display: flex; flex-wrap: wrap; gap: clamp(22px, 4vw, 56px); }
-.stats strong { display: block; font-size: clamp(40px, 4.4vw, 62px); font-weight: 800; letter-spacing: -0.05em; line-height: 1; color: var(--lilas); }
-.stats span { color: var(--doux); font-size: 15px; }
-.pastilles { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
-.pastilles li { border: 1px solid var(--ligne); border-radius: 999px; padding: 7px 15px; font-size: 15px; }
-.etapes { display: grid; grid-template-columns: repeat(var(--n, 5), 1fr); gap: 10px; list-style: none; padding: 0; margin: 0; counter-reset: e; }
-.etapes li { counter-increment: e; border-top: 2px solid var(--lilas); padding-top: 12px; font-weight: 700; }
-.etapes li::before { content: counter(e); display: block; color: var(--lilas); font-size: 14px; margin-bottom: 4px; }
-.etapes li small { display: block; font-weight: 400; color: var(--doux); font-size: 14px; margin-top: 4px; }
-@media (max-width: 640px) { .etapes { grid-template-columns: 1fr 1fr; } }
-.avant { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; }
-.avant .fl { font-size: 28px; color: var(--lilas); }
-.stickers { background: #f2f1ee; border-radius: 22px; padding: clamp(20px, 3vw, 36px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(14px, 2.4vw, 30px); }
-.stickers img { height: clamp(60px, 9vw, 110px); width: auto; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.18)); }
-.stickers img.long { height: clamp(46px, 6vw, 74px); }
-.evol { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.evol > div { border: 1px solid var(--ligne); border-radius: 22px; padding: 26px; }
-.evol h3 { font-size: 26px; letter-spacing: -0.03em; margin-bottom: 4px; }
-.evol .quand { color: var(--lilas); font-size: 14px; margin: 0 0 18px; }
-.evol ul { margin: 0; padding: 0; list-style: none; }
-.evol li { padding: 8px 0; border-top: 1px solid var(--ligne); color: #d3d1cc; }
-@media (max-width: 640px) { .evol { grid-template-columns: 1fr; } }
-
-/* suivant */
-.suivant { display: block; position: relative; border-radius: 22px; overflow: hidden; min-height: 340px; }
-.suivant img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 65%; filter: brightness(0.5); transition: transform 0.6s cubic-bezier(.2,.7,.2,1), filter 0.4s; }
-.suivant:hover img { transform: scale(1.04); filter: brightness(0.62); }
-.suivant div { position: relative; padding: clamp(28px, 4vw, 50px); display: flex; flex-direction: column; justify-content: flex-end; min-height: 340px; }
-.suivant span { color: #dad8d3; }
-.suivant h2 { font-size: clamp(44px, 7vw, 100px); margin-top: 8px; }
-
-/* visionneuse */
-dialog.vue { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 92vh; }
-dialog.vue::backdrop { background: rgba(5,5,7,0.9); }
-dialog.vue img { max-width: 94vw; max-height: 86vh; width: auto; height: auto; border-radius: 10px; margin: 0 auto; }
-dialog.vue p { color: #dad8d3; text-align: center; margin: 12px 0 0; font-size: 15px; }
-dialog.vue button { position: fixed; top: 18px; right: 22px; width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.14); color: #fff; font: 700 22px/1 "Bricolage", sans-serif; cursor: pointer; }
-</style>
+<link rel="stylesheet" href="assets/projet.css">
 </head>
 <body>
 
@@ -433,31 +330,6 @@ dialog.vue button { position: fixed; top: 18px; right: 22px; width: 46px; height
   <p></p>
 </dialog>
 
-<script>
-const menu = document.getElementById('menu');
-addEventListener('scroll', () => menu.classList.toggle('fond', scrollY > 40), { passive: true });
-
-// sous-menu : section en cours
-const liens = [...document.querySelectorAll('.sommaire a')];
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (!e.isIntersecting) return;
-  liens.forEach(a => {
-    const on = a.getAttribute('href') === '#' + e.target.id;
-    a.classList.toggle('actif', on);
-    if (on) a.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
-  });
-}), { rootMargin: '-45% 0px -50% 0px' });
-document.querySelectorAll('.bloc').forEach(s => io.observe(s));
-
-// visionneuse
-const vue = document.getElementById('vue'), vImg = vue.querySelector('img'), vTxt = vue.querySelector('p');
-document.querySelectorAll('a.zoom').forEach(a => a.addEventListener('click', ev => {
-  ev.preventDefault();
-  const i = a.querySelector('img');
-  vImg.src = a.href; vImg.alt = i.alt; vTxt.textContent = i.alt;
-  vue.showModal();
-}));
-vue.addEventListener('click', ev => { if (ev.target !== vImg) vue.close(); });
-</script>
+<script src="assets/projet.js"></script>
 </body>
 </html>
