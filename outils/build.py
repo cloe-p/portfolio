@@ -358,8 +358,32 @@ labo_css += """
 .canaux-bfc li b { color: var(--texte); }
 @media (max-width: 900px) { .etapes-bfc { grid-template-columns: 1fr 1fr; } .chiffres-bfc { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .etapes-bfc, .chiffres-bfc { grid-template-columns: 1fr; } .canaux-bfc li { grid-template-columns: 1fr; gap: 2px; } }
+.equipe { color: var(--doux); font-size: 14px; margin: -14px 0 24px; }
+.equipe::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--lilas); margin-right: 8px; vertical-align: 1px; }
+.duo-labo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.duo-labo .zoom { background: var(--fond-img, #f8f6f2); }
+.duo-labo .zoom img { aspect-ratio: 16 / 9; object-fit: contain; }
+.g-libre { columns: 2; column-gap: 14px; margin-top: 14px; }
+.g-libre .zoom { break-inside: avoid; margin-bottom: 14px; }
+@media (max-width: 640px) { .g-libre { columns: 1; } }
+.bref { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.bref .zoom img, .citation-rb { aspect-ratio: 16 / 10; object-fit: cover; }
+.bref h3 { font-size: 24px; letter-spacing: -0.03em; margin: 4px 0 8px; }
+.bref p { color: var(--doux); font-size: 15px; margin: 0 0 14px; }
+.bref .etiquettes { margin: 16px 0 6px; }
+.bref .equipe { margin: 0; }
+.citation-rb { border-radius: 14px; background: #1d2a7a; color: #f9c80e; display: grid; place-items: center; padding: 24px; text-align: center; font-weight: 800; font-size: clamp(20px, 2vw, 26px); letter-spacing: -0.03em; line-height: 1.15; }
+.gam { display: grid; grid-template-columns: 1.4fr 1fr; gap: 30px; align-items: center; margin: 50px 0 16px; padding-top: 40px; border-top: 1px solid var(--ligne); }
+.gam h3 { font-size: clamp(26px, 2.6vw, 36px); margin-bottom: 12px; }
+.gam > div > p { color: var(--doux); margin: 0 0 22px; }
+.gam .zoom { background: #f6f5f2; max-width: 260px; justify-self: center; }
+.stats-gam { display: flex; gap: 30px; flex-wrap: wrap; margin-bottom: 22px; }
+.stats-gam strong { display: block; font-size: clamp(30px, 3vw, 42px); font-weight: 800; letter-spacing: -0.05em; color: var(--lilas); line-height: 1; }
+.stats-gam span { color: var(--doux); font-size: 14px; }
+@media (max-width: 900px) { .bref { grid-template-columns: 1fr; } .gam { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .duo-labo { grid-template-columns: 1fr; } }
 @media (max-width: 760px) { .podcast { grid-template-columns: 1fr; } .podcast > img { max-width: 320px; } .ikea-avant { grid-template-columns: 1fr; } .ikea-avant .fl { display: none; } .g-pages { grid-template-columns: 1fr; } }"""
-labo = head("Labo", "Projets d'école et projets perso de Cloé Pérot : identité visuelle, podcast, logos.", labo_css)
+labo = head("Labo", "Projets d'école et projets perso de Cloé Pérot : identités visuelles, stratégies, social ads, site web, podcast.", labo_css)
 cartes = "".join(f"""
       <figure>{z("assets/img/labo/" + f + ".webp", "Logo " + n)}<figcaption><b>{n}</b><small>{t}</small>{d}</figcaption></figure>""" for n, t, d, f in LABO)
 I = "assets/img/labo/ikea/"
@@ -374,11 +398,13 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
   <section>
     <div class="filtres" role="group" aria-label="Filtrer les projets">
       <button type="button" aria-pressed="true" data-f="tout">Tout</button>
-      <button type="button" aria-pressed="false" data-f="ecole">École</button>
-      <button type="button" aria-pressed="false" data-f="perso">Perso</button>
+      <button type="button" aria-pressed="false" data-f="identite">Identité visuelle</button>
+      <button type="button" aria-pressed="false" data-f="strategie">Stratégie &amp; social ads</button>
+      <button type="button" aria-pressed="false" data-f="web">Web &amp; podcast</button>
+      <button type="button" aria-pressed="false" data-f="perso">Projets perso</button>
     </div>
 
-    <article class="projet-labo" data-cat="ecole" id="ikea">
+    <article class="projet-labo" data-cat="identite" id="ikea">
       <div class="etiquettes"><span>École</span><span>Identité visuelle</span></div>
       <div class="chap">
         <h2>IKEA, version psychédélique</h2>
@@ -399,7 +425,58 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       <div class="g-pages">{pages([("facade", "Le nouveau logo sur la façade d'un magasin"), ("catalogue", "Couverture de catalogue et panneau publicitaire"), ("abribus", "Story Instagram et affiche d'abribus « Votre future obsession ? »"), ("affiche", "Affiche GRÖNSKA : le design s'élève, le prix reste au sol"), ("web", "Site internet et carrousel pour les réseaux sociaux"), ("notice", "Une notice de montage aux couleurs de la marque"), ("textile", "Le logo sur un t-shirt, un sac kraft et un tote bag"), ("objets", "Bougie, mug, enseigne et sachet")])}</div>
     </article>
 
-    <article class="projet-labo" data-cat="ecole" id="pawtes">
+    <article class="projet-labo" data-cat="identite" id="matp">
+      <div class="etiquettes"><span>École</span><span>Identité visuelle</span></div>
+      <div class="chap">
+        <h2>Musée des Arts et Traditions Populaires</h2>
+        <p>Créer l'identité d'un musée parisien, entre patrimoine et design contemporain. Le « A » central rappelle à la fois l'Arc de Triomphe et la tour Eiffel, et le T et le P fusionnent pour lier tradition et modernité.</p>
+      </div>
+      <p class="equipe">En duo avec Lola</p>
+      <div class="duo-labo">{z("assets/img/labo/matp/logo.webp", "Le logo MATP : un grand A terre cuite entre M, T et P")}{z("assets/img/labo/matp/charte.webp", "Versions du logo, palette terre cuite, bleu océan et ivoire, typos Kana et Fino")}</div>
+      <div class="g-libre">{z("assets/img/labo/matp/affiches.webp", "Affiche de l'inauguration du 8 novembre, seule et en situation")}{z("assets/img/labo/matp/reseaux.webp", "Bannière Facebook et story Instagram de l'inauguration")}{z("assets/img/labo/matp/brochure.webp", "La brochure du musée : exposition, parcours permanent, mot d'accueil")}{z("assets/img/labo/matp/mockups-1.webp", "Badge et casquette aux couleurs du musée")}</div>
+    </article>
+
+    <article class="projet-labo" data-cat="identite strategie" id="kinetic" style="--fond-img:#fff">
+      <div class="etiquettes"><span>École</span><span>Branding</span><span>Stratégie</span></div>
+      <div class="chap">
+        <h2>Kinetic, ex Sparks</h2>
+        <p>Un vrai client, une startup de bien-être et de performance en entreprise : on lui a créé une agence fictive pour refaire tout son projet de marque. Étude de marché, nouveau nom, brandbook, stratégie digitale, prototypes et pitch.</p>
+      </div>
+      <p class="equipe">En agence de 3 (nut. agency) avec Alexandre et Alan</p>
+      <div class="duo-labo">{z("assets/img/labo/kinetic/logo.webp", "Le logo Kinetic : deux flammes bleue et rouge au-dessus du nom")}{z("assets/img/labo/kinetic/logos-filles.webp", "Les logos filles Kinetic Move en bleu et Kinetic Heart en rouge")}</div>
+      <div class="charte-ikea"><span><i style="background:#3772ff"></i>Olympic blue</span><span><i style="background:#d1495b"></i>Race red</span><span><i style="background:#000"></i>Noir</span><span>Nouveau nom : du grec « kinesis », le mouvement</span></div>
+      <div class="g-libre">{z("assets/img/labo/kinetic/mockups.webp", "Kinetic sur une montre, une casquette, des tote bags et une gourde")}{z("assets/img/labo/kinetic/app.webp", "Les écrans de l'application : analyses, fréquence cardiaque, activité")}{z("assets/img/labo/kinetic/site.webp", "Le site web Kinetic sur ordinateur")}{z("assets/img/labo/kinetic/emailing.webp", "L'emailing Beyond movement")}</div>
+    </article>
+
+    <article class="projet-labo" data-cat="identite strategie" id="hyros" style="--fond-img:#000">
+      <div class="etiquettes"><span>École</span><span>Lancement de produit</span></div>
+      <div class="chap">
+        <h2>Hyros, la Tesla à hydrogène</h2>
+        <p>Imaginer le lancement du premier véhicule à hydrogène de Tesla : le nom, le logotype, le prototype, puis tout le plan de communication, de la newsletter au magazine.</p>
+      </div>
+      <p class="equipe">En équipe de 4 · moi : graphiste</p>
+      <div class="duo-labo">{z("assets/img/labo/hyros/nom.webp", "Le nom HYROS en lettres géométriques blanches")}{z("assets/img/labo/hyros/logo.webp", "Le logotype, inspiré d'un piston de moteur à hydrogène")}</div>
+      <div class="g-libre">{z("assets/img/labo/hyros/prototype.webp", "Le prototype Hyros, généré par IA")}{z("assets/img/labo/hyros/magazine.webp", "Le magazine Hyros en situation")}{z("assets/img/labo/hyros/carrousel.webp", "Le carrousel pour les réseaux sociaux")}{z("assets/img/labo/hyros/newsletter.webp", "La newsletter de lancement")}</div>
+    </article>
+
+    <article class="projet-labo" data-cat="strategie" id="pgw">
+      <div class="etiquettes"><span>École</span><span>Social ads</span></div>
+      <div class="chap">
+        <h2>Paris Games Week 2027</h2>
+        <p>Un pitch d'agence : passer de 42 % à 60 % de billets vendus un mois avant le salon, avec une stratégie cross-canal TikTok, Meta et Twitch. Funnel, hooks, brief créatif, 12 assets et dashboard.</p>
+      </div>
+      <p class="equipe">En agence de 4 avec Lola, Pauline et Chloé</p>
+      <div class="chiffres-bfc">
+        <div><strong>42 → 60 %</strong><span>de billets vendus à J-30</span></div>
+        <div><strong>180 k€</strong><span>de budget ads, répartis TikTok 40 %, Meta 40 %, Twitch 20 %</span></div>
+        <div><strong>9</strong><span>hooks testés, du contrarian au secret de métier</span></div>
+        <div><strong>12</strong><span>assets créés : stories, carrousels, miniatures, lead ads</span></div>
+      </div>
+      <blockquote class="accroche-bfc">« Ne viens pas à la PGW cette année. »</blockquote>
+      <div class="g-libre">{z("assets/img/labo/pgw/couverture.webp", "Couverture du pitch Paris Games Week")}{z("assets/img/labo/pgw/stories.webp", "Story interactive et visuel TOFU « Le mode solo est mort »")}{z("assets/img/labo/pgw/miniatures.webp", "Miniature YouTube et overlay Twitch")}{z("assets/img/labo/pgw/lead-ads.webp", "Lead ads et formulaire BOFU, mini bande-annonce e-sport")}{z("assets/img/labo/pgw/visuels.webp", "Logo animé et variantes de visuels IA")}</div>
+    </article>
+
+    <article class="projet-labo" data-cat="web" id="pawtes">
       <div class="etiquettes"><span>École</span><span>Site web</span></div>
       <div class="chap">
         <h2>Entre Pawtes</h2>
@@ -409,11 +486,11 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       <div class="g-pages">{"".join(z("assets/img/labo/pawtes/" + x + ".webp", a) for x, a in [("creche", "Section Comment ça marche, avec un chien détouré"), ("services", "Les services de la crèche autour d'un chien qui fait le beau"), ("pourquoi", "Section Pourquoi nous choisir, sur fond de photo"), ("formules", "Des journées qui ont du chien : les formules"), ("tarifs", "Les tarifs en cartes, la formule phare en bleu"), ("newsletter", "Reste dans la meute : l'inscription à la newsletter")])}</div>
     </article>
 
-    <article class="projet-labo" data-cat="ecole" id="bfc">
+    <article class="projet-labo" data-cat="strategie" id="bfc">
       <div class="etiquettes"><span>École</span><span>Stratégie marketing</span></div>
       <div class="chap">
         <h2>Book, Food &amp; Créa</h2>
-        <p>Lancer à Toulouse une expérience de 3 heures pour les femmes de 18 à 35 ans : un livre, un moment gourmand et un atelier créatif, pour créer du lien et rompre la solitude. Je l'ai mené de l'étude de marché au plan de communication.</p>
+        <p>Lancer à Toulouse une expérience de 3 heures pour les femmes de 18 à 35 ans : un livre, un moment gourmand et un atelier créatif, pour créer du lien et rompre la solitude. De l'étude de marché au plan de communication, jusqu'à une appli de fidélisation.</p>
       </div>
       <blockquote class="accroche-bfc">« Le trio qui nourrit tes yeux, ton ventre et tes mains ! »</blockquote>
       <ol class="etapes-bfc">
@@ -439,9 +516,29 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
           <li><b>Newsletter</b>24 h de préventes réservées aux abonnées</li>
         </ul>
       </div>
+      <div class="gam">
+        <div>
+          <h3>Le Jardin Créatif</h3>
+          <p>La suite du projet : une appli où chaque participante fait pousser un jardin grâce à des défis du quotidien (lire, photographier son repas, dessiner). Une plante par pilier, Book, Food et Créa, et la récolte ne se débloque qu'en revenant à un événement. Avec la fidélisation et la segmentation RFM derrière.</p>
+          <div class="stats-gam"><div><strong>53 → 96 €</strong><span>de valeur client avec le dispositif</span></div><div><strong>6,7×</strong><span>ratio CLV / coût d'acquisition</span></div></div>
+          <p class="equipe">Cette partie en duo avec Lola</p>
+        </div>
+        {z("assets/img/labo/bfc/app-jardin.webp", "L'application Le Jardin Créatif : le jardin de Lola et ses défis")}
+      </div>
+      {z("assets/img/labo/bfc/app.webp", "Les écrans de l'appli : boutique XP, espace organisatrice, réservation")}
     </article>
 
-    <article class="projet-labo" data-cat="ecole" id="podcast">
+    <article class="projet-labo" data-cat="strategie" id="dab">
+      <div class="etiquettes"><span>École</span><span>Concept de marque</span></div>
+      <div class="chap">
+        <h2>Le DAB</h2>
+        <p>Une épicerie le jour, un distributeur automatique la nuit, rempli uniquement de produits créés par des créateurs de contenu food. Le concept, le ton (direct, décalé, passionné, accessible), les produits, les canaux et la monétisation.</p>
+      </div>
+      <p class="equipe">En équipe de 4 avec Lola, Kevin et Julien</p>
+      <div class="g-libre">{z("assets/img/labo/dab/couverture.webp", "Couverture : LE DAB en lettres jaunes sur bordeaux")}{z("assets/img/labo/dab/marque.webp", "Le DAB, distributeur à bouffe : les 4 traits de caractère de la marque")}{z("assets/img/labo/dab/produits.webp", "Les produits de créateurs : matcha, glaces, kombucha, chips")}</div>
+    </article>
+
+    <article class="projet-labo" data-cat="web" id="podcast">
       <div class="etiquettes"><span>École</span><span>Podcast</span></div>
       <div class="podcast">
         <img src="assets/img/labo/podcast-cover.webp" alt="Pochette du podcast Les clés du voisin by Airbnb : un chalet en A dans la forêt">
@@ -458,7 +555,34 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       </div>
     </article>
 
-    <article class="projet-labo" data-cat="perso" id="logos" style="border:0">
+    <article class="projet-labo" data-cat="strategie" id="bref">
+      <div class="chap"><h2>Et aussi, en bref</h2><p>Des projets plus courts, menés en cours.</p></div>
+      <div class="bref">
+        <div>
+          {z("assets/img/labo/autres/3soeurs-photo.webp", "Brunch au Trois Sœurs Café")}
+          <div class="etiquettes"><span>Fidélisation</span></div>
+          <h3>Trois Sœurs Café</h3>
+          <p>Un programme de fidélité pour un café toulousain : 1 € = 1 point, des récompenses du café offert au brunch, des points gagnés sur Instagram et Google, et les données à collecter.</p>
+          <p class="equipe">En duo avec Pauline</p>
+        </div>
+        <div>
+          {z("assets/img/labo/autres/mariage-coffret.webp", "Le coffret Théâtre des Sens et sa carte signée")}
+          <div class="etiquettes"><span>Brand content</span></div>
+          <h3>Mariage Frères × Pierre Niney</h3>
+          <p>Un coffret de 4 thés en édition limitée, « Théâtre des Sens », co-signé par l'acteur, avec une carte et une playlist en QR code. Plus l'événement de lancement et la pub TV.</p>
+          <p class="equipe">En équipe de 4</p>
+        </div>
+        <div>
+          <div class="citation-rb">« Red Bull, fournisseur officiel d'ailes depuis 1984. »</div>
+          <div class="etiquettes"><span>Storytelling</span></div>
+          <h3>Red Bull, #NouvellesAiles</h3>
+          <p>Une campagne qui raconte le parcours de Charles Leclerc, du karting à Monaco jusqu'à Red Bull Racing : un court-métrage, une campagne digitale et un événement immersif.</p>
+          <p class="equipe">En duo avec Alan</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="projet-labo" data-cat="perso identite" id="logos" style="border:0">
       <div class="etiquettes"><span>Perso</span><span>Logos</span></div>
       <div class="chap">
         <h2>Des logos pour des proches</h2>
@@ -476,7 +600,7 @@ labo = labo.replace('<script src="assets/pied.js"></script>', """<script src="as
   const bts = document.querySelectorAll('.filtres button');
   bts.forEach(b => b.addEventListener('click', () => {
     bts.forEach(x => x.setAttribute('aria-pressed', x === b));
-    document.querySelectorAll('.projet-labo').forEach(p => p.hidden = !(b.dataset.f === 'tout' || p.dataset.cat === b.dataset.f));
+    document.querySelectorAll('.projet-labo').forEach(p => p.hidden = !(b.dataset.f === 'tout' || p.dataset.cat.split(' ').includes(b.dataset.f)));
   }));
   const au = document.getElementById('audio'), bt = document.getElementById('lire'), barre = document.getElementById('barre'), t = document.getElementById('temps');
   const mmss = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
