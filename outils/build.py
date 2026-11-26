@@ -466,6 +466,12 @@ dialog.fiche::backdrop { background: rgba(5,5,7,0.78); backdrop-filter: blur(4px
 .duo .duo-photos { max-width: calc(var(--h) * 3.556 * 0.75); }
 .g2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 760px; }
 .g2x2 .zoom img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.photos { display: flex; flex-wrap: wrap; gap: 8px; --ph: clamp(120px, 19vh, 175px); }
+.photos .zoom { flex: calc(var(--r) * 100) 1 calc(var(--r) * var(--ph)); height: var(--ph); }
+.photos::after { content: ""; flex: 10 1 0; }
+.photos img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+.photos a[href$="mustang.webp"] img { object-position: 50% 38%; }
+@media (max-width: 760px) { .photos { --ph: 110px; gap: 6px; } }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
 .ecrans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
@@ -491,6 +497,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       <button type="button" aria-pressed="false" data-f="strategie">Stratégie</button>
       <button type="button" aria-pressed="false" data-f="web">Web &amp; podcast</button>
       <button type="button" aria-pressed="false" data-f="perso">Projets perso</button>
+      <button type="button" aria-pressed="false" data-f="photo">Photo</button>
     </div>
 
     <article class="projet-labo duo" data-cat="identite" id="ikea">
@@ -622,6 +629,13 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
           <ul class="competences"><li>Storytelling</li><li>Concept de campagne</li><li>Affiches</li><li>Plan de communication</li></ul>
         </div>
       </dialog>
+    </article>
+
+    <article class="projet-labo duo" data-cat="perso photo" id="photo">
+      <div class="cote"><div class="etiquettes"><span>Perso</span><span>Photographie</span></div>
+      <div class="chap"><h2>Photographie</h2><p class="brief">Ce que je regarde quand je n'ai pas de brief : des façades, des couleurs, des lacs de montagne et un chien qui pose très bien.</p>
+      <ul class="competences"><li>Cadrage</li><li>Lumière</li><li>Œil couleur</li></ul></div></div>
+      <div class="medias"><div class="photos"><a class="zoom" href="assets/img/labo/photo/camden.webp" style="--r:0.75"><img src="assets/img/labo/photo/camden.webp" alt="Façade peinte avec une tête d'éléphant à Camden, Londres" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/sacre-coeur.webp" style="--r:0.75"><img src="assets/img/labo/photo/sacre-coeur.webp" alt="Les dômes du Sacré-Cœur au soleil couchant" loading="lazy"></a><a class="zoom" href="assets/img/moi/lac-braies.webp" style="--r:1.778"><img src="assets/img/moi/lac-braies.webp" alt="Un lac de montagne entouré de sapins, dans les Dolomites" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/mustang.webp" style="--r:0.75"><img src="assets/img/labo/photo/mustang.webp" alt="La calandre d'une Mustang jaune et noire" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/chapelle-crete.webp" style="--r:0.75"><img src="assets/img/labo/photo/chapelle-crete.webp" alt="Une chapelle blanche et bleue au bord de la mer en Crète" loading="lazy"></a><a class="zoom" href="assets/img/moi/atlas-sommets.webp" style="--r:0.5625"><img src="assets/img/moi/atlas-sommets.webp" alt="Mon chien devant des sommets rocheux" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/peintre-montmartre.webp" style="--r:0.75"><img src="assets/img/labo/photo/peintre-montmartre.webp" alt="Les toiles d'un peintre de rue à Montmartre" loading="lazy"></a><a class="zoom" href="assets/img/mont-jour.webp" style="--r:1.778"><img src="assets/img/mont-jour.webp" alt="Des sommets calcaires au-dessus d'une forêt de mélèzes" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/big-ben.webp" style="--r:0.75"><img src="assets/img/labo/photo/big-ben.webp" alt="Le cadran de Big Ben" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/passerelle.webp" style="--r:0.75"><img src="assets/img/labo/photo/passerelle.webp" alt="Une passerelle en bois au-dessus d'une rivière transparente" loading="lazy"></a><a class="zoom" href="assets/img/moi/lac-foret.webp" style="--r:1.778"><img src="assets/img/moi/lac-foret.webp" alt="Un lac turquoise au pied de la forêt" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/notting-hill.webp" style="--r:0.75"><img src="assets/img/labo/photo/notting-hill.webp" alt="Façades bleue et blanches à Notting Hill" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/bonifacio.webp" style="--r:0.75"><img src="assets/img/labo/photo/bonifacio.webp" alt="La citadelle de Bonifacio sous un ciel bleu" loading="lazy"></a><a class="zoom" href="assets/img/moi/atlas-lac.webp" style="--r:0.5625"><img src="assets/img/moi/atlas-lac.webp" alt="Mon chien assis au bord d'un lac" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/crete-baie.webp" style="--r:0.75"><img src="assets/img/labo/photo/crete-baie.webp" alt="Une baie turquoise en Crète" loading="lazy"></a><a class="zoom" href="assets/img/moi/lac-nuages.webp" style="--r:1.778"><img src="assets/img/moi/lac-nuages.webp" alt="Un lac sous les nuages, montagnes en reflet" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/immeuble-paris.webp" style="--r:0.75"><img src="assets/img/labo/photo/immeuble-paris.webp" alt="Un immeuble haussmannien et son dôme d'ardoise" loading="lazy"></a><a class="zoom" href="assets/img/mont-soir.webp" style="--r:1.778"><img src="assets/img/mont-soir.webp" alt="Une crête de montagne au coucher du soleil" loading="lazy"></a></div></div>
     </article>
 
     <article class="projet-labo" data-cat="perso identite" id="logos" style="border:0">
