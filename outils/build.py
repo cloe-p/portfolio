@@ -254,7 +254,7 @@ cm = head("Community manager", "Première alternance de Cloé Pérot : community
 cm += f"""  <div class="ouv mags">
     <div>
       <a class="retour" href="index.html#projets">← Tous les projets</a>
-      <h1 style="font-size:clamp(60px,9vw,140px)">Community manager</h1>
+      <h1>Community manager</h1>
       <p class="ex">ma première alternance</p>
       <p class="role">Community manager en alternance, de septembre 2023 à septembre 2024.</p>
     </div>

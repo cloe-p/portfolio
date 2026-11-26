@@ -1,11 +1,11 @@
 /* ouverture */
 .ouv { position: relative; min-height: 88svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 130px var(--m) clamp(40px, 6vh, 70px); overflow: hidden; }
-.ouv > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; filter: brightness(0.55); }
-.ouv::after { content: ""; position: absolute; inset: auto 0 0 0; height: 60%; background: linear-gradient(transparent, var(--nuit)); }
+.ouv > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; filter: brightness(0.72); }
+.ouv::after { content: ""; position: absolute; inset: auto 0 0 0; height: 40%; background: linear-gradient(transparent, var(--nuit)); }
 .ouv > *:not(img) { position: relative; z-index: 2; }
 .retour { color: var(--doux); font-size: 15px; margin-bottom: 26px; display: inline-block; }
 .retour:hover { color: var(--texte); }
-.ouv h1 { font-size: clamp(72px, 14vw, 210px); }
+.ouv h1 { font-size: clamp(46px, 7vw, 108px); }
 .ouv .ex { font-size: clamp(20px, 2.2vw, 30px); color: var(--lilas); margin: 14px 0 0; font-weight: 500; }
 .ouv .role { margin: 30px 0 0; color: #dad8d3; font-size: clamp(17px, 1.5vw, 20px); max-width: 52ch; }
 
