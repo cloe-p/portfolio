@@ -20,7 +20,7 @@ def head(titre, desc, extra_css="", classe=""):
 <body class="{classe}">
 
 <header class="menu" id="menu">
-  <a class="nom" href="index.html">Cloé Pérot</a>
+  <a class="nom" href="index.html">Mon Portfolio</a>
   <nav aria-label="Navigation principale">
     <a href="index.html#projets">Projets pro</a>
     <a href="labo.html" class="opt">Labo</a>
