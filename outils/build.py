@@ -512,12 +512,6 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       <div class="duo-photos">{z("assets/img/labo/bfc/photo-aquarelle.webp", "Atelier aquarelle, des fleurs peintes à la main")}{z("assets/img/labo/bfc/photo-atelier.webp", "Pinceaux et pots de peinture dans un atelier")}</div><div class="gam"><div><h3>Le Jardin Créatif, l'appli du projet</h3><p>Chaque participante fait pousser un jardin grâce à des petits défis du quotidien : lire 5 pages, prendre son petit-déj en photo, dessiner en 60 secondes. Une plante par pilier, Book, Food et Créa, et la récolte ne se débloque qu'en revenant à un atelier.</p></div></div><div class="ecrans">{z("assets/img/labo/bfc/app-jardin.webp", "Le jardin et les défis du jour")}{z("assets/img/labo/bfc/app-boutique.webp", "La boutique XP")}{z("assets/img/labo/bfc/app-evenements.webp", "La réservation des ateliers")}{z("assets/img/labo/bfc/app-scan.webp", "L'espace organisatrice pour valider les récoltes")}</div></div>
     </article>
 
-    <article class="projet-labo duo" data-cat="strategie" id="dab">
-      <div class="cote"><div class="etiquettes"><span>École</span><span>Concept de marque</span></div>
-      <div class="chap"><h2>Le DAB</h2><div><p class="brief"><b>Le brief :</b> imaginer une marque : une épicerie le jour, un distributeur la nuit, rempli de produits créés par les créateurs de contenu food.</p><ul class="competences"><li>Concept</li><li>Plateforme de marque</li><li>Ton</li><li>Stratégie de canaux</li></ul></div></div></div>
-      <div class="medias">
-      <div class="g-libre">{z("assets/img/labo/dab/marque.webp", "Le DAB, distributeur à bouffe")}{z("assets/img/labo/dab/produits.webp", "Les produits de créateurs")}</div></div>
-    </article>
 
     <article class="projet-labo" data-cat="web" id="podcast">
       <div class="etiquettes"><span>École</span><span>Podcast</span></div>
