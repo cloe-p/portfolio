@@ -612,7 +612,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
 
       <dialog class="fiche" id="f-rb" aria-labelledby="t-rb">
         <button type="button" class="fermer" aria-label="Fermer">×</button>
-        <div class="fiche-media trois">{z("assets/img/labo/autres/redbull-nouvelles-ailes.webp", "Affiche #NouvellesAiles : une Formule 1 dans un tunnel")}{z("assets/img/labo/autres/redbull-affiche-limitless.webp", "Affiche LIMITLESS")}{z("assets/img/labo/autres/redbull-kiosque-limitless.webp", "L'affiche LIMITLESS sur un kiosque")}</div>
+        <div class="fiche-media trois">{z("assets/img/labo/autres/redbull-nouvelles-ailes.webp", "Affiche #NouvellesAiles : une Formule 1 dans un tunnel")}{z("assets/img/labo/autres/redbull-limitless-pilote.webp", "Affiche LIMITLESS avec le pilote sur le podium")}{z("assets/img/labo/autres/redbull-kiosque-limitless.webp", "L'affiche LIMITLESS sur un kiosque")}</div>
         <div class="fiche-texte">
           <span class="etiquettes"><span>École</span><span>Storytelling</span></span>
           <h3 id="t-rb">Red Bull, #NouvellesAiles</h3>
