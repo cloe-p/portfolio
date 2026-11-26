@@ -323,7 +323,7 @@ labo_css += """
 .filtres { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 50px; }
 .filtres button { font: 500 15px "Bricolage", sans-serif; color: var(--doux); background: none; border: 1px solid var(--ligne); border-radius: 999px; padding: 10px 18px; cursor: pointer; min-height: 44px; }
 .filtres button[aria-pressed="true"] { background: var(--texte); color: var(--nuit); border-color: var(--texte); }
-.projet-labo { padding-bottom: 80px; margin-bottom: 80px; border-bottom: 1px solid var(--ligne); }
+.projet-labo { scroll-margin-top: 110px; padding-bottom: 80px; margin-bottom: 80px; border-bottom: 1px solid var(--ligne); }
 .projet-labo[hidden] { display: none; }
 .etiquettes { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
 .etiquettes span { font-size: 13px; font-weight: 700; border-radius: 999px; padding: 5px 12px; background: var(--lilas); color: var(--nuit); }
@@ -381,6 +381,16 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       <div class="g-pages">{pages([("moodboard", "Planche d'inspiration : Matisse, Mondrian, formes fluides en bleu et jaune"), ("variations", "Les variations du logo"), ("logotype", "Le logotype en forme de fleur"), ("typos", "Les typographies de la charte")])}</div>
       <h3 style="font-size:clamp(26px,2.6vw,36px);margin:56px 0 18px">La marque en vrai</h3>
       <div class="g-pages">{pages([("facade", "Le nouveau logo sur la façade d'un magasin"), ("catalogue", "Couverture de catalogue et panneau publicitaire"), ("abribus", "Story Instagram et affiche d'abribus « Votre future obsession ? »"), ("affiche", "Affiche GRÖNSKA : le design s'élève, le prix reste au sol"), ("web", "Site internet et carrousel pour les réseaux sociaux"), ("notice", "Une notice de montage aux couleurs de la marque"), ("textile", "Le logo sur un t-shirt, un sac kraft et un tote bag"), ("objets", "Bougie, mug, enseigne et sachet")])}</div>
+    </article>
+
+    <article class="projet-labo" data-cat="ecole" id="pawtes">
+      <div class="etiquettes"><span>École</span><span>Site web</span></div>
+      <div class="chap">
+        <h2>Entre Pawtes</h2>
+        <p>Pour mon cours de création et d'animation de site web : le site d'une crèche pour chiens à Toulouse, imaginé de A à Z. Le design, les textes pleins de jeux de mots, les formules et les animations.</p>
+      </div>
+      <figure style="margin:0">{z("assets/img/labo/pawtes/accueil.webp", "Accueil du site Entre Pawtes : Crèche de toutous à Toulouse")}</figure>
+      <div class="g-pages">{"".join(z("assets/img/labo/pawtes/" + x + ".webp", a) for x, a in [("creche", "Section Comment ça marche, avec un chien détouré"), ("services", "Les services de la crèche autour d'un chien qui fait le beau"), ("pourquoi", "Section Pourquoi nous choisir, sur fond de photo"), ("formules", "Des journées qui ont du chien : les formules"), ("tarifs", "Les tarifs en cartes, la formule phare en bleu"), ("newsletter", "Reste dans la meute : l'inscription à la newsletter")])}</div>
     </article>
 
     <article class="projet-labo" data-cat="ecole" id="podcast">
