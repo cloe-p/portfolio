@@ -290,7 +290,7 @@ cm += bloc("optimome", "O'ptimôme",
       </div>
       {fig(C + "op_pub_printemps.webp", "Pub O'ptimôme printemps en double page", "Pub print", "printemps, en double page : une pub par saison pour renvoyer vers le site et Facebook", "transp")}""",
            ["Page Facebook et compte Instagram", "Jeux concours pour animer la communauté", "Pubs print pour faire connaître le site"])
-cm += pied(("vancore.html", "assets/img/vancore/cover_van.webp", "Vancore", "center 60%"))
+cm += pied(("vancore.html", "assets/img/vancore/cover_van_paysage.webp", "Vancore", "center 62%"))
 cm = cm.replace('.ouv.mags .couv img { position: static;', '.ouv.mags .couv img { position: static;')
 open("community-manager.html", "w").write(cm)
 
@@ -390,7 +390,8 @@ dialog.fiche::backdrop { background: rgba(5,5,7,0.78); backdrop-filter: blur(4px
 .fiche-media { display: grid; gap: 12px; align-content: start; }
 .fiche-media.trois { grid-template-columns: 1fr 1fr; }
 .fiche-media.trois .zoom:last-child { grid-column: span 2; }
-.fiche-media.trois .zoom:last-child img { aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 40%; }
+.fiche-media.trois .zoom:last-child { background: #000; border-radius: 14px; }
+.fiche-media.trois .zoom:last-child img { width: auto; max-width: 100%; max-height: 40vh; margin: 0 auto; object-fit: contain; }
 .fiche-media .zoom img { border-radius: 14px; width: 100%; max-height: 36vh; object-fit: cover; }
 .bref { align-items: start; }
 .fiche-texte h3 { font-size: clamp(26px, 2.6vw, 34px); letter-spacing: -0.04em; line-height: 1.05; margin: 12px 0 14px; padding-right: 40px; }
@@ -581,7 +582,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
           <span class="plus">En savoir plus</span>
         </button>
         <button type="button" class="carte-bref" data-fiche="f-rb">
-          <img src="assets/img/labo/autres/redbull-kiosque-limitless.webp" alt="" loading="lazy" style="object-position:50% 45%">
+          <img src="assets/img/labo/autres/redbull-kiosque-limitless.webp" alt="" loading="lazy" style="object-position:50% 72%">
           <span class="etiquettes"><span>Storytelling</span></span>
           <h3>Red Bull, #NouvellesAiles</h3>
           <p>Une campagne « LIMITLESS » qui raconte le parcours d'un pilote, du karting à Red Bull Racing.</p>

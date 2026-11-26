@@ -141,3 +141,28 @@ dialog.vue button { position: fixed; top: 18px; right: 22px; width: 46px; height
 .ouv .ex { text-shadow: 0 1px 12px rgba(0,0,0,0.6); }
 
 #menu:not(.fond) a { text-shadow: 0 1px 10px rgba(0,0,0,0.45); }
+
+/* galerie */
+dialog.vue .fermer { position: fixed; top: 18px; right: 22px; }
+dialog.vue .nav { position: fixed; top: 50%; translate: 0 -50%; width: 52px; height: 52px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.14); color: #fff; font: 700 22px/1 "Bricolage", sans-serif; cursor: pointer; }
+dialog.vue .nav:hover, dialog.vue .fermer:hover { background: var(--lilas); color: var(--nuit); }
+dialog.vue .prec { left: 22px; } dialog.vue .suiv { right: 22px; }
+dialog.vue .cpt { position: fixed; top: 28px; left: 50%; translate: -50% 0; color: #dad8d3; font-size: 14px; }
+dialog.vue [hidden] { display: none; }
+a.zoom.serie { position: relative; }
+a.zoom.serie::after { content: attr(data-n) "  ⇆"; position: absolute; right: 10px; bottom: 10px; background: rgba(13,14,17,0.78); color: #fff; font-size: 12.5px; font-weight: 700; padding: 5px 10px; border-radius: 99px; pointer-events: none; }
+@media (max-width: 640px) { dialog.vue .nav { top: auto; bottom: 18px; translate: none; } }
+
+/* réels */
+.reels figure { position: relative; margin: 0; transition: scale 0.45s cubic-bezier(.2,.8,.2,1), opacity 0.35s, filter 0.35s; }
+.reels figure video { display: block; transition: box-shadow 0.45s; }
+.reels .son-bt { position: absolute; right: 10px; bottom: 10px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(13,14,17,0.72); color: #fff; font-size: 17px; cursor: pointer; display: grid; place-items: center; }
+.reels .son-bt::before { content: "🔇"; }
+.reels figure.son .son-bt { background: var(--lilas); }
+.reels figure.son .son-bt::before { content: "🔊"; }
+@media (hover: hover) {
+  .reels:has(figure:hover) figure:not(:hover) { opacity: 0.35; filter: grayscale(0.6); }
+  .reels figure:hover { scale: 1.16; z-index: 5; }
+  .reels figure:hover video { box-shadow: 0 30px 70px rgba(0,0,0,0.6); }
+}
+@media (prefers-reduced-motion: reduce) { .reels figure { transition: none; } .reels figure:hover { scale: 1; } }
