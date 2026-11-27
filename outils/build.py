@@ -243,7 +243,7 @@ tsr += bloc("communaute", "Communauté",
           <div><h3>Paid</h3><ul><li>Site internet</li><li>Merch</li></ul></div>
         </div>
       </div>""")
-tsr += pied(("community-manager.html", "assets/img/cm/salon-deco.webp", "De Fil en Déco &amp; O'ptimôme", "center 50%"))
+tsr += pied(("community-manager.html", "assets/img/cm/salon-deco.webp", "De Fil en Déco, O'ptimôme &amp; CFM Radio", "center 50%"))
 open("toulouse-social-run.html", "w").write(tsr)
 
 # ---------------------------------------------------------------- Community manager
@@ -254,11 +254,11 @@ cm_css = """.ouv.mags { min-height: auto; padding-top: 140px; display: grid; gri
 .ouv.mags .couv img { position: static; width: 46%; height: auto; filter: drop-shadow(0 18px 30px rgba(0,0,0,0.5)); }
 .ouv.mags .couv img:first-child { transform: rotate(-4deg); } .ouv.mags .couv img:last-child { transform: rotate(3deg) translateY(-20px); }
 @media (max-width: 900px) { .ouv.mags { grid-template-columns: 1fr; } }"""
-cm = head("De Fil en Déco & O'ptimôme", "Première alternance de Cloé Pérot : community manager pour De Fil en Déco, O'ptimôme et CFM Radio à Toulouse.", cm_css, classe="cm")
+cm = head("De Fil en Déco, O'ptimôme & CFM Radio", "Première alternance de Cloé Pérot : community manager pour De Fil en Déco et O'ptimôme à Toulouse, et CFM Radio à Montauban.", cm_css, classe="cm")
 cm += f"""  <div class="ouv mags">
     <div>
       <a class="retour" href="index.html#projets">← Tous les projets</a>
-      <h1>De Fil en Déco &amp; O'ptimôme</h1>
+      <h1>De Fil en Déco, O'ptimôme &amp; CFM Radio</h1>
       <p class="ex">ma première alternance</p>
       <p class="role">Community manager en alternance, de septembre 2023 à septembre 2024.</p>
     </div>
@@ -268,9 +268,9 @@ cm += f"""  <div class="ouv mags">
     </div>
   </div>
 """
-cm += intro("Trois médias toulousains : De Fil en Déco (magazine déco), O'ptimôme (guide des sorties en famille) et CFM Radio (radio locale). Ma première vraie expérience en com, sur trois comptes à la fois&nbsp;!",
+cm += intro("Trois médias locaux : De Fil en Déco (magazine déco) et O'ptimôme (guide des sorties en famille) à Toulouse, et CFM Radio à Montauban. Ma première vraie expérience en com, sur trois comptes à la fois&nbsp;!",
             ["Community management", "Social media", "Création de contenus", "Planning éditorial", "Print", "Meta Business Suite"], [])
-cm += sommaire([("defilendeco", "De Fil en Déco"), ("optimome", "O'ptimôme")])
+cm += sommaire([("defilendeco", "De Fil en Déco"), ("optimome", "O'ptimôme"), ("cfm", "CFM Radio")])
 cm += bloc("defilendeco", "De Fil en Déco",
            ["Le magazine déco de Toulouse. J'y gérais toute la com digitale : les réseaux, le site, la fiche Google et l'emailing, avec un modèle de feed précis, des contenus pros et inspirants, et des formats qui changent.", "Sur le terrain aussi : photos, vidéos et interviews d'artisans, et la com pendant les événements du magazine."],
            f"""<div class="g df-haut">
@@ -292,6 +292,11 @@ cm += bloc("optimome", "O'ptimôme",
       </div>
       <div class="pub-double">{fig(C + "op_pub_printemps.webp", "Pub O'ptimôme printemps en double page", "Pub print", "printemps, en double page : une pub par saison pour renvoyer vers le site et Facebook", "transp")}</div>""",
            ["<b>Instagram</b> : création du compte", "<b>Réseaux sociaux</b> : création des posts sur Facebook et Instagram", "<b>Jeux concours</b> : sur Instagram, Facebook et le site", "<b>Site internet</b> : mise en ligne des articles et des événements", "<b>Bots</b> : gestion des réponses automatiques", "<b>Événements</b> : la com en direct", "<b>Visuels</b> : posts, pubs print par saison"])
+cm += bloc("cfm", "CFM Radio",
+           ["La radio locale de Montauban. J'y animais les réseaux sociaux au quotidien, et surtout pendant la saison des festivals, où la radio était partenaire et présente sur place."],
+           f"""<div class="encart"><h3>Sur les festivals</h3><p>La médiatisation de la radio en direct : stories, posts et vidéos pendant les concerts.</p><ul class="pastilles"><li>Albi Jazz Festival</li><li>Pause Guitare</li><li>et d'autres festivals de la région</li></ul></div>
+      <div class="encart"><h3>Toute l'année</h3><p>Les posts Instagram et Facebook, les jeux concours pour faire gagner des places, les visuels et les affiches de la radio.</p></div>""",
+           ["<b>Réseaux sociaux</b> : gestion et création des posts sur Instagram et Facebook", "<b>Jeux concours</b> : lancement et animation", "<b>Festivals</b> : médiatisation sur place, à l'Albi Jazz Festival, à Pause Guitare…", "<b>Vidéo</b> : montage sur Premiere Pro et CapCut", "<b>Visuels</b> : création de visuels et d'affiches"])
 cm += pied(("vancore.html", "assets/img/vancore/cover_van_paysage.webp", "Vancore", "center 62%"))
 cm = cm.replace('.ouv.mags .couv img { position: static;', '.ouv.mags .couv img { position: static;')
 open("community-manager.html", "w").write(cm)
