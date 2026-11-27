@@ -1014,14 +1014,14 @@ ap += """  <div class="ouv" style="min-height:62svh">
   </section>
 
   <section>
-    <h2>Une com qui donne envie de sortir.</h2>
-    <p style="color:var(--doux);margin:-18px 0 30px;max-width:52ch">Le van, la montagne, le running : mes projets parlent tous de grand air. Et ça tombe bien, c'est là que je me sens chez moi.</p>
-    <div class="univers">
-      <a class="zoom" href="assets/img/moi/atlas-sommets.webp"><img src="assets/img/moi/atlas-sommets.webp" alt="Atlas assis devant les sommets des Dolomites" loading="lazy"></a>
-      <a class="zoom" href="assets/img/moi/lac-foret.webp"><img src="assets/img/moi/lac-foret.webp" alt="Lac turquoise entouré de forêt dans les Dolomites" loading="lazy"></a>
-      <a class="zoom" href="assets/img/moi/atlas-lac.webp"><img src="assets/img/moi/atlas-lac.webp" alt="Atlas qui fait le beau au bord d'un lac de montagne" loading="lazy"></a>
-      <a class="zoom" href="assets/img/moi/lac-nuages.webp"><img src="assets/img/moi/lac-nuages.webp" alt="Lac de montagne sous les nuages" loading="lazy"></a>
-    </div>
+    <h2>Pourquoi moi&nbsp;?</h2>
+    <p class="sous-titre">Parce que je fais une com qui donne envie de sortir. En trois preuves&nbsp;:</p>
+    <div class="preuves"><a class="preuve" href="vancore.html"><strong>×2</strong><h3>Je fais grandir les communautés</h3><p>Chez Vancore, l'Instagram est passé de 3&nbsp;000 à 6&nbsp;002 abonnés. Au Toulouse Social Run, on est passés de 3 coureurs à une cinquantaine par run.</p><span>Voir Vancore ↗</span></a><a class="preuve" href="toulouse-social-run.html"><strong>110+</strong><h3>Je vais sur le terrain</h3><p>Des runs à plus de 110 coureurs, des salons, des festivals, des team buildings : la com, je la vis aussi en vrai, pas seulement derrière un écran.</p><span>Voir le Toulouse Social Run ↗</span></a><a class="preuve" href="vancore.html#influence"><strong>80&nbsp;%</strong><h3>J'apprends vite et je prends le relais</h3><p>Quand l'équipe Vancore s'est réorganisée, j'ai repris l'influence de A à Z, les newsletters (80&nbsp;% d'ouverture chez les pros) et même le ghostwriting du CEO.</p><span>Voir l'influence ↗</span></a></div>
+  </section>
+
+  <section>
+    <h2>Ce que mon CV ne dit pas</h2>
+    <div class="funs"><div class="fun"><b>50 livres</b><p>en 2026. Et la pile à côté du lit ne baisse pas.</p></div><div class="fun"><b>Licence d'anglais</b><p>Avant la com, il y avait les mots… en anglais.</p></div><div class="fun"><b>2 km</b><p>Mon record perso. Oui, je fais la com d'un running club.</p></div><div class="fun"><b>Atlas</b><p>Mon berger australien, copilote de rando et star de mes photos.</p></div><div class="fun"><b>Un concentré du sud</b><p>Multi-tâche, multi-lingue et surtout multi-ref.</p></div><a class="fun" href="labo.html#photo"><b>Un œil photo</b><p>Je photographie tout ce qui a une couleur.</p></a></div>
   </section>
 
   <section>
