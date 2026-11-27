@@ -721,7 +721,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
 
       <dialog class="fiche" id="f-mf" aria-labelledby="t-mf">
         <button type="button" class="fermer" aria-label="Fermer">×</button>
-        <div class="fiche-media">{z("assets/img/labo/autres/mariage-coffret.webp", "Le coffret Théâtre des Sens, ouvert et fermé")}{z("assets/img/labo/autres/mariage-carte.webp", "La carte du coffret, avec le texte signé et le QR code de la playlist")}</div>
+        <div class="fiche-media">{z("assets/img/labo/autres/mariage-coffret.webp", "Le coffret Théâtre des Sens, ouvert et fermé")}{z("assets/img/labo/autres/mariage-collab.webp", "Visuel de la collaboration : la boîte de thé Mariage Frères face à Pierre Niney")}</div>
         <div class="fiche-texte">
           <span class="etiquettes"><span>École</span><span>Brand content</span></span>
           <h3 id="t-mf">Mariage Frères × Pierre Niney</h3>
