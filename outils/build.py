@@ -243,7 +243,7 @@ tsr += bloc("communaute", "Communauté",
           <div><h3>Paid</h3><ul><li>Site internet</li><li>Merch</li></ul></div>
         </div>
       </div>""")
-tsr += pied(("community-manager.html", "assets/img/cm/salon-deco.webp", "Community manager", "center 50%"))
+tsr += pied(("community-manager.html", "assets/img/cm/salon-deco.webp", "De Fil en Déco &amp; O'ptimôme", "center 50%"))
 open("toulouse-social-run.html", "w").write(tsr)
 
 # ---------------------------------------------------------------- Community manager
@@ -254,11 +254,11 @@ cm_css = """.ouv.mags { min-height: auto; padding-top: 140px; display: grid; gri
 .ouv.mags .couv img { position: static; width: 46%; height: auto; filter: drop-shadow(0 18px 30px rgba(0,0,0,0.5)); }
 .ouv.mags .couv img:first-child { transform: rotate(-4deg); } .ouv.mags .couv img:last-child { transform: rotate(3deg) translateY(-20px); }
 @media (max-width: 900px) { .ouv.mags { grid-template-columns: 1fr; } }"""
-cm = head("Community manager", "Première alternance de Cloé Pérot : community manager pour De Fil en Déco, O'ptimôme et CFM Radio à Toulouse.", cm_css, classe="cm")
+cm = head("De Fil en Déco & O'ptimôme", "Première alternance de Cloé Pérot : community manager pour De Fil en Déco, O'ptimôme et CFM Radio à Toulouse.", cm_css, classe="cm")
 cm += f"""  <div class="ouv mags">
     <div>
       <a class="retour" href="index.html#projets">← Tous les projets</a>
-      <h1>Community manager</h1>
+      <h1>De Fil en Déco &amp; O'ptimôme</h1>
       <p class="ex">ma première alternance</p>
       <p class="role">Community manager en alternance, de septembre 2023 à septembre 2024.</p>
     </div>
