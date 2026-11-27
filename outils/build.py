@@ -293,9 +293,19 @@ cm += bloc("optimome", "O'ptimôme",
       <div class="pub-double">{fig(C + "op_pub_printemps.webp", "Pub O'ptimôme printemps en double page", "Pub print", "printemps, en double page : une pub par saison pour renvoyer vers le site et Facebook", "transp")}</div>""",
            ["<b>Instagram</b> : création du compte", "<b>Réseaux sociaux</b> : création des posts sur Facebook et Instagram", "<b>Jeux concours</b> : sur Instagram, Facebook et le site", "<b>Site internet</b> : mise en ligne des articles et des événements", "<b>Bots</b> : gestion des réponses automatiques", "<b>Événements</b> : la com en direct", "<b>Visuels</b> : posts, pubs print par saison"])
 cm += bloc("cfm", "CFM Radio",
-           ["La radio locale de Montauban. J'y animais les réseaux sociaux au quotidien, et surtout pendant la saison des festivals, où la radio était partenaire et présente sur place."],
-           f"""<div class="encart"><h3>Sur les festivals</h3><p>La médiatisation de la radio en direct : stories, posts et vidéos pendant les concerts.</p><ul class="pastilles"><li>Albi Jazz Festival</li><li>Pause Guitare</li><li>et d'autres festivals de la région</li></ul></div>
-      <div class="encart"><h3>Toute l'année</h3><p>Les posts Instagram et Facebook, les jeux concours pour faire gagner des places, les visuels et les affiches de la radio.</p></div>""",
+           ["La radio locale de Montauban. J'animais ses réseaux sociaux au quotidien : des jeux concours, des directs depuis les événements de la région, des annonces… et une série vidéo pour le Festival Albi Jazz."],
+           f"""<h3 style="margin:0">Le Festival Albi Jazz, en 3 épisodes</h3>
+      <div class="g g3 reels">
+        <figure><div class="vid"><video class="reel" src="assets/video/cfm_jazz1.mp4" poster="assets/img/cm/poster_cfm_jazz1.webp" autoplay muted loop playsinline preload="metadata" aria-label="Festival Albi Jazz, jour 1"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption><b>Jour 1</b>retour aux sources de la musique</figcaption></figure>
+        <figure><div class="vid"><video class="reel" src="assets/video/cfm_jazz2.mp4" poster="assets/img/cm/poster_cfm_jazz2.webp" autoplay muted loop playsinline preload="metadata" aria-label="Festival Albi Jazz, jour 2"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption><b>Jour 2</b>retour sur la journée</figcaption></figure>
+        <figure><div class="vid"><video class="reel" src="assets/video/cfm_jazz3.mp4" poster="assets/img/cm/poster_cfm_jazz3.webp" autoplay muted loop playsinline preload="metadata" aria-label="Festival Albi Jazz, jour 3"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption><b>Jour 3</b>les performances</figcaption></figure>
+      </div>
+      <h3 style="margin:14px 0 0">Les posts Instagram et Facebook</h3>
+      <div class="g g3">
+        {fig(C + "cfm_cine.webp", "Jeu concours : gagnez vos places pour un ciné-débat au choix", "Jeu concours", "des places de ciné-débat, avec France Nature Environnement")}
+        {fig(C + "cfm_direct.webp", "En direct de Montbeton, salon Bienvenue à la campagne", "Direct", "la radio en direct du salon Bienvenue à la campagne")}
+        {fig(C + "cfm_stage.webp", "Annonce : CFM Montauban cherche un stagiaire en journalisme", "Recrutement", "l'annonce du stage en journalisme")}
+      </div>""",
            ["<b>Réseaux sociaux</b> : gestion et création des posts sur Instagram et Facebook", "<b>Jeux concours</b> : lancement et animation", "<b>Festivals</b> : médiatisation sur place, à l'Albi Jazz Festival, à Pause Guitare…", "<b>Vidéo</b> : montage sur Premiere Pro et CapCut", "<b>Visuels</b> : création de visuels et d'affiches"])
 cm += pied(("vancore.html", "assets/img/vancore/cover_van_paysage.webp", "Vancore", "center 62%"))
 cm = cm.replace('.ouv.mags .couv img { position: static;', '.ouv.mags .couv img { position: static;')
