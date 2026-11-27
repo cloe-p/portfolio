@@ -182,3 +182,7 @@ a.zoom.serie::after { content: attr(data-n) "  ⇆"; position: absolute; right: 
 .ouv img.sticker-ouv { position: absolute; inset: auto; z-index: 2; height: auto; object-fit: contain; filter: drop-shadow(0 14px 18px rgba(0,0,0,0.38)) drop-shadow(0 2px 3px rgba(0,0,0,0.3)); pointer-events: none; }
 body.tsr .ouv img.sticker-ouv { left: 31%; top: 13%; width: clamp(80px, 10vw, 150px); rotate: 8deg; }
 @media (max-width: 760px) { body.tsr .ouv img.sticker-ouv { left: auto; right: 8%; top: 22%; width: 78px; } }
+.df-haut { grid-template-columns: 1fr 2fr 1fr; align-items: start; }
+.itv { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.reels .vid { position: relative; }
+@media (max-width: 760px) { .df-haut { grid-template-columns: 1fr; } }

@@ -243,7 +243,7 @@ tsr += bloc("communaute", "Communauté",
           <div><h3>Paid</h3><ul><li>Site internet</li><li>Merch</li></ul></div>
         </div>
       </div>""")
-tsr += pied(("community-manager.html", "assets/img/cm/df_reel.webp", "Community manager", "center 35%"))
+tsr += pied(("community-manager.html", "assets/img/cm/salon-deco.webp", "Community manager", "center 50%"))
 open("toulouse-social-run.html", "w").write(tsr)
 
 # ---------------------------------------------------------------- Community manager
@@ -273,9 +273,10 @@ cm += intro("Trois médias toulousains : De Fil en Déco (magazine déco), O'pti
 cm += sommaire([("defilendeco", "De Fil en Déco"), ("optimome", "O'ptimôme")])
 cm += bloc("defilendeco", "De Fil en Déco",
            ["Le magazine déco de Toulouse. Sur Instagram, Facebook et LinkedIn, je suivais un modèle de feed précis : des contenus pros et inspirants, avec des formats qui changent."],
-           f"""<div class="g g3">
+           f"""<div class="g df-haut">
         {fig(C + "df_feed.webp", "Feed Instagram De Fil en Déco", "Feed Instagram", "photos, conseils déco, citations, interviews")}
-        {fig(C + "df_reel.webp", "Reel interview d'un peintre sculpteur", "Reel interview", "des portraits d'artisans et de pros", "ratio-916")}
+        <div class="reels itv"><figure><div class="vid"><video class="reel" src="assets/video/itv_julie.mp4" poster="assets/img/cm/poster_itv_julie.webp" autoplay muted loop playsinline preload="metadata" aria-label="Interview vidéo de Julie Delvaux pour De Fil en Déco"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption><b>Interview</b>Julie Delvaux</figcaption></figure>
+        <figure><div class="vid"><video class="reel" src="assets/video/itv_maxime.mp4" poster="assets/img/cm/poster_itv_maxime.webp" autoplay muted loop playsinline preload="metadata" aria-label="Interview vidéo de Maxime Jordan pour De Fil en Déco"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption><b>Interview</b>Maxime Jordan</figcaption></figure></div>
         {fig(C + "df_n84.webp", "Couverture du magazine De Fil en Déco n°84", "Le magazine", "n°84, février 2024", "transp")}
       </div>
       <div class="g g2" style="align-items:center">{z(C + "df_pub_double.webp", "Pub De Fil en Déco en double page", "transp")}{z(C + "df_pub_page.webp", "Pub De Fil en Déco en pleine page", "transp")}</div>
