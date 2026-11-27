@@ -251,13 +251,25 @@ video.reel.paysage { aspect-ratio: 16 / 9; }
 .zone-perso .etiquettes span:first-child { background: #14151a; color: #f2efe7; }
 .zone-perso .brief { color: #3c3c40; }
 .zone-perso .li-posts li, .zone-perso .li-chiffres div { background: #fff; }
-.zone-perso .li-chiffres strong, .zone-perso .li-posts li:first-child dd { color: #5e7a3c; }
+.zone-perso .li-chiffres strong { color: #4d6a2c; }
+.zone-perso .li-posts li:first-child { background: #14151a; color: #f2efe7; border-color: #14151a; position: relative; }
+.zone-perso .li-posts li:first-child .accroche { color: #f2efe7; }
+.zone-perso .li-posts li:first-child .sujet, .zone-perso .li-posts li:first-child dt { color: #b8b6b1; }
+.zone-perso .li-posts li:first-child dd { color: #b7cc9c; font-size: 18px; }
+.zone-perso .li-posts li:first-child dl { border-color: rgba(255,255,255,0.15); }
+.zone-perso .li-posts li:first-child .lire { color: #b7cc9c !important; }
+.li-posts .top-post { display: inline-block; align-self: flex-start; background: #b7cc9c; color: #14151a; font-size: 12.5px; font-weight: 700; padding: 4px 11px; border-radius: 99px; margin-bottom: 10px; }
 .zone-perso .lire { color: #5e7a3c !important; }
 .zone-perso .b.plein { background: #14151a; color: #f2efe7; }
 .zone-perso .mv-courts figcaption, .zone-perso .mv-longs figcaption { color: #55555a; }
 @media (max-width: 760px) { .barre-labo { position: static; } .onglets { width: 100%; } .onglets button { flex: 1; } }
 .ikea-caro { max-width: calc(min(52vh, 480px) * 0.8 + 38px); border: 1px solid var(--ligne); border-radius: 18px; padding: 18px; margin-top: 14px; }
 .ikea-caro .accroche { font-weight: 700; margin: 0 0 4px; } .ikea-caro .sujet { color: var(--doux); font-size: 14.5px; margin: 0; }
+.pod-fiche { list-style: none; padding: 0; margin: 18px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 640px; }
+.pod-fiche li { border: 1px solid var(--ligne); border-radius: 14px; padding: 12px 14px; font-size: 14px; line-height: 1.4; color: var(--doux); }
+.pod-fiche b { display: block; color: var(--lilas); font-size: 15px; margin-bottom: 4px; }
+.pod-format { font-size: 14px; color: var(--doux); margin: 14px 0 0; }
+@media (max-width: 760px) { .pod-fiche { grid-template-columns: 1fr; } }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
 .ecrans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
@@ -279,7 +291,7 @@ video.reel.paysage { aspect-ratio: 16 / 9; }
 
 <main>
   <div class="ouv" style="min-height:62svh">
-    <img src="assets/img/moi/lac-nuages.webp" alt="" style="object-position:center 45%">
+    <img src="assets/img/labo/couverture-foret.webp" alt="" style="object-position:center 40%">
     <a class="retour" href="index.html">← Accueil</a>
     <h1>Labo</h1>
     <p class="role">Mes projets d'école et mes projets perso : là où je teste, je dessine et je m'amuse.</p>
@@ -360,7 +372,12 @@ video.reel.paysage { aspect-ratio: 16 / 9; }
         <img src="assets/img/labo/podcast-cover.webp" alt="Pochette du podcast Les clés du voisin by Airbnb : un chalet en A dans la forêt">
         <div>
           <h2 style="font-size:clamp(36px,4.4vw,60px)">Les clés du voisin</h2>
-          <p style="color:var(--doux);max-width:46ch;margin:16px 0 0">Un podcast imaginé pour Airbnb : la pochette, l'écriture et le montage. Mets le son !</p>
+          <p class="brief" style="max-width:52ch;margin:16px 0 0"><b>Le brief :</b> imaginer le podcast d'une marque qui n'en a pas encore, et le présenter.</p>
+          <p style="color:var(--doux);max-width:52ch;margin:12px 0 0"><b style="color:var(--texte)">Notre idée pour Airbnb :</b> un podcast où voyageurs et hôtes se confient, anonymement, sur leurs histoires les plus drôles, les plus folles ou les plus touchantes. Du genre « Mon colocataire Airbnb avait un chat psychopathe ».</p>
+          <ul class="pod-fiche"><li><b>Image</b>rappeler que l'ADN d'Airbnb, c'est l'hospitalité humaine</li><li><b>Fidélisation</b>un rendez-vous chaque semaine pour la communauté</li><li><b>Acquisition</b>faire découvrir des logements atypiques</li></ul>
+          <p class="pod-format">Hebdomadaire · 20 min · pour les 25-35 ans, 22 % des auditeurs de podcasts</p>
+          <ul class="competences"><li>Concept éditorial</li><li>Stratégie de marque</li><li>Écriture</li><li>Montage audio</li><li>Pochette</li></ul>
+          <p style="color:var(--doux);margin:22px 0 0">L'extrait, mets le son :</p>
           <div class="lecteur">
             <button type="button" id="lire" aria-label="Écouter le podcast">▶</button>
             <div class="barre" id="barre" role="progressbar" aria-label="Progression"><i></i></div>
@@ -450,7 +467,7 @@ video.reel.paysage { aspect-ratio: 16 / 9; }
         <div class="li-chiffres"><div><strong>2&nbsp;623</strong><span>abonnés</span></div><div><strong>248k</strong><span>impressions sur ces 4 posts</span></div><div><strong>+218</strong><span>abonnés gagnés grâce à eux</span></div></div>
         <ol class="li-posts">
           <li><div class="caro" aria-roledescription="carrousel" aria-label="Guide du langage corporate"><div class="caro-piste" tabindex="0"><img src="assets/img/labo/linkedin/corporate-1.webp" alt="Guide du langage corporate, page 1 sur 6" loading="lazy"><img src="assets/img/labo/linkedin/corporate-2.webp" alt="Guide du langage corporate, page 2 sur 6" loading="lazy"><img src="assets/img/labo/linkedin/corporate-3.webp" alt="Guide du langage corporate, page 3 sur 6" loading="lazy"><img src="assets/img/labo/linkedin/corporate-4.webp" alt="Guide du langage corporate, page 4 sur 6" loading="lazy"><img src="assets/img/labo/linkedin/corporate-5.webp" alt="Guide du langage corporate, page 5 sur 6" loading="lazy"><img src="assets/img/labo/linkedin/corporate-6.webp" alt="Guide du langage corporate, page 6 sur 6" loading="lazy"></div><button type="button" class="caro-bt g" aria-label="Page précédente">‹</button><button type="button" class="caro-bt d" aria-label="Page suivante">›</button><span class="caro-n">1 / 6</span></div>
-            <p class="accroche">« J'ai mis 6 mois à décrypter le langage corporate. »</p><p class="sujet">Un guide du langage « politiquement correct » de l'entreprise.</p>
+            <span class="top-post">Mon post le plus vu</span><p class="accroche">« J'ai mis 6 mois à décrypter le langage corporate. »</p><p class="sujet">Un guide du langage « politiquement correct » de l'entreprise.</p>
             <button type="button" class="lire" data-post="post-1">Lire le post</button>
             <dl><div><dt>impressions</dt><dd>99 911</dd></div><div><dt>réactions</dt><dd>724</dd></div><div><dt>commentaires</dt><dd>77</dd></div><div><dt>abonnés</dt><dd>+87</dd></div></dl></li>
           <li><div class="caro" aria-roledescription="carrousel" aria-label="Ma semaine d'école"><div class="caro-piste" tabindex="0"><img src="assets/img/labo/linkedin/semaine-1.webp" alt="Ma semaine d'école, page 1 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-2.webp" alt="Ma semaine d'école, page 2 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-3.webp" alt="Ma semaine d'école, page 3 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-4.webp" alt="Ma semaine d'école, page 4 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-5.webp" alt="Ma semaine d'école, page 5 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-6.webp" alt="Ma semaine d'école, page 6 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-7.webp" alt="Ma semaine d'école, page 7 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-8.webp" alt="Ma semaine d'école, page 8 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-9.webp" alt="Ma semaine d'école, page 9 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-10.webp" alt="Ma semaine d'école, page 10 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-11.webp" alt="Ma semaine d'école, page 11 sur 11" loading="lazy"></div><button type="button" class="caro-bt g" aria-label="Page précédente">‹</button><button type="button" class="caro-bt d" aria-label="Page suivante">›</button><span class="caro-n">1 / 11</span></div>
