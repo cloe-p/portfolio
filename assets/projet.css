@@ -228,3 +228,26 @@ body.tsr .ouv img.sticker-ouv { left: 31%; top: 13%; width: clamp(80px, 10vw, 15
 @keyframes rempli { to { transform: scaleX(1); } }
 @media (max-width: 900px) { .hors-cv { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .phrase .fen span, #explic p { transition: none; } }
+
+/* Parcours en frise */
+.legende-frise { display: flex; justify-content: space-between; max-width: 1000px; margin: 0 auto 26px; font-weight: 700; color: var(--doux); font-size: 15px; }
+.frise-p { position: relative; max-width: 1000px; margin: 0 auto; text-align: left; }
+.frise-p .axe { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; translate: -50% 0; background: var(--ligne); }
+.frise-p .axe i { position: absolute; inset: 0; background: var(--lilas); transform-origin: top; transform: scaleY(0); }
+.etape { display: grid; grid-template-columns: 1fr 80px 1fr; align-items: start; margin-bottom: 30px; }
+.etape .carte { background: var(--carte); border-radius: 20px; padding: 20px 22px; opacity: 0; transform: translateY(20px); transition: opacity .6s, transform .6s cubic-bezier(.2,.8,.2,1); }
+.etape.vu .carte { opacity: 1; transform: none; }
+.etape.g .carte { grid-column: 1; grid-row: 1; } .etape.d .carte { grid-column: 3; grid-row: 1; }
+.etape .point { grid-column: 2; grid-row: 1; justify-self: center; margin-top: 22px; width: 18px; height: 18px; border-radius: 50%; background: var(--nuit); border: 2px solid var(--ligne); transition: background .4s, border-color .4s, scale .4s cubic-bezier(.34,1.56,.64,1); z-index: 1; }
+.etape.vu .point { background: var(--lilas); border-color: var(--lilas); scale: 1.2; }
+.etape time { font-size: 14px; color: var(--lilas); font-weight: 700; }
+.etape h3 { font-size: 19px; letter-spacing: -0.02em; line-height: 1.2; margin: 4px 0 6px; }
+.etape p { margin: 0 0 10px; color: var(--doux); font-size: 15px; line-height: 1.5; }
+.etape p i { display: block; margin-top: 6px; }
+.etape .carte.forma { background: none; border: 1px solid var(--ligne); }
+.etape .tag { display: inline-block; font-size: 12.5px; font-weight: 700; padding: 3px 10px; border-radius: 99px; border: 1px solid var(--ligne); color: var(--doux); }
+.etape .tag.vert { background: var(--lilas); color: var(--nuit); border-color: var(--lilas); }
+.avant-com { text-align: center; color: var(--doux); font-size: 15px; margin: 10px auto 0; max-width: 70ch; }
+.avant-com b { color: var(--texte); }
+@media (max-width: 800px) { .frise-p .axe { left: 9px; } .etape { grid-template-columns: 20px 1fr; gap: 14px; } .etape .point { grid-column: 1; } .etape.g .carte, .etape.d .carte { grid-column: 2; } .legende-frise { display: none; } .avant-com { text-align: left; } }
+@media (prefers-reduced-motion: reduce) { .etape .carte { opacity: 1; transform: none; transition: none; } }

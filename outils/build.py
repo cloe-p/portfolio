@@ -1033,25 +1033,19 @@ ap += """  <div class="ouv" style="min-height:62svh">
 
   <section>
     <h2>Mon parcours</h2>
-    <div class="parcours">
-      <div>
-        <h3>Expériences</h3>
-        <ol>
-          <li><time>2024–2026 · alternance</time><b>Chargée de communication &amp; marketing</b><span>Vancore, ex Mon Fourgon Shop</span></li>
-          <li><time>2024–2026 · bénévole</time><b>Chargée de communication &amp; graphiste</b><span>Toulouse Social Run</span></li>
-          <li><time>2023–2024 · alternance</time><b>Community manager</b><span>CFM Radio, De Fil en Déco, O'ptimôme</span></li>
-        </ol>
-      </div>
-      <div>
-        <h3>Formation</h3>
-        <ol>
-          <li><time>2024–2026</time><b>Mastère Content Marketing &amp; Brand Entertainment</b><span>Titre RNCP niveau 7 · Manager de la communication et du marketing digital · INSEEC × Ynov Toulouse</span><span class="memoire">Mémoire&nbsp;: « L'authenticité comme clé de confiance : le brand content face à la saturation informationnelle dans les communautés de niche »</span></li>
-          <li><time>2023–2024</time><b>Bachelor 3 Marketing &amp; Communication Création Digitale</b><span>Titre RNCP niveau 6 · Chef de projets digitaux, option E-business · EEMI × Ynov Toulouse</span></li>
-          <li><time>2019–2023</time><b>Licence d'Études Anglophones (LLCER)</b><span>Université Toulouse Jean Jaurès</span></li>
-          <li><time>2019</time><b>Baccalauréat Économique &amp; Social</b><span>spécialité Économie approfondie · Lycée Clémence Royer, Fonsorbes</span></li>
-        </ol>
-      </div>
+    <div class="legende-frise"><span>Formation</span><span>Expériences</span></div>
+    <div class="frise-p" id="frise">
+      <div class="axe"><i></i></div>
+      <div class="etape d"><span class="point"></span><div class="carte"><time>2024–2026 · alternance</time><h3>Chargée de communication &amp; marketing</h3><p>Vancore, ex Mon Fourgon Shop</p><span class="tag vert">Social media · influence · emailing · print</span></div></div>
+      <div class="etape g"><span class="point"></span><div class="carte forma"><time>2024–2026</time><h3>Mastère Content Marketing &amp; Brand Entertainment</h3><p>Titre RNCP niveau 7 · Manager de la communication et du marketing digital · INSEEC × Ynov Toulouse<br><i>Mémoire&nbsp;: « L'authenticité comme clé de confiance&nbsp;: le brand content face à la saturation informationnelle dans les communautés de niche »</i></p><span class="tag">Bac +5</span></div></div>
+      <div class="etape d"><span class="point"></span><div class="carte"><time>2024–2026 · bénévole</time><h3>Chargée de communication &amp; graphiste</h3><p>Toulouse Social Run</p><span class="tag vert">De 3 à 50 coureurs par run</span></div></div>
+      <div class="etape d"><span class="point"></span><div class="carte"><time>2023–2024 · alternance</time><h3>Community manager</h3><p>CFM Radio, De Fil en Déco, O'ptimôme</p></div></div>
+      <div class="etape g"><span class="point"></span><div class="carte forma"><time>2023–2024</time><h3>Bachelor 3 Marketing &amp; Communication Création Digitale</h3><p>Titre RNCP niveau 6 · Chef de projets digitaux, option E-business · EEMI × Ynov Toulouse</p><span class="tag">Bac +3</span></div></div>
+      <div class="etape g"><span class="point"></span><div class="carte forma"><time>2019–2023</time><h3>Licence d'Études Anglophones (LLCER)</h3><p>Université Toulouse Jean Jaurès</p></div></div>
+      <div class="etape g"><span class="point"></span><div class="carte forma"><time>2019</time><h3>Baccalauréat Économique &amp; Social</h3><p>spécialité Économie approfondie · Lycée Clémence Royer, Fonsorbes</p></div></div>
     </div>
+    <p class="avant-com">Et avant la com&nbsp;: <b>caissière, secrétaire médicale, préparatrice de commandes.</b> Le mouton à 5 pattes, ce n'est pas une blague.</p>
+    <script>(function(){var f=document.getElementById("frise"),a=f.querySelector(".axe i"),e=f.querySelectorAll(".etape");function m(){var r=f.getBoundingClientRect(),h=innerHeight;a.style.transform="scaleY("+Math.max(0,Math.min(1,(h*.6-r.top)/r.height))+")";for(var i=0;i<e.length;i++)e[i].classList.toggle("vu",e[i].getBoundingClientRect().top<h*.62)}addEventListener("scroll",m,{passive:true});addEventListener("resize",m);m()})();</script>
   </section>
 
   <section>
