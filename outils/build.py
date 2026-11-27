@@ -259,7 +259,7 @@ cm += f"""  <div class="ouv mags">
     <div>
       <a class="retour" href="index.html#projets">← Tous les projets</a>
       <h1>De Fil en Déco, O'ptimôme &amp; CFM Radio</h1>
-      <p class="ex">ma première alternance</p>
+      <p class="ex">ma première alternance et mes premiers pas dans la communication</p>
       <p class="role">Community manager en alternance, de septembre 2023 à septembre 2024.</p>
     </div>
     <div class="couv">
