@@ -973,8 +973,13 @@ open("labo.html", "w").write(labo)
 
 # ---------------------------------------------------------------- À propos
 ap_css = """.bio { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(30px, 6vw, 90px); align-items: center; }
-.bio p { font-size: clamp(20px, 2vw, 26px); line-height: 1.45; color: #dad8d3; margin: 0 0 22px; }
-.bio img { border-radius: 22px; aspect-ratio: 1; object-fit: cover; width: 100%; }
+.bio p { font-size: clamp(17px, 1.4vw, 19px); line-height: 1.6; color: #dad8d3; margin: 0 0 16px; max-width: 54ch; }
+.duo-photos { position: relative; height: clamp(380px, 40vw, 520px); }
+.duo-photos img { position: absolute; width: 52%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 22px; box-shadow: 0 24px 50px rgba(0,0,0,.5); transition: rotate .5s cubic-bezier(.2,.8,.2,1), translate .5s cubic-bezier(.2,.8,.2,1); }
+.duo-photos img:first-child { left: 6%; top: 0; rotate: -5deg; }
+.duo-photos img:last-child { right: 4%; bottom: 0; rotate: 5deg; border: 5px solid var(--nuit); z-index: 1; }
+.duo-photos:hover img:first-child { rotate: -8deg; translate: -10px 0; }
+.duo-photos:hover img:last-child { rotate: 7deg; translate: 10px 0; }
 @media (max-width: 900px) { .bio { grid-template-columns: 1fr; } }
 .parcours { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 70px); }
 .parcours h3 { font-size: 15px; letter-spacing: 0; color: var(--lilas); font-weight: 700; margin-bottom: 8px; }
@@ -1017,7 +1022,7 @@ ap += """  <div class="ouv" style="min-height:62svh">
       <p>Et quand je ne suis pas derrière mon écran, je suis sûrement en rando avec Atlas, mon berger australien.</p>
       <div class="btns"><a class="b plein" href="mailto:cloe.perot@icloud.com">Me contacter</a><a class="b ligne" href="#" title="Bientôt disponible">Mon CV</a></div>
     </div>
-    <img src="assets/img/moi/cloe-atlas.webp" alt="Cloé et Atlas, son berger australien, en randonnée dans les Dolomites" style="object-position:62% 40%">
+    <div class="duo-photos"><img src="assets/img/moi/cloe-selfie.webp" alt="Selfie de Cloé, bandeau rose et clin d'œil"><img src="assets/img/moi/atlas-plage.webp" alt="Atlas, berger australien, à la plage"></div>
   </section>
 
   <section>
