@@ -284,7 +284,7 @@ cm += bloc("defilendeco", "De Fil en Déco",
            ["<b>Réseaux sociaux</b> : calendrier éditorial, création et rédaction des posts sur Instagram, Facebook et LinkedIn", "<b>Vidéo</b> : tournage et montage des interviews sur Premiere Pro et CapCut", "<b>Photo</b> : prises de vue et retouche", "<b>Site internet</b> : mise en ligne des articles", "<b>Fiche Google</b> : posts et articles", "<b>Emailing</b> : campagnes sur Brevo", "<b>Événements</b> : la com en direct", "<b>Visuels</b> : posts, pubs print pour faire connaître les réseaux"])
 cm += bloc("optimome", "O'ptimôme",
            ["Le guide des familles : des sorties, des spectacles, des idées d'activités… des contenus utiles et pensés pour toute la famille.", "J'ai lancé son compte Instagram, animé la communauté avec des jeux concours réguliers et tenu le site à jour avec les articles et l'agenda des sorties."],
-           f"""{fig(C + "op_facebook.webp", "Page Facebook O'ptimôme", "Page Facebook", "le canal principal du guide")}
+           f"""<div class="op-fb">{fig(C + "op_facebook.webp", "Page Facebook O'ptimôme", "Page Facebook", "le canal principal du guide")}</div>
       <div class="g g3" style="align-items:center">
         {fig(C + "op_instagram.webp", "Compte Instagram O'ptimôme", "Instagram", "", "ratio-916")}
         {fig(C + "op_n64.webp", "Couverture du magazine O'ptimôme n°64", "Le magazine", "n°64, printemps 2024", "transp")}
