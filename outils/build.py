@@ -272,7 +272,7 @@ cm += intro("Trois médias toulousains : De Fil en Déco (magazine déco), O'pti
             ["Community management", "Social media", "Création de contenus", "Planning éditorial", "Print", "Meta Business Suite"], [])
 cm += sommaire([("defilendeco", "De Fil en Déco"), ("optimome", "O'ptimôme")])
 cm += bloc("defilendeco", "De Fil en Déco",
-           ["Le magazine déco de Toulouse. Sur Instagram, Facebook et LinkedIn, je suivais un modèle de feed précis : des contenus pros et inspirants, avec des formats qui changent."],
+           ["Le magazine déco de Toulouse. J'y gérais toute la com digitale : les réseaux, le site, la fiche Google et l'emailing, avec un modèle de feed précis, des contenus pros et inspirants, et des formats qui changent.", "Sur le terrain aussi : photos, vidéos et interviews d'artisans, et la com pendant les événements du magazine."],
            f"""<div class="g df-haut">
         {fig(C + "df_feed.webp", "Feed Instagram De Fil en Déco", "Feed Instagram", "photos, conseils déco, citations, interviews")}
         <div class="reels itv"><figure><div class="vid"><video class="reel" src="assets/video/itv_julie.mp4" poster="assets/img/cm/poster_itv_julie.webp" autoplay muted loop playsinline preload="metadata" aria-label="Interview vidéo de Julie Delvaux pour De Fil en Déco"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption><b>Interview</b>Julie Delvaux</figcaption></figure>
@@ -281,9 +281,9 @@ cm += bloc("defilendeco", "De Fil en Déco",
       </div>
       <div class="g g2 pubs" style="align-items:center">{z(C + "df_pub_double.webp", "Pub De Fil en Déco en double page", "transp")}{z(C + "df_pub_page.webp", "Pub De Fil en Déco en pleine page", "transp")}</div>
       {note("Pubs print : des pages dans le magazine pour renvoyer les lecteurs vers les réseaux et le site")}""",
-           ["Réseaux sociaux via Meta Business Suite", "Formats variés : interviews, conseils, citations", "Pubs print pour faire connaître les réseaux"])
+           ["<b>Réseaux sociaux</b> : calendrier éditorial, création et rédaction des posts sur Instagram, Facebook et LinkedIn", "<b>Vidéo</b> : tournage et montage des interviews sur Premiere Pro et CapCut", "<b>Photo</b> : prises de vue et retouche", "<b>Site internet</b> : mise en ligne des articles", "<b>Fiche Google</b> : posts et articles", "<b>Emailing</b> : campagnes sur Brevo", "<b>Événements</b> : la com en direct", "<b>Visuels</b> : posts, pubs print pour faire connaître les réseaux"])
 cm += bloc("optimome", "O'ptimôme",
-           ["Le guide des familles : des sorties, des spectacles, des idées d'activités… des contenus utiles et pensés pour toute la famille, avec des jeux concours réguliers&nbsp;!"],
+           ["Le guide des familles : des sorties, des spectacles, des idées d'activités… des contenus utiles et pensés pour toute la famille.", "J'ai lancé son compte Instagram, animé la communauté avec des jeux concours réguliers et tenu le site à jour avec les articles et l'agenda des sorties."],
            f"""{fig(C + "op_facebook.webp", "Page Facebook O'ptimôme", "Page Facebook", "le canal principal du guide")}
       <div class="g g3" style="align-items:center">
         {fig(C + "op_instagram.webp", "Compte Instagram O'ptimôme", "Instagram", "", "ratio-916")}
@@ -291,7 +291,7 @@ cm += bloc("optimome", "O'ptimôme",
         {fig(C + "op_pub_hiver.webp", "Pub O'ptimôme hiver", "Pub print", "hiver", "transp")}
       </div>
       <div class="pub-double">{fig(C + "op_pub_printemps.webp", "Pub O'ptimôme printemps en double page", "Pub print", "printemps, en double page : une pub par saison pour renvoyer vers le site et Facebook", "transp")}</div>""",
-           ["Page Facebook et compte Instagram", "Jeux concours pour animer la communauté", "Pubs print pour faire connaître le site"])
+           ["<b>Instagram</b> : création du compte", "<b>Réseaux sociaux</b> : création des posts sur Facebook et Instagram", "<b>Jeux concours</b> : sur Instagram, Facebook et le site", "<b>Site internet</b> : mise en ligne des articles et des événements", "<b>Bots</b> : gestion des réponses automatiques", "<b>Événements</b> : la com en direct", "<b>Visuels</b> : posts, pubs print par saison"])
 cm += pied(("vancore.html", "assets/img/vancore/cover_van_paysage.webp", "Vancore", "center 62%"))
 cm = cm.replace('.ouv.mags .couv img { position: static;', '.ouv.mags .couv img { position: static;')
 open("community-manager.html", "w").write(cm)
