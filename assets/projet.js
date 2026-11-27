@@ -49,7 +49,7 @@ vue.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') bouge(-1); if 
 let x0 = null;
 vue.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
 vue.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) bouge(dx < 0 ? 1 : -1); x0 = null; });
-vue.addEventListener('click', ev => { if (ev.target === vue || ev.target.classList.contains('fermer')) vue.close(); });
+vue.addEventListener('click', ev => { if (ev.target === vue || ev.target === vImg || ev.target.classList.contains('fermer')) vue.close(); });
 
 // réels : le son sur chacun, et celui qu'on survole passe devant
 document.querySelectorAll('.reels').forEach(zone => {
