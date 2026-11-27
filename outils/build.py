@@ -977,7 +977,7 @@ ap_css = """.bio { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(3
 .duo-photos { position: relative; height: clamp(380px, 40vw, 520px); }
 .duo-photos img { position: absolute; width: 52%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 22px; box-shadow: 0 24px 50px rgba(0,0,0,.5); transition: rotate .5s cubic-bezier(.2,.8,.2,1), translate .5s cubic-bezier(.2,.8,.2,1); }
 .duo-photos img:first-child { left: 6%; top: 0; rotate: -5deg; }
-.duo-photos img:last-child { right: 4%; bottom: 0; rotate: 5deg; border: 5px solid var(--nuit); z-index: 1; }
+.duo-photos img:last-child { right: 4%; bottom: 0; rotate: 5deg; z-index: 1; }
 .duo-photos:hover img:first-child { rotate: -8deg; translate: -10px 0; }
 .duo-photos:hover img:last-child { rotate: 7deg; translate: 10px 0; }
 @media (max-width: 900px) { .bio { grid-template-columns: 1fr; } }
