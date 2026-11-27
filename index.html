@@ -78,6 +78,22 @@ main > section[id] { scroll-margin-top: 80px; }
 .jauge i { display: block; height: 100%; background: var(--lilas); transform-origin: left; scale: 0 1; }
 @media (prefers-reduced-motion: reduce) { .colle-labo { position: static; min-height: 0; } .piste-labo .rail { overflow-x: auto; scroll-snap-type: x mandatory; } .jauge { display: none; } }
 
+.apropos .vf-intro { font-size: 18px; color: var(--doux); margin: -12px 0 18px; }
+.vf-liste { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 10px; }
+.vf-liste li { border: 1px solid var(--ligne); border-radius: 18px; padding: 16px 18px; transition: border-color .3s, background .3s; }
+.vf-liste .q { font-size: 18px; line-height: 1.4; margin: 0 0 12px; color: var(--texte); }
+.vf-btns { display: flex; gap: 8px; }
+.vf-btns button { font: 700 14px "Bricolage", sans-serif; border-radius: 999px; padding: 7px 16px; border: 1px solid var(--ligne); background: none; color: var(--texte); cursor: pointer; }
+.vf-btns button:hover, .vf-btns button:focus-visible { border-color: var(--lilas); }
+.vf-liste .vf-rep { display: none; font-size: 15px; line-height: 1.45; color: var(--doux); margin: 10px 0 0; }
+.vf-rep b { color: var(--texte); }
+.vf-liste li.fait .vf-btns { display: none; }
+.vf-liste li.fait .vf-rep { display: block; }
+.vf-liste li.juste { border-color: var(--lilas); background: rgba(183,204,156,0.07); }
+.vf-liste li.rate { border-color: rgba(255,120,110,0.5); }
+.vf-fin { opacity: 0.45; transition: opacity .4s; }
+.vf-fin.ok { opacity: 1; }
+.vf-score { color: var(--doux); font-size: 15px; margin-left: 12px; }
 .apropos { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 80px); align-items: center; }
 .apropos p { font-size: clamp(20px, 2vw, 26px); line-height: 1.45; color: #dad8d3; margin: 0 0 28px; }
 .apropos img { border-radius: 22px; aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
@@ -150,8 +166,9 @@ main > section[id] { scroll-margin-top: 80px; }
   <section id="apropos" class="apropos apparait">
     <div>
       <h2 style="font-size:clamp(42px,5.6vw,76px);margin-bottom:28px">Et moi, dans tout ça ?</h2>
-      <p>Montagne, van et running : j'aime les marques qui ont une vraie communauté, et les faire grandir.</p>
-      <a class="b ligne" href="a-propos.html">Mon parcours</a>
+      <p class="vf-intro">Trois infos sur moi. Une seule est fausse.</p>
+      <ul class="vf-liste"><li data-v="vrai"><p class="q">Avant la com, j'ai fait une licence d'anglais.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Vrai !</b> Une licence LLCER à Jean Jaurès… puis j'ai bifurqué vers la com.</p></li><li data-v="vrai"><p class="q">Je fais la com d'un running club… et je n'ai jamais couru plus de 5&nbsp;km.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Vrai !</b> Mon record, c'est 2&nbsp;km. Mais j'y travaille (promis).</p></li><li data-v="faux"><p class="q">J'ai déjà couru un semi-marathon.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Faux !</b> Relis juste au-dessus 😅 21&nbsp;km, c'est pas encore pour tout de suite.</p></li></ul>
+      <a class="b plein vf-fin" href="a-propos.html">La suite est par ici ↗</a><span class="vf-score"></span>
     </div>
     <img src="assets/img/moi/cloe-atlas.webp" alt="Cloé et Atlas, son berger australien, dans les Dolomites" style="object-position:62% 40%">
   </section>
@@ -208,6 +225,16 @@ defile.addEventListener('mouseleave', () => { puces.forEach(p => p.style.setProp
   const mesure = () => { if (calme.matches) { piste.style.height = ''; rail.style.transform = ''; return; } dist = Math.max(0, rail.scrollWidth - rail.clientWidth); piste.style.height = (colle.offsetHeight + dist) + 'px'; maj(); };
   const maj = () => { if (calme.matches) return; const p = dist ? Math.min(1, Math.max(0, -piste.getBoundingClientRect().top / dist)) : 0; rail.style.transform = `translateX(${-p * dist}px)`; j.style.scale = `${p} 1`; };
   addEventListener('scroll', maj, { passive: true }); addEventListener('resize', mesure); addEventListener('load', mesure); mesure();
+}
+</script>
+<script>
+{
+  const l = document.querySelector('.vf-liste'), fin = document.querySelector('.vf-fin'), sc = document.querySelector('.vf-score');
+  let faits = 0, bons = 0;
+  l.querySelectorAll('li').forEach(li => li.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    const ok = b.dataset.r === li.dataset.v; li.classList.add('fait', ok ? 'juste' : 'rate'); faits++; if (ok) bons++;
+    if (faits === 3) { fin.classList.add('ok'); sc.textContent = bons === 3 ? '3 / 3, bien joué !' : bons + ' / 3, la suite va t\'aider 😉'; }
+  })));
 }
 </script>
 <script src="assets/pied.js"></script>
