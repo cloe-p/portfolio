@@ -1040,8 +1040,8 @@ ap += """  <div class="ouv" style="min-height:62svh">
         <ol>
           <li><time>2024–2026</time><b>Mastère Content Marketing &amp; Brand Entertainment</b><span>Titre RNCP niveau 7 · Manager de la communication et du marketing digital · INSEEC × Ynov Toulouse</span><span class="memoire">Mémoire&nbsp;: « L'authenticité comme clé de confiance : le brand content face à la saturation informationnelle dans les communautés de niche »</span></li>
           <li><time>2023–2024</time><b>Bachelor 3 Marketing &amp; Communication Création Digitale</b><span>Titre RNCP niveau 6 · Chef de projets digitaux, option E-business · EEMI × Ynov Toulouse</span></li>
-          <li><time>2019–2023</time><b>Licence d'Études Anglophones (LLCER)</b></li>
-          <li><time>2019</time><b>Baccalauréat Économique &amp; Social</b><span>spécialité Économie approfondie</span></li>
+          <li><time>2019–2023</time><b>Licence d'Études Anglophones (LLCER)</b><span>Université Toulouse Jean Jaurès</span></li>
+          <li><time>2019</time><b>Baccalauréat Économique &amp; Social</b><span>spécialité Économie approfondie · Lycée Clémence Royer, Fonsorbes</span></li>
         </ol>
       </div>
     </div>
