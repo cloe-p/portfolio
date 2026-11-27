@@ -564,6 +564,7 @@ video.reel.paysage { aspect-ratio: 16 / 9; }
 .projet-labo:has(+ .zone-perso) { border-bottom: 0; }
 .zone-perso { margin: 0 calc(-1 * var(--m)); padding: clamp(60px, 8vw, 110px) var(--m) clamp(50px, 6vw, 80px); background: #f2efe7; color: #14151a; border-radius: 34px; margin-bottom: 60px !important; --texte: #14151a; --doux: #55555a; --ligne: rgba(20,21,26,0.14); --carte: #e7e3d9; }
 .zone-perso .chapitre span { border-color: rgba(20,21,26,0.25); }
+.zone-perso dialog { --texte: #f2f1ee; --doux: #b8b6b1; --ligne: rgba(255,255,255,0.14); --carte: #17181c; color: var(--texte); }
 .zone-perso .projet-labo:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
 .zone-perso .etiquettes span:first-child { background: #14151a; color: #f2efe7; }
 .zone-perso .brief { color: #3c3c40; }
