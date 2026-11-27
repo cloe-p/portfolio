@@ -18,9 +18,9 @@ document.addEventListener('dragstart', e => { if (e.target.closest('img, video, 
   if (nav) {
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'burger'; b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-controls', 'nav-principale');
-    b.innerHTML = '<span>Menu</span><i aria-hidden="true"></i>';
+    b.innerHTML = '<span>' + (window.t || (x => x))('Menu') + '</span><i aria-hidden="true"></i>';
     nav.id = 'nav-principale'; m.appendChild(b);
-    const bascule = on => { m.classList.toggle('ouvert', on); document.body.classList.toggle('menu-ouvert', on); b.setAttribute('aria-expanded', on); b.firstChild.textContent = on ? 'Fermer' : 'Menu'; };
+    const bascule = on => { m.classList.toggle('ouvert', on); document.body.classList.toggle('menu-ouvert', on); b.setAttribute('aria-expanded', on); b.firstChild.textContent = (window.t || (x => x))(on ? 'Fermer' : 'Menu'); };
     b.addEventListener('click', () => bascule(!m.classList.contains('ouvert')));
     nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => bascule(false)));
     addEventListener('keydown', e => { if (e.key === 'Escape') bascule(false); });

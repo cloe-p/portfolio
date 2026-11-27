@@ -22,7 +22,7 @@ vue.querySelectorAll('button').forEach((b, k) => k ? b.remove() : b.classList.ad
 const prec = Object.assign(document.createElement('button'), { type: 'button', className: 'nav prec', textContent: '←' });
 const suiv = Object.assign(document.createElement('button'), { type: 'button', className: 'nav suiv', textContent: '→' });
 const cpt = Object.assign(document.createElement('span'), { className: 'cpt' });
-prec.setAttribute('aria-label', 'Image précédente'); suiv.setAttribute('aria-label', 'Image suivante');
+const T = window.t || (x => x); prec.setAttribute('aria-label', T('Image précédente')); suiv.setAttribute('aria-label', T('Image suivante'));
 vue.append(prec, suiv, cpt);
 let liste = [], pos = 0;
 const affiche = () => {

@@ -89,3 +89,9 @@ a.zoom, .zoom img { cursor: zoom-in; }
 dialog.vue img { cursor: zoom-out; }
 dialog.vue .nav, .caro-bt, .fermer, .son-bt { cursor: pointer; }
 :disabled { cursor: not-allowed; }
+
+/* bouton de langue */
+.menu .langue { font: 700 14px "Bricolage", sans-serif; color: var(--texte); background: none; border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 7px 12px; cursor: pointer; letter-spacing: 0.04em; }
+.menu .langue:hover { border-color: var(--lilas); color: var(--lilas); }
+@media (max-width: 720px) { .menu nav .langue { margin-top: 18px; font-size: 18px; padding: 10px 18px; } }
+.vo { font-size: 13px !important; color: var(--doux) !important; font-style: italic; margin: 0 0 12px !important; }

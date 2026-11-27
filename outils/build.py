@@ -956,8 +956,8 @@ labo = labo.replace('<script src="assets/pied.js"></script>', """<script src="as
   const au = document.getElementById('audio'), bt = document.getElementById('lire'), barre = document.getElementById('barre'), t = document.getElementById('temps');
   const mmss = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
   bt.addEventListener('click', () => au.paused ? au.play() : au.pause());
-  au.addEventListener('play', () => { bt.textContent = '❚❚'; bt.setAttribute('aria-label', 'Mettre en pause'); });
-  au.addEventListener('pause', () => { bt.textContent = '▶'; bt.setAttribute('aria-label', 'Écouter le podcast'); });
+  au.addEventListener('play', () => { bt.textContent = '❚❚'; bt.setAttribute('aria-label', (window.t || (x => x))('Mettre en pause')); });
+  au.addEventListener('pause', () => { bt.textContent = '▶'; bt.setAttribute('aria-label', (window.t || (x => x))('Écouter le podcast')); });
   au.addEventListener('timeupdate', () => { const d = au.duration || 43; barre.firstElementChild.style.width = (au.currentTime / d * 100) + '%'; t.textContent = mmss(au.currentTime) + ' / ' + mmss(d); });
 
   document.querySelectorAll('.carte-bref').forEach(c => c.addEventListener('click', () => document.getElementById(c.dataset.fiche).showModal()));
@@ -1068,3 +1068,6 @@ ap += """  <div class="ouv" style="min-height:62svh">
 ap += pied()
 open("a-propos.html", "w").write(ap)
 print("ok")
+
+import subprocess, sys
+subprocess.run([sys.executable, "outils/i18n_inject.py", "toulouse-social-run.html", "community-manager.html", "labo.html", "a-propos.html"], check=True)
