@@ -687,7 +687,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       <div class="cote"><div class="etiquettes"><span>Perso</span><span>LinkedIn</span></div>
       <div class="chap"><h2>Alternante, mais pas que&nbsp;!</h2><p class="brief">Pendant mon alternance, j'ai testé LinkedIn pour moi. Une collègue rédactrice web m'a appris les codes, puis j'ai écrit et designé mes posts pour parler aux étudiants et aux jeunes actifs, avec humour et sincérité.</p>
       <ul class="competences"><li>Personal branding</li><li>Copywriting</li><li>Carrousels</li><li>Ligne éditoriale</li></ul>
-      <p style="margin-top:20px"><a class="b ligne" href="https://www.linkedin.com/in/cloeperot/" target="_blank" rel="noopener">Voir mon profil ↗</a></p></div></div>
+      <p style="margin-top:20px"><a class="b plein" href="https://www.linkedin.com/in/cloeperot/" target="_blank" rel="noopener">Voir mon profil ↗</a></p></div></div>
       <div class="medias">
         {z("assets/img/labo/linkedin/banniere.webp", "Mon profil LinkedIn : bannière Alternante mais pas que, 2 623 abonnés")}
         <div class="li-chiffres"><div><strong>2&nbsp;623</strong><span>abonnés</span></div><div><strong>248k</strong><span>impressions sur ces 4 posts</span></div><div><strong>+218</strong><span>abonnés gagnés grâce à eux</span></div></div>
