@@ -180,6 +180,15 @@ dialog.fiche::backdrop { background: rgba(5,5,7,0.78); backdrop-filter: blur(4px
 .li-posts li { border: 1px solid var(--ligne); border-radius: 18px; padding: 18px 18px 14px; display: flex; flex-direction: column; }
 .li-posts .accroche { font-weight: 700; font-size: 17px; line-height: 1.3; letter-spacing: -0.01em; margin: 0 0 8px; }
 .li-posts .sujet { color: var(--doux); font-size: 14.5px; margin: 0 0 14px; flex: 1; }
+.caro { position: relative; margin: -18px -18px 16px; border-radius: 17px 17px 0 0; overflow: hidden; background: #f4f1ec; }
+.caro-piste { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-behavior: smooth; }
+.caro-piste::-webkit-scrollbar { display: none; }
+.caro-piste img { flex: 0 0 100%; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; scroll-snap-align: start; }
+.caro-bt { position: absolute; top: 50%; translate: 0 -50%; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(13,14,17,0.72); color: #fff; font: 700 24px/1 "Bricolage", sans-serif; cursor: pointer; display: grid; place-items: center; padding-bottom: 3px; transition: opacity .25s, background .2s; }
+.caro-bt:hover { background: #e880a0; }
+.caro-bt.g { left: 10px; } .caro-bt.d { right: 10px; }
+.caro-bt:disabled { opacity: 0; pointer-events: none; }
+.caro-n { position: absolute; top: 10px; right: 10px; background: rgba(13,14,17,0.72); color: #fff; font-size: 12.5px; font-weight: 700; padding: 4px 10px; border-radius: 99px; }
 .li-posts dl { display: grid; grid-template-columns: repeat(4, auto); gap: 4px 12px; margin: 0; border-top: 1px solid var(--ligne); padding-top: 10px; }
 .li-posts dd { margin: 0; font-weight: 700; font-size: 16px; } .li-posts dt { font-size: 11.5px; color: var(--doux); order: 2; }
 .li-posts dl div { display: flex; flex-direction: column-reverse; }
@@ -357,18 +366,23 @@ dialog.fiche::backdrop { background: rgba(5,5,7,0.78); backdrop-filter: blur(4px
     <article class="projet-labo duo" data-cat="perso strategie" id="linkedin">
       <div class="cote"><div class="etiquettes"><span>Perso</span><span>LinkedIn</span></div>
       <div class="chap"><h2>Alternante, mais pas que&nbsp;!</h2><p class="brief">Pendant mon alternance, j'ai testé LinkedIn pour moi. Une collègue rédactrice web m'a appris les codes, puis j'ai écrit et designé mes posts pour parler aux étudiants et aux jeunes actifs, avec humour et sincérité.</p>
-      <ul class="competences"><li>Personal branding</li><li>Copywriting</li><li>Carrousels</li><li>Ligne éditoriale</li></ul></div></div>
+      <ul class="competences"><li>Personal branding</li><li>Copywriting</li><li>Carrousels</li><li>Ligne éditoriale</li></ul>
+      <p style="margin-top:20px"><a class="b ligne" href="https://www.linkedin.com/in/cloeperot/" target="_blank" rel="noopener">Voir mon profil ↗</a></p></div></div>
       <div class="medias">
         <a class="zoom " href="assets/img/labo/linkedin/banniere.webp"><img src="assets/img/labo/linkedin/banniere.webp" alt="Ma bannière LinkedIn : Alternante mais pas que, un concentré du sud en bouteille" loading="lazy"></a>
         <div class="li-chiffres"><div><strong>2&nbsp;623</strong><span>abonnés</span></div><div><strong>248k</strong><span>impressions sur ces 4 posts</span></div><div><strong>+218</strong><span>abonnés gagnés grâce à eux</span></div></div>
         <ol class="li-posts">
-          <li><p class="accroche">« J'ai mis 6 mois à décrypter le langage corporate. »</p><p class="sujet">Un guide du langage « politiquement correct » de l'entreprise, en carrousel de 6 pages</p>
+          <li><div class="caro" aria-roledescription="carrousel" aria-label="Guide du langage corporate"><div class="caro-piste" tabindex="0"><img src="assets/img/labo/linkedin/corporate-1.webp" alt="Guide du langage corporate, page 1 sur 6" loading="lazy"><img src="assets/img/labo/linkedin/corporate-2.webp" alt="Guide du langage corporate, page 2 sur 6" loading="lazy"><img src="assets/img/labo/linkedin/corporate-3.webp" alt="Guide du langage corporate, page 3 sur 6" loading="lazy"><img src="assets/img/labo/linkedin/corporate-4.webp" alt="Guide du langage corporate, page 4 sur 6" loading="lazy"><img src="assets/img/labo/linkedin/corporate-5.webp" alt="Guide du langage corporate, page 5 sur 6" loading="lazy"><img src="assets/img/labo/linkedin/corporate-6.webp" alt="Guide du langage corporate, page 6 sur 6" loading="lazy"></div><button type="button" class="caro-bt g" aria-label="Page précédente">‹</button><button type="button" class="caro-bt d" aria-label="Page suivante">›</button><span class="caro-n">1 / 6</span></div>
+            <p class="accroche">« J'ai mis 6 mois à décrypter le langage corporate. »</p><p class="sujet">Un guide du langage « politiquement correct » de l'entreprise.</p>
             <dl><div><dt>impressions</dt><dd>99 911</dd></div><div><dt>réactions</dt><dd>724</dd></div><div><dt>commentaires</dt><dd>77</dd></div><div><dt>abonnés gagnés</dt><dd>+87</dd></div></dl></li>
-          <li><p class="accroche">« Tout le monde me dit, mais Sabrina comment tu fais pour tenir ta ferme… »</p><p class="sujet">Ma semaine d'école racontée en photos, en carrousel de 11 pages</p>
+          <li><div class="caro" aria-roledescription="carrousel" aria-label="Ma semaine d'école"><div class="caro-piste" tabindex="0"><img src="assets/img/labo/linkedin/semaine-1.webp" alt="Ma semaine d'école, page 1 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-2.webp" alt="Ma semaine d'école, page 2 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-3.webp" alt="Ma semaine d'école, page 3 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-4.webp" alt="Ma semaine d'école, page 4 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-5.webp" alt="Ma semaine d'école, page 5 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-6.webp" alt="Ma semaine d'école, page 6 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-7.webp" alt="Ma semaine d'école, page 7 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-8.webp" alt="Ma semaine d'école, page 8 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-9.webp" alt="Ma semaine d'école, page 9 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-10.webp" alt="Ma semaine d'école, page 10 sur 11" loading="lazy"><img src="assets/img/labo/linkedin/semaine-11.webp" alt="Ma semaine d'école, page 11 sur 11" loading="lazy"></div><button type="button" class="caro-bt g" aria-label="Page précédente">‹</button><button type="button" class="caro-bt d" aria-label="Page suivante">›</button><span class="caro-n">1 / 11</span></div>
+            <p class="accroche">« Tout le monde me dit, mais Sabrina comment tu fais pour tenir ta ferme… »</p><p class="sujet">Ma semaine d'école racontée en photos.</p>
             <dl><div><dt>impressions</dt><dd>74 976</dd></div><div><dt>réactions</dt><dd>688</dd></div><div><dt>commentaires</dt><dd>38</dd></div><div><dt>abonnés gagnés</dt><dd>+71</dd></div></dl></li>
-          <li><p class="accroche">« Si je te dis un secret, tu ne le répètes à personne ? »</p><p class="sujet">L'avant/après de la refonte du profil LinkedIn de mon boss, en 17 pages</p>
+          <li><div class="caro" aria-roledescription="carrousel" aria-label="Refonte du profil du big boss"><div class="caro-piste" tabindex="0"><img src="assets/img/labo/linkedin/refonte-1.webp" alt="Refonte du profil du big boss, page 1 sur 12" loading="lazy"><img src="assets/img/labo/linkedin/refonte-2.webp" alt="Refonte du profil du big boss, page 2 sur 12" loading="lazy"><img src="assets/img/labo/linkedin/refonte-3.webp" alt="Refonte du profil du big boss, page 3 sur 12" loading="lazy"><img src="assets/img/labo/linkedin/refonte-4.webp" alt="Refonte du profil du big boss, page 4 sur 12" loading="lazy"><img src="assets/img/labo/linkedin/refonte-5.webp" alt="Refonte du profil du big boss, page 5 sur 12" loading="lazy"><img src="assets/img/labo/linkedin/refonte-6.webp" alt="Refonte du profil du big boss, page 6 sur 12" loading="lazy"><img src="assets/img/labo/linkedin/refonte-7.webp" alt="Refonte du profil du big boss, page 7 sur 12" loading="lazy"><img src="assets/img/labo/linkedin/refonte-8.webp" alt="Refonte du profil du big boss, page 8 sur 12" loading="lazy"><img src="assets/img/labo/linkedin/refonte-9.webp" alt="Refonte du profil du big boss, page 9 sur 12" loading="lazy"><img src="assets/img/labo/linkedin/refonte-10.webp" alt="Refonte du profil du big boss, page 10 sur 12" loading="lazy"><img src="assets/img/labo/linkedin/refonte-11.webp" alt="Refonte du profil du big boss, page 11 sur 12" loading="lazy"><img src="assets/img/labo/linkedin/refonte-12.webp" alt="Refonte du profil du big boss, page 12 sur 12" loading="lazy"></div><button type="button" class="caro-bt g" aria-label="Page précédente">‹</button><button type="button" class="caro-bt d" aria-label="Page suivante">›</button><span class="caro-n">1 / 12</span></div>
+            <p class="accroche">« Si je te dis un secret, tu ne le répètes à personne ? »</p><p class="sujet">L'avant/après de la refonte du profil LinkedIn de mon boss.</p>
             <dl><div><dt>impressions</dt><dd>45 042</dd></div><div><dt>réactions</dt><dd>515</dd></div><div><dt>commentaires</dt><dd>38</dd></div><div><dt>abonnés gagnés</dt><dd>+31</dd></div></dl></li>
-          <li><p class="accroche">« J'vous parle d'un temps que les moins de 20 ans ne peuvent pas connaître. »</p><p class="sujet">Mes jouets d'enfance face à mes applis préférées, en 2 pages</p>
+          <li><div class="caro" aria-roledescription="carrousel" aria-label="La petite Cloé vs la big"><div class="caro-piste" tabindex="0"><img src="assets/img/labo/linkedin/jouets-1.webp" alt="La petite Cloé vs la big, page 1 sur 2" loading="lazy"><img src="assets/img/labo/linkedin/jouets-2.webp" alt="La petite Cloé vs la big, page 2 sur 2" loading="lazy"></div><button type="button" class="caro-bt g" aria-label="Page précédente">‹</button><button type="button" class="caro-bt d" aria-label="Page suivante">›</button><span class="caro-n">1 / 2</span></div>
+            <p class="accroche">« J'vous parle d'un temps que les moins de 20 ans ne peuvent pas connaître. »</p><p class="sujet">Mes jouets d'enfance face à mes applis préférées.</p>
             <dl><div><dt>impressions</dt><dd>28 190</dd></div><div><dt>réactions</dt><dd>286</dd></div><div><dt>commentaires</dt><dd>33</dd></div><div><dt>abonnés gagnés</dt><dd>+29</dd></div></dl></li>
         </ol>
       </div>
@@ -388,7 +402,7 @@ dialog.fiche::backdrop { background: rgba(5,5,7,0.78); backdrop-filter: blur(4px
   <div class="fondtexte" aria-hidden="true">Com · Contenu · Communauté · Com · Contenu · Communauté ·&nbsp;</div>
   <svg class="tampon" viewBox="0 0 150 150" aria-hidden="true"><defs><path id="cercle" d="M75,75 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0"/></defs><text><textPath href="#cercle" textLength="360" lengthAdjust="spacing">DISPO POUR UN CDI · TOULOUSE · PYRÉNÉES ·</textPath></text></svg>
   <h2>On en parle ?</h2>
-  <div class="btns"><a class="b plein" href="mailto:cloe.perot@icloud.com">cloe.perot@icloud.com</a><a class="b ligne" href="#" title="Bientôt disponible">Télécharger mon CV</a></div>
+  <div class="btns"><a class="b plein" href="mailto:cloe.perot@icloud.com">cloe.perot@icloud.com</a><a class="b ligne" href="#" title="Bientôt disponible">Télécharger mon CV</a><a class="b ligne" href="https://www.linkedin.com/in/cloeperot/" target="_blank" rel="noopener">LinkedIn ↗</a></div>
   <small>Cloé Pérot · Toulouse</small>
 </footer>
 
@@ -413,6 +427,15 @@ dialog.fiche::backdrop { background: rgba(5,5,7,0.78); backdrop-filter: blur(4px
   au.addEventListener('play', () => { bt.textContent = '❚❚'; bt.setAttribute('aria-label', 'Mettre en pause'); });
   au.addEventListener('pause', () => { bt.textContent = '▶'; bt.setAttribute('aria-label', 'Écouter le podcast'); });
   au.addEventListener('timeupdate', () => { const d = au.duration || 43; barre.firstElementChild.style.width = (au.currentTime / d * 100) + '%'; t.textContent = mmss(au.currentTime) + ' / ' + mmss(d); });
+
+  document.querySelectorAll('.caro').forEach(c => {
+    const p = c.querySelector('.caro-piste'), n = c.querySelector('.caro-n'), [g, d] = c.querySelectorAll('.caro-bt'), tot = p.children.length;
+    const maj = () => { const i = Math.round(p.scrollLeft / p.clientWidth); n.textContent = (i + 1) + ' / ' + tot; g.disabled = i === 0; d.disabled = i === tot - 1; };
+    g.addEventListener('click', () => p.scrollBy({ left: -p.clientWidth }));
+    d.addEventListener('click', () => p.scrollBy({ left: p.clientWidth }));
+    p.addEventListener('keydown', e => { if (e.key === 'ArrowRight') d.click(); if (e.key === 'ArrowLeft') g.click(); });
+    p.addEventListener('scroll', maj, { passive: true }); maj();
+  });
   document.querySelectorAll('.carte-bref').forEach(c => c.addEventListener('click', () => document.getElementById(c.dataset.fiche).showModal()));
   document.querySelectorAll('dialog.fiche').forEach(d => {
     d.querySelector('.fermer').addEventListener('click', () => d.close());
