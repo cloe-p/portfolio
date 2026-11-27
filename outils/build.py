@@ -995,9 +995,13 @@ ap_css = """.bio { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(3
 @media (max-width: 700px) { .univers { grid-template-columns: 1fr 1fr; grid-template-rows: 240px 160px 160px; } .univers a:nth-child(n) { grid-row: auto; grid-column: auto; } .univers a:nth-child(1), .univers a:nth-child(3) { grid-row: 1; } .univers a:nth-child(2), .univers a:nth-child(4) { grid-column: span 2; } }
 .outils { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
 .outils li { border: 1px solid var(--ligne); border-radius: 999px; padding: 9px 17px; font-size: 16px; }
-.outils-groupes { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 40px; }
-.outils-groupes h3 { font-size: 15px; color: var(--lilas); margin: 0 0 14px; font-weight: 700; }
-@media (max-width: 800px) { .outils-groupes { grid-template-columns: 1fr; } }"""
+.cats-outils { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.cats-outils button { font: 700 15px "Bricolage", sans-serif; border-radius: 999px; padding: 9px 18px; border: 1px solid var(--ligne); background: none; color: var(--texte); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.cats-outils button:hover { border-color: var(--lilas); }
+.cats-outils button.on { background: var(--lilas); color: var(--nuit); border-color: var(--lilas); }
+.cats-outils sup { font-size: 11px; margin-left: 3px; }
+.outils.filtre li { transition: opacity .35s, transform .35s, border-color .35s, color .35s; opacity: .22; transform: scale(.96); }
+.outils.filtre li.vu { opacity: 1; transform: scale(1); border-color: var(--lilas); color: var(--lilas); }"""
 ap = head("À propos", "Le parcours, les compétences et les outils de Cloé Pérot, chargée de communication à Toulouse.", ap_css)
 ap += """  <div class="ouv" style="min-height:62svh">
     <img src="assets/img/moi/lac-braies.webp" alt="" style="object-position:center 60%">
@@ -1064,7 +1068,7 @@ ap += """  <div class="ouv" style="min-height:62svh">
 
   <section>
     <h2>Mes outils</h2>
-    <div class="outils-groupes"><div><h3>Création & vidéo</h3><ul class="outils"><li>Illustrator</li><li>InDesign</li><li>Photoshop</li><li>Premiere Pro</li><li>Affinity</li><li>Canva</li><li>Figma</li><li>CapCut</li></ul></div><div><h3>IA</h3><ul class="outils"><li>Claude</li><li>ChatGPT</li><li>Gemini</li><li>Nano Banana</li><li>Midjourney</li><li>Lovable</li></ul></div><div><h3>Web, réseaux & emailing</h3><ul class="outils"><li>WordPress</li><li>GitHub</li><li>Meta Business Suite</li><li>Google Analytics</li><li>Klaviyo</li><li>Brevo</li></ul></div><div><h3>Organisation & relation client</h3><ul class="outils"><li>Notion</li><li>Asana</li><li>Trello</li><li>Freshdesk</li><li>Ekan / Evo</li></ul></div></div>
+    <div class="cats-outils"><button type="button" data-k="crea" class="on">Création &amp; vidéo<sup>8</sup></button><button type="button" data-k="ia">IA<sup>6</sup></button><button type="button" data-k="web">Web, réseaux &amp; emailing<sup>6</sup></button><button type="button" data-k="orga">Organisation &amp; relation client<sup>5</sup></button></div><ul class="outils filtre"><li data-k="orga">Trello</li><li data-k="orga">Ekan / Evo</li><li data-k="orga">Freshdesk</li><li data-k="crea" class="vu">Illustrator</li><li data-k="crea" class="vu">InDesign</li><li data-k="crea" class="vu">Photoshop</li><li data-k="crea" class="vu">Premiere Pro</li><li data-k="crea" class="vu">Affinity</li><li data-k="crea" class="vu">Canva</li><li data-k="crea" class="vu">Figma</li><li data-k="crea" class="vu">CapCut</li><li data-k="ia">Claude</li><li data-k="ia">ChatGPT</li><li data-k="ia">Gemini</li><li data-k="ia">Nano Banana</li><li data-k="ia">Midjourney</li><li data-k="ia">Lovable</li><li data-k="web">WordPress</li><li data-k="web">GitHub</li><li data-k="web">Meta Business Suite</li><li data-k="web">Google Analytics</li><li data-k="web">Klaviyo</li><li data-k="web">Brevo</li><li data-k="orga">Notion</li><li data-k="orga">Asana</li></ul><script>(function(){var c=document.querySelector(".cats-outils"),l=document.querySelectorAll(".outils li");c.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;c.querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b)});l.forEach(function(li){li.classList.toggle("vu",li.dataset.k===b.dataset.k)})})})();</script>
   </section>
 """
 ap += pied()
