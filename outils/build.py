@@ -472,6 +472,20 @@ dialog.fiche::backdrop { background: rgba(5,5,7,0.78); backdrop-filter: blur(4px
 .photos img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
 .photos a[href$="mustang.webp"] img { object-position: 50% 38%; }
 @media (max-width: 760px) { .photos { --ph: 110px; gap: 6px; } }
+.li-chiffres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0; }
+.li-chiffres div { background: rgba(232,128,160,0.1); border-radius: 16px; padding: 14px 16px; }
+.li-chiffres strong { display: block; font-size: clamp(26px, 2.6vw, 36px); letter-spacing: -0.04em; line-height: 1; color: #f0a3bb; }
+.li-chiffres span { font-size: 13.5px; color: var(--doux); }
+.li-posts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.li-posts li { border: 1px solid var(--ligne); border-radius: 18px; padding: 18px 18px 14px; display: flex; flex-direction: column; }
+.li-posts .accroche { font-weight: 700; font-size: 17px; line-height: 1.3; letter-spacing: -0.01em; margin: 0 0 8px; }
+.li-posts .sujet { color: var(--doux); font-size: 14.5px; margin: 0 0 14px; flex: 1; }
+.li-posts dl { display: grid; grid-template-columns: repeat(4, auto); gap: 4px 12px; margin: 0; border-top: 1px solid var(--ligne); padding-top: 10px; }
+.li-posts dd { margin: 0; font-weight: 700; font-size: 16px; } .li-posts dt { font-size: 11.5px; color: var(--doux); order: 2; }
+.li-posts dl div { display: flex; flex-direction: column-reverse; }
+.li-posts li:first-child dd { color: #f0a3bb; }
+#linkedin .medias > .zoom img { border-radius: 18px; }
+@media (max-width: 760px) { .li-posts { grid-template-columns: 1fr; } .li-chiffres { grid-template-columns: 1fr 1fr 1fr; gap: 6px; } .li-chiffres div { padding: 10px; } }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
 .ecrans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
@@ -629,6 +643,26 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
           <ul class="competences"><li>Storytelling</li><li>Concept de campagne</li><li>Affiches</li><li>Plan de communication</li></ul>
         </div>
       </dialog>
+    </article>
+
+    <article class="projet-labo duo" data-cat="perso strategie" id="linkedin">
+      <div class="cote"><div class="etiquettes"><span>Perso</span><span>LinkedIn</span></div>
+      <div class="chap"><h2>Alternante, mais pas que&nbsp;!</h2><p class="brief">Pendant mon alternance, j'ai testé LinkedIn pour moi. Une collègue rédactrice web m'a appris les codes, puis j'ai écrit et designé mes posts pour parler aux étudiants et aux jeunes actifs, avec humour et sincérité.</p>
+      <ul class="competences"><li>Personal branding</li><li>Copywriting</li><li>Carrousels</li><li>Ligne éditoriale</li></ul></div></div>
+      <div class="medias">
+        {z("assets/img/labo/linkedin/banniere.webp", "Ma bannière LinkedIn : Alternante mais pas que, un concentré du sud en bouteille")}
+        <div class="li-chiffres"><div><strong>2&nbsp;623</strong><span>abonnés</span></div><div><strong>248k</strong><span>impressions sur ces 4 posts</span></div><div><strong>+218</strong><span>abonnés gagnés grâce à eux</span></div></div>
+        <ol class="li-posts">
+          <li><p class="accroche">« J'ai mis 6 mois à décrypter le langage corporate. »</p><p class="sujet">Un guide du langage « politiquement correct » de l'entreprise, en carrousel de 6 pages</p>
+            <dl><div><dt>impressions</dt><dd>99 911</dd></div><div><dt>réactions</dt><dd>724</dd></div><div><dt>commentaires</dt><dd>77</dd></div><div><dt>abonnés gagnés</dt><dd>+87</dd></div></dl></li>
+          <li><p class="accroche">« Tout le monde me dit, mais Sabrina comment tu fais pour tenir ta ferme… »</p><p class="sujet">Ma semaine d'école racontée en photos, en carrousel de 11 pages</p>
+            <dl><div><dt>impressions</dt><dd>74 976</dd></div><div><dt>réactions</dt><dd>688</dd></div><div><dt>commentaires</dt><dd>38</dd></div><div><dt>abonnés gagnés</dt><dd>+71</dd></div></dl></li>
+          <li><p class="accroche">« Si je te dis un secret, tu ne le répètes à personne ? »</p><p class="sujet">L'avant/après de la refonte du profil LinkedIn de mon boss, en 17 pages</p>
+            <dl><div><dt>impressions</dt><dd>45 042</dd></div><div><dt>réactions</dt><dd>515</dd></div><div><dt>commentaires</dt><dd>38</dd></div><div><dt>abonnés gagnés</dt><dd>+31</dd></div></dl></li>
+          <li><p class="accroche">« J'vous parle d'un temps que les moins de 20 ans ne peuvent pas connaître. »</p><p class="sujet">Mes jouets d'enfance face à mes applis préférées, en 2 pages</p>
+            <dl><div><dt>impressions</dt><dd>28 190</dd></div><div><dt>réactions</dt><dd>286</dd></div><div><dt>commentaires</dt><dd>33</dd></div><div><dt>abonnés gagnés</dt><dd>+29</dd></div></dl></li>
+        </ol>
+      </div>
     </article>
 
     <article class="projet-labo duo" data-cat="perso photo" id="photo" style="border:0">
