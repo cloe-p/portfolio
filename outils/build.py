@@ -1064,7 +1064,7 @@ ap += """  <div class="ouv" style="min-height:62svh">
 
   <section>
     <h2>Mes outils</h2>
-    <div class="outils-groupes"><div><h3>Création & vidéo</h3><ul class="outils"><li>Illustrator</li><li>InDesign</li><li>Photoshop</li><li>Premiere Pro</li><li>Canva</li><li>Figma</li><li>CapCut</li></ul></div><div><h3>IA</h3><ul class="outils"><li>Claude</li><li>ChatGPT</li><li>Gemini</li><li>Nano Banana</li><li>Midjourney</li><li>Lovable</li></ul></div><div><h3>Web, réseaux & emailing</h3><ul class="outils"><li>WordPress</li><li>GitHub</li><li>Meta Business Suite</li><li>Google Analytics</li><li>Klaviyo</li><li>Brevo</li></ul></div><div><h3>Organisation & relation client</h3><ul class="outils"><li>Notion</li><li>Asana</li><li>Trello</li><li>Freshdesk</li><li>Ekan / Evo</li></ul></div></div>
+    <div class="outils-groupes"><div><h3>Création & vidéo</h3><ul class="outils"><li>Illustrator</li><li>InDesign</li><li>Photoshop</li><li>Premiere Pro</li><li>Affinity</li><li>Canva</li><li>Figma</li><li>CapCut</li></ul></div><div><h3>IA</h3><ul class="outils"><li>Claude</li><li>ChatGPT</li><li>Gemini</li><li>Nano Banana</li><li>Midjourney</li><li>Lovable</li></ul></div><div><h3>Web, réseaux & emailing</h3><ul class="outils"><li>WordPress</li><li>GitHub</li><li>Meta Business Suite</li><li>Google Analytics</li><li>Klaviyo</li><li>Brevo</li></ul></div><div><h3>Organisation & relation client</h3><ul class="outils"><li>Notion</li><li>Asana</li><li>Trello</li><li>Freshdesk</li><li>Ekan / Evo</li></ul></div></div>
   </section>
 """
 ap += pied()
