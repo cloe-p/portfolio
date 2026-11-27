@@ -980,7 +980,7 @@ ap = head("À propos", "Le parcours, les compétences et les outils de Cloé Pé
 ap += """  <div class="ouv" style="min-height:62svh">
     <img src="assets/img/moi/lac-braies.webp" alt="" style="object-position:center 60%">
     <a class="retour" href="index.html">← Accueil</a>
-    <h1>À propos</h1>
+    <h1>Et moi, dans tout ça ?</h1>
   </div>
 
   <section class="bio">
