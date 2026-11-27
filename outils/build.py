@@ -507,7 +507,8 @@ dialog.fiche::backdrop { background: rgba(5,5,7,0.78); backdrop-filter: blur(4px
 .li-posts .lire { all: unset; cursor: pointer; color: var(--lilas); font-weight: 700; font-size: 14.5px; margin: -4px 0 14px; border-bottom: 1px solid currentColor; align-self: flex-start; }
 .li-posts .lire:hover { color: var(--texte); }
 .li-posts .lire:focus-visible { outline: 2px solid var(--lilas); outline-offset: 4px; }
-dialog.li-modal { width: min(1080px, 94vw); grid-template-columns: 1.1fr minmax(0, calc(min(72vh, 620px) * 0.8)); align-items: start; }
+.li-modal .caro-n { right: auto; left: 10px; }
+dialog.li-modal { padding-top: 68px; width: min(1080px, 94vw); grid-template-columns: 1.1fr minmax(0, calc(min(72vh, 620px) * 0.8)); align-items: start; }
 .li-modal .li-post { max-height: calc(90vh - 76px); overflow: auto; padding-right: 8px; }
 .li-tete { display: flex; gap: 12px; align-items: center; margin-bottom: 18px; padding-right: 40px; }
 .li-tete img { width: 52px; height: 52px; border-radius: 50%; }
