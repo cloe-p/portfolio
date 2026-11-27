@@ -59,3 +59,9 @@ footer .tampon { position: absolute; right: var(--m); top: clamp(50px, 7vw, 90px
 footer .tampon text { fill: var(--lilas); font: 700 13.5px "Bricolage", sans-serif; letter-spacing: 2px; }
 @media (max-width: 700px) { footer { padding-top: 150px; } footer .tampon { top: 30px; width: 96px; } }
 @media (prefers-reduced-motion: reduce) { footer .fondtexte, footer .tampon { animation: none; } footer h2 .l { opacity: 1; translate: none; rotate: none; animation: none !important; } }
+/* Toulouse Social Run : touches de rouge */
+body.tsr .chiffres strong, body.tsr .cartes strong { color: var(--lilas); }
+body.tsr .formats .pastilles li { background: var(--lilas); border-color: var(--lilas); color: #fff; font-weight: 600; }
+body.tsr .formats .pastilles li:last-child { background: none; color: var(--texte); border-color: var(--ligne); font-weight: 400; }
+body.tsr .pastilles li { border-color: rgba(232,48,44,0.55); }
+body.tsr .domaines li { border-color: rgba(232,48,44,0.45); }

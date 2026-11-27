@@ -144,6 +144,7 @@ T = "assets/img/tsr/"
 tsr = head("Toulouse Social Run", "Identité visuelle, réseaux sociaux et partenariats pour le Toulouse Social Run, running club associatif à Toulouse.", classe="tsr")
 tsr += ouverture(T + "couverture-groupe.webp", "Toulouse Social Run", "le running club qui court ensemble",
                  "Chargée de communication &amp; graphiste, bénévole, de 2024 à 2026.", "center 45%")
+tsr = tsr.replace('<a class="retour" href="index.html#projets">', '<img class="sticker-ouv" src="assets/img/tsr/sticker_tsr.webp" alt="" aria-hidden="true">\n    <a class="retour" href="index.html#projets">', 1)
 tsr += intro("Au départ, c'était un projet d'école… devenu une vraie association&nbsp;! Un club de course gratuit et ouvert à tous, où chaque run finit par un moment ensemble. Moi, j'y gère la com et l'identité visuelle.",
              ["Identité visuelle", "Direction artistique", "Social media", "Partenariats", "Événementiel", "Merch", "Community management"],
              [("~50", "coureurs par run, et 110+ sur les gros événements"), ("×4,4", "abonnés Instagram en un an, 2&nbsp;825 en mai 2026"),
@@ -163,7 +164,7 @@ tsr += bloc("esprit", "Courir ensemble",
             + z(T + "ph_legs.webp", "Coureurs en mouvement", "w2", "object-position:center 70%")
             + z(T + "ph_talk.webp", "Coureurs qui discutent après le run")
             + "</div>"
-            + '<div class="encart"><h3>Nos formats</h3>' + pastilles(["Run &amp; brunch", "Run &amp; pilates", "Run &amp; cookies", "Run &amp; café", "Run pizza", "Run test", "et plein d'autres"]) + "</div>")
+            + '<div class="encart formats"><h3>Nos formats</h3>' + pastilles(["Run &amp; brunch", "Run &amp; pilates", "Run &amp; cookies", "Run &amp; café", "Run pizza", "Run test", "et plein d'autres"]) + "</div>")
 
 tsr += bloc("identite", "L'identité",
             ["Des cerises dessinées au logo actuel, j'ai fait grandir l'identité en même temps que le club, jusqu'à une vraie charte complète."],
