@@ -578,14 +578,6 @@ Psst, abonne-toi pour spill the tea !</p>
   au.addEventListener('pause', () => { bt.textContent = '▶'; bt.setAttribute('aria-label', 'Écouter le podcast'); });
   au.addEventListener('timeupdate', () => { const d = au.duration || 43; barre.firstElementChild.style.width = (au.currentTime / d * 100) + '%'; t.textContent = mmss(au.currentTime) + ' / ' + mmss(d); });
 
-  document.querySelectorAll('.caro').forEach(c => {
-    const p = c.querySelector('.caro-piste'), n = c.querySelector('.caro-n'), [g, d] = c.querySelectorAll('.caro-bt'), tot = p.children.length;
-    const maj = () => { const i = Math.round(p.scrollLeft / p.clientWidth); n.textContent = (i + 1) + ' / ' + tot; g.disabled = i === 0; d.disabled = i === tot - 1; };
-    g.addEventListener('click', () => p.scrollBy({ left: -p.clientWidth }));
-    d.addEventListener('click', () => p.scrollBy({ left: p.clientWidth }));
-    p.addEventListener('keydown', e => { if (e.key === 'ArrowRight') d.click(); if (e.key === 'ArrowLeft') g.click(); });
-    p.addEventListener('scroll', maj, { passive: true }); maj();
-  });
   document.querySelectorAll('.carte-bref').forEach(c => c.addEventListener('click', () => document.getElementById(c.dataset.fiche).showModal()));
   document.querySelectorAll('.lire').forEach(c => c.addEventListener('click', () => { const d = document.getElementById(c.dataset.post); d.showModal(); d.querySelector('.caro-piste').dispatchEvent(new Event('scroll')); }));
   document.querySelectorAll('dialog.fiche').forEach(d => {

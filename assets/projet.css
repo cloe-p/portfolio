@@ -166,3 +166,14 @@ a.zoom.serie::after { content: attr(data-n) "  ⇆"; position: absolute; right: 
   .reels figure:hover video { box-shadow: 0 30px 70px rgba(0,0,0,0.6); }
 }
 @media (prefers-reduced-motion: reduce) { .reels figure { transition: none; } .reels figure:hover { scale: 1; } }
+
+/* carrousel à faire défiler */
+.caro { position: relative; margin: -18px -18px 14px; border-radius: 17px 17px 0 0; overflow: hidden; background: #f4f1ec; }
+.caro-piste { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-behavior: smooth; }
+.caro-piste::-webkit-scrollbar { display: none; }
+.caro-piste img { flex: 0 0 100%; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; scroll-snap-align: start; }
+.caro-bt { position: absolute; top: 50%; translate: 0 -50%; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(13,14,17,0.72); color: #fff; font: 700 24px/1 "Bricolage", sans-serif; cursor: pointer; display: grid; place-items: center; padding-bottom: 3px; transition: opacity .25s, background .2s; }
+.caro-bt:hover { background: var(--lilas); color: var(--nuit); }
+.caro-bt.g { left: 10px; } .caro-bt.d { right: 10px; }
+.caro-bt:disabled { opacity: 0; pointer-events: none; }
+.caro-n { position: absolute; top: 10px; right: 10px; background: rgba(13,14,17,0.72); color: #fff; font-size: 12.5px; font-weight: 700; padding: 4px 10px; border-radius: 99px; }

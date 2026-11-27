@@ -87,3 +87,13 @@ document.querySelectorAll('.sommaire a[href^="#"]').forEach(a => a.addEventListe
   };
   va(true); setTimeout(verifie, 700);
 }));
+
+// carrousels à faire défiler
+document.querySelectorAll('.caro').forEach(c => {
+  const p = c.querySelector('.caro-piste'), n = c.querySelector('.caro-n'), [g, d] = c.querySelectorAll('.caro-bt'), tot = p.children.length;
+  const maj = () => { const i = Math.round(p.scrollLeft / (p.clientWidth || 1)); n.textContent = (i + 1) + ' / ' + tot; g.disabled = i === 0; d.disabled = i === tot - 1; };
+  g.addEventListener('click', () => p.scrollBy({ left: -p.clientWidth }));
+  d.addEventListener('click', () => p.scrollBy({ left: p.clientWidth }));
+  p.addEventListener('keydown', e => { if (e.key === 'ArrowRight') d.click(); if (e.key === 'ArrowLeft') g.click(); });
+  p.addEventListener('scroll', maj, { passive: true }); maj();
+});
