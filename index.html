@@ -91,8 +91,8 @@ main > section[id] { scroll-margin-top: 80px; }
 .vf-liste li.fait .vf-rep { display: block; }
 .vf-liste li.juste { border-color: var(--lilas); background: rgba(183,204,156,0.07); }
 .vf-liste li.rate { border-color: rgba(255,120,110,0.5); }
-.vf-fin { opacity: 0.45; transition: opacity .4s; }
-.vf-fin.ok { opacity: 1; }
+.vf-fin { transition: transform .3s; }
+.vf-fin.ok { animation: vf-pop .5s cubic-bezier(.2,.8,.2,1); } @keyframes vf-pop { 50% { transform: scale(1.06); } }
 .vf-score { color: var(--doux); font-size: 15px; margin-left: 12px; }
 .apropos { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 80px); align-items: center; }
 .apropos p { font-size: clamp(20px, 2vw, 26px); line-height: 1.45; color: #dad8d3; margin: 0 0 28px; }
