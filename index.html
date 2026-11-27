@@ -78,26 +78,31 @@ main > section[id] { scroll-margin-top: 80px; }
 .jauge i { display: block; height: 100%; background: var(--lilas); transform-origin: left; scale: 0 1; }
 @media (prefers-reduced-motion: reduce) { .colle-labo { position: static; min-height: 0; } .piste-labo .rail { overflow-x: auto; scroll-snap-type: x mandatory; } .jauge { display: none; } }
 
-.apropos .vf-intro { font-size: 18px; color: var(--doux); margin: -12px 0 18px; }
-.vf-liste { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 10px; }
-.vf-liste li { border: 1px solid var(--ligne); border-radius: 18px; padding: 16px 18px; transition: border-color .3s, background .3s; }
-.vf-liste .q { font-size: 18px; line-height: 1.4; margin: 0 0 12px; color: var(--texte); }
-.vf-btns { display: flex; gap: 8px; }
-.vf-btns button { font: 700 14px "Bricolage", sans-serif; border-radius: 999px; padding: 7px 16px; border: 1px solid var(--ligne); background: none; color: var(--texte); cursor: pointer; }
-.vf-btns button:hover, .vf-btns button:focus-visible { border-color: var(--lilas); }
-.vf-liste .vf-rep { display: none; font-size: 15px; line-height: 1.45; color: var(--doux); margin: 10px 0 0; }
-.vf-rep b { color: var(--texte); }
-.vf-liste li.fait .vf-btns { display: none; }
-.vf-liste li.fait .vf-rep { display: block; }
-.vf-liste li.juste { border-color: var(--lilas); background: rgba(183,204,156,0.07); }
-.vf-liste li.rate { border-color: rgba(255,120,110,0.5); }
-.vf-fin { transition: transform .3s; }
-.vf-fin.ok { animation: vf-pop .5s cubic-bezier(.2,.8,.2,1); } @keyframes vf-pop { 50% { transform: scale(1.06); } }
-.vf-score { color: var(--doux); font-size: 15px; margin-left: 12px; }
-.apropos { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 80px); align-items: center; }
-.apropos p { font-size: clamp(20px, 2vw, 26px); line-height: 1.45; color: #dad8d3; margin: 0 0 28px; }
-.apropos img { border-radius: 22px; aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
-@media (max-width: 900px) { .apropos { grid-template-columns: 1fr; } }
+.apropos { display: grid; place-items: center; }
+.apropos h2 { text-align: center; margin-bottom: 40px; }
+.billet { display: grid; grid-template-columns: 1fr 230px; width: min(900px, 100%); background: #f3efe4; color: var(--nuit); border-radius: 26px; rotate: -2deg; transition: rotate .5s cubic-bezier(.2,.8,.2,1); box-shadow: 0 30px 70px rgba(0,0,0,.5); }
+.billet:hover { rotate: 0deg; }
+.billet .corps { display: grid; grid-template-columns: 190px 1fr; gap: 26px; padding: 26px; }
+.billet .corps img { width: 100%; height: 100%; min-height: 230px; object-fit: cover; object-position: 50% 30%; border-radius: 16px; }
+.billet .entete { display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: space-between; font-size: 13px; font-weight: 700; letter-spacing: .12em; color: #6b6a64; margin-bottom: 8px; }
+.billet .trajet { display: flex; align-items: center; gap: 14px; font-size: clamp(34px, 4vw, 52px); font-weight: 700; letter-spacing: -0.05em; line-height: 1; margin-bottom: 20px; }
+.billet .avion { flex: 1; height: 2px; background: repeating-linear-gradient(90deg, #0d0e11 0 8px, transparent 8px 14px); position: relative; }
+.billet .avion::after { content: "✺"; position: absolute; left: 0%; top: 50%; translate: -50% -52%; font-size: 26px; color: #6f8a4f; transition: left 1.6s cubic-bezier(.2,.8,.2,1); }
+.billet.vu .avion::after { left: 100%; }
+.billet .infos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; }
+.billet .infos span { display: block; font-size: 12px; font-weight: 700; letter-spacing: .12em; color: #6b6a64; }
+.billet .infos b { font-size: 18px; letter-spacing: -0.02em; }
+.billet .talon { border-left: 2px dashed rgba(13,14,17,.25); padding: 26px 22px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 16px; text-decoration: none; color: var(--nuit); background: var(--lilas); border-radius: 0 26px 26px 0; transition: transform .45s cubic-bezier(.34,1.56,.64,1); transform-origin: left bottom; position: relative; }
+.billet .talon::before, .billet .talon::after { content: ""; position: absolute; left: -15px; width: 28px; height: 28px; border-radius: 50%; background: var(--nuit); }
+.billet .talon::before { top: -14px; } .billet .talon::after { bottom: -14px; }
+.billet:hover .talon { transform: rotate(4deg) translate(6px, -4px); }
+.billet .gros { font-size: 30px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.02; }
+.billet .code { display: flex; gap: 3px; height: 46px; width: 100%; }
+.billet .code i { flex: 1; background: var(--nuit); }
+.billet .code i:nth-child(3n) { flex: 2; } .billet .code i:nth-child(4n) { flex: .5; background: transparent; }
+.billet .embarq { font-weight: 700; font-size: 15px; }
+@media (max-width: 860px) { .billet { grid-template-columns: 1fr; rotate: 0deg; } .billet .corps { grid-template-columns: 1fr; } .billet .corps img { min-height: 0; aspect-ratio: 4 / 3; } .billet .talon { border-left: 0; border-top: 2px dashed rgba(13,14,17,.25); border-radius: 0 0 26px 26px; } .billet .talon::before, .billet .talon::after { display: none; } }
+@media (prefers-reduced-motion: reduce) { .billet, .billet .talon, .billet .avion::after { transition: none; } }
 
 #menu:not(.fond) a { text-shadow: 0 1px 10px rgba(0,0,0,0.45); }
 
@@ -164,13 +169,23 @@ main > section[id] { scroll-margin-top: 80px; }
   </section>
 
   <section id="apropos" class="apropos apparait">
-    <div>
-      <h2 style="font-size:clamp(42px,5.6vw,76px);margin-bottom:28px">Et moi, dans tout ça ?</h2>
-      <p class="vf-intro">Trois infos sur moi. Une seule est fausse.</p>
-      <ul class="vf-liste"><li data-v="vrai"><p class="q">Avant la com, j'ai fait une licence d'anglais.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Vrai !</b> Une licence LLCER à Jean Jaurès… puis j'ai bifurqué vers la com.</p></li><li data-v="vrai"><p class="q">J'ai déjà lu 50 livres en 2026.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Vrai !</b> J'adore lire, et je suis à mon 50<sup data-en="th">e</sup> livre de l'année.</p></li><li data-v="faux"><p class="q">J'ai déjà couru un semi-marathon.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Faux !</b> Je fais la com d'un running club… mais mon record, c'est 2&nbsp;km. J'y travaille (promis).</p></li></ul>
-      <a class="b plein vf-fin" href="a-propos.html">La suite est par ici ↗</a><span class="vf-score"></span>
+    <h2 style="font-size:clamp(42px,5.6vw,76px)">Et moi, dans tout ça&nbsp;?</h2>
+    <div class="billet" id="billet">
+      <div class="corps">
+        <img src="assets/img/moi/cloe-portrait.webp" alt="Portrait de Cloé Pérot" loading="lazy">
+        <div>
+          <div class="entete"><span>CARTE D'EMBARQUEMENT</span><span>VOL CP-2001</span></div>
+          <div class="trajet"><span>TLS</span><span class="avion" aria-hidden="true"></span><span>À propos</span></div>
+          <div class="infos">
+            <div><span>PASSAGÈRE</span><b>Cloé Pérot</b></div>
+            <div><span>COPILOTE</span><b>Atlas</b></div>
+            <div><span>BAGAGES</span><b>Aventure, digital, création</b></div>
+            <div><span>EN OPTION</span><b>Rires contagieux</b></div>
+          </div>
+        </div>
+      </div>
+      <a class="talon" href="a-propos.html"><span class="gros">La suite est par ici ↗</span><span class="code" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="embarq">Embarquement immédiat</span></a>
     </div>
-    <img src="assets/img/moi/cloe-atlas.webp" alt="Cloé et Atlas, son berger australien, dans les Dolomites" style="object-position:62% 40%">
   </section>
 </main>
 
@@ -229,14 +244,7 @@ defile.addEventListener('mouseleave', () => { puces.forEach(p => p.style.setProp
 }
 </script>
 <script>
-{
-  const l = document.querySelector('.vf-liste'), fin = document.querySelector('.vf-fin'), sc = document.querySelector('.vf-score');
-  let faits = 0, bons = 0;
-  l.querySelectorAll('li').forEach(li => li.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
-    const ok = b.dataset.r === li.dataset.v; li.classList.add('fait', ok ? 'juste' : 'rate'); faits++; if (ok) bons++;
-    if (faits === 3) { fin.classList.add('ok'); const T = window.t || (x => x); sc.textContent = bons === 3 ? T('3 / 3, bien joué !') : bons + ' ' + T('/ 3, la suite va t\'aider 😉'); }
-  })));
-}
+new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vu'); o.disconnect(); } }), { threshold: .5 }).observe(document.getElementById('billet'));
 </script>
 <script src="assets/pied.js"></script>
 </body>
