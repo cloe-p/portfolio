@@ -539,6 +539,15 @@ dialog.li-modal { width: min(1080px, 94vw); grid-template-columns: 1.1fr minmax(
 .li-posts li:first-child dd { color: var(--lilas); }
 #linkedin .medias > .zoom img { border-radius: 18px; }
 @media (max-width: 760px) { .li-posts { grid-template-columns: 1fr; justify-content: center; } .li-chiffres { grid-template-columns: 1fr 1fr 1fr; gap: 6px; } .li-chiffres div { padding: 10px; } }
+.mv-titre { font-size: 17px; margin: 0 0 12px; }
+.mv-titre + .reels { margin-bottom: 26px; }
+.mv-courts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.mv-longs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.mv-courts figcaption, .mv-longs figcaption { font-size: 13.5px; color: var(--doux); }
+.mv-courts figcaption { margin-top: 6px; }
+video.reel.paysage { aspect-ratio: 16 / 9; }
+@media (hover: hover) { .mv-longs figure:hover { scale: 1.06; } }
+@media (max-width: 760px) { .mv-courts { grid-template-columns: repeat(2, 1fr); } .mv-longs { grid-template-columns: 1fr; } }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
 .ecrans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
@@ -564,6 +573,7 @@ labo += f"""  <div class="ouv" style="min-height:62svh">
       <button type="button" aria-pressed="false" data-f="strategie">Stratégie</button>
       <button type="button" aria-pressed="false" data-f="web">Web &amp; podcast</button>
       <button type="button" aria-pressed="false" data-f="perso">Projets perso</button>
+      <button type="button" aria-pressed="false" data-f="video">Vidéo</button>
       <button type="button" aria-pressed="false" data-f="photo">Photo</button>
     </div>
 
@@ -843,6 +853,18 @@ Psst, abonne-toi pour spill the tea !</p>
         </div>
         <div class="caro" aria-roledescription="carrousel" aria-label="La petite Cloé vs la big"><div class="caro-piste" tabindex="0"><img src="assets/img/labo/linkedin/jouets-1.webp" alt="La petite Cloé vs la big, page 1 sur 2" loading="lazy"><img src="assets/img/labo/linkedin/jouets-2.webp" alt="La petite Cloé vs la big, page 2 sur 2" loading="lazy"></div><button type="button" class="caro-bt g" aria-label="Page précédente">‹</button><button type="button" class="caro-bt d" aria-label="Page suivante">›</button><span class="caro-n">1 / 2</span></div>
       </dialog>
+      </div>
+    </article>
+
+    <article class="projet-labo duo" data-cat="perso video" id="montage">
+      <div class="cote"><div class="etiquettes"><span>Perso</span><span>Vidéo</span></div>
+      <div class="chap"><h2>Je m'entraîne au montage</h2><p class="brief">Des formats courts pour TikTok et les réels Instagram, tournés et montés sur mon temps perso. Et deux vidéos plus longues, un aftermovie du Garorock et Bali, où j'ai récolté des rushs et des sons de plusieurs vidéos pour les remonter à ma façon.</p>
+      <ul class="competences"><li>Montage</li><li>Rythme &amp; transitions</li><li>Choix du son</li><li>Formats verticaux</li></ul></div></div>
+      <div class="medias">
+        <h3 class="mv-titre">Les formats courts</h3>
+        <div class="reels mv-courts"><figure><div class="vid"><video class="reel" src="assets/video/mv_saintsernin.mp4" poster="assets/img/labo/video/mv_saintsernin.webp" autoplay muted loop playsinline preload="metadata" aria-label="Montage vidéo à Saint-Sernin"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption>Saint-Sernin</figcaption></figure><figure><div class="vid"><video class="reel" src="assets/video/mv_concert.mp4" poster="assets/img/labo/video/mv_concert.webp" autoplay muted loop playsinline preload="metadata" aria-label="Montage vidéo d'un concert"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption>Concert</figcaption></figure><figure><div class="vid"><video class="reel" src="assets/video/mv_ariege.mp4" poster="assets/img/labo/video/mv_ariege.webp" autoplay muted loop playsinline preload="metadata" aria-label="Montage vidéo en Ariège"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption>Ariège</figcaption></figure><figure><div class="vid"><video class="reel" src="assets/video/mv_photo.mp4" poster="assets/img/labo/video/mv_photo.webp" autoplay muted loop playsinline preload="metadata" aria-label="Montage vidéo autour d'un appareil photo"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption>Appareil photo</figcaption></figure><figure><div class="vid"><video class="reel" src="assets/video/mv_moodboard.mp4" poster="assets/img/labo/video/mv_moodboard.webp" autoplay muted loop playsinline preload="metadata" aria-label="Montage vidéo façon moodboard"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption>Moodboard</figcaption></figure><figure><div class="vid"><video class="reel" src="assets/video/mv_chiens.mp4" poster="assets/img/labo/video/mv_chiens.webp" autoplay muted loop playsinline preload="metadata" aria-label="Montage vidéo de chiens"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption>Les chiens</figcaption></figure><figure><div class="vid"><video class="reel" src="assets/video/mv_carthel.mp4" poster="assets/img/labo/video/mv_carthel.webp" autoplay muted loop playsinline preload="metadata" aria-label="Montage vidéo au bar Carthel"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption>Le Carthel</figcaption></figure></div>
+        <h3 class="mv-titre">Les montages longs</h3>
+        <div class="reels mv-longs"><figure><div class="vid"><video class="reel paysage" src="assets/video/mv_garorock.mp4" poster="assets/img/labo/video/mv_garorock.webp" muted loop playsinline preload="none" aria-label="Aftermovie du festival Garorock, remonté à partir de rushs"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption><b>Aftermovie Garorock</b>rushs et sons récoltés, remontés par moi</figcaption></figure><figure><div class="vid"><video class="reel paysage" src="assets/video/mv_bali.mp4" poster="assets/img/labo/video/mv_bali.webp" muted loop playsinline preload="none" aria-label="Montage vidéo de Bali, à partir de rushs"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption><b>Bali</b>rushs et sons récoltés, remontés par moi</figcaption></figure></div>
       </div>
     </article>
 
