@@ -279,7 +279,7 @@ cm += bloc("defilendeco", "De Fil en Déco",
         <figure><div class="vid"><video class="reel" src="assets/video/itv_maxime.mp4" poster="assets/img/cm/poster_itv_maxime.webp" autoplay muted loop playsinline preload="metadata" aria-label="Interview vidéo de Maxime Jordan pour De Fil en Déco"></video><button type="button" class="son-bt" aria-label="Activer ou couper le son"></button></div><figcaption><b>Interview</b>Maxime Jordan</figcaption></figure></div>
         {fig(C + "df_n84.webp", "Couverture du magazine De Fil en Déco n°84", "Le magazine", "n°84, février 2024", "transp")}
       </div>
-      <div class="g g2" style="align-items:center">{z(C + "df_pub_double.webp", "Pub De Fil en Déco en double page", "transp")}{z(C + "df_pub_page.webp", "Pub De Fil en Déco en pleine page", "transp")}</div>
+      <div class="g g2 pubs" style="align-items:center">{z(C + "df_pub_double.webp", "Pub De Fil en Déco en double page", "transp")}{z(C + "df_pub_page.webp", "Pub De Fil en Déco en pleine page", "transp")}</div>
       {note("Pubs print : des pages dans le magazine pour renvoyer les lecteurs vers les réseaux et le site")}""",
            ["Réseaux sociaux via Meta Business Suite", "Formats variés : interviews, conseils, citations", "Pubs print pour faire connaître les réseaux"])
 cm += bloc("optimome", "O'ptimôme",
@@ -290,7 +290,7 @@ cm += bloc("optimome", "O'ptimôme",
         {fig(C + "op_n64.webp", "Couverture du magazine O'ptimôme n°64", "Le magazine", "n°64, printemps 2024", "transp")}
         {fig(C + "op_pub_hiver.webp", "Pub O'ptimôme hiver", "Pub print", "hiver", "transp")}
       </div>
-      {fig(C + "op_pub_printemps.webp", "Pub O'ptimôme printemps en double page", "Pub print", "printemps, en double page : une pub par saison pour renvoyer vers le site et Facebook", "transp")}""",
+      <div class="pub-double">{fig(C + "op_pub_printemps.webp", "Pub O'ptimôme printemps en double page", "Pub print", "printemps, en double page : une pub par saison pour renvoyer vers le site et Facebook", "transp")}</div>""",
            ["Page Facebook et compte Instagram", "Jeux concours pour animer la communauté", "Pubs print pour faire connaître le site"])
 cm += pied(("vancore.html", "assets/img/vancore/cover_van_paysage.webp", "Vancore", "center 62%"))
 cm = cm.replace('.ouv.mags .couv img { position: static;', '.ouv.mags .couv img { position: static;')
