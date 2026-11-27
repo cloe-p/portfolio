@@ -231,6 +231,31 @@ dialog.li-modal { width: min(1080px, 94vw); grid-template-columns: 1.1fr minmax(
 video.reel.paysage { aspect-ratio: 16 / 9; }
 @media (hover: hover) { .mv-longs figure:hover { scale: 1.06; } }
 @media (max-width: 760px) { .mv-courts { grid-template-columns: repeat(2, 1fr); } .mv-longs { grid-template-columns: 1fr; } }
+.projet-labo[hidden], .chapitre[hidden], .zone-perso[hidden] { display: none !important; }
+.barre-labo { position: sticky; top: 62px; z-index: 8; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; padding: 14px 0; margin-bottom: 40px; background: color-mix(in srgb, var(--nuit) 88%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--ligne); }
+.barre-labo .filtres { margin: 0; }
+.onglets { display: inline-flex; padding: 4px; border-radius: 999px; background: var(--carte); border: 1px solid var(--ligne); }
+.onglets button { font: 700 15px "Bricolage", sans-serif; color: var(--doux); background: none; border: 0; border-radius: 999px; padding: 9px 18px; cursor: pointer; }
+.onglets button small { font-weight: 500; opacity: 0.7; margin-left: 4px; }
+.onglets button[aria-pressed="true"] { background: var(--lilas); color: var(--nuit); }
+.barre-labo .filtres button { padding: 7px 14px; font-size: 14px; }
+.aucun { color: var(--doux); padding: 40px 0; }
+.chapitre { margin: 10px 0 60px; }
+.chapitre span { display: inline-block; font-size: 14px; color: var(--doux); border: 1px solid var(--ligne); border-radius: 999px; padding: 4px 12px; }
+.chapitre h2 { font-size: clamp(46px, 7vw, 96px); letter-spacing: -0.05em; line-height: 0.95; margin: 14px 0 12px; }
+.chapitre p { color: var(--doux); max-width: 52ch; margin: 0; font-size: 17px; }
+.projet-labo:has(+ .zone-perso) { border-bottom: 0; }
+.zone-perso { margin: 0 calc(-1 * var(--m)); padding: clamp(60px, 8vw, 110px) var(--m) 20px; background: #f2efe7; color: #14151a; border-radius: 34px 34px 0 0; --texte: #14151a; --doux: #55555a; --ligne: rgba(20,21,26,0.14); --carte: #e7e3d9; }
+.zone-perso .chapitre span { border-color: rgba(20,21,26,0.25); }
+.zone-perso .projet-labo:last-child { border-bottom: 0; margin-bottom: 0; }
+.zone-perso .etiquettes span:first-child { background: #14151a; color: #f2efe7; }
+.zone-perso .brief { color: #3c3c40; }
+.zone-perso .li-posts li, .zone-perso .li-chiffres div { background: #fff; }
+.zone-perso .li-chiffres strong, .zone-perso .li-posts li:first-child dd { color: #5e7a3c; }
+.zone-perso .lire { color: #5e7a3c !important; }
+.zone-perso .b.plein { background: #14151a; color: #f2efe7; }
+.zone-perso .mv-courts figcaption, .zone-perso .mv-longs figcaption { color: #55555a; }
+@media (max-width: 760px) { .barre-labo { position: static; } .onglets { width: 100%; } .onglets button { flex: 1; } }
 .duo-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
 .duo-photos .zoom img { aspect-ratio: 16 / 10; object-fit: cover; }
 .ecrans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
@@ -259,15 +284,25 @@ video.reel.paysage { aspect-ratio: 16 / 9; }
   </div>
 
   <section>
-    <div class="filtres" role="group" aria-label="Filtrer les projets">
-      <button type="button" aria-pressed="true" data-f="tout">Tout</button>
-      <button type="button" aria-pressed="false" data-f="identite">Identité visuelle</button>
-      <button type="button" aria-pressed="false" data-f="strategie">Stratégie</button>
-      <button type="button" aria-pressed="false" data-f="web">Web &amp; podcast</button>
-      <button type="button" aria-pressed="false" data-f="perso">Projets perso</button>
-      <button type="button" aria-pressed="false" data-f="video">Vidéo</button>
-      <button type="button" aria-pressed="false" data-f="photo">Photo</button>
+    <div class="barre-labo">
+      <div class="onglets" role="group" aria-label="Projets d'école ou projets perso">
+        <button type="button" aria-pressed="true" data-o="tout">Tout <small>13</small></button>
+        <button type="button" aria-pressed="false" data-o="ecole">École <small>10</small></button>
+        <button type="button" aria-pressed="false" data-o="perso">Perso <small>3</small></button>
+      </div>
+      <div class="filtres" role="group" aria-label="Type de projet">
+        <button type="button" aria-pressed="true" data-f="tout">Tous les types</button>
+        <button type="button" aria-pressed="false" data-f="identite">Identité visuelle</button>
+        <button type="button" aria-pressed="false" data-f="strategie">Stratégie</button>
+        <button type="button" aria-pressed="false" data-f="web">Web &amp; podcast</button>
+        <button type="button" aria-pressed="false" data-f="video">Vidéo</button>
+        <button type="button" aria-pressed="false" data-f="photo">Photo</button>
+      </div>
     </div>
+    <p class="aucun" hidden>Pas de projet de ce type ici. Essaie un autre filtre&nbsp;!</p>
+
+    <header class="chapitre" data-o="ecole"><span>10 projets</span><h2>Projets d'école</h2><p>Des briefs de marques, réelles ou imaginées, en Bachelor puis en Mastère à YNOV Toulouse.</p></header>
+
 
     <article class="projet-labo duo" data-cat="identite" id="ikea">
       <div class="cote"><div class="etiquettes"><span>École</span><span>Identité visuelle</span></div>
@@ -400,6 +435,8 @@ video.reel.paysage { aspect-ratio: 16 / 9; }
       </dialog>
     </article>
 
+    <div class="zone-perso">
+    <header class="chapitre" data-o="perso"><span>3 projets</span><h2>Projets perso</h2><p>Ce que je fais pour moi, par curiosité : écrire, monter, photographier.</p></header>
     <article class="projet-labo duo" data-cat="perso strategie" id="linkedin">
       <div class="cote"><div class="etiquettes"><span>Perso</span><span>LinkedIn</span></div>
       <div class="chap"><h2>Alternante, mais pas que&nbsp;!</h2><p class="brief">Pendant mon alternance, j'ai testé LinkedIn pour moi. Une collègue rédactrice web m'a appris les codes, puis j'ai écrit et designé mes posts pour parler aux étudiants et aux jeunes actifs, avec humour et sincérité.</p>
@@ -566,6 +603,7 @@ Psst, abonne-toi pour spill the tea !</p>
       <ul class="competences"><li>Cadrage</li><li>Lumière</li><li>Œil couleur</li></ul></div></div>
       <div class="medias"><div class="photos"><a class="zoom" href="assets/img/labo/photo/camden.webp" style="--r:0.75"><img src="assets/img/labo/photo/camden.webp" alt="Façade peinte avec une tête d'éléphant à Camden, Londres" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/sacre-coeur.webp" style="--r:0.75"><img src="assets/img/labo/photo/sacre-coeur.webp" alt="Les dômes du Sacré-Cœur au soleil couchant" loading="lazy"></a><a class="zoom" href="assets/img/moi/lac-braies.webp" style="--r:1.778"><img src="assets/img/moi/lac-braies.webp" alt="Un lac de montagne entouré de sapins, dans les Dolomites" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/mustang.webp" style="--r:0.75"><img src="assets/img/labo/photo/mustang.webp" alt="La calandre d'une Mustang jaune et noire" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/chapelle-crete.webp" style="--r:0.75"><img src="assets/img/labo/photo/chapelle-crete.webp" alt="Une chapelle blanche et bleue au bord de la mer en Crète" loading="lazy"></a><a class="zoom" href="assets/img/moi/atlas-sommets.webp" style="--r:0.5625"><img src="assets/img/moi/atlas-sommets.webp" alt="Mon chien devant des sommets rocheux" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/peintre-montmartre.webp" style="--r:0.75"><img src="assets/img/labo/photo/peintre-montmartre.webp" alt="Les toiles d'un peintre de rue à Montmartre" loading="lazy"></a><a class="zoom" href="assets/img/mont-jour.webp" style="--r:1.778"><img src="assets/img/mont-jour.webp" alt="Des sommets calcaires au-dessus d'une forêt de mélèzes" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/big-ben.webp" style="--r:0.75"><img src="assets/img/labo/photo/big-ben.webp" alt="Le cadran de Big Ben" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/passerelle.webp" style="--r:0.75"><img src="assets/img/labo/photo/passerelle.webp" alt="Une passerelle en bois au-dessus d'une rivière transparente" loading="lazy"></a><a class="zoom" href="assets/img/moi/lac-foret.webp" style="--r:1.778"><img src="assets/img/moi/lac-foret.webp" alt="Un lac turquoise au pied de la forêt" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/notting-hill.webp" style="--r:0.75"><img src="assets/img/labo/photo/notting-hill.webp" alt="Façades bleue et blanches à Notting Hill" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/bonifacio.webp" style="--r:0.75"><img src="assets/img/labo/photo/bonifacio.webp" alt="La citadelle de Bonifacio sous un ciel bleu" loading="lazy"></a><a class="zoom" href="assets/img/moi/atlas-lac.webp" style="--r:0.5625"><img src="assets/img/moi/atlas-lac.webp" alt="Mon chien assis au bord d'un lac" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/crete-baie.webp" style="--r:0.75"><img src="assets/img/labo/photo/crete-baie.webp" alt="Une baie turquoise en Crète" loading="lazy"></a><a class="zoom" href="assets/img/moi/lac-nuages.webp" style="--r:1.778"><img src="assets/img/moi/lac-nuages.webp" alt="Un lac sous les nuages, montagnes en reflet" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/immeuble-paris.webp" style="--r:0.75"><img src="assets/img/labo/photo/immeuble-paris.webp" alt="Un immeuble haussmannien et son dôme d'ardoise" loading="lazy"></a><a class="zoom" href="assets/img/labo/photo/mont-soir.webp" style="--r:1.788"><img src="assets/img/labo/photo/mont-soir.webp" alt="Une crête de montagne au coucher du soleil" loading="lazy"></a></div></div>
     </article>
+    </div>
 
   </section>
 </main>
@@ -588,11 +626,18 @@ Psst, abonne-toi pour spill the tea !</p>
 <script src="assets/pied.js"></script>
 <script>
 {
-  const bts = document.querySelectorAll('.filtres button');
-  bts.forEach(b => b.addEventListener('click', () => {
-    bts.forEach(x => x.setAttribute('aria-pressed', x === b));
-    document.querySelectorAll('.projet-labo').forEach(p => p.hidden = !(b.dataset.f === 'tout' || p.dataset.cat.split(' ').includes(b.dataset.f)));
-  }));
+  let o = 'tout', f = 'tout';
+  const projets = [...document.querySelectorAll('.projet-labo')], zone = document.querySelector('.zone-perso');
+  const filtre = () => {
+    let vus = 0;
+    projets.forEach(p => { const c = p.dataset.cat.split(' '), perso = c.includes('perso'); const ok = (o === 'tout' || (o === 'perso') === perso) && (f === 'tout' || c.includes(f)); p.hidden = !ok; if (ok) vus++; });
+    document.querySelectorAll('.chapitre').forEach(h => { h.hidden = !projets.some(p => !p.hidden && (p.dataset.cat.includes('perso') ? 'perso' : 'ecole') === h.dataset.o); });
+    zone.hidden = !projets.some(p => !p.hidden && p.dataset.cat.includes('perso'));
+    document.querySelector('.aucun').hidden = vus > 0;
+    const barre = document.querySelector('.barre-labo'); if (barre.getBoundingClientRect().top < 70) scrollTo({ top: barre.parentElement.offsetTop + 20 - 70, behavior: 'smooth' });
+  };
+  document.querySelectorAll('.onglets button').forEach(b => b.addEventListener('click', () => { o = b.dataset.o; document.querySelectorAll('.onglets button').forEach(x => x.setAttribute('aria-pressed', x === b)); filtre(); }));
+  document.querySelectorAll('.filtres button').forEach(b => b.addEventListener('click', () => { f = b.dataset.f; document.querySelectorAll('.filtres button').forEach(x => x.setAttribute('aria-pressed', x === b)); filtre(); }));
   const au = document.getElementById('audio'), bt = document.getElementById('lire'), barre = document.getElementById('barre'), t = document.getElementById('temps');
   const mmss = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
   bt.addEventListener('click', () => au.paused ? au.play() : au.pause());
