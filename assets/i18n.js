@@ -37,10 +37,22 @@
     b.setAttribute('aria-label', langue === 'en' ? 'Lire le site en français' : 'Read the site in English');
     b.setAttribute('lang', langue === 'en' ? 'fr' : 'en');
     b.addEventListener('click', () => {
-      try { localStorage.setItem('langue', langue === 'en' ? 'fr' : 'en'); sessionStorage.setItem('defil', scrollY); } catch (e) {}
-      const u = new URL(location.href); u.searchParams.delete('lang'); location.replace(u.href);
+      const autre = langue === 'en' ? 'fr' : 'en';
+      try { localStorage.setItem('langue', autre); } catch (e) {}
+      const u = new URL(location.href); u.searchParams.set('lang', autre); u.searchParams.set('y', Math.round(scrollY));
+      location.href = u.href;
     });
     const cv = nav.querySelector('.cv'); nav.insertBefore(b, cv);
   }
-  try { const y = sessionStorage.getItem('defil'); if (y !== null) { sessionStorage.removeItem('defil'); addEventListener('load', () => scrollTo({ top: +y, behavior: 'instant' })); } } catch (e) {}
+  // garder la langue en changeant de page, même sans stockage
+  document.querySelectorAll('a[href]').forEach(a => {
+    const h = a.getAttribute('href'); if (!h || /^(https?:|mailto:|tel:|#)/.test(h) || !/\.html/.test(h)) return;
+    const [chemin, ancre] = h.split('#'); const sep = chemin.includes('?') ? '&' : '?';
+    a.setAttribute('href', chemin + sep + 'lang=' + langue + (ancre ? '#' + ancre : ''));
+  });
+  const q = new URLSearchParams(location.search), y = q.get('y');
+  if (y !== null) {
+    q.delete('y'); history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash);
+    addEventListener('load', () => scrollTo({ top: +y, behavior: 'instant' }));
+  }
 })();
