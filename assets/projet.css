@@ -191,3 +191,4 @@ body.tsr .ouv img.sticker-ouv { left: 31%; top: 13%; width: clamp(80px, 10vw, 15
 .pub-double { max-width: 560px; }
 .bloc .txt li b { color: var(--texte); }
 .op-fb { max-width: 560px; }
+.bio .accroche-bio { font-size: clamp(28px, 3vw, 40px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; color: var(--texte); margin-bottom: 18px; }
