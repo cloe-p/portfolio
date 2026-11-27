@@ -19,7 +19,19 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.05em; line-height: 0.92; margi
 .menu nav a:not(.cv) { opacity: 0.85; } .menu nav a:not(.cv):hover { opacity: 1; }
 .cv { border: 1px solid rgba(255,255,255,0.45); padding: 9px 18px; border-radius: 999px; font-weight: 500; }
 .cv:hover { background: var(--texte); color: var(--nuit); }
-@media (max-width: 720px) { .menu nav a.opt { display: none; } .menu nav { gap: 16px; } }
+.burger { display: none; }
+@media (max-width: 720px) {
+  .burger { display: inline-flex; align-items: center; gap: 10px; position: relative; z-index: 12; font: 700 15px "Bricolage", sans-serif; color: var(--texte); background: none; border: 1px solid rgba(255,255,255,0.4); border-radius: 999px; padding: 10px 18px; cursor: pointer; }
+  .burger i { display: grid; gap: 4px; } .burger i::before, .burger i::after { content: ""; display: block; width: 16px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s; }
+  .menu.ouvert .burger i::before { transform: translateY(3px) rotate(45deg); } .menu.ouvert .burger i::after { transform: translateY(-3px) rotate(-45deg); }
+  .menu .nom { position: relative; z-index: 12; }
+  .menu nav { position: fixed; inset: 0; z-index: 11; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 0 var(--m); background: var(--nuit); opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
+  .menu.ouvert nav { opacity: 1; visibility: visible; }
+  .menu nav a, .menu nav a.opt { display: block; font-size: clamp(36px, 11vw, 52px); font-weight: 800; letter-spacing: -0.04em; opacity: 1 !important; }
+  .menu nav a.cv { margin-top: 18px; font-size: 18px; letter-spacing: 0; }
+  body.menu-ouvert { overflow: hidden; }
+  .menu.ouvert { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--nuit); }
+}
 
 .btns { display: flex; gap: 12px; flex-wrap: wrap; }
 .b { display: inline-block; padding: 15px 26px; border-radius: 999px; font-weight: 700; font-size: 16px; transition: transform 0.2s, background 0.2s; }
