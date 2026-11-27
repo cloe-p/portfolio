@@ -65,3 +65,17 @@ body.tsr .formats .pastilles li { background: var(--lilas); border-color: var(--
 body.tsr .formats .pastilles li:last-child { background: none; color: var(--texte); border-color: var(--ligne); font-weight: 400; }
 body.tsr .pastilles li { border-color: rgba(232,48,44,0.55); }
 body.tsr .domaines li { border-color: rgba(232,48,44,0.45); }
+
+/* texte non sélectionnable, images non téléchargeables, curseurs adaptés */
+html { cursor: default; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+img, video { -webkit-user-drag: none; user-drag: none; }
+a, button, summary, label, [role="button"], .zoom, .carte-bref, .lire, .postit, .vf-btns button, .tiroir li, .mos a, .rail a { cursor: pointer; }
+a.zoom, .zoom img { cursor: zoom-in; }
+.reels figure, .reels video { cursor: pointer; }
+.caro-piste, .piste-c, .g7 { cursor: grab; }
+.piste-labo .rail { cursor: default; }
+.caro-piste:active, .piste-c:active, .g7:active { cursor: grabbing; }
+.barre, .lecteur .barre { cursor: pointer; }
+dialog.vue img { cursor: zoom-out; }
+dialog.vue .nav, .caro-bt, .fermer, .son-bt { cursor: pointer; }
+:disabled { cursor: not-allowed; }
