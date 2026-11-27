@@ -562,9 +562,9 @@ video.reel.paysage { aspect-ratio: 16 / 9; }
 .chapitre h2 { font-size: clamp(46px, 7vw, 96px); letter-spacing: -0.05em; line-height: 0.95; margin: 14px 0 12px; }
 .chapitre p { color: var(--doux); max-width: 52ch; margin: 0; font-size: 17px; }
 .projet-labo:has(+ .zone-perso) { border-bottom: 0; }
-.zone-perso { margin: 0 calc(-1 * var(--m)); padding: clamp(60px, 8vw, 110px) var(--m) 20px; background: #f2efe7; color: #14151a; border-radius: 34px 34px 0 0; --texte: #14151a; --doux: #55555a; --ligne: rgba(20,21,26,0.14); --carte: #e7e3d9; }
+.zone-perso { margin: 0 calc(-1 * var(--m)); padding: clamp(60px, 8vw, 110px) var(--m) clamp(50px, 6vw, 80px); background: #f2efe7; color: #14151a; border-radius: 34px; margin-bottom: 60px !important; --texte: #14151a; --doux: #55555a; --ligne: rgba(20,21,26,0.14); --carte: #e7e3d9; }
 .zone-perso .chapitre span { border-color: rgba(20,21,26,0.25); }
-.zone-perso .projet-labo:last-child { border-bottom: 0; margin-bottom: 0; }
+.zone-perso .projet-labo:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
 .zone-perso .etiquettes span:first-child { background: #14151a; color: #f2efe7; }
 .zone-perso .brief { color: #3c3c40; }
 .zone-perso .li-posts li, .zone-perso .li-chiffres div { background: #fff; }
