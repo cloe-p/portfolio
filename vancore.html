@@ -39,6 +39,8 @@ dialog.legende .logo-v img { width: 26px; }
 dialog.legende .li-tete b { display: block; } dialog.legende .li-tete span { font-size: 13px; color: var(--doux); }
 .reels .vid { position: relative; }
 .reels figcaption { margin-top: 10px; }
+.ouv img.sticker-ouv { inset: auto; object-fit: contain; opacity: 1; max-height: none; position: absolute; z-index: 2; left: 71%; top: 27%; width: clamp(80px, 9vw, 140px); height: auto; rotate: 9deg; filter: drop-shadow(0 14px 18px rgba(0,0,0,0.38)) drop-shadow(0 2px 3px rgba(0,0,0,0.3)); pointer-events: none; }
+@media (max-width: 760px) { .ouv img.sticker-ouv { left: auto; right: 10%; top: 24%; width: 72px; } }
 .g7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
 .g7 img { aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; }
 .meilleur { display: grid; gap: 22px; margin-top: 8px; }
@@ -79,6 +81,7 @@ dialog.legende .li-tete b { display: block; } dialog.legende .li-tete span { fon
 <main>
   <div class="ouv">
     <img src="assets/img/vancore/cover_van_paysage.webp" alt="Van aménagé garé sur une falaise au bord de la mer">
+    <img class="sticker-ouv" src="assets/img/vancore/sticker_logo.webp" alt="" aria-hidden="true">
     <a class="retour" href="index.html#projets">← Tous les projets</a>
     <h1>Vancore</h1>
     <p class="ex">ex Mon Fourgon Shop</p>
