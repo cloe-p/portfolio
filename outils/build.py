@@ -994,7 +994,10 @@ ap_css = """.bio { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(3
 .univers a { height: 100%; } .univers img { height: 100%; object-fit: cover; }
 @media (max-width: 700px) { .univers { grid-template-columns: 1fr 1fr; grid-template-rows: 240px 160px 160px; } .univers a:nth-child(n) { grid-row: auto; grid-column: auto; } .univers a:nth-child(1), .univers a:nth-child(3) { grid-row: 1; } .univers a:nth-child(2), .univers a:nth-child(4) { grid-column: span 2; } }
 .outils { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
-.outils li { border: 1px solid var(--ligne); border-radius: 999px; padding: 11px 20px; font-size: 17px; }"""
+.outils li { border: 1px solid var(--ligne); border-radius: 999px; padding: 9px 17px; font-size: 16px; }
+.outils-groupes { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 40px; }
+.outils-groupes h3 { font-size: 15px; color: var(--lilas); margin: 0 0 14px; font-weight: 700; }
+@media (max-width: 800px) { .outils-groupes { grid-template-columns: 1fr; } }"""
 ap = head("À propos", "Le parcours, les compétences et les outils de Cloé Pérot, chargée de communication à Toulouse.", ap_css)
 ap += """  <div class="ouv" style="min-height:62svh">
     <img src="assets/img/moi/lac-braies.webp" alt="" style="object-position:center 60%">
@@ -1061,7 +1064,7 @@ ap += """  <div class="ouv" style="min-height:62svh">
 
   <section>
     <h2>Mes outils</h2>
-    <ul class="outils"><li>Adobe Creative Cloud</li><li>Canva</li><li>Figma</li><li>WordPress</li><li>CapCut</li><li>Asana</li><li>Google Analytics</li><li>Meta Business Suite</li><li>Klaviyo</li></ul>
+    <div class="outils-groupes"><div><h3>Création & vidéo</h3><ul class="outils"><li>Illustrator</li><li>InDesign</li><li>Photoshop</li><li>Premiere Pro</li><li>Canva</li><li>Figma</li><li>CapCut</li></ul></div><div><h3>IA</h3><ul class="outils"><li>Claude</li><li>ChatGPT</li><li>Gemini</li><li>Nano Banana</li><li>Midjourney</li><li>Lovable</li></ul></div><div><h3>Web, réseaux & emailing</h3><ul class="outils"><li>WordPress</li><li>GitHub</li><li>Meta Business Suite</li><li>Google Analytics</li><li>Klaviyo</li><li>Brevo</li></ul></div><div><h3>Organisation & relation client</h3><ul class="outils"><li>Notion</li><li>Asana</li><li>Trello</li><li>Freshdesk</li><li>Ekan / Evo</li></ul></div></div>
   </section>
 """
 ap += pied()
