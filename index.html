@@ -166,8 +166,8 @@ main > section[id] { scroll-margin-top: 80px; }
   <section id="apropos" class="apropos apparait">
     <div>
       <h2 style="font-size:clamp(42px,5.6vw,76px);margin-bottom:28px">Et moi, dans tout ça ?</h2>
-      <p class="vf-intro">Quatre infos sur moi. Une seule est fausse.</p>
-      <ul class="vf-liste"><li data-v="vrai"><p class="q">Avant la com, j'ai fait une licence d'anglais.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Vrai !</b> Une licence LLCER à Jean Jaurès… puis j'ai bifurqué vers la com.</p></li><li data-v="vrai"><p class="q">J'ai déjà lu 50 livres en 2026.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Vrai !</b> J'adore lire, et je suis à mon 50<sup>e</sup> livre de l'année.</p></li><li data-v="vrai"><p class="q">Je fais la com d'un running club… et je n'ai jamais couru plus de 5&nbsp;km.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Vrai !</b> Mon record, c'est 2&nbsp;km. Mais j'y travaille (promis).</p></li><li data-v="faux"><p class="q">J'ai déjà couru un semi-marathon.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Faux !</b> Relis juste au-dessus 😅 21&nbsp;km, c'est pas encore pour tout de suite.</p></li></ul>
+      <p class="vf-intro">Trois infos sur moi. Une seule est fausse.</p>
+      <ul class="vf-liste"><li data-v="vrai"><p class="q">J'ai déjà lu 50 livres en 2026.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Vrai !</b> J'adore lire, et je suis à mon 50<sup>e</sup> livre de l'année.</p></li><li data-v="vrai"><p class="q">Je fais la com d'un running club… et je n'ai jamais couru plus de 5&nbsp;km.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Vrai !</b> Mon record, c'est 2&nbsp;km. Mais j'y travaille (promis).</p></li><li data-v="faux"><p class="q">J'ai déjà couru un semi-marathon.</p><div class="vf-btns"><button type="button" data-r="vrai">Vrai</button><button type="button" data-r="faux">Faux</button></div><p class="vf-rep" aria-live="polite"><b>Faux !</b> Relis juste au-dessus 😅 21&nbsp;km, c'est pas encore pour tout de suite.</p></li></ul>
       <a class="b plein vf-fin" href="a-propos.html">La suite est par ici ↗</a><span class="vf-score"></span>
     </div>
     <img src="assets/img/moi/cloe-atlas.webp" alt="Cloé et Atlas, son berger australien, dans les Dolomites" style="object-position:62% 40%">
@@ -233,7 +233,7 @@ defile.addEventListener('mouseleave', () => { puces.forEach(p => p.style.setProp
   let faits = 0, bons = 0;
   l.querySelectorAll('li').forEach(li => li.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
     const ok = b.dataset.r === li.dataset.v; li.classList.add('fait', ok ? 'juste' : 'rate'); faits++; if (ok) bons++;
-    if (faits === 4) { fin.classList.add('ok'); sc.textContent = bons === 4 ? '4 / 4, bien joué !' : bons + ' / 4, la suite va t\'aider 😉'; }
+    if (faits === 3) { fin.classList.add('ok'); sc.textContent = bons === 3 ? '3 / 3, bien joué !' : bons + ' / 3, la suite va t\'aider 😉'; }
   })));
 }
 </script>
