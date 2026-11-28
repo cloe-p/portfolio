@@ -159,6 +159,8 @@ a.zoom.serie::after { content: attr(data-n) "  ⇆"; position: absolute; right: 
 .reels .son-bt { position: absolute; right: 10px; bottom: 10px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(13,14,17,0.72); color: #fff; font-size: 17px; cursor: pointer; display: grid; place-items: center; }
 .reels .son-bt::before { content: "🔇"; }
 .reels figure.son .son-bt { background: var(--lilas); }
+.reels .revoir-bt { position: absolute; right: 58px; bottom: 10px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(13,14,17,0.72); color: #fff; font: 700 20px/1 system-ui, sans-serif; cursor: pointer; display: grid; place-items: center; transition: background .2s, color .2s, rotate .4s; }
+.reels .revoir-bt:hover { background: var(--lilas); color: var(--nuit); rotate: -180deg; }
 .reels figure.son .son-bt::before { content: "🔊"; }
 @media (hover: hover) {
   .reels:has(figure:hover) figure:not(:hover) { opacity: 0.35; filter: grayscale(0.6); }

@@ -62,14 +62,26 @@ document.querySelectorAll('.reels').forEach(zone => {
     f.classList.toggle('son', on && !v.muted);
   };
   figs.forEach(f => {
-    const b = f.querySelector('.son-bt');
-    b.addEventListener('click', e => { e.stopPropagation(); son(f, f.querySelector('video').muted); });
+    const b = f.querySelector('.son-bt'), v = f.querySelector('video');
+    b.addEventListener('click', e => { e.stopPropagation(); son(f, v.muted); });
+    const r = document.createElement('button');
+    r.type = 'button'; r.className = 'revoir-bt'; r.setAttribute('aria-label', (window.t || (x => x))('Revoir depuis le début')); r.textContent = '↺';
+    r.addEventListener('click', e => { e.stopPropagation(); v.currentTime = 0; v.play().catch(() => {}); });
+    b.before(r);
     if (matchMedia('(hover: hover)').matches) {
-      f.addEventListener('mouseenter', () => son(f, true));
+      f.addEventListener('mouseenter', () => { v.currentTime = 0; son(f, true); });
       f.addEventListener('mouseleave', () => son(f, false));
     }
   });
 });
+
+// vidéos en lecture auto : elles repartent du début quand elles arrivent à l'écran, et se mettent en pause en dehors
+const vuVid = new IntersectionObserver(es => es.forEach(e => {
+  const v = e.target;
+  if (e.isIntersecting) { v.currentTime = 0; v.play().catch(() => {}); }
+  else v.pause();
+}), { threshold: 0.35 });
+document.querySelectorAll('video[autoplay]').forEach(v => vuVid.observe(v));
 
 // sous-menu : on arrive bien sur la section, même si des images se chargent pendant le défilement
 document.querySelectorAll('.sommaire a[href^="#"]').forEach(a => a.addEventListener('click', ev => {
