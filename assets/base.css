@@ -14,7 +14,9 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.05em; line-height: 0.92; margi
 /* menu */
 .menu { position: fixed; inset: 0 0 auto 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 20px var(--m); transition: background 0.3s, padding 0.3s; }
 .menu.fond { background: color-mix(in srgb, var(--nuit) 80%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding-top: 14px; padding-bottom: 14px; }
-.menu .nom { font-weight: 800; font-size: 20px; letter-spacing: -0.03em; }
+.menu .nom { font-weight: 800; font-size: 22px; letter-spacing: -0.045em; display: inline-flex; align-items: center; gap: 6px; }
+.menu .nom svg { width: 22px; height: 22px; transition: rotate .8s cubic-bezier(.2,.8,.2,1); }
+.menu .nom:hover svg { rotate: 180deg; }
 .menu nav { display: flex; gap: 28px; align-items: center; font-size: 15px; }
 .menu nav a:not(.cv) { opacity: 0.85; } .menu nav a:not(.cv):hover { opacity: 1; }
 .cv { border: 1px solid rgba(255,255,255,0.45); padding: 9px 18px; border-radius: 999px; font-weight: 500; }

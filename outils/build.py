@@ -20,7 +20,7 @@ def head(titre, desc, extra_css="", classe=""):
 <body class="{classe}">
 
 <header class="menu" id="menu">
-  <a class="nom" href="index.html">Mon Portfolio</a>
+  <a class="nom" href="index.html" aria-label="Cloé Pérot, accueil">Cloé<svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#b7cc9c"><circle cx="50" cy="50" r="20"/><rect x="46" y="4" width="8" height="20" rx="4"/><rect x="46" y="4" width="8" height="20" rx="4" transform="rotate(45 50 50)"/><rect x="46" y="4" width="8" height="20" rx="4" transform="rotate(90 50 50)"/><rect x="46" y="4" width="8" height="20" rx="4" transform="rotate(135 50 50)"/><rect x="46" y="4" width="8" height="20" rx="4" transform="rotate(180 50 50)"/><rect x="46" y="4" width="8" height="20" rx="4" transform="rotate(225 50 50)"/><rect x="46" y="4" width="8" height="20" rx="4" transform="rotate(270 50 50)"/><rect x="46" y="4" width="8" height="20" rx="4" transform="rotate(315 50 50)"/></g></svg></a>
   <nav aria-label="Navigation principale">
     <a href="index.html#projets">Projets pro</a>
     <a href="labo.html" class="opt">Labo</a>
@@ -977,7 +977,7 @@ ap_css = """.bio { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(3
 .duo-photos { position: relative; height: clamp(380px, 40vw, 520px); }
 .duo-photos img { position: absolute; width: 52%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 22px; box-shadow: 0 24px 50px rgba(0,0,0,.5); transition: rotate .5s cubic-bezier(.2,.8,.2,1), translate .5s cubic-bezier(.2,.8,.2,1); }
 .duo-photos img:first-child { left: 6%; top: 0; rotate: -5deg; }
-.duo-photos img:last-child { right: 4%; bottom: 0; rotate: 5deg; z-index: 1; }
+.duo-photos img:last-child { right: 6%; bottom: 4%; width: 40%; rotate: 5deg; z-index: 1; }
 .duo-photos:hover img:first-child { rotate: -8deg; translate: -10px 0; }
 .duo-photos:hover img:last-child { rotate: 7deg; translate: 10px 0; }
 @media (max-width: 900px) { .bio { grid-template-columns: 1fr; } }
